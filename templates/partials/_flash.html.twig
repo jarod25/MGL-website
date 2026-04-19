@@ -1,0 +1,14 @@
+<div class="toast-container top-10 end-0 p-3">
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="toast align-items-center bg-{{ type }} bg-opacity-25 text-{{ type}} border-1" role="alert" data-controller="toast">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        {{ message }}
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>

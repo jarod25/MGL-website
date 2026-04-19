@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+>
+    <php>
+        <env name="APP_ENV" value="test"/>
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+        <env name="DATABASE_URL" value="sqlite:///%kernel.project_dir%/var/data.db"/>
+        <env name="MAILER_DSN" value="mailjet+api://b30a5a198a2a7557d0d4908b05bf0a1b:cbcb89a3d1999cb0ca8bf9f8eeee2aec@api.mailjet.com"/>
+        <env name="APP_SECRET" value="abc778c39a96cf165fa11dcb73b7e97a"/>
+        <env name="PASSWORD_STRENGTH_VALUE" value="4"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Project S6 PHP">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

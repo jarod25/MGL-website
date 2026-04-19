@@ -1,0 +1,70 @@
+<div class="row">
+    {% for event in pagination.items %}
+        <div class="col-6 mb-5">
+            <div class="card border-0 shadow rounded h-100">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between p-2">
+                        <h4 class="card-title">
+                            <strong>
+                                {{ event.title|slice(0, 24) }}
+                            </strong>
+                        </h4>
+                        <p class="card-text text-secondary">
+                            <b>
+                                <em class="{{ event.isPublic ? 'text-success' : 'text-danger' }}">
+                                    Évènement {{ event.isPublic ? 'public' : 'privé' }}
+                                </em>
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body bg-light d-flex flex-column">
+                    <p class="card-text">
+                        {% if event.description|length('UTF-8') > 200 %}
+                            {{ event.description|slice(0, 200) ~ '...' }}
+                        {% else %}
+                            {{ event.description }}
+                        {% endif %}
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">
+                            <strong>Début : </strong>
+                            {{ event.startDate|date('d/m/Y H:i') }}
+                        </p>
+                        <p class="card-text">
+                            <strong>Fin : </strong>
+                            {{ event.endDate|date('d/m/Y H:i') }}
+                        </p>
+                    </div>
+                    {% if event.availablePlaces is defined %}
+                        <p class="card-text">
+                            <strong>Nombre de places disponibles : </strong>
+                            {{ event.availablePlaces }}
+                        </p>
+                    {% endif %}
+                    {% if event.price %}
+                        <p class="card-text">
+                            <strong>Prix : </strong>
+                            {{ event.price }} €
+                        </p>
+                    {% else %}
+                        <p class="card-text">
+                            <strong>Événement Gratuit</strong>
+                        </p>
+                    {% endif %}
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ path('app_event_show', {id: event.id}) }}"
+                           class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-12">
+            <p class="alert alert-info text-center">Aucun événement trouvé.</p>
+        </div>
+    {% endfor %}
+</div>
+<div class="d-flex justify-content-center my-3">
+    {{ knp_pagination_render(pagination, 'bundles/KnpPaginatorBundle/pagination.html.twig') }}
+</div>

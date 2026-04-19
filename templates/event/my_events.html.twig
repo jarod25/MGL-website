@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes événements{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Mes événements</h1>
+        {% include 'partials/_list_events.html.twig' %}
+    </div>
+{% endblock %}

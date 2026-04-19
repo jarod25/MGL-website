@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Événements{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Liste des Événements</h1>
+
+        {% if app.user %}
+            <div class="d-flex justify-content-end mb-4">
+                <a href="{{ path('app_event_new') }}" class="btn btn-primary">Créer un événement</a>
+            </div>
+        {% endif %}
+
+        <div class="d-flex justify-content-center row">
+            <div class="col-12 col-sm-2 me-4 p-0">
+                {% include 'event/partials/_filter_form.html.twig' %}
+            </div>
+
+            <div class="col-12 col-sm-9">
+                {% include 'partials/_list_events.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

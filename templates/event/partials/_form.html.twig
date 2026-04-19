@@ -1,0 +1,96 @@
+{{ form_start(form, {'attr': {'class': 'container mt-5 card'}}) }}
+<div class="row d-flex justify-content-center card-body">
+    <div class="mb-3">
+        {{ form_label(form.title, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        <div class="text-danger">
+            {{ form_errors(form.title, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+            <div class="row row-editor">
+                <div class="editor-container">
+                    <div class="editor">
+                        {{ form_label(form.description, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'data-controller': 'ckeditor', 'data-ckeditor-target': 'txt'} }) }}
+                        <div class="text-danger">
+                            {{ form_errors(form.description, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3 col-6">
+        {{ form_label(form.startDate, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+        <div class="text-danger">
+            {{ form_errors(form.startDate, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3 col-6">
+        {{ form_label(form.endDate, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+        <div class="text-danger">
+            {{ form_errors(form.endDate, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.nbMaxParticipants, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.nbMaxParticipants, {'attr': {'class': 'form-control'}}) }}
+        <div class="text-danger">
+            {{ form_errors(form.nbMaxParticipants, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.isPublic, null, {'label_attr': {'class': 'form-label me-3'}}) }}
+        <div class="form-check form-check-inline">
+            {{ form_widget(form.isPublic[0], {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.isPublic[0], null, {'label_attr': {'class': 'form-check-label'}}) }}
+        </div>
+        <div class="form-check form-check-inline">
+            {{ form_widget(form.isPublic[1], {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.isPublic[1], null, {'label_attr': {'class': 'form-check-label'}}) }}
+        </div>
+        <div class="text-danger">
+            {{ form_errors(form.isPublic, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.isPayable, null, {'label_attr': {'class': 'form-label me-3'}}) }}
+        <div class="form-check form-check-inline">
+            {{ form_widget(form.isPayable[0], {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.isPayable[0], null, {'label_attr': {'class': 'form-check-label'}}) }}
+        </div>
+        <div class="form-check form-check-inline">
+            {{ form_widget(form.isPayable[1], {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.isPayable[1], null, {'label_attr': {'class': 'form-check-label'}}) }}
+        </div>
+        <div class="text-danger">
+            {{ form_errors(form.isPayable, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+        </div>
+    </div>
+
+    <div data-controller="see-price" class="col-md-6">
+        <div class="mb-3 d-none" id="text_price">
+            {{ form_label(form.price, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+            <div class="text-danger">
+                {{ form_errors(form.price, {'attr': {'class': 'invalid-feedback d-block'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6"></div>
+
+    {{ form_errors(form) }}
+
+    <button class="btn btn-success w-25" value="submit">Valider</button>
+</div>
+{{ form_end(form) }}

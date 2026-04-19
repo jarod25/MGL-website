@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4 w-75">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h2>Mon profil</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_start(form_infos) }}
+                        <div class="row mb-4 g-3">
+                            <div class="col-12 form-floating">
+                                {{ form_widget(form_infos.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
+                                {{ form_label(form_infos.firstname, 'Prénom', {'label_attr': {'for': form_infos.firstname.vars.id}}) }}
+                                <div class="text-danger">
+                                    {{ form_errors(form_infos.firstname) }}
+                                </div>
+                            </div>
+                            <div class="col-12 form-floating">
+                                {{ form_widget(form_infos.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                                {{ form_label(form_infos.lastname, 'Nom', {'label_attr': {'for': form_infos.lastname.vars.id}}) }}
+                                <div class="text-danger">
+                                    {{ form_errors(form_infos.lastname) }}
+                                </div>
+                            </div>
+                            <div class="col-12 form-floating">
+                                {{ form_widget(form_infos.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                {{ form_label(form_infos.email, 'Email', {'label_attr': {'for': form_infos.email.vars.id}}) }}
+                                <div class="text-danger">
+                                    {{ form_errors(form_infos.email) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-2 ">
+                            <button type="submit" class="btn btn-primary">Modifier mes informations</button>
+                        </div>
+                        {{ form_end(form_infos) }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form_start(form_pwd) }}
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.oldPassword, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe actuel', 'data-pwd-eye-target': 'input'}}) }}
+                                    {{ form_label(form_pwd.oldPassword, 'Mot de passe actuel', {'label_attr': {'for': form_pwd.oldPassword.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form_pwd.oldPassword) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="4" data-pwd-strength-position-value="left">
+                                <div data-controller="pwd-eye" class="form-floating">
+                                    {{ form_widget(form_pwd.password.first, {'attr': {'class': 'form-control',  'placeholder': 'Mot de passe', 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput'}}) }}
+                                    {{ form_label(form_pwd.password.first, 'Mot de passe', {'label_attr': {'for': form_pwd.password.first.vars.id}}) }}
+                                </div>
+                                <div class="text-danger">
+                                    {{ form_errors(form_pwd.password.first) }}
+                                </div>
+                                <div class="tips-popover"></div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmation du mot de passe', 'data-pwd-eye-target': 'input'}}) }}
+                                    {{ form_label(form_pwd.password.second, 'Confirmation du mot de passe', {'label_attr': {'for': form_pwd.password.second.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form_pwd.password.second) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mb-2">
+                            <button type="submit" class="btn btn-primary" value="submit-pwd">Modifier mon mot de passe</button>
+                        </div>
+                        {{ form_end(form_pwd) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

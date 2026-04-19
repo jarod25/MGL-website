@@ -1,0 +1,67 @@
+[data-controller="pwd-eye"] {
+  position: relative;
+  input {
+    padding: 1rem 45px 1rem 10px;
+  }
+
+  .js-togglePwdVisibility {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMCAYAAABvEu28AAAABHNCSVQICAgIfAhkiAAAAM5JREFUKFNjZMAE7EAhJSiWAdIgPgi8huKLUBpFJyOaOSADXJE0Y7EHLPQEiPcA8SeYAmSDQAZoIukEueAkED+FGgyyxBzJkp9A9jqY62AG2QEFDJAMAdkIUgTyljQQf4ZqEAXSkUjq4IaBDAIpDEbzwwIgH6QoAckF16DeQbcU5PLlIIOCgBgUqDAA8jfIIJA3QBgZzIRa7IMmvpuqBhHrtetAV+wGYpxeA7mSKoEN8y5Voh9mGFUSJMwwWBZRhsYQchYBJU5QWIGiHAUAAEWiPF9WtYYlAAAAAElFTkSuQmCC');
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 18px 0;
+    width: 17.6px;
+    transition: all 150ms ease-in-out;
+    opacity: 0.6;
+    cursor: pointer;
+
+    &::-moz-selection {
+      background: transparent;
+    }
+
+    &::selection {
+      background: transparent;
+    }
+
+  }
+
+  &.js-pwdShow .js-togglePwdVisibility {
+    opacity: 1;
+    filter: brightness(0.5);
+  }
+}
+
+[data-controller="pwd-strength"] {
+  position: relative;
+  input {
+    padding-right:45px;
+  }
+}
+.pwd-strength {
+  position: relative;
+  margin-top: 10px;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  color: #fc2338;
+}
+
+.strength-0 {
+  color: #22a903;
+}
+
+.strength-1 {
+  color: #22a903;
+}
+
+.strength-2 {
+  color: #22a903;
+}
+
+.strength-3 {
+  color: #22a903;
+}
+
+.strength-4 {
+  color: #22a903;
+}

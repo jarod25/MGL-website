@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2>Créer un compte</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        {{ form_start(form) }}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
+                                    {{ form_label(form.firstname, 'Prénom', {'label_attr': {'for': form.firstname.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form.firstname) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                                    {{ form_label(form.lastname, 'Nom', {'label_attr': {'for': form.lastname.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form.lastname) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                    {{ form_label(form.email, 'Email', {'label_attr': {'for': form.email.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form.email) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="4" data-pwd-strength-position-value="left">
+                                <div data-controller="pwd-eye" class="form-floating">
+                                    {{ form_widget(form.password.first, {'attr': {'class': 'form-control',  'placeholder': 'Mot de passe', 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput'}}) }}
+                                    {{ form_label(form.password.first, 'Mot de passe', {'label_attr': {'for': form.password.first.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form.password.first) }}
+                                    </div>
+                                </div>
+                                <div class="tips-popover"></div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmation du mot de passe', 'data-pwd-eye-target': 'input'}}) }}
+                                    {{ form_label(form.password.second, 'Confirmation du mot de passe', {'label_attr': {'for': form.password.second.vars.id}}) }}
+                                    <div class="text-danger">
+                                        {{ form_errors(form.password.second) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-danger">
+                                {{ form_errors(form) }}
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-lg btn-primary text-white">Créer mon compte</button>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <span class="small">J'ai déjà un compte, je me <a href="{{ path('app_login') }}">connecte</a>.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

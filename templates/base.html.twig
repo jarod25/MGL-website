@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Projet PHP S6 Kohler Graber{% endblock %}</title>
+    {% block stylesheets %}
+        {% for file in encore_entry_css_files('main') %}
+            <link rel="stylesheet" href="{{ preload(file, { as: 'style', importance: 'high' }) }}">
+        {% endfor %}
+    {% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+{% block content %}
+
+    {% block navbar %}
+        {% include 'partials/_navbar.html.twig' %}
+    {% endblock %}
+
+    <div class="top-10">
+        {% include 'partials/_flash.html.twig' %}
+    </div>
+
+    <div class="container flex-grow-1">
+        <div class="row">
+            <div class="col-md-12">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+        {% include "partials/_footer.html.twig" %}
+    {% endblock %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('main') }}
+{% endblock %}
+</body>
+</html>
