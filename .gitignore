@@ -58,3 +58,5 @@ public/build/
 /var/log/
 /.phpunit.result.cache
 /assets/main/js/ckeditor5/build/
+
+*/.DS_Store
