@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Event;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -23,11 +24,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 
         $users = [];
         for ($i = 0; $i < 5; $i++) {
-            $users[] = $this->getReference('user_' . $i);
+            $users[] = $this->getReference('user_' . $i, User::class);
         }
 
         for ($i = 0; $i < 20; $i++) {
-            $startDate = $faker->dateTimeBetween((new \DateTime('now'))->format('Y-m-d 09:00:00'), '2024-12-31 17:00:00');
+            $startDate = $faker->dateTimeBetween((new \DateTime('now'))->format('Y-m-d 09:00:00'), '2026-12-31 17:00:00');
             $startHour = rand(9, 12);
             $startDate->setTime($startHour, 00);
 
