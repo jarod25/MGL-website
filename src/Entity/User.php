@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'user__user')]
+#[ORM\UniqueConstraint(name: 'uniq_user_email', columns: ['email'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
@@ -38,7 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: EventParticipants::class, mappedBy: 'user', cascade: ['persist', 'remove'])]
     private Collection $participantsEvents;
 
-    #[ORM\Column(type: Types::ARRAY)]
+    #[ORM\Column(type: Types::JSON)]
     private array $roles = [];
 
 
@@ -158,10 +159,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setRoles(array $roles): static
     {
-        if (empty($this->roles) && empty($roles)) {
-            $roles = ['ROLE_USER'];
-        }
-        $this->roles = $roles;
+        $normalizedRoles = array_values(array_unique(array_filter($roles, static fn (mixed $role): bool => is_string($role) && $role !== '')));
+        $this->roles = $normalizedRoles;
 
         return $this;
     }
@@ -169,7 +168,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getRoles(): array
     {
-        return $this->roles;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_values(array_unique($roles));
     }
 
     public function getUserIdentifier(): string

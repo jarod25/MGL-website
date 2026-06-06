@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription LAN{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <h1>Inscription LAN</h1>
+        <p>Le paiement HelloAsso sera branché dans une prochaine étape.</p>
+
+        {{ form_start(form) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.discordPseudo) }}
+        {{ form_row(form.isMajorConfirmed) }}
+        {{ form_row(form.subscription) }}
+        <button class="btn btn-primary" type="submit">Créer mon inscription</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
