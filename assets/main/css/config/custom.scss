@@ -1,3 +1,66 @@
 .dropdown-item:hover {
   background-color: #737270;
 }
+
+.language-switcher {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  margin-left: 0.75rem;
+}
+
+.language-switcher__item {
+  align-items: center;
+  display: flex;
+}
+
+.language-switcher__link {
+  align-items: center;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  padding: 0.25rem;
+  width: 2.25rem;
+}
+
+.language-switcher__flag {
+  border-radius: 0.125rem;
+  display: block;
+  height: 16px;
+  object-fit: cover;
+  width: 24px;
+}
+
+.language-switcher__link--active {
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+  opacity: 0.35;
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+.language-switcher__link:not(.language-switcher__link--active):hover,
+.language-switcher__link:not(.language-switcher__link--active):focus {
+  opacity: 0.85;
+}
+
+.navbar-action-link {
+  min-width: clamp(5.5rem, 9vw, 8rem);
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-action-link {
+    min-width: auto;
+    text-align: left;
+  }
+
+  .language-switcher {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}

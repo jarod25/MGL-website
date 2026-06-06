@@ -4,13 +4,15 @@ namespace App\Service;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 readonly class KnpMenuBuilderService
 {
 
     public function __construct(
         private FactoryInterface              $factory,
-        private AuthorizationCheckerInterface $authChecker
+        private AuthorizationCheckerInterface $authChecker,
+        private TranslatorInterface $translator
     )
     {
     }
@@ -18,15 +20,15 @@ readonly class KnpMenuBuilderService
     public function createMainMenu()
     {
         $menu = $this->factory->createItem('root');
-        $menu->addChild('Accueil', ['route' => 'app_home']);
+        $menu->addChild($this->translator->trans('navigation.home'), ['route' => 'app_home']);
 
-        $evenements = $menu->addChild('Évènements', ['uri' => '#']);
+        $evenements = $menu->addChild($this->translator->trans('navigation.events.label'), ['uri' => '#']);
         $evenements->setAttribute('dropdown', true);
-        $evenements->addChild('Liste des événements', ['route' => 'app_event_index']);
+        $evenements = $evenements->addChild($this->translator->trans('navigation.events.list'), ['route' => 'app_event_index']);
 
         if ($this->authChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $evenements->addChild('Créer un événement', ['route' => 'app_event_new']);
-            $evenements->addChild('Mes événements', ['route' => 'app_event_my_events']);
+            $evenements->addChild($this->translator->trans('navigation.events.create'), ['route' => 'app_event_new']);
+            $evenements->addChild($this->translator->trans('navigation.events.mine'), ['route' => 'app_event_my_events']);
         }
 
         return $this->setAttributes($menu);

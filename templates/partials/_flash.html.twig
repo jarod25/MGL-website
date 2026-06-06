@@ -4,9 +4,9 @@
             <div class="toast align-items-center bg-{{ type }} bg-opacity-25 text-{{ type}} border-1" role="alert" data-controller="toast">
                 <div class="d-flex">
                     <div class="toast-body">
-                        {{ message }}
+                        {{ message|trans }}
                     </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="{{ 'navigation.close'|trans }}"></button>
                 </div>
             </div>
         {% endfor %}

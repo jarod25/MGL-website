@@ -29,11 +29,10 @@ final class ParticipantRegistrationService
         string       $plainPassword,
         ?string      $discordPseudo,
         bool         $isMajorConfirmed,
-        Subscription $subscription,
     ): Participant
     {
         if ($this->userRepository->findOneBy(['email' => $email]) !== null) {
-            throw new LanRegistrationException('Un compte existe déjà avec cet email.');
+            throw new LanRegistrationException('registration.error.email_already_used');
         }
 
         $connection = $this->entityManager->getConnection();
@@ -55,7 +54,7 @@ final class ParticipantRegistrationService
                 ->setEmail($email)
                 ->setDiscordPseudo($discordPseudo)
                 ->setIsMajorConfirmed($isMajorConfirmed)
-                ->setSubscription($subscription)
+                ->setSubscription(null)
                 ->setRegistrationStatus(RegistrationStatusEnum::PENDING_PAYMENT)
                 ->setInternalReference(bin2hex(random_bytes(16)))
                 ->setCreatedAt(new \DateTimeImmutable())

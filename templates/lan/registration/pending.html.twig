@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription en attente{% endblock %}
+{% block title %}{{ 'registration.pending.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container py-4">
-        <h1>Inscription enregistrée</h1>
-        <p>Votre inscription LAN (réf. {{ participant.internalReference }}) est créée et en attente de paiement.</p>
-        <p>Le paiement HelloAsso sera intégré prochainement.</p>
+        <h1>{{ 'registration.pending.title'|trans }}</h1>
+        <p>{{ 'registration.pending.message'|trans }}</p>
+        <p>{{ 'registration.pending.reference'|trans({ '%reference%': participant.internalReference }) }}</p>
+        <p>{{ 'registration.pending.payment_next_step'|trans }}</p>
     </div>
 {% endblock %}

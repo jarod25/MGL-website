@@ -1,21 +1,67 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="{{ 'navigation.toggle'|trans }}">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             {{ knp_menu_render('main') }}
-            <ul class="navbar-nav ms-auto">
+            {% set currentLocale = app.request.locale %}
+            {% set locales = {
+                fr: { label: 'language.fr', flag: 'images/flags/fr.svg' },
+                en: { label: 'language.en', flag: 'images/flags/en.svg' },
+                de: { label: 'language.de', flag: 'images/flags/de.svg' }
+            } %}
+            <ul class="navbar-nav language-switcher ms-auto" aria-label="{{ 'navigation.language'|trans }}">
+                {% for locale, language in locales %}
+                    <li class="nav-item language-switcher__item">
+                        {% if locale == currentLocale %}
+                            <span
+                                    class="nav-link language-switcher__link language-switcher__link--active"
+                                    aria-current="true"
+                                    aria-disabled="true"
+                                    title="{{ language.label|trans }}"
+                            >
+                                <img
+                                        class="language-switcher__flag"
+                                        src="{{ language.flag }}"
+                                        alt="{{ language.label|trans }}"
+                                        width="24"
+                                        height="16"
+                                        loading="lazy"
+                                >
+                            </span>
+                        {% else %}
+                            <a
+                                    class="nav-link language-switcher__link"
+                                    href="{{ path('app_locale_switch', { locale: locale }) }}"
+                                    title="{{ language.label|trans }}"
+                            >
+                                <img
+                                        class="language-switcher__flag"
+                                        src="{{ language.flag }}"
+                                        alt="{{ language.label|trans }}"
+                                        width="24"
+                                        height="16"
+                                        loading="lazy"
+                                >
+                            </a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            <ul class="navbar-nav">
+
                 {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_profile') }}">Profil</a>
+                        <a class="nav-link text-white navbar-action-link" href="{{ path('app_profile') }}">{{ 'navigation.profile'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_logout') }}">Se déconnecter</a>
+                        <a class="nav-link text-white navbar-action-link" href="{{ path('app_logout') }}">{{ 'navigation.logout'|trans }}</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_login') }}">Se connecter</a>
+                        <a class="nav-link text-white navbar-action-link" href="{{ path('app_login') }}">{{ 'navigation.login'|trans }}</a>
                     </li>
                 {% endif %}
             </ul>

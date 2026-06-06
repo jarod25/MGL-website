@@ -2,9 +2,6 @@
 
 namespace App\Form\Lan;
 
-use App\Entity\Subscription;
-use App\Repository\SubscriptionRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -20,53 +17,68 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class ParticipantRegistrationType extends AbstractType
 {
-    public function __construct(private readonly SubscriptionRepository $subscriptionRepository)
-    {
-    }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'constraints' => [new NotBlank(message: 'Veuillez saisir un prénom.')],
+                'label' => 'registration.form.firstname.label',
+                'attr' => [
+                    'placeholder' => 'registration.form.firstname.placeholder',
+                ],
+                'constraints' => [new NotBlank(message: 'registration.validation.firstname_required')],
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
-                'constraints' => [new NotBlank(message: 'Veuillez saisir un nom.')],
+                'label' => 'registration.form.lastname.label',
+                'attr' => [
+                    'placeholder' => 'registration.form.lastname.placeholder',
+                ],
+                'constraints' => [new NotBlank(message: 'registration.validation.lastname_required')],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'registration.form.email.label',
+                'attr' => [
+                    'placeholder' => 'registration.form.email.placeholder',
+                ],
                 'constraints' => [
-                    new NotBlank(message: 'Veuillez saisir un email.'),
-                    new Email(message: 'Veuillez saisir un email valide.'),
+                    new NotBlank(message: 'registration.validation.email_required'),
+                    new Email(message: 'registration.validation.email_invalid'),
                 ],
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
-                'invalid_message' => 'Les mots de passe doivent correspondre.',
-                'first_options' => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confirmation du mot de passe'],
+                'invalid_message' => 'registration.validation.password_mismatch',
+                'first_options' => [
+                    'label' => 'registration.form.password.first_label',
+                    'attr' => [
+                        'placeholder' => 'registration.form.password.first_placeholder',
+                    ],
+                ],
+                'second_options' => [
+                    'label' => 'registration.form.password.second_label',
+                    'attr' => [
+                        'placeholder' => 'registration.form.password.second_placeholder',
+                    ],
+                ],
                 'constraints' => [
-                    new NotBlank(message: 'Veuillez saisir un mot de passe.'),
-                    new Length(min: 8, minMessage: 'Le mot de passe doit contenir au moins {{ limit }} caractères.'),
+                    new NotBlank(message: 'registration.validation.password_required'),
+                    new Length(min: 8, minMessage: 'registration.validation.password_min_length'),
                 ],
             ])
             ->add('discordPseudo', TextType::class, [
-                'label' => 'Pseudo Discord',
+                'label' => 'registration.form.discord_pseudo.label',
                 'required' => false,
+                'attr' => [
+                    'placeholder' => 'registration.form.discord_pseudo.placeholder',
+                ],
+                'help' => 'registration.form.discord_pseudo.help',
             ])
             ->add('isMajorConfirmed', CheckboxType::class, [
-                'label' => 'Je confirme être majeur·e.',
-                'constraints' => [new IsTrue(message: 'La confirmation de majorité est obligatoire.')],
+                'label' => 'registration.form.is_major_confirmed.label',
+                'constraints' => [new IsTrue(message: 'registration.validation.major_confirmation_required')],
             ])
-            ->add('subscription', EntityType::class, [
-                'class' => Subscription::class,
-                'choice_label' => 'name',
-                'placeholder' => 'Choisissez une formule',
-                'query_builder' => fn () => $this->subscriptionRepository->createQueryBuilder('s')->andWhere('s.isActive = :active')->setParameter('active', true),
-            ]);
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

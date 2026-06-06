@@ -27,7 +27,7 @@ class AuthController extends AbstractController
     {
     }
 
-    #[Route('/connexion', name: 'app_login')]
+    #[Route('/login', name: 'app_login')]
     public function login(Request $request): Response
     {
         $error = $this->authenticationUtils->getLastAuthenticationError();
@@ -44,7 +44,7 @@ class AuthController extends AbstractController
         ]);
     }
 
-    #[Route('/inscription', name: 'app_signin')]
+    #[Route('/sign-up', name: 'app_signin')]
     public function signin(Request $request): Response
     {
         $user = new User();
@@ -82,7 +82,7 @@ class AuthController extends AbstractController
         ]);
     }
 
-    #[Route('/deconnexion', name: 'app_logout')]
+    #[Route('/logout', name: 'app_logout')]
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

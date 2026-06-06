@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" role="img" aria-labelledby="title">
+    <title id="title">French flag</title>
+    <rect width="1" height="2" x="0" fill="#002395"/>
+    <rect width="1" height="2" x="1" fill="#fff"/>
+    <rect width="1" height="2" x="2" fill="#ed2939"/>
+</svg>

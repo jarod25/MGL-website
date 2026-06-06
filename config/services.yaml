@@ -26,6 +26,6 @@ services:
     mapp.menu_builder:
         autowire: false
         class:    App\Service\KnpMenuBuilderService
-        arguments: [ "@knp_menu.factory", "@security.authorization_checker" ]
+        arguments: [ "@knp_menu.factory", "@security.authorization_checker", "@translator" ]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main }

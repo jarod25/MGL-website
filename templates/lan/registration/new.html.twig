@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription LAN{% endblock %}
+{% block title %}{{ 'registration.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container py-4">
-        <h1>Inscription LAN</h1>
-        <p>Le paiement HelloAsso sera branché dans une prochaine étape.</p>
+        <h1>{{ 'registration.title'|trans }}</h1>
+        <p>{{ 'registration.payment_notice'|trans }}</p>
 
         {{ form_start(form) }}
         {{ form_row(form.firstname) }}
@@ -14,8 +14,7 @@
         {{ form_row(form.password) }}
         {{ form_row(form.discordPseudo) }}
         {{ form_row(form.isMajorConfirmed) }}
-        {{ form_row(form.subscription) }}
-        <button class="btn btn-primary" type="submit">Créer mon inscription</button>
+        <button class="btn btn-primary" type="submit">{{ 'registration.form.submit_payment'|trans }}</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -1,0 +1,61 @@
+registration:
+  title: 'LAN-Anmeldung'
+  payment_notice: 'Füllen Sie dieses Formular aus, um Ihre Anmeldung zu erstellen. Die Formel wird später über die HelloAsso-Zahlung bestimmt.'
+  form:
+    firstname:
+      label: 'Vorname'
+      placeholder: 'Ihr Vorname'
+    lastname:
+      label: 'Nachname'
+      placeholder: 'Ihr Nachname'
+    email:
+      label: 'E-Mail'
+      placeholder: 'ihre.email@example.com'
+    password:
+      first_label: 'Passwort'
+      first_placeholder: 'Ihr Passwort'
+      second_label: 'Passwort bestätigen'
+      second_placeholder: 'Bestätigen Sie Ihr Passwort'
+    discord_pseudo:
+      label: 'Discord-Name'
+      placeholder: 'Ihr Discord-Name'
+      help: 'Optional, aber hilfreich, um Sie vor der LAN zu finden.'
+    is_major_confirmed:
+      label: 'Ich bestätige, dass ich volljährig bin.'
+    submit_payment: 'Weiter zur Zahlung'
+  pending:
+    title: 'Zahlung ausstehend'
+    message: 'Ihre LAN-Anmeldung wurde erstellt und wartet auf die Zahlung.'
+    reference: 'Interne Referenz: %reference%'
+    payment_next_step: 'Die HelloAsso-Weiterleitung wird bald integriert.'
+  error:
+    email_already_used: 'Ein Konto mit dieser E-Mail-Adresse existiert bereits.'
+    not_found: 'Anmeldung nicht gefunden.'
+  validation:
+    firstname_required: 'Bitte geben Sie einen Vornamen ein.'
+    lastname_required: 'Bitte geben Sie einen Nachnamen ein.'
+    email_required: 'Bitte geben Sie eine E-Mail-Adresse ein.'
+    email_invalid: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+    password_required: 'Bitte geben Sie ein Passwort ein.'
+    password_min_length: 'Das Passwort muss mindestens {{ limit }} Zeichen enthalten.'
+    password_mismatch: 'Die Passwörter müssen übereinstimmen.'
+    major_confirmation_required: 'Die Bestätigung der Volljährigkeit ist erforderlich.'
+
+navigation:
+  toggle: 'Navigation umschalten'
+  close: 'Schließen'
+  profile: 'Profil'
+  login: 'Anmelden'
+  logout: 'Abmelden'
+  home: 'Startseite'
+  language: 'Sprache'
+  events:
+    label: 'Veranstaltungen'
+    list: 'Veranstaltungsliste'
+    create: 'Veranstaltung erstellen'
+    mine: 'Meine Veranstaltungen'
+
+language:
+  en: 'English'
+  fr: 'Français'
+  de: 'Deutsch'

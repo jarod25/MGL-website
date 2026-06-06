@@ -10,11 +10,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-#[Route('/lan/inscription')]
+#[Route('/registration')]
 final class RegistrationController extends AbstractController
 {
-    #[Route('', name: 'app_lan_registration_new', methods: ['GET', 'POST'])]
+    #[Route('', name: 'app_registration_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ParticipantRegistrationService $registrationService): Response
     {
         $form = $this->createForm(ParticipantRegistrationType::class);
@@ -31,10 +32,9 @@ final class RegistrationController extends AbstractController
                     $form->get('password')->getData(),
                     $data['discordPseudo'] ?? null,
                     (bool) $data['isMajorConfirmed'],
-                    $data['subscription'],
                 );
 
-                return $this->redirectToRoute('app_lan_registration_pending', [
+                return $this->redirectToRoute('app_registration_payment_pending', [
                     'internalReference' => $participant->getInternalReference(),
                 ]);
             } catch (LanRegistrationException $exception) {
@@ -47,13 +47,13 @@ final class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/{internalReference}/pending', name: 'app_lan_registration_pending', methods: ['GET'])]
-    public function pending(string $internalReference, ParticipantRepository $participantRepository): Response
+    #[Route('/{internalReference}/payment-pending', name: 'app_registration_payment_pending', methods: ['GET'])]
+    public function pending(string $internalReference, ParticipantRepository $participantRepository, TranslatorInterface $translator): Response
     {
         $participant = $participantRepository->findOneBy(['internalReference' => $internalReference]);
 
         if ($participant === null) {
-            throw $this->createNotFoundException('Inscription introuvable.');
+            throw $this->createNotFoundException($translator->trans('registration.error.not_found'));
         }
 
         return $this->render('lan/registration/pending.html.twig', [

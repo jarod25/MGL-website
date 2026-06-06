@@ -1,0 +1,61 @@
+registration:
+  title: 'Inscription LAN'
+  payment_notice: 'Remplissez ce formulaire pour créer votre inscription. La formule sera déterminée plus tard via le paiement HelloAsso.'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+    password:
+      first_label: 'Mot de passe'
+      first_placeholder: 'Votre mot de passe'
+      second_label: 'Confirmation du mot de passe'
+      second_placeholder: 'Confirmez votre mot de passe'
+    discord_pseudo:
+      label: 'Pseudo Discord'
+      placeholder: 'Votre pseudo Discord'
+      help: 'Optionnel, mais utile pour vous retrouver avant la LAN.'
+    is_major_confirmed:
+      label: 'Je confirme être majeur·e.'
+    submit_payment: 'Continuer vers le paiement'
+  pending:
+    title: 'Paiement en attente'
+    message: 'Votre inscription LAN est créée et en attente de paiement.'
+    reference: 'Référence interne : %reference%'
+    payment_next_step: 'La redirection HelloAsso sera intégrée prochainement.'
+  error:
+    email_already_used: 'Un compte existe déjà avec cet email.'
+    not_found: 'Inscription introuvable.'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir un email.'
+    email_invalid: 'Veuillez saisir un email valide.'
+    password_required: 'Veuillez saisir un mot de passe.'
+    password_min_length: 'Le mot de passe doit contenir au moins {{ limit }} caractères.'
+    password_mismatch: 'Les mots de passe doivent correspondre.'
+    major_confirmation_required: 'La confirmation de majorité est obligatoire.'
+
+navigation:
+  toggle: 'Afficher ou masquer la navigation'
+  close: 'Fermer'
+  profile: 'Profil'
+  login: 'Se connecter'
+  logout: 'Se déconnecter'
+  home: 'Accueil'
+  language: 'Langue'
+  events:
+    label: 'Évènements'
+    list: 'Liste des événements'
+    create: 'Créer un événement'
+    mine: 'Mes événements'
+
+language:
+  en: 'English'
+  fr: 'Français'
+  de: 'Deutsch'
