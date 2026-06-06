@@ -15,4 +15,15 @@ class GameRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Game::class);
     }
+
+    public function findActiveOrdered(): array
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.isActive = :active')
+            ->setParameter('active', true)
+            ->orderBy('g.day', 'ASC')
+            ->addOrderBy('g.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

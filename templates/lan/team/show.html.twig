@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'team.show.title'|trans({ '%name%': team.name }) }}{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{{ 'team.show.title'|trans({ '%name%': team.name }) }}</h1>
+            {% if canAddMembers %}
+                <a class="btn btn-primary" href="{{ path('app_team_member_new', { id: team.id }) }}">{{ 'team.show.add_member'|trans }}</a>
+            {% endif %}
+        </div>
+
+        <dl class="row">
+            <dt class="col-sm-3">{{ 'team.show.game'|trans }}</dt>
+            <dd class="col-sm-9">{{ team.game.name }}</dd>
+
+            <dt class="col-sm-3">{{ 'team.show.day'|trans }}</dt>
+            <dd class="col-sm-9">{{ ('game.day.' ~ team.game.day.value)|trans }}</dd>
+
+            <dt class="col-sm-3">{{ 'team.show.players'|trans }}</dt>
+            <dd class="col-sm-9">{{ 'team.show.players_count'|trans({ '%count%': members|length, '%max%': team.game.maxPlayersPerTeam }) }}</dd>
+
+            <dt class="col-sm-3">{{ 'team.show.captain'|trans }}</dt>
+            <dd class="col-sm-9">{{ team.captain.firstname }} {{ team.captain.lastname }}</dd>
+        </dl>
+
+        <h2>{{ 'team.show.members'|trans }}</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">{{ 'team.show.member'|trans }}</th>
+                    <th scope="col">{{ 'team.show.in_game_pseudo'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td>
+                            {{ member.participant.firstname }} {{ member.participant.lastname }}
+                            {% if member.participant.id == team.captain.id %}
+                                <span class="badge bg-secondary">{{ 'team.show.captain_badge'|trans }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ member.inGamePseudo }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a class="btn btn-secondary" href="{{ path('app_team_index') }}">{{ 'team.action.back_to_list'|trans }}</a>
+    </div>
+{% endblock %}

@@ -12,21 +12,21 @@ final class ParticipantAccessChecker
     public function assertCanJoinGame(Participant $participant, Game $game): void
     {
         if ($participant->getRegistrationStatus() !== RegistrationStatusEnum::PAID) {
-            throw new LanRegistrationException('Participant must be paid to join a team.');
+            throw new LanRegistrationException('team.error.participant_must_be_paid');
         }
 
         $subscription = $participant->getSubscription();
         if ($subscription === null) {
-            throw new LanRegistrationException('Participant subscription is required.');
+            throw new LanRegistrationException('team.error.participant_subscription_required');
         }
 
         if (!$game->isActive()) {
-            throw new LanRegistrationException('Game is not active.');
+            throw new LanRegistrationException('team.error.game_not_active');
         }
 
         $durationDays = $subscription->getDurationDays();
         if ($durationDays === null) {
-            throw new LanRegistrationException('Subscription duration is invalid.');
+            throw new LanRegistrationException('team.error.subscription_duration_invalid');
         }
 
         if ($durationDays >= 2) {
@@ -34,7 +34,7 @@ final class ParticipantAccessChecker
         }
 
         if ($durationDays !== 1) {
-            throw new LanRegistrationException('Unsupported subscription duration.');
+            throw new LanRegistrationException('team.error.subscription_duration_unsupported');
         }
 
         $lockedDay = $participant->getLockedDay();
@@ -44,7 +44,7 @@ final class ParticipantAccessChecker
         }
 
         if ($lockedDay !== $game->getDay()) {
-            throw new LanRegistrationException('Participant day lock does not match this game day.');
+            throw new LanRegistrationException('team.error.participant_day_lock_mismatch');
         }
     }
 }

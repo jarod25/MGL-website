@@ -47,6 +47,8 @@ navigation:
   profile: 'Profil'
   login: 'Anmelden'
   logout: 'Abmelden'
+  login_signup: 'Anmelden / Registrieren'
+  teams: 'Teams'
   home: 'Startseite'
   language: 'Sprache'
   events:
@@ -55,7 +57,95 @@ navigation:
     create: 'Veranstaltung erstellen'
     mine: 'Meine Veranstaltungen'
 
+footer:
+  all_right_reserved: 'Alle Rechte vorbehalten.'
+
 language:
   en: 'English'
   fr: 'Français'
   de: 'Deutsch'
+
+team:
+  index:
+    title: 'Teams'
+    empty: 'Derzeit ist kein aktives Spiel verfügbar.'
+    create_link: 'Team erstellen'
+    no_team_for_game: 'Für dieses Spiel wurde noch kein Team erstellt.'
+    players_count: '%count% / %max% Spieler'
+  new:
+    title: 'Team erstellen'
+    submit: 'Team erstellen'
+  show:
+    title: '%name%'
+    game: 'Spiel'
+    day: 'Tag'
+    players: 'Spieler'
+    players_count: '%count% / %max% Spieler'
+    captain: 'Captain'
+    members: 'Mitglieder'
+    member: 'Mitglied'
+    in_game_pseudo: 'In-Game-Name'
+    captain_badge: 'Captain'
+    add_member: 'Mitglied hinzufügen'
+  member:
+    new:
+      title: 'Mitglied zu %name% hinzufügen'
+      submit: 'Mitglied hinzufügen'
+      current_count: '%count% / %max% Spieler'
+    form:
+      participant_email:
+        label: 'Teilnehmer-E-Mail oder Discord-Name'
+        placeholder: 'teilnehmer@example.com oder Discord-Name'
+      in_game_pseudo:
+        label: 'In-Game-Name'
+        placeholder: 'In-Game-Name des Mitglieds'
+  form:
+    name:
+      label: 'Teamname'
+      placeholder: 'Name Ihres Teams'
+    game:
+      label: 'Spiel'
+      placeholder: 'Spiel auswählen'
+    captain_in_game_pseudo:
+      label: 'In-Game-Name des Captains'
+      placeholder: 'Ihr In-Game-Name'
+  game:
+    day: 'Tag: %day%'
+    capacity: 'Kapazität: %maxPlayers% Spieler pro Team, maximal %maxTeams% Teams'
+  action:
+    back_to_list: 'Zurück zu den Teams'
+    back_to_team: 'Zurück zum Team'
+  flash:
+    created: 'Das Team wurde erstellt.'
+    member_added: 'Das Mitglied wurde dem Team hinzugefügt.'
+  error:
+    login_required: 'Sie müssen angemeldet sein, um LAN-Teams zu verwalten.'
+    participant_required: 'Sie benötigen eine LAN-Anmeldung, bevor Sie ein Team verwalten können.'
+    member_not_found: 'Kein angemeldeter Teilnehmer passt zu dieser E-Mail-Adresse oder diesem Discord-Namen.'
+    only_captain_can_add_member: 'Nur der Captain kann Mitglieder zu diesem Team hinzufügen.'
+    creation_failed: 'Das Team konnte nicht erstellt werden.'
+    member_add_failed: 'Das Mitglied konnte nicht hinzugefügt werden.'
+    participant_must_be_paid: 'Der Teilnehmer muss bezahlt haben, um einem Team beizutreten.'
+    participant_subscription_required: 'Der Teilnehmer benötigt eine Formel, um einem Team beizutreten.'
+    game_not_active: 'Dieses Spiel ist nicht aktiv.'
+    subscription_duration_invalid: 'Die Dauer der Formel ist ungültig.'
+    subscription_duration_unsupported: 'Diese Formeldauer wird nicht unterstützt.'
+    participant_day_lock_mismatch: 'Der Formeltag des Teilnehmers passt nicht zum Spieltag.'
+    captain_already_registered_for_game: 'Der Captain ist für dieses Spiel bereits in einem Team angemeldet.'
+    participant_already_registered_for_game: 'Dieser Teilnehmer ist für dieses Spiel bereits in einem Team angemeldet.'
+    team_has_no_game: 'Diesem Team ist kein Spiel zugeordnet.'
+    game_max_teams_invalid: 'Die Teamkapazität des Spiels ist ungültig.'
+    game_max_teams_reached: 'Dieses Spiel hat seine Teamkapazität erreicht.'
+    game_max_players_invalid: 'Die Spielerkapazität des Spiels ist ungültig.'
+    team_max_players_reached: 'Dieses Team hat seine Spielerkapazität erreicht.'
+  validation:
+    name_required: 'Bitte geben Sie einen Teamnamen ein.'
+    game_required: 'Bitte wählen Sie ein Spiel aus.'
+    captain_in_game_pseudo_required: 'Bitte geben Sie den In-Game-Namen des Captains ein.'
+    participant_identifier_required: 'Bitte geben Sie eine Teilnehmer-E-Mail oder einen Discord-Namen ein.'
+    in_game_pseudo_required: 'Bitte geben Sie den In-Game-Namen ein.'
+
+game:
+  day:
+    saturday: 'Samstag'
+    sunday: 'Sonntag'

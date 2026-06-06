@@ -48,15 +48,22 @@
 }
 
 .navbar-action-link {
-  min-width: clamp(5.5rem, 9vw, 8rem);
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  min-width: clamp(10rem, 15vw, 13rem);
   text-align: center;
   white-space: nowrap;
 }
 
 @media (max-width: 991.98px) {
   .navbar-action-link {
+    display: inline-flex;
+    justify-content: flex-start;
     min-width: auto;
     text-align: left;
+    width: auto;
   }
 
   .language-switcher {

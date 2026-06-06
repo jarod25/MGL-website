@@ -72,7 +72,6 @@ final class ParticipantRegistrationType extends AbstractType
                 'attr' => [
                     'placeholder' => 'registration.form.discord_pseudo.placeholder',
                 ],
-                'help' => 'registration.form.discord_pseudo.help',
             ])
             ->add('isMajorConfirmed', CheckboxType::class, [
                 'label' => 'registration.form.is_major_confirmed.label',

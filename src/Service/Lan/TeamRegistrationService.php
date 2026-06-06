@@ -30,7 +30,7 @@ final class TeamRegistrationService
             $this->teamCapacityChecker->assertGameHasSlot($game);
 
             if ($this->teamMemberRepository->findOneByParticipantAndGame($captain, $game) !== null) {
-                throw new LanRegistrationException('Captain is already registered in a team for this game.');
+                throw new LanRegistrationException('team.error.captain_already_registered_for_game');
             }
 
             $team = (new Team())
@@ -66,13 +66,13 @@ final class TeamRegistrationService
         try {
             $game = $team->getGame();
             if ($game === null) {
-                throw new LanRegistrationException('Team has no game assigned.');
+                throw new LanRegistrationException('team.error.team_has_no_game');
             }
 
             $this->participantAccessChecker->assertCanJoinGame($participant, $game);
 
             if ($this->teamMemberRepository->findOneByParticipantAndGame($participant, $game) !== null) {
-                throw new LanRegistrationException('Participant is already registered in a team for this game.');
+                throw new LanRegistrationException('team.error.participant_already_registered_for_game');
             }
 
             $this->teamCapacityChecker->assertTeamHasSlot($team);

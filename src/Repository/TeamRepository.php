@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Game;
+use App\Entity\Participant;
 use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -25,5 +26,28 @@ class TeamRepository extends ServiceEntityRepository
             ->setParameter('game', $game)
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    public function findByGame(Game $game): array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.game = :game')
+            ->setParameter('game', $game)
+            ->orderBy('t.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Team[]
+     */
+    public function findByCaptain(Participant $captain): array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.captain = :captain')
+            ->setParameter('captain', $captain)
+            ->orderBy('t.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
     }
 }

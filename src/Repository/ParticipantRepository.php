@@ -21,4 +21,26 @@ class ParticipantRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['user' => $user]);
     }
+
+    public function findOneByEmail(string $email): ?Participant
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('LOWER(p.email) = :email')
+            ->setParameter('email', mb_strtolower(trim($email)))
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function findOneByEmailOrDiscordPseudo(string $identifier): ?Participant
+    {
+        $normalizedIdentifier = mb_strtolower(trim($identifier));
+
+        return $this->createQueryBuilder('p')
+            ->andWhere('LOWER(p.email) = :identifier OR LOWER(p.discordPseudo) = :identifier')
+            ->setParameter('identifier', $normalizedIdentifier)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

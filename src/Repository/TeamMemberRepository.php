@@ -36,4 +36,14 @@ class TeamMemberRepository extends ServiceEntityRepository
             'game' => $game,
         ]);
     }
+
+    public function findByTeam(Team $team): array
+    {
+        return $this->createQueryBuilder('tm')
+            ->andWhere('tm.team = :team')
+            ->setParameter('team', $team)
+            ->orderBy('tm.joinedAt', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -47,6 +47,8 @@ navigation:
   profile: 'Profil'
   login: 'Se connecter'
   logout: 'Se déconnecter'
+  login_signup: 'Se connecter / S’inscrire'
+  teams: 'Équipes'
   home: 'Accueil'
   language: 'Langue'
   events:
@@ -55,7 +57,96 @@ navigation:
     create: 'Créer un événement'
     mine: 'Mes événements'
 
+footer:
+  all_right_reserved: 'Tous droits réservés.'
+
 language:
   en: 'English'
   fr: 'Français'
   de: 'Deutsch'
+
+
+team:
+  index:
+    title: 'Équipes'
+    empty: 'Aucun jeu actif n’est disponible pour le moment.'
+    create_link: 'Créer une équipe'
+    no_team_for_game: 'Aucune équipe n’a encore été créée pour ce jeu.'
+    players_count: '%count% / %max% joueurs'
+  new:
+    title: 'Créer une équipe'
+    submit: 'Créer l’équipe'
+  show:
+    title: '%name%'
+    game: 'Jeu'
+    day: 'Jour'
+    players: 'Joueurs'
+    players_count: '%count% / %max% joueurs'
+    captain: 'Capitaine'
+    members: 'Membres'
+    member: 'Membre'
+    in_game_pseudo: 'Pseudo in-game'
+    captain_badge: 'Capitaine'
+    add_member: 'Ajouter un membre'
+  member:
+    new:
+      title: 'Ajouter un membre à %name%'
+      submit: 'Ajouter le membre'
+      current_count: '%count% / %max% joueurs'
+    form:
+      participant_email:
+        label: 'Email participant ou pseudo Discord'
+        placeholder: 'participant@example.com ou pseudo Discord'
+      in_game_pseudo:
+        label: 'Pseudo in-game'
+        placeholder: 'Pseudo in-game du membre'
+  form:
+    name:
+      label: 'Nom de l’équipe'
+      placeholder: 'Nom de votre équipe'
+    game:
+      label: 'Jeu'
+      placeholder: 'Choisir un jeu'
+    captain_in_game_pseudo:
+      label: 'Pseudo in-game du capitaine'
+      placeholder: 'Votre pseudo in-game'
+  game:
+    day: 'Jour : %day%'
+    capacity: 'Capacité : %maxPlayers% joueurs par équipe, %maxTeams% équipes maximum'
+  action:
+    back_to_list: 'Retour aux équipes'
+    back_to_team: 'Retour à l’équipe'
+  flash:
+    created: 'L’équipe a été créée.'
+    member_added: 'Le membre a été ajouté à l’équipe.'
+  error:
+    login_required: 'Vous devez être connecté pour gérer les équipes LAN.'
+    participant_required: 'Vous devez avoir une inscription LAN avant de gérer une équipe.'
+    member_not_found: 'Aucun participant inscrit ne correspond à cet email ou pseudo Discord.'
+    only_captain_can_add_member: 'Seul le capitaine peut ajouter des membres à cette équipe.'
+    creation_failed: 'L’équipe n’a pas pu être créée.'
+    member_add_failed: 'Le membre n’a pas pu être ajouté.'
+    participant_must_be_paid: 'Le participant doit avoir payé pour rejoindre une équipe.'
+    participant_subscription_required: 'Le participant doit avoir une formule pour rejoindre une équipe.'
+    game_not_active: 'Ce jeu n’est pas actif.'
+    subscription_duration_invalid: 'La durée de la formule est invalide.'
+    subscription_duration_unsupported: 'Cette durée de formule n’est pas prise en charge.'
+    participant_day_lock_mismatch: 'Le jour de la formule du participant ne correspond pas au jour de ce jeu.'
+    captain_already_registered_for_game: 'Le capitaine est déjà inscrit dans une équipe pour ce jeu.'
+    participant_already_registered_for_game: 'Ce participant est déjà inscrit dans une équipe pour ce jeu.'
+    team_has_no_game: 'Cette équipe n’a pas de jeu associé.'
+    game_max_teams_invalid: 'La capacité d’équipes du jeu est invalide.'
+    game_max_teams_reached: 'Ce jeu a atteint sa capacité d’équipes.'
+    game_max_players_invalid: 'La capacité de joueurs du jeu est invalide.'
+    team_max_players_reached: 'Cette équipe a atteint sa capacité de joueurs.'
+  validation:
+    name_required: 'Veuillez saisir un nom d’équipe.'
+    game_required: 'Veuillez choisir un jeu.'
+    captain_in_game_pseudo_required: 'Veuillez saisir le pseudo in-game du capitaine.'
+    participant_identifier_required: 'Veuillez saisir un email participant ou un pseudo Discord.'
+    in_game_pseudo_required: 'Veuillez saisir le pseudo in-game.'
+
+game:
+  day:
+    saturday: 'Samedi'
+    sunday: 'Dimanche'

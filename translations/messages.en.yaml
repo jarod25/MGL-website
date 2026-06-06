@@ -47,6 +47,8 @@ navigation:
   profile: 'Profile'
   login: 'Log in'
   logout: 'Log out'
+  login_signup: 'Log in / Sign up'
+  teams: 'Teams'
   home: 'Home'
   language: 'Language'
   events:
@@ -55,7 +57,95 @@ navigation:
     create: 'Create an event'
     mine: 'My events'
 
+footer:
+  all_right_reserved: 'All rights reserved.'
+
 language:
   en: 'English'
   fr: 'Français'
   de: 'Deutsch'
+
+team:
+  index:
+    title: 'Teams'
+    empty: 'No active game is available yet.'
+    create_link: 'Create a team'
+    no_team_for_game: 'No team has been created for this game yet.'
+    players_count: '%count% / %max% players'
+  new:
+    title: 'Create a team'
+    submit: 'Create the team'
+  show:
+    title: '%name%'
+    game: 'Game'
+    day: 'Day'
+    players: 'Players'
+    players_count: '%count% / %max% players'
+    captain: 'Captain'
+    members: 'Members'
+    member: 'Member'
+    in_game_pseudo: 'In-game username'
+    captain_badge: 'Captain'
+    add_member: 'Add a member'
+  member:
+    new:
+      title: 'Add a member to %name%'
+      submit: 'Add the member'
+      current_count: '%count% / %max% players'
+    form:
+      participant_email:
+        label: 'Participant email or Discord username'
+        placeholder: 'participant@example.com or Discord username'
+      in_game_pseudo:
+        label: 'In-game username'
+        placeholder: 'Member in-game username'
+  form:
+    name:
+      label: 'Team name'
+      placeholder: 'Your team name'
+    game:
+      label: 'Game'
+      placeholder: 'Choose a game'
+    captain_in_game_pseudo:
+      label: 'Captain in-game username'
+      placeholder: 'Your in-game username'
+  game:
+    day: 'Day: %day%'
+    capacity: 'Capacity: %maxPlayers% players per team, %maxTeams% teams maximum'
+  action:
+    back_to_list: 'Back to teams'
+    back_to_team: 'Back to the team'
+  flash:
+    created: 'The team has been created.'
+    member_added: 'The member has been added to the team.'
+  error:
+    login_required: 'You must be logged in to manage LAN teams.'
+    participant_required: 'You need a LAN registration before managing a team.'
+    member_not_found: 'No registered participant matches this email or Discord username.'
+    only_captain_can_add_member: 'Only the captain can add members to this team.'
+    creation_failed: 'The team could not be created.'
+    member_add_failed: 'The member could not be added.'
+    participant_must_be_paid: 'The participant must be paid to join a team.'
+    participant_subscription_required: 'The participant must have a subscription to join a team.'
+    game_not_active: 'This game is not active.'
+    subscription_duration_invalid: 'The subscription duration is invalid.'
+    subscription_duration_unsupported: 'This subscription duration is not supported.'
+    participant_day_lock_mismatch: 'The participant subscription day does not match this game day.'
+    captain_already_registered_for_game: 'The captain is already registered in a team for this game.'
+    participant_already_registered_for_game: 'This participant is already registered in a team for this game.'
+    team_has_no_game: 'This team has no game assigned.'
+    game_max_teams_invalid: 'The game team capacity is invalid.'
+    game_max_teams_reached: 'This game has reached its team capacity.'
+    game_max_players_invalid: 'The game player capacity is invalid.'
+    team_max_players_reached: 'This team has reached its player capacity.'
+  validation:
+    name_required: 'Please enter a team name.'
+    game_required: 'Please choose a game.'
+    captain_in_game_pseudo_required: 'Please enter the captain in-game username.'
+    participant_identifier_required: 'Please enter a participant email or Discord username.'
+    in_game_pseudo_required: 'Please enter the in-game username.'
+
+game:
+  day:
+    saturday: 'Saturday'
+    sunday: 'Sunday'

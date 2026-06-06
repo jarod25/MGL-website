@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'team.index.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{{ 'team.index.title'|trans }}</h1>
+            <a class="btn btn-primary" href="{{ path('app_team_new') }}">{{ 'team.index.create_link'|trans }}</a>
+        </div>
+
+        {% if games is empty %}
+            <p>{{ 'team.index.empty'|trans }}</p>
+        {% endif %}
+
+        {% for game in games %}
+            {% set teams = teamsByGame[game.id]|default([]) %}
+            <section class="mb-4">
+                <h2>{{ game.name }}</h2>
+                <p>
+                    {{ 'team.game.day'|trans({ '%day%': ('game.day.' ~ game.day.value)|trans }) }}
+                    {{ 'team.game.capacity'|trans({ '%maxPlayers%': game.maxPlayersPerTeam, '%maxTeams%': game.maxTeams }) }}
+                </p>
+
+                {% if teams is empty %}
+                    <p>{{ 'team.index.no_team_for_game'|trans }}</p>
+                {% else %}
+                    <div class="list-group">
+                        {% for team in teams %}
+                            <a class="list-group-item list-group-item-action" href="{{ path('app_team_show', { id: team.id }) }}">
+                                <span class="fw-bold">{{ team.name }}</span>
+                                <span>
+                                    {{ 'team.index.players_count'|trans({
+                                        '%count%': memberCounts[team.id]|default(0),
+                                        '%max%': game.maxPlayersPerTeam
+                                    }) }}
+                                </span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </section>
+        {% endfor %}
+    </div>
+{% endblock %}

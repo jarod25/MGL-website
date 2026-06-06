@@ -2,7 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <p>&copy; {{ "now"|date("Y") }} Projet S6 PHP Kohler Graber. Tous droits réservés.</p>
+                {% if "now"|date("Y") == '2026' %}
+                    <p>&copy; 2026 Mulhouse Gaming Tournament. {{ 'footer.all_right_reserved'|trans }}</p>
+                {% else %}
+                    <p>&copy; 2026 - {{ "now"|date("Y") }} Mulhouse Gaming Tournament.  {{ 'footer.all_right_reserved'|trans }}</p>
+                {% endif %}
             </div>
         </div>
     </div>

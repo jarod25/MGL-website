@@ -21,6 +21,7 @@ readonly class KnpMenuBuilderService
     {
         $menu = $this->factory->createItem('root');
         $menu->addChild($this->translator->trans('navigation.home'), ['route' => 'app_home']);
+        $menu->addChild($this->translator->trans('navigation.teams'), ['route' => 'app_team_index']);
 
         $evenements = $menu->addChild($this->translator->trans('navigation.events.label'), ['uri' => '#']);
         $evenements->setAttribute('dropdown', true);

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'team.new.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <h1>{{ 'team.new.title'|trans }}</h1>
+
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.game) }}
+        {{ form_row(form.captainInGamePseudo) }}
+        <button class="btn btn-primary" type="submit">{{ 'team.new.submit'|trans }}</button>
+        <a class="btn btn-secondary" href="{{ path('app_team_index') }}">{{ 'team.action.back_to_list'|trans }}</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

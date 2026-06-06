@@ -19,16 +19,16 @@ final class TeamCapacityChecker
     public function assertGameHasSlot(Game $game): void
     {
         if (!$game->isActive()) {
-            throw new LanRegistrationException('Game is not active.');
+            throw new LanRegistrationException('team.error.game_not_active');
         }
 
         $maxTeams = $game->getMaxTeams();
         if ($maxTeams === null || $maxTeams <= 0) {
-            throw new LanRegistrationException('Game max teams is invalid.');
+            throw new LanRegistrationException('team.error.game_max_teams_invalid');
         }
 
         if ($this->teamRepository->countByGame($game) >= $maxTeams) {
-            throw new LanRegistrationException('Game has reached max teams capacity.');
+            throw new LanRegistrationException('team.error.game_max_teams_reached');
         }
     }
 
@@ -36,20 +36,20 @@ final class TeamCapacityChecker
     {
         $game = $team->getGame();
         if ($game === null) {
-            throw new LanRegistrationException('Team has no game assigned.');
+            throw new LanRegistrationException('team.error.team_has_no_game');
         }
 
         if (!$game->isActive()) {
-            throw new LanRegistrationException('Game is not active.');
+            throw new LanRegistrationException('team.error.game_not_active');
         }
 
         $maxPlayers = $game->getMaxPlayersPerTeam();
         if ($maxPlayers === null || $maxPlayers <= 0) {
-            throw new LanRegistrationException('Game max players per team is invalid.');
+            throw new LanRegistrationException('team.error.game_max_players_invalid');
         }
 
         if ($this->teamMemberRepository->countByTeam($team) >= $maxPlayers) {
-            throw new LanRegistrationException('Team has reached max players capacity.');
+            throw new LanRegistrationException('team.error.team_max_players_reached');
         }
     }
 }
