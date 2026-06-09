@@ -47,6 +47,9 @@ class TeamMemberRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @return TeamMember[]
+     */
     public function findByParticipant(Participant $participant): array
     {
         return $this->createQueryBuilder('tm')
@@ -62,4 +65,5 @@ class TeamMemberRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+}
 }

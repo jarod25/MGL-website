@@ -1,5 +1,9 @@
 registration:
   title: 'LAN-Anmeldung'
+  subtitle: 'Erstelle deine LAN-Anmeldung und schließe danach die Zahlung ab, um Teams beizutreten oder zu erstellen.'
+  submit: 'Weiter zur Zahlung'
+  already_registered: 'Bereits registriert?'
+  login_link: 'Anmelden'
   payment_notice: 'Füllen Sie dieses Formular aus, um Ihre Anmeldung zu erstellen. Die Formel wird später über die HelloAsso-Zahlung bestimmt.'
   form:
     firstname:
@@ -209,3 +213,106 @@ lan_profile:
   payment_required: 'Du musst deine Zahlung abschließen, bevor du ein Team erstellen oder einem Team beitreten kannst.'
   error:
     participant_required: 'Du benötigst eine LAN-Anmeldung, bevor du deinen LAN-Bereich öffnen kannst.'
+
+account:
+  title: 'Mein Konto'
+  info:
+    title: 'Kontoinformationen'
+  password:
+    title: 'Passwort'
+    current:
+      label: 'Aktuelles Passwort'
+      placeholder: 'Aktuelles Passwort'
+    new:
+      label: 'Neues Passwort'
+      placeholder: 'Neues Passwort'
+    confirm:
+      label: 'Passwortbestätigung'
+      placeholder: 'Neues Passwort bestätigen'
+    mismatch: 'Die beiden Passwörter müssen übereinstimmen.'
+    required: 'Bitte gib dein Passwort ein.'
+    confirm_required: 'Bitte bestätige dein Passwort.'
+    min_length: 'Dein Passwort muss mindestens {{ limit }} Zeichen enthalten.'
+    max_length: 'Dein Passwort darf höchstens {{ limit }} Zeichen enthalten.'
+    strength_invalid: 'Das Passwort erfüllt die Sicherheitsanforderungen nicht.'
+  form:
+    firstname:
+      label: 'Vorname'
+      placeholder: 'Dein Vorname'
+    lastname:
+      label: 'Nachname'
+      placeholder: 'Dein Nachname'
+    email:
+      label: 'E-Mail'
+      placeholder: 'deine.email@example.com'
+    discord_pseudo:
+      label: 'Discord-Name'
+      placeholder: 'Dein Discord-Name'
+      help: 'Optionaler LAN-Discord-Name, der in deinem LAN-Bereich angezeigt wird.'
+      participant_required: 'Erstelle eine LAN-Anmeldung, um deinen Discord-Namen hier zu verwalten.'
+    submit_info: 'Meine Informationen aktualisieren'
+    submit_password: 'Mein Passwort aktualisieren'
+  validation:
+    firstname_required: 'Bitte gib einen Vornamen ein.'
+    lastname_required: 'Bitte gib einen Nachnamen ein.'
+    email_required: 'Bitte gib eine E-Mail-Adresse ein.'
+    email_invalid: 'Bitte gib eine gültige E-Mail-Adresse ein.'
+  flash:
+    info_updated: 'Deine Informationen wurden aktualisiert.'
+    password_updated: 'Dein Passwort wurde aktualisiert.'
+  error:
+    email_already_used: 'Diese E-Mail wird bereits von einem anderen Konto verwendet.'
+    current_password_invalid: 'Das aktuelle Passwort ist falsch.'
+    login_required_events: 'Du musst angemeldet sein, um deine Veranstaltungen zu sehen.'
+    new_password_same_as_old: 'Das neue Passwort muss sich vom alten unterscheiden.'
+
+login:
+  title: 'Anmelden'
+  email:
+    label: 'E-Mail'
+    placeholder: 'deine.email@example.com'
+  password:
+    label: 'Passwort'
+    placeholder: 'Dein Passwort'
+  submit: 'Anmelden'
+  error:
+    invalid_credentials: 'Benutzername oder Passwort ungültig.'
+  no_account: 'Noch nicht registriert?'
+  register_link: 'Registrieren'
+  close: 'Schließen'
+
+
+signup:
+  title: 'Konto erstellen'
+  submit: 'Mein Konto erstellen'
+  already_account: 'Du hast bereits ein Konto?'
+  login_link: 'Anmelden'
+  form:
+    firstname:
+      label: 'Vorname'
+      placeholder: 'Dein Vorname'
+    lastname:
+      label: 'Nachname'
+      placeholder: 'Dein Nachname'
+    email:
+      label: 'E-Mail'
+      placeholder: 'deine.email@example.com'
+    password:
+      label: 'Passwort'
+      placeholder: 'Dein Passwort'
+    password_confirm:
+      label: 'Passwortbestätigung'
+      placeholder: 'Bestätige dein Passwort'
+  validation:
+    firstname_required: 'Bitte gib einen Vornamen ein.'
+    lastname_required: 'Bitte gib einen Nachnamen ein.'
+    email_required: 'Bitte gib eine E-Mail-Adresse ein.'
+    email_invalid: 'Bitte gib eine gültige E-Mail-Adresse ein.'
+    password_required: 'Bitte gib dein Passwort ein.'
+    password_confirm_required: 'Bitte bestätige dein Passwort.'
+    password_mismatch: 'Die beiden Passwörter müssen übereinstimmen.'
+    password_min_length: 'Dein Passwort muss mindestens {{ limit }} Zeichen enthalten.'
+    password_max_length: 'Dein Passwort darf höchstens {{ limit }} Zeichen enthalten.'
+    password_strength_invalid: 'Das Passwort erfüllt die Sicherheitsanforderungen nicht.'
+  error:
+    email_already_used: 'Ein Konto mit dieser E-Mail-Adresse existiert bereits. Bitte versuche dich anzumelden.'

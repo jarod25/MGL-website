@@ -1,5 +1,9 @@
 registration:
   title: 'Inscription LAN'
+  subtitle: 'Créez votre inscription LAN, puis finalisez le paiement pour rejoindre ou créer des équipes.'
+  submit: 'Continuer vers le paiement'
+  already_registered: 'Déjà inscrit ?'
+  login_link: 'Connectez-vous'
   payment_notice: 'Remplissez ce formulaire pour créer votre inscription. La formule sera déterminée plus tard via le paiement HelloAsso.'
   form:
     firstname:
@@ -210,3 +214,106 @@ lan_profile:
   payment_required: 'Tu dois finaliser ton paiement avant de créer ou rejoindre une équipe.'
   error:
     participant_required: 'Tu dois avoir une inscription LAN avant d’accéder à ton espace LAN.'
+
+account:
+  title: 'Mon compte'
+  info:
+    title: 'Informations du compte'
+  password:
+    title: 'Mot de passe'
+    current:
+      label: 'Mot de passe actuel'
+      placeholder: 'Mot de passe actuel'
+    new:
+      label: 'Nouveau mot de passe'
+      placeholder: 'Nouveau mot de passe'
+    confirm:
+      label: 'Confirmation du mot de passe'
+      placeholder: 'Confirmez le nouveau mot de passe'
+    mismatch: 'Les deux mots de passe doivent être identiques.'
+    required: 'Veuillez saisir votre mot de passe.'
+    confirm_required: 'Veuillez confirmer votre mot de passe.'
+    min_length: 'Votre mot de passe doit comporter au moins {{ limit }} caractères.'
+    max_length: 'Votre mot de passe doit comporter maximum {{ limit }} caractères.'
+    strength_invalid: 'Le mot de passe ne respecte pas les critères de sécurité.'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+    discord_pseudo:
+      label: 'Pseudo Discord'
+      placeholder: 'Votre pseudo Discord'
+      help: 'Pseudo Discord LAN optionnel affiché dans votre espace LAN.'
+      participant_required: 'Créez une inscription LAN pour gérer votre pseudo Discord ici.'
+    submit_info: 'Modifier mes informations'
+    submit_password: 'Modifier mon mot de passe'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir une adresse email.'
+    email_invalid: 'Veuillez saisir une adresse email valide.'
+  flash:
+    info_updated: 'Vos informations ont bien été mises à jour.'
+    password_updated: 'Votre mot de passe a bien été mis à jour.'
+  error:
+    email_already_used: 'Cet email est déjà utilisé sur un autre compte.'
+    current_password_invalid: 'Le mot de passe actuel est incorrect.'
+    login_required_events: 'Vous devez être connecté pour voir vos événements.'
+    new_password_same_as_old: 'Le nouveau mot de passe doit être différent de l’ancien.'
+
+login:
+  title: 'Se connecter'
+  email:
+    label: 'Email'
+    placeholder: 'votre.email@example.com'
+  password:
+    label: 'Mot de passe'
+    placeholder: 'Votre mot de passe'
+  submit: 'Se connecter'
+  error:
+    invalid_credentials: 'Identifiant ou mot de passe invalides.'
+  no_account: 'Pas encore inscrit ?'
+  register_link: 'Inscrivez-vous'
+  close: 'Fermer'
+
+
+signup:
+  title: 'Créer un compte'
+  submit: 'Créer mon compte'
+  already_account: 'Vous avez déjà un compte ?'
+  login_link: 'Connectez-vous'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+    password:
+      label: 'Mot de passe'
+      placeholder: 'Votre mot de passe'
+    password_confirm:
+      label: 'Confirmation du mot de passe'
+      placeholder: 'Confirmez votre mot de passe'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir une adresse email.'
+    email_invalid: 'Veuillez saisir une adresse email valide.'
+    password_required: 'Veuillez saisir votre mot de passe.'
+    password_confirm_required: 'Veuillez confirmer votre mot de passe.'
+    password_mismatch: 'Les deux mots de passe doivent être identiques.'
+    password_min_length: 'Votre mot de passe doit comporter au moins {{ limit }} caractères.'
+    password_max_length: 'Votre mot de passe doit comporter maximum {{ limit }} caractères.'
+    password_strength_invalid: 'Le mot de passe ne respecte pas les critères de sécurité.'
+  error:
+    email_already_used: 'Un compte existe déjà avec cette adresse email, essayez de vous connecter !'

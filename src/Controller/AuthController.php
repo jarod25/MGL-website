@@ -13,6 +13,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AuthController extends AbstractController
 {
@@ -22,7 +23,8 @@ class AuthController extends AbstractController
         private readonly EntityManagerInterface      $em,
         private readonly UserPasswordHasherInterface $userPasswordHasher,
         private readonly UserAuthenticatorInterface  $userAuthenticator,
-        private readonly AppAuthenticator            $authenticator
+        private readonly AppAuthenticator            $authenticator,
+        private readonly TranslatorInterface         $translator
     )
     {
     }
@@ -55,7 +57,7 @@ class AuthController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $alreadyExistUser = $this->em->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
             if ($alreadyExistUser) {
-                $this->addFlash('danger', 'Un compte existe déjà avec cette adresse email, essayez de vous connecter !');
+                $this->addFlash('danger', $this->translator->trans('signup.error.email_already_used'));
                 return $this->redirectToRoute('app_login');
             }
 
