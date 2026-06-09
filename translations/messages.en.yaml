@@ -23,6 +23,11 @@ registration:
     is_major_confirmed:
       label: 'I confirm that I am of legal age.'
     submit_payment: 'Continue to payment'
+  status:
+    pending_payment: 'Pending payment'
+    paid: 'Paid'
+    cancelled: 'Cancelled'
+    refunded: 'Refunded'
   pending:
     title: 'Payment pending'
     message: 'Your LAN registration has been created and is awaiting payment.'
@@ -47,10 +52,11 @@ registration:
 navigation:
   toggle: 'Toggle navigation'
   close: 'Close'
-  profile: 'Profile'
+  profile: 'My account'
   login: 'Log in'
   logout: 'Log out'
   login_signup: 'Log in / Sign up'
+  my_lan: 'My LAN space'
   teams: 'Teams'
   home: 'Home'
   language: 'Language'
@@ -169,3 +175,37 @@ game:
   day:
     saturday: 'Saturday'
     sunday: 'Sunday'
+
+lan_profile:
+  title: 'My LAN space'
+  registration:
+    title: 'Registration'
+    status: 'Registration status'
+    reference: 'Internal reference'
+    discord: 'Discord username'
+    created_at: 'Created at'
+    paid_at: 'Paid at'
+    subscription: 'Subscription'
+    no_subscription: 'No subscription'
+    price: 'Price'
+    duration: 'Duration'
+    duration_days: '%days% days'
+    not_available: 'Not provided'
+  teams_as_captain:
+    title: 'My teams as captain'
+    empty: 'You are not captain of any team yet.'
+  teams_as_member:
+    title: 'My teams as member'
+    empty: 'You are not a member of any team yet.'
+  team:
+    name: 'Team'
+    members_count: '%count% / %max% members'
+    captain_badge: 'Captain'
+    details: 'View team'
+  actions:
+    teams: 'Browse teams'
+    create_team: 'Create a team'
+    payment_pending: 'Finalize payment'
+  payment_required: 'You must finalize your payment before creating or joining a team.'
+  error:
+    participant_required: 'You need a LAN registration before accessing your LAN space.'

@@ -23,6 +23,11 @@ registration:
     is_major_confirmed:
       label: 'Je confirme être majeur·e.'
     submit_payment: 'Continuer vers le paiement'
+  status:
+    pending_payment: 'Paiement en attente'
+    paid: 'Payée'
+    cancelled: 'Annulée'
+    refunded: 'Remboursée'
   pending:
     title: 'Paiement en attente'
     message: 'Votre inscription LAN est créée et en attente de paiement.'
@@ -47,10 +52,11 @@ registration:
 navigation:
   toggle: 'Afficher ou masquer la navigation'
   close: 'Fermer'
-  profile: 'Profil'
+  profile: 'Mon compte'
   login: 'Se connecter'
   logout: 'Se déconnecter'
   login_signup: 'Se connecter / S’inscrire'
+  my_lan: 'Mon espace LAN'
   teams: 'Équipes'
   home: 'Accueil'
   language: 'Langue'
@@ -170,3 +176,37 @@ game:
   day:
     saturday: 'Samedi'
     sunday: 'Dimanche'
+
+lan_profile:
+  title: 'Mon espace LAN'
+  registration:
+    title: 'Inscription'
+    status: 'Statut d’inscription'
+    reference: 'Référence interne'
+    discord: 'Pseudo Discord'
+    created_at: 'Créée le'
+    paid_at: 'Payée le'
+    subscription: 'Subscription'
+    no_subscription: 'Aucune subscription'
+    price: 'Prix'
+    duration: 'Durée'
+    duration_days: '%days% jours'
+    not_available: 'Non renseigné'
+  teams_as_captain:
+    title: 'Mes équipes en tant que capitaine'
+    empty: 'Tu n’es capitaine d’aucune équipe pour le moment.'
+  teams_as_member:
+    title: 'Mes équipes en tant que membre'
+    empty: 'Tu n’es membre d’aucune équipe pour le moment.'
+  team:
+    name: 'Équipe'
+    members_count: '%count% / %max% membres'
+    captain_badge: 'Capitaine'
+    details: 'Voir l’équipe'
+  actions:
+    teams: 'Voir les équipes'
+    create_team: 'Créer une équipe'
+    payment_pending: 'Finaliser le paiement'
+  payment_required: 'Tu dois finaliser ton paiement avant de créer ou rejoindre une équipe.'
+  error:
+    participant_required: 'Tu dois avoir une inscription LAN avant d’accéder à ton espace LAN.'

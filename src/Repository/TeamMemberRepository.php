@@ -46,4 +46,20 @@ class TeamMemberRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findByParticipant(Participant $participant): array
+    {
+        return $this->createQueryBuilder('tm')
+            ->addSelect('t', 'g', 'c')
+            ->join('tm.team', 't')
+            ->join('tm.game', 'g')
+            ->join('t.captain', 'c')
+            ->andWhere('tm.participant = :participant')
+            ->setParameter('participant', $participant)
+            ->orderBy('tm.joinedAt', 'DESC')
+            ->addOrderBy('g.day', 'ASC')
+            ->addOrderBy('t.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

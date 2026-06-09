@@ -23,6 +23,11 @@ registration:
     is_major_confirmed:
       label: 'Ich bestätige, dass ich volljährig bin.'
     submit_payment: 'Weiter zur Zahlung'
+  status:
+    pending_payment: 'Zahlung ausstehend'
+    paid: 'Bezahlt'
+    cancelled: 'Storniert'
+    refunded: 'Erstattet'
   pending:
     title: 'Zahlung ausstehend'
     message: 'Ihre LAN-Anmeldung wurde erstellt und wartet auf die Zahlung.'
@@ -47,10 +52,11 @@ registration:
 navigation:
   toggle: 'Navigation umschalten'
   close: 'Schließen'
-  profile: 'Profil'
+  profile: 'Mein Konto'
   login: 'Anmelden'
   logout: 'Abmelden'
   login_signup: 'Anmelden / Registrieren'
+  my_lan: 'Mein LAN-Bereich'
   teams: 'Teams'
   home: 'Startseite'
   language: 'Sprache'
@@ -169,3 +175,37 @@ game:
   day:
     saturday: 'Samstag'
     sunday: 'Sonntag'
+
+lan_profile:
+  title: 'Mein LAN-Bereich'
+  registration:
+    title: 'Anmeldung'
+    status: 'Anmeldestatus'
+    reference: 'Interne Referenz'
+    discord: 'Discord-Name'
+    created_at: 'Erstellt am'
+    paid_at: 'Bezahlt am'
+    subscription: 'Subscription'
+    no_subscription: 'Keine Subscription'
+    price: 'Preis'
+    duration: 'Dauer'
+    duration_days: '%days% Tage'
+    not_available: 'Nicht angegeben'
+  teams_as_captain:
+    title: 'Meine Teams als Captain'
+    empty: 'Du bist noch Captain von keinem Team.'
+  teams_as_member:
+    title: 'Meine Teams als Mitglied'
+    empty: 'Du bist noch Mitglied von keinem Team.'
+  team:
+    name: 'Team'
+    members_count: '%count% / %max% Mitglieder'
+    captain_badge: 'Captain'
+    details: 'Team ansehen'
+  actions:
+    teams: 'Teams ansehen'
+    create_team: 'Team erstellen'
+    payment_pending: 'Zahlung abschließen'
+  payment_required: 'Du musst deine Zahlung abschließen, bevor du ein Team erstellen oder einem Team beitreten kannst.'
+  error:
+    participant_required: 'Du benötigst eine LAN-Anmeldung, bevor du deinen LAN-Bereich öffnen kannst.'
