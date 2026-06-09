@@ -4,17 +4,49 @@
 
 {% block body %}
     <div class="container py-4">
-        <h1>{{ 'registration.title'|trans }}</h1>
-        <p>{{ 'registration.payment_notice'|trans }}</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h1 class="h2 mb-0">{{ 'registration.title'|trans }}</h1>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-muted">{{ 'registration.subtitle'|trans }}</p>
 
-        {{ form_start(form) }}
-        {{ form_row(form.firstname) }}
-        {{ form_row(form.lastname) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.discordPseudo) }}
-        {{ form_row(form.isMajorConfirmed) }}
-        <button class="btn btn-primary" type="submit">{{ 'registration.form.submit_payment'|trans }}</button>
-        {{ form_end(form) }}
+                        {{ form_start(form) }}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{ form_row(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.password.first, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.password.second, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_row(form.discordPseudo, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_row(form.isMajorConfirmed) }}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button class="btn btn-primary" type="submit">{{ 'registration.submit'|trans }}</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                    <div class="card-footer text-center">
+                        <span class="small">{{ 'registration.already_registered'|trans }} <a href="{{ path('app_login') }}">{{ 'registration.login_link'|trans }}</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

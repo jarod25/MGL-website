@@ -1,5 +1,9 @@
 registration:
   title: 'LAN registration'
+  subtitle: 'Create your LAN registration, then finalize your payment to join or create teams.'
+  submit: 'Continue to payment'
+  already_registered: 'Already registered?'
+  login_link: 'Log in'
   payment_notice: 'Fill in this form to create your registration. The subscription tier will be determined later through the HelloAsso payment.'
   form:
     firstname:
@@ -23,6 +27,11 @@ registration:
     is_major_confirmed:
       label: 'I confirm that I am of legal age.'
     submit_payment: 'Continue to payment'
+  status:
+    pending_payment: 'Pending payment'
+    paid: 'Paid'
+    cancelled: 'Cancelled'
+    refunded: 'Refunded'
   pending:
     title: 'Payment pending'
     message: 'Your LAN registration has been created and is awaiting payment.'
@@ -47,10 +56,11 @@ registration:
 navigation:
   toggle: 'Toggle navigation'
   close: 'Close'
-  profile: 'Profile'
+  profile: 'My account'
   login: 'Log in'
   logout: 'Log out'
   login_signup: 'Log in / Sign up'
+  my_lan: 'My LAN space'
   teams: 'Teams'
   home: 'Home'
   language: 'Language'
@@ -169,3 +179,140 @@ game:
   day:
     saturday: 'Saturday'
     sunday: 'Sunday'
+
+lan_profile:
+  title: 'My LAN space'
+  registration:
+    title: 'Registration'
+    status: 'Registration status'
+    reference: 'Internal reference'
+    discord: 'Discord username'
+    created_at: 'Created at'
+    paid_at: 'Paid at'
+    subscription: 'Subscription'
+    no_subscription: 'No subscription'
+    price: 'Price'
+    duration: 'Duration'
+    duration_days: '%days% days'
+    not_available: 'Not provided'
+  teams_as_captain:
+    title: 'My teams as captain'
+    empty: 'You are not captain of any team yet.'
+  teams_as_member:
+    title: 'My teams as member'
+    empty: 'You are not a member of any team yet.'
+  team:
+    name: 'Team'
+    members_count: '%count% / %max% members'
+    captain_badge: 'Captain'
+    details: 'View team'
+  actions:
+    teams: 'Browse teams'
+    create_team: 'Create a team'
+    payment_pending: 'Finalize payment'
+  payment_required: 'You must finalize your payment before creating or joining a team.'
+  error:
+    participant_required: 'You need a LAN registration before accessing your LAN space.'
+
+account:
+  title: 'My account'
+  info:
+    title: 'Account information'
+  password:
+    title: 'Password'
+    current:
+      label: 'Current password'
+      placeholder: 'Current password'
+    new:
+      label: 'New password'
+      placeholder: 'New password'
+    confirm:
+      label: 'Password confirmation'
+      placeholder: 'Confirm the new password'
+    mismatch: 'The two passwords must match.'
+    required: 'Please enter your password.'
+    confirm_required: 'Please confirm your password.'
+    min_length: 'Your password must contain at least {{ limit }} characters.'
+    max_length: 'Your password must contain at most {{ limit }} characters.'
+    strength_invalid: 'The password does not meet the security requirements.'
+  form:
+    firstname:
+      label: 'First name'
+      placeholder: 'Your first name'
+    lastname:
+      label: 'Last name'
+      placeholder: 'Your last name'
+    email:
+      label: 'Email'
+      placeholder: 'your.email@example.com'
+    discord_pseudo:
+      label: 'Discord username'
+      placeholder: 'Your Discord username'
+      help: 'Optional LAN Discord username shown in your LAN space.'
+      participant_required: 'Create a LAN registration to manage your Discord username here.'
+    submit_info: 'Update my information'
+    submit_password: 'Update my password'
+  validation:
+    firstname_required: 'Please enter a first name.'
+    lastname_required: 'Please enter a last name.'
+    email_required: 'Please enter an email.'
+    email_invalid: 'Please enter a valid email.'
+  flash:
+    info_updated: 'Your information has been updated.'
+    password_updated: 'Your password has been updated.'
+  error:
+    email_already_used: 'This email is already used by another account.'
+    current_password_invalid: 'The current password is incorrect.'
+    login_required_events: 'You must be logged in to view your events.'
+    new_password_same_as_old: 'The new password must be different from the old one.'
+
+login:
+  title: 'Log in'
+  email:
+    label: 'Email'
+    placeholder: 'your.email@example.com'
+  password:
+    label: 'Password'
+    placeholder: 'Your password'
+  submit: 'Log in'
+  error:
+    invalid_credentials: 'Invalid username or password.'
+  no_account: 'Not registered yet?'
+  register_link: 'Sign up'
+  close: 'Close'
+
+
+signup:
+  title: 'Create an account'
+  submit: 'Create my account'
+  already_account: 'Already have an account?'
+  login_link: 'Log in'
+  form:
+    firstname:
+      label: 'First name'
+      placeholder: 'Your first name'
+    lastname:
+      label: 'Last name'
+      placeholder: 'Your last name'
+    email:
+      label: 'Email'
+      placeholder: 'your.email@example.com'
+    password:
+      label: 'Password'
+      placeholder: 'Your password'
+    password_confirm:
+      label: 'Password confirmation'
+      placeholder: 'Confirm your password'
+  validation:
+    firstname_required: 'Please enter a first name.'
+    lastname_required: 'Please enter a last name.'
+    email_required: 'Please enter an email.'
+    email_invalid: 'Please enter a valid email.'
+    password_required: 'Please enter a password.'
+    password_confirm_required: 'Please confirm your password.'
+    password_mismatch: 'The two passwords must match.'
+    password_min_length: 'Your password must contain at least {{ limit }} characters.'
+    password_max_length: 'Your password must contain at most {{ limit }} characters.'
+    password_strength_invalid: 'The password does not meet the security requirements.'
+  error:
+    email_already_used: 'An account already exists with this email. Please try logging in.'

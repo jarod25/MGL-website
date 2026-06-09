@@ -4,6 +4,7 @@ namespace App\Form\User;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,59 +17,72 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'account.form.firstname.label',
                 'attr' => [
-                    'placeholder' => 'Prénom',
+                    'placeholder' => 'account.form.firstname.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir un prénom',
-                    ]),
+                    new NotBlank(message: 'account.validation.firstname_required'),
                 ],
                 'required' => false,
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'account.form.lastname.label',
                 'attr' => [
-                    'placeholder' => 'Nom',
+                    'placeholder' => 'account.form.lastname.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir un nom',
-                    ]),
+                    new NotBlank(message: 'account.validation.lastname_required'),
                 ],
                 'required' => false,
             ])
-            ->add('email', TextType::class, [
-                'label' => 'Email',
+            ->add('email', EmailType::class, [
+                'label' => 'account.form.email.label',
                 'attr' => [
-                    'placeholder' => 'Email',
+                    'placeholder' => 'account.form.email.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank(
-                        message: 'Veuillez saisir une adresse email',
-                    ),
-                    new Email(
-                        message: 'L\'adresse email n\'est pas valide',
-                    ),
+                    new NotBlank(message: 'account.validation.email_required'),
+                    new Email(message: 'account.validation.email_invalid'),
                 ],
                 'required' => false,
             ]);
+
+        if ($options['has_lan_participant']) {
+            $builder->add('discordPseudo', TextType::class, [
+                'label' => 'account.form.discord_pseudo.label',
+                'mapped' => false,
+                'required' => false,
+                'data' => $options['discord_pseudo'],
+                'attr' => [
+                    'placeholder' => 'account.form.discord_pseudo.placeholder',
+                ],
+                'help' => 'account.form.discord_pseudo.help',
+                'row_attr' => [
+                    'class' => 'form-floating',
+                ],
+            ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'discord_pseudo' => null,
+            'has_lan_participant' => false,
         ]);
+
+        $resolver->setAllowedTypes('discord_pseudo', ['null', 'string']);
+        $resolver->setAllowedTypes('has_lan_participant', 'bool');
     }
 }
