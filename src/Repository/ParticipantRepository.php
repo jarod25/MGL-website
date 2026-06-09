@@ -43,4 +43,16 @@ class ParticipantRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function findOneByEmailOrInternalReference(string $identifier): ?Participant
+    {
+        $normalizedIdentifier = mb_strtolower(trim($identifier));
+
+        return $this->createQueryBuilder('p')
+            ->andWhere('LOWER(p.email) = :identifier OR LOWER(p.internalReference) = :identifier')
+            ->setParameter('identifier', $normalizedIdentifier)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

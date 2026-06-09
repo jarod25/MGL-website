@@ -28,6 +28,9 @@ registration:
     message: 'Your LAN registration has been created and is awaiting payment.'
     reference: 'Internal reference: %reference%'
     payment_next_step: 'The HelloAsso redirect will be integrated soon.'
+    status_pending: 'Payment is still pending. The HelloAsso payment flow will be connected later.'
+    status_paid: 'Your LAN registration is validated.'
+    go_to_teams: 'Go to teams'
   error:
     email_already_used: 'An account already exists with this email.'
     not_found: 'Registration not found.'
@@ -87,6 +90,8 @@ team:
     in_game_pseudo: 'In-game username'
     captain_badge: 'Captain'
     add_member: 'Add a member'
+    actions: 'Actions'
+    team_full: 'Team full'
   member:
     new:
       title: 'Add a member to %name%'
@@ -115,16 +120,27 @@ team:
   action:
     back_to_list: 'Back to teams'
     back_to_team: 'Back to the team'
+    remove_member: 'Remove'
+    delete_team: 'Delete team'
   flash:
     created: 'The team has been created.'
     member_added: 'The member has been added to the team.'
+    member_removed: 'The member has been removed from the team.'
+    deleted: 'The team has been deleted.'
   error:
     login_required: 'You must be logged in to manage LAN teams.'
     participant_required: 'You need a LAN registration before managing a team.'
     member_not_found: 'No registered participant matches this email or Discord username.'
     only_captain_can_add_member: 'Only the captain can add members to this team.'
+    only_captain_can_remove_member: 'Only the captain can remove members from this team.'
+    member_does_not_belong_to_team: 'This member does not belong to this team.'
+    cannot_remove_captain: 'The captain cannot be removed from the team.'
     creation_failed: 'The team could not be created.'
     member_add_failed: 'The member could not be added.'
+    member_remove_failed: 'The member could not be removed.'
+    only_captain_can_delete_team: 'Only the captain can delete this team.'
+    delete_failed: 'The team could not be deleted.'
+    invalid_delete_token: 'The team deletion request is invalid. Please try again.'
     participant_must_be_paid: 'The participant must be paid to join a team.'
     participant_subscription_required: 'The participant must have a subscription to join a team.'
     game_not_active: 'This game is not active.'
@@ -138,6 +154,10 @@ team:
     game_max_teams_reached: 'This game has reached its team capacity.'
     game_max_players_invalid: 'The game player capacity is invalid.'
     team_max_players_reached: 'This team has reached its player capacity.'
+  delete:
+    title: 'Delete team'
+    help: 'Deleting this team will also remove all of its members. This action cannot be undone.'
+    confirm: 'Are you sure you want to delete this team?'
   validation:
     name_required: 'Please enter a team name.'
     game_required: 'Please choose a game.'

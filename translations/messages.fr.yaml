@@ -28,6 +28,9 @@ registration:
     message: 'Votre inscription LAN est créée et en attente de paiement.'
     reference: 'Référence interne : %reference%'
     payment_next_step: 'La redirection HelloAsso sera intégrée prochainement.'
+    status_pending: 'Le paiement est toujours en attente. Le parcours de paiement HelloAsso sera branché plus tard.'
+    status_paid: 'Votre inscription LAN est validée.'
+    go_to_teams: 'Accéder aux équipes'
   error:
     email_already_used: 'Un compte existe déjà avec cet email.'
     not_found: 'Inscription introuvable.'
@@ -88,6 +91,8 @@ team:
     in_game_pseudo: 'Pseudo in-game'
     captain_badge: 'Capitaine'
     add_member: 'Ajouter un membre'
+    actions: 'Actions'
+    team_full: 'Équipe complète'
   member:
     new:
       title: 'Ajouter un membre à %name%'
@@ -116,16 +121,27 @@ team:
   action:
     back_to_list: 'Retour aux équipes'
     back_to_team: 'Retour à l’équipe'
+    remove_member: 'Retirer'
+    delete_team: 'Supprimer l’équipe'
   flash:
     created: 'L’équipe a été créée.'
     member_added: 'Le membre a été ajouté à l’équipe.'
+    member_removed: 'Le membre a été retiré de l’équipe.'
+    deleted: 'L’équipe a été supprimée.'
   error:
     login_required: 'Vous devez être connecté pour gérer les équipes LAN.'
     participant_required: 'Vous devez avoir une inscription LAN avant de gérer une équipe.'
     member_not_found: 'Aucun participant inscrit ne correspond à cet email ou pseudo Discord.'
     only_captain_can_add_member: 'Seul le capitaine peut ajouter des membres à cette équipe.'
+    only_captain_can_remove_member: 'Seul le capitaine peut retirer des membres de cette équipe.'
+    member_does_not_belong_to_team: 'Ce membre n’appartient pas à cette équipe.'
+    cannot_remove_captain: 'Le capitaine ne peut pas être retiré de l’équipe.'
     creation_failed: 'L’équipe n’a pas pu être créée.'
     member_add_failed: 'Le membre n’a pas pu être ajouté.'
+    member_remove_failed: 'Le membre n’a pas pu être retiré.'
+    only_captain_can_delete_team: 'Seul le capitaine peut supprimer cette équipe.'
+    delete_failed: 'L’équipe n’a pas pu être supprimée.'
+    invalid_delete_token: 'La demande de suppression de l’équipe est invalide. Veuillez réessayer.'
     participant_must_be_paid: 'Le participant doit avoir payé pour rejoindre une équipe.'
     participant_subscription_required: 'Le participant doit avoir une formule pour rejoindre une équipe.'
     game_not_active: 'Ce jeu n’est pas actif.'
@@ -139,6 +155,10 @@ team:
     game_max_teams_reached: 'Ce jeu a atteint sa capacité d’équipes.'
     game_max_players_invalid: 'La capacité de joueurs du jeu est invalide.'
     team_max_players_reached: 'Cette équipe a atteint sa capacité de joueurs.'
+  delete:
+    title: 'Supprimer l’équipe'
+    help: 'Supprimer cette équipe retirera aussi tous ses membres. Cette action est irréversible.'
+    confirm: 'Voulez-vous vraiment supprimer cette équipe ?'
   validation:
     name_required: 'Veuillez saisir un nom d’équipe.'
     game_required: 'Veuillez choisir un jeu.'

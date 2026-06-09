@@ -8,6 +8,8 @@
             <h1>{{ 'team.show.title'|trans({ '%name%': team.name }) }}</h1>
             {% if canAddMembers %}
                 <a class="btn btn-primary" href="{{ path('app_team_member_new', { id: team.id }) }}">{{ 'team.show.add_member'|trans }}</a>
+            {% elseif isCaptain and isTeamFull %}
+                <span class="badge bg-secondary">{{ 'team.show.team_full'|trans }}</span>
             {% endif %}
         </div>
 
@@ -19,7 +21,7 @@
             <dd class="col-sm-9">{{ ('game.day.' ~ team.game.day.value)|trans }}</dd>
 
             <dt class="col-sm-3">{{ 'team.show.players'|trans }}</dt>
-            <dd class="col-sm-9">{{ 'team.show.players_count'|trans({ '%count%': members|length, '%max%': team.game.maxPlayersPerTeam }) }}</dd>
+            <dd class="col-sm-9">{{ 'team.show.players_count'|trans({ '%count%': memberCount, '%max%': maxPlayers }) }}</dd>
 
             <dt class="col-sm-3">{{ 'team.show.captain'|trans }}</dt>
             <dd class="col-sm-9">{{ team.captain.firstname }} {{ team.captain.lastname }}</dd>
@@ -32,23 +34,56 @@
                 <tr>
                     <th scope="col">{{ 'team.show.member'|trans }}</th>
                     <th scope="col">{{ 'team.show.in_game_pseudo'|trans }}</th>
+                    {% if isCaptain %}
+                        <th scope="col">{{ 'team.show.actions'|trans }}</th>
+                    {% endif %}
                 </tr>
                 </thead>
                 <tbody>
                 {% for member in members %}
+                    {% set isCaptainMember = member.participant.id == team.captain.id %}
                     <tr>
                         <td>
                             {{ member.participant.firstname }} {{ member.participant.lastname }}
-                            {% if member.participant.id == team.captain.id %}
+                            {% if isCaptainMember %}
                                 <span class="badge bg-secondary">{{ 'team.show.captain_badge'|trans }}</span>
                             {% endif %}
                         </td>
                         <td>{{ member.inGamePseudo }}</td>
+                        {% if isCaptain %}
+                            <td>
+                                {% if not isCaptainMember %}
+                                    <form method="post" action="{{ path('app_team_member_delete', { teamId: team.id, memberId: member.id }) }}" class="d-inline">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete_team_member_' ~ member.id) }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">{{ 'team.action.remove_member'|trans }}</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
+
+        {% if isCaptain %}
+            <div class="card border-danger mt-4">
+                <div class="card-body">
+                    <h2 class="h5 text-danger">{{ 'team.delete.title'|trans }}</h2>
+                    <p>{{ 'team.delete.help'|trans }}</p>
+                    <form method="post" action="{{ path('app_team_delete', { id: team.id }) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete_team_' ~ team.id) }}">
+                        <button
+                                type="submit"
+                                class="btn btn-outline-danger"
+                                onclick="return confirm('{{ 'team.delete.confirm'|trans|e('js') }}');"
+                        >
+                            {{ 'team.action.delete_team'|trans }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
 
         <a class="btn btn-secondary" href="{{ path('app_team_index') }}">{{ 'team.action.back_to_list'|trans }}</a>
     </div>

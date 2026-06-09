@@ -28,6 +28,9 @@ registration:
     message: 'Ihre LAN-Anmeldung wurde erstellt und wartet auf die Zahlung.'
     reference: 'Interne Referenz: %reference%'
     payment_next_step: 'Die HelloAsso-Weiterleitung wird bald integriert.'
+    status_pending: 'Die Zahlung steht noch aus. Der HelloAsso-Zahlungsablauf wird später angebunden.'
+    status_paid: 'Ihre LAN-Anmeldung ist bestätigt.'
+    go_to_teams: 'Zu den Teams'
   error:
     email_already_used: 'Ein Konto mit dieser E-Mail-Adresse existiert bereits.'
     not_found: 'Anmeldung nicht gefunden.'
@@ -87,6 +90,8 @@ team:
     in_game_pseudo: 'In-Game-Name'
     captain_badge: 'Captain'
     add_member: 'Mitglied hinzufügen'
+    actions: 'Aktionen'
+    team_full: 'Team voll'
   member:
     new:
       title: 'Mitglied zu %name% hinzufügen'
@@ -115,16 +120,27 @@ team:
   action:
     back_to_list: 'Zurück zu den Teams'
     back_to_team: 'Zurück zum Team'
+    remove_member: 'Entfernen'
+    delete_team: 'Team löschen'
   flash:
     created: 'Das Team wurde erstellt.'
     member_added: 'Das Mitglied wurde dem Team hinzugefügt.'
+    member_removed: 'Das Mitglied wurde aus dem Team entfernt.'
+    deleted: 'Das Team wurde gelöscht.'
   error:
     login_required: 'Sie müssen angemeldet sein, um LAN-Teams zu verwalten.'
     participant_required: 'Sie benötigen eine LAN-Anmeldung, bevor Sie ein Team verwalten können.'
     member_not_found: 'Kein angemeldeter Teilnehmer passt zu dieser E-Mail-Adresse oder diesem Discord-Namen.'
     only_captain_can_add_member: 'Nur der Captain kann Mitglieder zu diesem Team hinzufügen.'
+    only_captain_can_remove_member: 'Nur der Captain kann Mitglieder aus diesem Team entfernen.'
+    member_does_not_belong_to_team: 'Dieses Mitglied gehört nicht zu diesem Team.'
+    cannot_remove_captain: 'Der Captain kann nicht aus dem Team entfernt werden.'
     creation_failed: 'Das Team konnte nicht erstellt werden.'
     member_add_failed: 'Das Mitglied konnte nicht hinzugefügt werden.'
+    member_remove_failed: 'Das Mitglied konnte nicht entfernt werden.'
+    only_captain_can_delete_team: 'Nur der Captain kann dieses Team löschen.'
+    delete_failed: 'Das Team konnte nicht gelöscht werden.'
+    invalid_delete_token: 'Die Anfrage zum Löschen des Teams ist ungültig. Bitte versuchen Sie es erneut.'
     participant_must_be_paid: 'Der Teilnehmer muss bezahlt haben, um einem Team beizutreten.'
     participant_subscription_required: 'Der Teilnehmer benötigt eine Formel, um einem Team beizutreten.'
     game_not_active: 'Dieses Spiel ist nicht aktiv.'
@@ -138,6 +154,10 @@ team:
     game_max_teams_reached: 'Dieses Spiel hat seine Teamkapazität erreicht.'
     game_max_players_invalid: 'Die Spielerkapazität des Spiels ist ungültig.'
     team_max_players_reached: 'Dieses Team hat seine Spielerkapazität erreicht.'
+  delete:
+    title: 'Team löschen'
+    help: 'Beim Löschen dieses Teams werden auch alle Mitglieder entfernt. Diese Aktion kann nicht rückgängig gemacht werden.'
+    confirm: 'Möchten Sie dieses Team wirklich löschen?'
   validation:
     name_required: 'Bitte geben Sie einen Teamnamen ein.'
     game_required: 'Bitte wählen Sie ein Spiel aus.'

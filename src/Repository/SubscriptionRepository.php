@@ -15,4 +15,9 @@ class SubscriptionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Subscription::class);
     }
+
+    public function findOneBySlug(string $slug): ?Subscription
+    {
+        return $this->findOneBy(['slug' => trim($slug)]);
+    }
 }

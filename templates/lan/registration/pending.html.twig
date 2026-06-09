@@ -7,6 +7,10 @@
         <h1>{{ 'registration.pending.title'|trans }}</h1>
         <p>{{ 'registration.pending.message'|trans }}</p>
         <p>{{ 'registration.pending.reference'|trans({ '%reference%': participant.internalReference }) }}</p>
-        <p>{{ 'registration.pending.payment_next_step'|trans }}</p>
-    </div>
+        {% if participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::PAID') %}
+            <p>{{ 'registration.pending.status_paid'|trans }}</p>
+            <a href="{{ path('app_team_index') }}" class="btn btn-primary">{{ 'registration.pending.go_to_teams'|trans }}</a>
+        {% else %}
+            <p>{{ 'registration.pending.status_pending'|trans }}</p>
+        {% endif %}    </div>
 {% endblock %}

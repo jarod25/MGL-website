@@ -8,9 +8,9 @@
             {{ knp_menu_render('main') }}
             {% set currentLocale = app.request.locale %}
             {% set locales = {
-                fr: { label: 'language.fr', flag: 'images/flags/fr.svg' },
-                en: { label: 'language.en', flag: 'images/flags/en.svg' },
-                de: { label: 'language.de', flag: 'images/flags/de.svg' }
+                fr: { label: 'language.fr', flag: '/images/flags/fr.svg' },
+                en: { label: 'language.en', flag: '/images/flags/en.svg' },
+                de: { label: 'language.de', flag: '/images/flags/de.svg' }
             } %}
             <ul class="navbar-nav language-switcher ms-auto" aria-label="{{ 'navigation.language'|trans }}">
                 {% for locale, language in locales %}
