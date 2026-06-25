@@ -1,3 +1,19 @@
+error:
+  common:
+    back_home: 'Zur Startseite'
+  403:
+    page_title: 'Zugriff verweigert'
+    title: 'Sie können nicht auf diese Seite zugreifen'
+    message: 'Sie haben nicht die erforderlichen Berechtigungen, um diese Seite anzusehen.'
+  404:
+    page_title: 'Seite nicht gefunden'
+    title: 'Diese Seite konnte nicht gefunden werden'
+    message: 'Die gesuchte Seite existiert nicht oder wurde möglicherweise verschoben.'
+  500:
+    page_title: 'Interner Fehler'
+    title: 'Es ist ein Fehler aufgetreten'
+    message: 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es in einigen Augenblicken erneut.'
+
 registration:
   title: 'LAN-Anmeldung'
   subtitle: 'Erstelle deine LAN-Anmeldung und schließe danach die Zahlung ab, um Teams beizutreten oder zu erstellen.'
