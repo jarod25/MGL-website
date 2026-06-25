@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
+{% trans_default_domain 'homepage' %}
 
-{% block title %}{{ 'home.meta.title'|trans }}{% endblock %}
+{% block title %}{{ 'meta.title'|trans }}{% endblock %}
 
 {% block body %}
     {% include 'home/_hero.html.twig' %}
     {% include 'home/_presentation.html.twig' %}
     {% include 'home/_games.html.twig' %}
-    {% include 'home/_schedule.html.twig' %}
     {% include 'home/_pricing.html.twig' %}
     {% include 'home/_practical_information.html.twig' %}
     {% include 'home/_about_preview.html.twig' %}

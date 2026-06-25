@@ -1,11 +1,12 @@
+{% trans_default_domain 'homepage' %}
 <section class="py-4 mb-4">
     <div class="card bg-light">
         <div class="card-body d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center">
             <div>
-                <h2 class="h3 card-title">{{ 'home.about.title'|trans }}</h2>
-                <p class="card-text mb-0">{{ 'home.about.text'|trans }}</p>
+                <h2 class="h3 card-title">{{ 'about_preview.title'|trans }}</h2>
+                <p class="card-text mb-0">{{ 'about_preview.text'|trans }}</p>
             </div>
-            <a class="btn btn-outline-primary" href="{{ path('app_about') }}">{{ 'home.about.link'|trans }}</a>
+            <a class="btn btn-outline-primary" href="{{ path('app_about') }}">{{ 'about_preview.link'|trans }}</a>
         </div>
     </div>
 </section>

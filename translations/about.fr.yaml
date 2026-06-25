@@ -1,0 +1,19 @@
+meta:
+  title: 'À propos'
+intro:
+  title: 'À propos'
+  lead: 'Le Mulhouse Gaming Tournament est un tournoi de jeux vidéo organisé à Mulhouse autour de plusieurs compétitions.'
+  objective: 'L’événement propose un cadre simple pour accueillir les participants, constituer les équipes et présenter les jeux du week-end.'
+schools:
+  title: 'Les écoles'
+  generic: 'Des écoles participent à la préparation du tournoi et accompagnent son organisation.'
+organizers:
+  title: 'L’équipe'
+  generic: 'Une équipe d’organisation prépare l’accueil, les inscriptions et le déroulement du week-end.'
+partners:
+  title: 'Nos partenaires'
+  ikoula_hosting: 'Site hébergé par Ikoula.'
+  ikoula_link: 'Visiter Ikoula'
+contact:
+  title: 'Nous contacter'
+  text: 'Pour contacter l’organisation, envoyez un e-mail à cette adresse.'
