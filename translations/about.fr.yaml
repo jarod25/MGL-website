@@ -5,15 +5,25 @@ intro:
   lead: 'Le Mulhouse Gaming Tournament est un tournoi de jeux vidéo organisé à Mulhouse autour de plusieurs compétitions.'
   objective: 'L’événement propose un cadre simple pour accueillir les participants, constituer les équipes et présenter les jeux du week-end.'
 schools:
-  title: 'Les écoles'
-  generic: 'Des écoles participent à la préparation du tournoi et accompagnent son organisation.'
+  title: 'Les écoles et établissements'
+  generic: 'Le tournoi est organisé avec des étudiants et des établissements mulhousiens, notamment l’Université de Haute-Alsace, l’ENSCMu et l’ENSISA.'
 organizers:
-  title: 'L’équipe'
-  generic: 'Une équipe d’organisation prépare l’accueil, les inscriptions et le déroulement du week-end.'
+  title: 'L’équipe organisatrice'
+  generic: 'Une équipe d’étudiants et d’organisateurs prépare l’événement. Une liste détaillée des membres, rôles et photos pourra être ajoutée ultérieurement dans public/images/team/ au format prenom-nom.webp.'
 partners:
-  title: 'Nos partenaires'
-  ikoula_hosting: 'Site hébergé par Ikoula.'
-  ikoula_link: 'Visiter Ikoula'
+  title: 'Sponsors et partenaires'
+  logo_alt: 'Logo de %name%'
+  ikoula_title: 'Hébergement web, serveurs dédiés et solutions sur mesure'
+  ikoula_alt: 'Partenaire Ikoula'
+  descriptions:
+    phg_academy: 'Lieu d’accueil du tournoi à KMØ Mulhouse.'
+    crous_strasbourg: 'Partenaire institutionnel de l’événement.'
+    mulhouse_alsace_agglomeration: 'Partenaire territorial de l’événement.'
+    universite_haute_alsace: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
+    ikoula: 'Ikoula est un hébergeur et infogéreur français proposant des solutions d’hébergement web, de serveurs et de cloud. Ikoula héberge le site du Mulhouse Gaming Tournament.<br>Site hébergé par <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a>.'
+    enscmu: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
+    ensisa: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
 contact:
   title: 'Nous contacter'
-  text: 'Pour contacter l’organisation, envoyez un e-mail à cette adresse.'
+  text: 'La page de contact regroupe l’adresse e-mail et les informations utiles pour joindre l’organisation.'
+  link: 'Ouvrir la page de contact'

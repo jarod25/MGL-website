@@ -82,6 +82,8 @@ navigation:
   login_signup: 'Se connecter / S’inscrire'
   my_lan: 'Mon espace LAN'
   teams: 'Jeux et équipes'
+  practical_information: 'Informations pratiques'
+  contact: 'Nous contacter'
   about: 'À propos'
   home: 'Accueil'
   language: 'Langue'

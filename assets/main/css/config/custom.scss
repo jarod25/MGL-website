@@ -93,3 +93,24 @@
   object-fit: contain;
   width: 100%;
 }
+
+.event-logo {
+  display: block;
+  max-height: 180px;
+  max-width: min(100%, 420px);
+  object-fit: contain;
+}
+
+.partner-card__logo-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 110px;
+}
+
+.partner-card__logo {
+  display: block;
+  max-height: 90px;
+  max-width: 100%;
+  object-fit: contain;
+}

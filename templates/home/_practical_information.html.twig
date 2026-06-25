@@ -1,16 +1,19 @@
 {% trans_default_domain 'homepage' %}
 <section class="py-4">
     <div class="card">
-        <div class="card-body">
-            <h2 class="h3 card-title">{{ 'information.title'|trans }}</h2>
-            <ul class="mb-0">
-                <li>{{ 'information.registration_required'|trans }}</li>
-                <li>{{ 'information.majority'|trans }}</li>
-                <li>{{ 'information.id_required'|trans }}</li>
-                <li>{{ 'information.no_id'|trans }}</li>
-                <li>{{ 'information.captain_adds_members'|trans }}</li>
-                <li>{{ 'information.pseudo'|trans }}</li>
-            </ul>
+        <div class="card-body d-flex flex-column flex-lg-row justify-content-between gap-3">
+            <div>
+                <h2 class="h3 card-title">{{ 'information.title'|trans }}</h2>
+                <ul class="mb-0">
+                    <li>{{ 'information.arrival'|trans }}</li>
+                    <li>{{ 'information.equipment'|trans }}</li>
+                    <li>{{ 'information.provided'|trans }}</li>
+                    <li>{{ 'information.id_required'|trans }}</li>
+                </ul>
+            </div>
+            <div class="align-self-lg-center">
+                <a class="btn btn-outline-primary" href="{{ path('app_practical_information') }}">{{ 'information.link'|trans }}</a>
+            </div>
         </div>
     </div>
 </section>

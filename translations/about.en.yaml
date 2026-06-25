@@ -5,15 +5,25 @@ intro:
   lead: 'Mulhouse Gaming Tournament is a video game tournament organized in Mulhouse around several competitions.'
   objective: 'The event provides a simple framework to welcome participants, build teams and present the weekend games.'
 schools:
-  title: 'Schools'
-  generic: 'Schools help prepare the tournament and support its organization.'
+  title: 'Schools and institutions'
+  generic: 'The tournament is organized with students and Mulhouse institutions, including Université de Haute-Alsace, ENSCMu and ENSISA.'
 organizers:
-  title: 'The team'
-  generic: 'An organizing team prepares participant welcome, registration and the weekend flow.'
+  title: 'Organizing team'
+  generic: 'A team of students and organizers is preparing the event. A detailed list of members, roles and photos may be added later in public/images/team/ using the prenom-nom.webp format.'
 partners:
-  title: 'Our partners'
-  ikoula_hosting: 'Website hosted by Ikoula.'
-  ikoula_link: 'Visit Ikoula'
+  title: 'Sponsors and partners'
+  logo_alt: '%name% logo'
+  ikoula_title: 'Web hosting, dedicated servers and tailored solutions'
+  ikoula_alt: 'Ikoula partner'
+  descriptions:
+    phg_academy: 'Tournament venue at KMØ Mulhouse.'
+    crous_strasbourg: 'Institutional partner of the event.'
+    mulhouse_alsace_agglomeration: 'Local territorial partner of the event.'
+    universite_haute_alsace: 'Mulhouse institution connected to the tournament’s student community.'
+    ikoula: 'Ikoula is a French hosting and managed services provider offering web hosting, server and cloud solutions. Ikoula hosts the Mulhouse Gaming Tournament website.<br>Website hosted by <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a>.'
+    enscmu: 'Mulhouse institution connected to the tournament’s student community.'
+    ensisa: 'Mulhouse institution connected to the tournament’s student community.'
 contact:
   title: 'Contact us'
-  text: 'To contact the organization, send an email to this address.'
+  text: 'The contact page provides the email address and useful information to reach the organizers.'
+  link: 'Open the contact page'
