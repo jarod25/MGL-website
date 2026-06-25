@@ -9,10 +9,13 @@ use App\Repository\ParticipantRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\TeamMemberRepository;
 use App\Repository\TeamRepository;
+use App\Service\Admin\ParticipantExcelExportService;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
@@ -51,6 +54,20 @@ final class ParticipantAdminController extends AbstractController
                 'subscription' => $subscription?->getId(),
             ],
         ]);
+    }
+
+
+    #[Route('/admin/lan/participants/export.xlsx', name: 'app_admin_lan_participant_export', methods: ['GET'])]
+    public function export(ParticipantExcelExportService $exportService): StreamedResponse
+    {
+        $filename = 'mgl-participants-'.(new \DateTimeImmutable())->format('Y-m-d_H-i').'.xlsx';
+        $response = new StreamedResponse(static function () use ($exportService): void {
+            $exportService->createWriter()->save('php://output');
+        });
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', HeaderUtils::makeDisposition(HeaderUtils::DISPOSITION_ATTACHMENT, $filename));
+
+        return $response;
     }
 
     #[Route('/admin/lan/participants/{id}', name: 'app_admin_lan_participant_show', requirements: ['id' => '\\d+'], methods: ['GET'])]

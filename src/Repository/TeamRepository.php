@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Game;
 use App\Entity\Participant;
+use App\Enum\GameDayEnum;
+use Doctrine\ORM\QueryBuilder;
 use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -49,5 +51,36 @@ class TeamRepository extends ServiceEntityRepository
             ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
+    }
+
+
+    public function createAdminListQueryBuilder(?string $search, ?Game $game, ?GameDayEnum $day): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('t')
+            ->addSelect('g', 'c')
+            ->join('t.game', 'g')
+            ->join('t.captain', 'c')
+            ->orderBy('t.createdAt', 'DESC');
+
+        if ($search !== null && trim($search) !== '') {
+            $normalizedSearch = '%'.mb_strtolower(trim($search)).'%';
+            $queryBuilder
+                ->andWhere('LOWER(t.name) LIKE :search OR LOWER(c.firstname) LIKE :search OR LOWER(c.lastname) LIKE :search OR LOWER(c.email) LIKE :search OR LOWER(c.discordPseudo) LIKE :search')
+                ->setParameter('search', $normalizedSearch);
+        }
+
+        if ($game instanceof Game) {
+            $queryBuilder
+                ->andWhere('t.game = :game')
+                ->setParameter('game', $game);
+        }
+
+        if ($day instanceof GameDayEnum) {
+            $queryBuilder
+                ->andWhere('g.day = :day')
+                ->setParameter('day', $day);
+        }
+
+        return $queryBuilder;
     }
 }
