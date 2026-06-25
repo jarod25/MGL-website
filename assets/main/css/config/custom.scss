@@ -74,3 +74,22 @@
   height: 1.25rem;
   width: 1.25rem;
 }
+
+.team-day-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+.game-card__logo-wrapper {
+  align-items: center;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+}
+
+.game-card__logo {
+  display: block;
+  max-height: 130px;
+  max-width: min(100%, 320px);
+  object-fit: contain;
+  width: 100%;
+}

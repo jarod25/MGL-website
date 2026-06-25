@@ -18,10 +18,10 @@ games:
   empty: 'The games will appear here when the selection is ready.'
   fallback_description: 'A tournament hosted during the event.'
   descriptions:
-    rocket-league: 'Car football played in teams of three.'
-    league-of-legends: 'Two teams of five players face each other in a strategy game.'
-    valorant: 'A tactical shooter between two teams of five players.'
-    ea-fc-26: 'A one-on-one football tournament.'
+    league-of-legends: 'A strategic MOBA where champions battle to destroy the opposing Nexus.'
+    rocket-league: 'A sports game that blends arcade football with vehicles.'
+    valorant: 'A tactical shooter where precision, team strategy and agent abilities make the difference.'
+    ea-fc-26: 'EA SPORTS’ football game, with reworked gameplay for more responsive matches.'
 pricing:
   title: 'Pricing'
   intro: 'Available passes are grouped here to keep the homepage easy to read.'

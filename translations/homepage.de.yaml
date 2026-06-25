@@ -18,10 +18,10 @@ games:
   empty: 'Die Spiele erscheinen hier, sobald die Auswahl bereit ist.'
   fallback_description: 'Ein Turnier während der Veranstaltung.'
   descriptions:
-    rocket-league: 'Autofußball in Dreierteams.'
-    league-of-legends: 'Zwei Teams mit je fünf Spielern treten in einem Strategiespiel gegeneinander an.'
-    valorant: 'Ein taktischer Shooter zwischen zwei Teams mit je fünf Spielern.'
-    ea-fc-26: 'Ein Fußballturnier im Eins-gegen-eins.'
+    league-of-legends: 'Ein strategisches MOBA, in dem Champions kämpfen, um den gegnerischen Nexus zu zerstören.'
+    rocket-league: 'Ein Sportspiel, das Arcade-Fußball mit Fahrzeugen verbindet.'
+    valorant: 'Ein taktischer Shooter, bei dem Präzision, Teamstrategien und Agentenfähigkeiten den Unterschied machen.'
+    ea-fc-26: 'Das Fußballspiel von EA SPORTS mit überarbeitetem Gameplay für reaktionsschnellere Partien.'
 pricing:
   title: 'Die Preise'
   intro: 'Die verfügbaren Formeln sind hier gebündelt, damit die Startseite übersichtlich bleibt.'
