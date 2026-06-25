@@ -1,0 +1,19 @@
+index:
+  title: 'Équipes'
+  empty: 'Les jeux seront présentés ici dès que la sélection sera prête.'
+  create_link: 'Créer une équipe'
+  subtitle: 'Choisissez un jeu pour consulter les équipes déjà créées.'
+  created_teams: '%count% équipe(s) créée(s)'
+  view_teams: 'Voir les équipes'
+  players_count: '%count% / %max% joueurs'
+game:
+  day: 'Jour : %day%'
+  players_per_team: '%maxPlayers% joueurs par équipe'
+  max_teams: '%maxTeams% équipes maximum'
+  page_title: 'Équipes %game%'
+  heading: 'Équipes %game%'
+  teams_capacity: 'Équipes'
+  empty: 'Aucune équipe n’a encore été créée pour %game%.'
+dates:
+  saturday_full: 'Samedi 29 août 2026'
+  sunday_full: 'Dimanche 30 août 2026'

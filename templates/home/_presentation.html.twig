@@ -1,20 +1,21 @@
+{% trans_default_domain 'homepage' %}
 <section class="py-4">
     <div class="row g-4 align-items-stretch">
         <div class="col-lg-8">
             <div class="card h-100">
                 <div class="card-body">
-                    <h2 class="h3 card-title">{{ 'home.presentation.title'|trans }}</h2>
-                    <p class="card-text mb-0">{{ 'home.presentation.text'|trans }}</p>
+                    <h2 class="h3 card-title">{{ 'presentation.title'|trans }}</h2>
+                    <p class="card-text mb-0">{{ 'presentation.text'|trans }}</p>
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
             <div class="card h-100 border-primary">
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{ 'home.presentation.key_dates_title'|trans }}</h2>
+                    <h2 class="h5 card-title">{{ 'presentation.key_dates_title'|trans }}</h2>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0">{{ 'event.date.saturday_full'|trans }}</li>
-                        <li class="list-group-item px-0">{{ 'event.date.sunday_full'|trans }}</li>
+                        <li class="list-group-item px-0">{{ 'event.date.saturday_full'|trans({}, 'messages') }}</li>
+                        <li class="list-group-item px-0">{{ 'event.date.sunday_full'|trans({}, 'messages') }}</li>
                     </ul>
                 </div>
             </div>

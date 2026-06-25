@@ -102,15 +102,6 @@ language:
 
 
 team:
-  index:
-    title: 'Équipes'
-    empty: 'Aucun jeu actif n’est disponible pour le moment.'
-    create_link: 'Créer une équipe'
-    subtitle: 'Choisissez un jeu pour consulter les équipes déjà créées.'
-    created_teams: '%count% équipe(s) créée(s)'
-    view_teams: 'Voir les équipes'
-    no_team_for_game: 'Aucune équipe n’a encore été créée pour ce jeu.'
-    players_count: '%count% / %max% joueurs'
   new:
     title: 'Créer une équipe'
     submit: 'Créer l’équipe'
@@ -151,14 +142,6 @@ team:
       label: 'Pseudo in-game du capitaine'
       placeholder: 'Votre pseudo in-game'
   game:
-    day: 'Jour : %day%'
-    capacity: 'Capacité : %maxPlayers% joueurs par équipe, %maxTeams% équipes maximum'
-    players_per_team: '%maxPlayers% joueurs par équipe'
-    max_teams: '%maxTeams% équipes maximum'
-    page_title: 'Équipes %game%'
-    heading: 'Équipes %game%'
-    teams_capacity: 'Équipes'
-    empty: 'Aucune équipe n’a encore été créée pour %game%.'
     not_found: 'Jeu introuvable.'
   action:
     back_to_list: 'Retour aux équipes'
@@ -508,23 +491,6 @@ event:
   date:
     saturday_full: 'Samedi 29 août 2026'
     sunday_full: 'Dimanche 30 août 2026'
-home:
-  meta: { title: 'Accueil - Mulhouse Gaming LAN' }
-  hero: { badge: '29 et 30 août 2026', title: 'Mulhouse Gaming LAN', dates: 'Samedi 29 août 2026 et dimanche 30 août 2026', subtitle: 'Deux jours de jeu autour de plusieurs tournois, avec une inscription LAN obligatoire pour rejoindre ou créer une équipe.', register: 'S’inscrire à la LAN', teams: 'Voir les jeux et équipes', about: 'À propos' }
-  presentation: { title: 'Un événement gaming sur deux jours', text: 'La Mulhouse Gaming LAN rassemble des tournois de jeux vidéo sur un week-end, dans une organisation simple centrée sur les jeux, les équipes et l’inscription des participants.', key_dates_title: 'Dates confirmées' }
-  games: { title: 'Jeux actifs', all: 'Tous les jeux', view_teams: 'Voir les équipes', empty: 'Aucun jeu actif n’est disponible pour le moment.' }
-  schedule: { title: 'Planning des jeux', empty: 'Aucun jeu annoncé pour ce jour.' }
-  pricing: { title: 'Tarifs', duration: '%days% jour(s)', empty: 'Aucune formule active n’est disponible pour le moment.' }
-  information: { title: 'Informations essentielles', registration_required: 'L’inscription est obligatoire avant de rejoindre une équipe.', majority: 'Chaque participant confirme être majeur.', id_required: 'Une pièce d’identité physique est obligatoire le jour de l’événement.', no_id: 'Sans pièce d’identité, l’accès est refusé.', captain_adds_members: 'Le capitaine ajoute les membres de son équipe.', pseudo: 'Chaque membre utilise un pseudo en jeu.' }
-  about: { title: 'Organisation', text: 'La MGL est portée par des établissements scolaires et une équipe d’organisation. Les informations confirmées sont regroupées sur la page À propos.', link: 'Découvrir l’organisation' }
-about:
-  title: 'À propos'
-  intro: 'La Mulhouse Gaming LAN est un projet d’événement gaming organisé autour de plusieurs tournois.'
-  objective: 'Son objectif est de proposer un cadre clair pour inscrire les participants, constituer les équipes et présenter les jeux de l’événement.'
-  schools: { title: 'Les écoles', generic: 'Plusieurs établissements participent à l’organisation de l’événement. Les noms, descriptions et visuels détaillés seront ajoutés uniquement lorsqu’ils seront confirmés.' }
-  organizers: { title: 'L’équipe organisatrice', generic: 'Une équipe d’organisation prépare l’événement. Les profils individuels seront ajoutés plus tard avec des informations confirmées.' }
-  partners: { title: 'Partenaires', ikoula_hosting: 'Site hébergé par Ikoula.', ikoula_link: 'Visiter Ikoula' }
-  contact: { title: 'Contact', text: 'Pour contacter l’organisation, envoyez un e-mail à l’adresse officielle de la MGL.' }
 subscription:
   tier:
     men-one-day-with-meal: 'Hommes, 1 jour, avec sandwich'

@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
+{% trans_default_domain 'about' %}
 
-{% block title %}{{ 'about.title'|trans }}{% endblock %}
+{% block title %}{{ 'intro.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="py-4">
         <section class="mb-5">
-            <h1>{{ 'about.title'|trans }}</h1>
-            <p class="lead">{{ 'about.intro'|trans }}</p>
-            <p>{{ 'about.objective'|trans }}</p>
+            <h1>{{ 'intro.title'|trans }}</h1>
+            <p class="lead">{{ 'intro.lead'|trans }}</p>
+            <p>{{ 'intro.objective'|trans }}</p>
         </section>
         {% include 'about/_schools.html.twig' %}
         {% include 'about/_organizers.html.twig' %}
