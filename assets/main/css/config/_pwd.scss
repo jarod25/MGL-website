@@ -41,34 +41,16 @@
   }
 }
 
-.pwd-strength {
-  position: relative;
-  margin-top: 10px;
-  padding: 0 0 0 10px;
-  font-size: 14px;
-  color: #fc2338;
-}
-
 .pwd-strength-popover {
   --bs-popover-max-width: min(30rem, calc(100vw - 2rem));
 }
 
-.pwd-strength-popover .pwd-strength {
-  display: block;
-  padding-left: 0;
-  white-space: nowrap;
+.pwd-strength-list {
+  min-width: max-content;
 }
 
 @media (max-width: 575.98px) {
-  .pwd-strength-popover .pwd-strength {
-    white-space: normal;
+  .pwd-strength-list {
+    min-width: 0;
   }
-}
-
-.strength-0,
-.strength-1,
-.strength-2,
-.strength-3,
-.strength-4 {
-  color: #22a903;
 }
