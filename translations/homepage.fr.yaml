@@ -18,10 +18,10 @@ games:
   empty: 'Les jeux seront présentés ici dès que la sélection sera prête.'
   fallback_description: 'Un tournoi organisé pendant l’événement.'
   descriptions:
-    rocket-league: 'Du football en voiture, en équipes de trois.'
-    league-of-legends: 'Deux équipes de cinq joueurs s’affrontent dans un jeu de stratégie.'
-    valorant: 'Un jeu de tir tactique opposant deux équipes de cinq joueurs.'
-    ea-fc-26: 'Un tournoi de football joué en un contre un.'
+    league-of-legends: 'Un MOBA stratégique où des champions s’affrontent pour détruire le Nexus adverse.'
+    rocket-league: 'Un jeu de sport qui mélange football arcade et véhicules.'
+    valorant: 'Un jeu de tir tactique où la précision, les stratégies d’équipe et les compétences des agents font la différence.'
+    ea-fc-26: 'Le jeu de football d’EA SPORTS, avec un gameplay retravaillé pour des matchs plus réactifs.'
 pricing:
   title: 'Les tarifs'
   intro: 'Les formules disponibles sont regroupées ici pour garder une page d’accueil lisible.'

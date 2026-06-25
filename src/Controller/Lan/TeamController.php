@@ -7,6 +7,7 @@ use App\Entity\Participant;
 use App\Entity\Team;
 use App\Entity\TeamMember;
 use App\Entity\User;
+use App\Enum\GameDayEnum;
 use App\Exception\Lan\LanRegistrationException;
 use App\Form\Lan\TeamMemberType;
 use App\Form\Lan\TeamType;
@@ -30,12 +31,69 @@ final class TeamController extends AbstractController
         GameRepository $gameRepository,
         TeamRepository $teamRepository,
     ): Response {
-        $games = $gameRepository->findActiveOrdered();
+        $games = $this->orderGamesForTeamIndex($gameRepository->findActiveOrdered());
 
         return $this->render('lan/team/index.html.twig', [
-            'games' => $games,
+            'gamesByDay' => $this->groupGamesByDay($games),
             'teamCounts' => $teamRepository->countGroupedByGames($games),
+            'gameLogos' => $this->getAvailableGameLogos(),
         ]);
+    }
+
+    /**
+     * @param Game[] $games
+     * @return Game[]
+     */
+    private function orderGamesForTeamIndex(array $games): array
+    {
+        $slugOrder = [
+            'league-of-legends' => 10,
+            'rocket-league' => 20,
+            'valorant' => 30,
+            'ea-fc-26' => 40,
+        ];
+
+        usort($games, static function (Game $first, Game $second) use ($slugOrder): int {
+            return [$first->getDay()->value, $slugOrder[$first->getSlug()] ?? 100, $first->getName()]
+                <=> [$second->getDay()->value, $slugOrder[$second->getSlug()] ?? 100, $second->getName()];
+        });
+
+        return $games;
+    }
+
+    /**
+     * @param Game[] $games
+     * @return array<string, Game[]>
+     */
+    private function groupGamesByDay(array $games): array
+    {
+        $gamesByDay = [
+            GameDayEnum::SATURDAY->value => [],
+            GameDayEnum::SUNDAY->value => [],
+        ];
+
+        foreach ($games as $game) {
+            $gamesByDay[$game->getDay()->value][] = $game;
+        }
+
+        return array_filter($gamesByDay);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function getAvailableGameLogos(): array
+    {
+        $logos = [];
+
+        foreach (['league-of-legends', 'rocket-league', 'valorant', 'ea-fc-26'] as $slug) {
+            $path = 'images/games/'.$slug.'.svg';
+            if (is_file($this->getParameter('kernel.project_dir').'/public/'.$path)) {
+                $logos[$slug] = $path;
+            }
+        }
+
+        return $logos;
     }
 
     #[Route('/teams/game/{slug}', name: 'app_team_game', methods: ['GET'])]

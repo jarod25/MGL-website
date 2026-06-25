@@ -13,27 +13,43 @@
             <a class="btn btn-primary" href="{{ path('app_team_new') }}">{{ 'index.create_link'|trans }}</a>
         </div>
 
-        {% if games is empty %}
+        {% if gamesByDay is empty %}
             <p>{{ 'index.empty'|trans }}</p>
         {% endif %}
 
-        <div class="row g-4">
-            {% for game in games %}
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h2 class="h4 card-title">{{ game.name }}</h2>
-                            <p class="text-muted">{{ ('dates.' ~ game.day.value ~ '_full')|trans }}</p>
-                            <ul class="list-group list-group-flush mb-4">
-                                <li class="list-group-item px-0">{{ 'game.players_per_team'|trans({ '%maxPlayers%': game.maxPlayersPerTeam }) }}</li>
-                                <li class="list-group-item px-0">{{ 'game.max_teams'|trans({ '%maxTeams%': game.maxTeams }) }}</li>
-                                <li class="list-group-item px-0">{{ 'index.created_teams'|trans({ '%count%': teamCounts[game.id]|default(0) }) }}</li>
-                            </ul>
-                            <a class="btn btn-primary mt-auto" href="{{ path('app_team_game', { slug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a>
+        {% for day, dayGames in gamesByDay %}
+            <section class="team-day-section mb-5">
+                <h2 class="h3 mb-4">{{ ('dates.' ~ day ~ '_full')|trans }}</h2>
+                <div class="row g-4">
+                    {% for game in dayGames %}
+                        {% set createdTeams = teamCounts[game.id]|default(0) %}
+                        <div class="col-12 col-md-6">
+                            <div class="card game-card h-100">
+                                <div class="card-body d-flex flex-column text-center gap-3">
+                                    {% if gameLogos[game.slug] is defined %}
+                                        <div class="game-card__logo-wrapper">
+                                            <img
+                                                class="game-card__logo"
+                                                src="{{ asset(gameLogos[game.slug]) }}"
+                                                alt="{{ 'index.logo_alt'|trans({ '%game%': game.name }) }}"
+                                            >
+                                        </div>
+                                    {% endif %}
+                                    <h3 class="h4 card-title mb-0">{{ game.name }}</h3>
+                                    <div class="d-flex flex-column gap-2 text-muted">
+                                        <span>{{ 'game.players_per_team'|trans({ '%maxPlayers%': game.maxPlayersPerTeam, '%count%': game.maxPlayersPerTeam }) }}</span>
+                                        <span>{{ 'game.max_teams'|trans({ '%maxTeams%': game.maxTeams, '%count%': game.maxTeams }) }}</span>
+                                        <span>{{ 'index.created_teams'|trans({ '%count%': createdTeams, '%max%': game.maxTeams }) }}</span>
+                                    </div>
+                                    <div class="mt-auto pt-2">
+                                        <a class="btn btn-primary w-100" href="{{ path('app_team_game', { slug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
+            </section>
+        {% endfor %}
     </div>
 {% endblock %}
