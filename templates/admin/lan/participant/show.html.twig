@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.participant.show_title'|trans({ '%firstname%': participant.firstname, '%lastname%': participant.lastname }) }}{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+            <h1 class="mb-0">{{ 'admin.participant.show_title'|trans({ '%firstname%': participant.firstname, '%lastname%': participant.lastname }) }}</h1>
+            <a class="btn btn-outline-secondary" href="{{ path('app_admin_lan_participant_index') }}">{{ 'admin.participant.back'|trans }}</a>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <div class="card h-100"><div class="card-body">
+                    <h2 class="h5 card-title">{{ 'admin.participant.personal_information'|trans }}</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">{{ 'admin.participant.firstname'|trans }}</dt><dd class="col-sm-7">{{ participant.firstname }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.lastname'|trans }}</dt><dd class="col-sm-7">{{ participant.lastname }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.email'|trans }}</dt><dd class="col-sm-7">{{ participant.email }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.discord_pseudo'|trans }}</dt><dd class="col-sm-7">{{ participant.discordPseudo ?? 'admin.common.not_available'|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.major_confirmed'|trans }}</dt><dd class="col-sm-7">{{ participant.majorConfirmed ? 'admin.common.yes'|trans : 'admin.common.no'|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.internal_reference'|trans }}</dt><dd class="col-sm-7"><code>{{ participant.internalReference }}</code></dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.created_at'|trans }}</dt><dd class="col-sm-7">{{ participant.createdAt ? participant.createdAt|date('d/m/Y H:i') : 'admin.common.not_available'|trans }}</dd>
+                    </dl>
+                </div></div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card h-100"><div class="card-body">
+                    <h2 class="h5 card-title">{{ 'admin.participant.registration_information'|trans }}</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-5">{{ 'admin.participant.status'|trans }}</dt><dd class="col-sm-7">{{ ('registration.status.' ~ participant.registrationStatus.value)|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.subscription'|trans }}</dt><dd class="col-sm-7">{{ participant.subscription ? participant.subscription.name : 'admin.common.not_available'|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.subscription.price'|trans }}</dt><dd class="col-sm-7">{{ participant.subscription ? (participant.subscription.price / 100)|format_currency('EUR', {fraction_digit: 2}) : 'admin.common.not_available'|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.subscription.duration'|trans }}</dt><dd class="col-sm-7">{{ participant.subscription ? 'admin.subscription.duration_days'|trans({ '%days%': participant.subscription.durationDays }) : 'admin.common.not_available'|trans }}</dd>
+                        <dt class="col-sm-5">{{ 'admin.participant.paid_at'|trans }}</dt><dd class="col-sm-7">{{ participant.paidAt ? participant.paidAt|date('d/m/Y H:i') : 'admin.common.not_available'|trans }}</dd>
+                    </dl>
+                </div></div>
+            </div>
+            <div class="col-12">
+                <div class="card"><div class="card-body">
+                    <h2 class="h5 card-title">{{ 'admin.participant.teams'|trans }}</h2>
+                    {% if teamMembers is empty and captainTeams is empty %}
+                        <p class="mb-0">{{ 'admin.participant.no_team'|trans }}</p>
+                    {% else %}
+                        <div class="table-responsive"><table class="table align-middle">
+                            <thead><tr><th>{{ 'admin.participant.game'|trans }}</th><th>{{ 'admin.participant.day'|trans }}</th><th>{{ 'admin.participant.team'|trans }}</th><th>{{ 'team.show.in_game_pseudo'|trans }}</th><th>{{ 'admin.participant.role'|trans }}</th><th>{{ 'admin.participant.public_link'|trans }}</th></tr></thead>
+                            <tbody>
+                            {% for member in teamMembers %}
+                                <tr><td>{{ member.game.name }}</td><td>{{ ('game.day.' ~ member.game.day.value)|trans }}</td><td>{{ member.team.name }}</td><td>{{ member.inGamePseudo }}</td><td>{{ member.team.captain and member.team.captain.id == participant.id ? 'team.show.captain'|trans : 'team.show.member'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: member.team.id }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
+                            {% endfor %}
+                            {% for team in captainTeams %}
+                                {% set alreadyListed = false %}
+                                {% for member in teamMembers %}{% if member.team.id == team.id %}{% set alreadyListed = true %}{% endif %}{% endfor %}
+                                {% if not alreadyListed %}
+                                    <tr><td>{{ team.game.name }}</td><td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td><td>{{ team.name }}</td><td>{{ 'admin.common.not_available'|trans }}</td><td>{{ 'team.show.captain'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table></div>
+                    {% endif %}
+                </div></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

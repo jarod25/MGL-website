@@ -21,18 +21,19 @@ class SubscriptionFixtures extends Fixture implements FixtureGroupInterface
         foreach ($this->getSubscriptions() as $data) {
             $subscription = $subscriptionRepository->findOneBy(['slug' => $data['slug']]);
 
-            if (!$subscription instanceof Subscription) {
-                $subscription = new Subscription();
-                $subscription->setSlug($data['slug']);
-                $manager->persist($subscription);
+            if ($subscription instanceof Subscription) {
+                continue;
             }
 
-            $subscription
+            $subscription = (new Subscription())
+                ->setSlug($data['slug'])
                 ->setName($data['name'])
                 ->setHelloAssoTierId(null)
                 ->setPrice($data['price'])
                 ->setDurationDays($data['durationDays'])
                 ->setIsActive(true);
+
+            $manager->persist($subscription);
         }
 
         $manager->flush();
