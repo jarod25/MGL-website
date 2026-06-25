@@ -66,6 +66,7 @@ final class ParticipantExcelExportService
             $sheet->getStyle('H2:H'.$lastRow)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_CURRENCY_EUR);
         }
 
+
         foreach (range('A', 'N') as $column) {
             $sheet->getColumnDimension($column)->setAutoSize(true);
         }
