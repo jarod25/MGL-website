@@ -21,9 +21,6 @@ class AccountType extends AbstractType
                 'attr' => [
                     'placeholder' => 'account.form.firstname.placeholder',
                 ],
-                'row_attr' => [
-                    'class' => 'form-floating',
-                ],
                 'constraints' => [
                     new NotBlank(message: 'account.validation.firstname_required'),
                 ],
@@ -34,9 +31,6 @@ class AccountType extends AbstractType
                 'attr' => [
                     'placeholder' => 'account.form.lastname.placeholder',
                 ],
-                'row_attr' => [
-                    'class' => 'form-floating',
-                ],
                 'constraints' => [
                     new NotBlank(message: 'account.validation.lastname_required'),
                 ],
@@ -46,9 +40,6 @@ class AccountType extends AbstractType
                 'label' => 'account.form.email.label',
                 'attr' => [
                     'placeholder' => 'account.form.email.placeholder',
-                ],
-                'row_attr' => [
-                    'class' => 'form-floating',
                 ],
                 'constraints' => [
                     new NotBlank(message: 'account.validation.email_required'),
@@ -67,9 +58,6 @@ class AccountType extends AbstractType
                     'placeholder' => 'account.form.discord_pseudo.placeholder',
                 ],
                 'help' => 'account.form.discord_pseudo.help',
-                'row_attr' => [
-                    'class' => 'form-floating',
-                ],
             ]);
         }
     }

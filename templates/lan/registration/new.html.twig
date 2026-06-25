@@ -22,19 +22,32 @@
                                 {{ form_row(form.lastname, {'attr': {'class': 'form-control'}}) }}
                             </div>
                             <div class="col-12">
-                                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_row(form.email, {'attr': {'class': 'form-control'}, 'help_attr': {'class': 'form-text text-muted'}}) }}
+                            </div>
+                            <div class="col-md-6" data-controller="pwd-strength" data-pwd-strength-strength-value="{{ passwordStrength }}" data-pwd-strength-position-value="left">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.first_placeholder'|trans, 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form.password.first) }}
+                                </div>
+                                <div class="tips-popover"></div>
+                                <div class="text-danger">{{ form_errors(form.password.first) }}{{ form_errors(form.password) }}</div>
                             </div>
                             <div class="col-md-6">
-                                {{ form_row(form.password.first, {'attr': {'class': 'form-control'}}) }}
-                            </div>
-                            <div class="col-md-6">
-                                {{ form_row(form.password.second, {'attr': {'class': 'form-control'}}) }}
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.second_placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form.password.second) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form.password.second) }}</div>
                             </div>
                             <div class="col-12">
                                 {{ form_row(form.discordPseudo, {'attr': {'class': 'form-control'}}) }}
                             </div>
                             <div class="col-12">
-                                {{ form_row(form.isMajorConfirmed) }}
+                                <div class="form-check">
+                                    {{ form_widget(form.isMajorConfirmed, {'attr': {'class': 'form-check-input'}}) }}
+                                    {{ form_label(form.isMajorConfirmed, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form.isMajorConfirmed) }}</div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4">

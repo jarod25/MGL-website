@@ -15,6 +15,7 @@ registration:
     email:
       label: 'Email'
       placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
     password:
       first_label: 'Mot de passe'
       first_placeholder: 'Votre mot de passe'
@@ -51,12 +52,15 @@ registration:
     password_required: 'Veuillez saisir un mot de passe.'
     password_min_length: 'Le mot de passe doit contenir au moins {{ limit }} caractères.'
     password_mismatch: 'Les mots de passe doivent correspondre.'
+    password_strength_invalid: 'Le mot de passe ne respecte pas les exigences de sécurité.'
     major_confirmation_required: 'La confirmation de majorité est obligatoire.'
 
 navigation:
   toggle: 'Afficher ou masquer la navigation'
   close: 'Fermer'
   profile: 'Mon compte'
+  account: 'Mon compte'
+  account_menu: 'Menu du compte'
   login: 'Se connecter'
   logout: 'Se déconnecter'
   login_signup: 'Se connecter / S’inscrire'
@@ -246,6 +250,7 @@ account:
     email:
       label: 'Email'
       placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
     discord_pseudo:
       label: 'Pseudo Discord'
       placeholder: 'Votre pseudo Discord'
@@ -298,6 +303,7 @@ signup:
     email:
       label: 'Email'
       placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
     password:
       label: 'Mot de passe'
       placeholder: 'Votre mot de passe'

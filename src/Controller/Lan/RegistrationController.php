@@ -44,6 +44,7 @@ final class RegistrationController extends AbstractController
 
         return $this->render('lan/registration/new.html.twig', [
             'form' => $form->createView(),
+            'passwordStrength' => $_ENV['PASSWORD_STRENGTH_VALUE'],
         ]);
     }
 

@@ -15,6 +15,7 @@ registration:
     email:
       label: 'E-Mail'
       placeholder: 'ihre.email@example.com'
+      help: 'Verwenden Sie dieselbe E-Mail-Adresse wie bei HelloAsso.'
     password:
       first_label: 'Passwort'
       first_placeholder: 'Ihr Passwort'
@@ -51,12 +52,15 @@ registration:
     password_required: 'Bitte geben Sie ein Passwort ein.'
     password_min_length: 'Das Passwort muss mindestens {{ limit }} Zeichen enthalten.'
     password_mismatch: 'Die Passwörter müssen übereinstimmen.'
+    password_strength_invalid: 'Das Passwort erfüllt die Sicherheitsanforderungen nicht.'
     major_confirmation_required: 'Die Bestätigung der Volljährigkeit ist erforderlich.'
 
 navigation:
   toggle: 'Navigation umschalten'
   close: 'Schließen'
   profile: 'Mein Konto'
+  account: 'Mein Konto'
+  account_menu: 'Kontomenü'
   login: 'Anmelden'
   logout: 'Abmelden'
   login_signup: 'Anmelden / Registrieren'
