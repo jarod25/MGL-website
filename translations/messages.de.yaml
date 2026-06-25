@@ -320,3 +320,11 @@ signup:
     password_strength_invalid: 'Das Passwort erfüllt die Sicherheitsanforderungen nicht.'
   error:
     email_already_used: 'Ein Konto mit dieser E-Mail-Adresse existiert bereits. Bitte versuche dich anzumelden.'
+
+password_requirements:
+  title: 'Du musst verwenden:'
+  min_length: 'Mindestens 8 Zeichen.'
+  lowercase: 'Kleinbuchstaben.'
+  uppercase: 'Großbuchstaben.'
+  numbers: 'Zahlen.'
+  special_characters: 'Sonderzeichen ($ @ # & ! *).'

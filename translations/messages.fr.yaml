@@ -323,3 +323,11 @@ signup:
     password_strength_invalid: 'Le mot de passe ne respecte pas les critères de sécurité.'
   error:
     email_already_used: 'Un compte existe déjà avec cette adresse email, essayez de vous connecter !'
+
+password_requirements:
+  title: 'Vous devez utiliser :'
+  min_length: 'Au moins 8 caractères.'
+  lowercase: 'Des lettres minuscules.'
+  uppercase: 'Des lettres majuscules.'
+  numbers: 'Des chiffres.'
+  special_characters: 'Des caractères spéciaux ($ @ # & ! *).'

@@ -32,12 +32,15 @@
   }
 }
 
+
 [data-controller="pwd-strength"] {
   position: relative;
+
   input {
-    padding-right:45px;
+    padding-right: 45px;
   }
 }
+
 .pwd-strength {
   position: relative;
   margin-top: 10px;
@@ -46,22 +49,26 @@
   color: #fc2338;
 }
 
-.strength-0 {
-  color: #22a903;
+.pwd-strength-popover {
+  --bs-popover-max-width: min(30rem, calc(100vw - 2rem));
 }
 
-.strength-1 {
-  color: #22a903;
+.pwd-strength-popover .pwd-strength {
+  display: block;
+  padding-left: 0;
+  white-space: nowrap;
 }
 
-.strength-2 {
-  color: #22a903;
+@media (max-width: 575.98px) {
+  .pwd-strength-popover .pwd-strength {
+    white-space: normal;
+  }
 }
 
-.strength-3 {
-  color: #22a903;
-}
-
+.strength-0,
+.strength-1,
+.strength-2,
+.strength-3,
 .strength-4 {
   color: #22a903;
 }
