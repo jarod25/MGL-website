@@ -22,7 +22,15 @@
                             <div class="col-12">
                                 {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
                             </div>
-                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="4" data-pwd-strength-position-value="left">
+                            <div class="col-12" data-controller="pwd-strength"
+                                     data-pwd-strength-strength-value="4"
+                                     data-pwd-strength-position-value="left"
+                                     data-pwd-strength-title-value="{{ 'password_requirements.title'|trans }}"
+                                     data-pwd-strength-min-length-value="{{ 'password_requirements.min_length'|trans }}"
+                                     data-pwd-strength-lowercase-value="{{ 'password_requirements.lowercase'|trans }}"
+                                     data-pwd-strength-uppercase-value="{{ 'password_requirements.uppercase'|trans }}"
+                                     data-pwd-strength-numbers-value="{{ 'password_requirements.numbers'|trans }}"
+                                     data-pwd-strength-special-characters-value="{{ 'password_requirements.special_characters'|trans }}">
                                 <div data-controller="pwd-eye">
                                     {{ form_row(form.password.first, {'attr': {'class': 'form-control', 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput'}}) }}
                                 </div>

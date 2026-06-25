@@ -12,8 +12,8 @@
                 en: { label: 'language.en', flag: '/images/flags/en.svg' },
                 de: { label: 'language.de', flag: '/images/flags/de.svg' }
             } %}
-            <div class="navbar-user-area ms-auto">
-                <ul class="navbar-nav language-switcher" aria-label="{{ 'navigation.language'|trans }}">
+            <div class="navbar-user-area ms-auto d-flex flex-row flex-nowrap align-items-center justify-content-end gap-2 mt-2 mt-lg-0">
+                <ul class="navbar-nav language-switcher flex-row flex-nowrap align-items-center gap-1 mb-0" aria-label="{{ 'navigation.language'|trans }}">
                     {% for locale, language in locales %}
                         <li class="nav-item language-switcher__item">
                             {% if locale == currentLocale %}
@@ -28,7 +28,7 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav flex-row flex-nowrap align-items-center mb-0">
                     {% if app.user %}
                         <li class="nav-item dropdown account-menu">
                             <button class="nav-link dropdown-toggle account-menu__toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="{{ 'navigation.account_menu'|trans }}" title="{{ 'navigation.account_menu'|trans }}">

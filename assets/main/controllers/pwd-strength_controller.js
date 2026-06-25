@@ -4,80 +4,96 @@ import {Popover} from 'bootstrap';
 export default class extends Controller {
     static values = {
         strength: Number,
-        position: String
+        position: String,
+        title: String,
+        minLength: String,
+        lowercase: String,
+        uppercase: String,
+        numbers: String,
+        specialCharacters: String
     };
 
-    passwordStrengthValue = 0;
     popover;
-    pwd;
-    bool = true;
+    passwordInput;
+    rules = [
+        {key: 'length', strength: 0, regex: /.{8,}/, labelValue: 'minLengthValue'},
+        {key: 'lowercase', strength: 1, regex: /[a-z]+/, labelValue: 'lowercaseValue'},
+        {key: 'uppercase', strength: 2, regex: /[A-Z]+/, labelValue: 'uppercaseValue'},
+        {key: 'numbers', strength: 3, regex: /[0-9]+/, labelValue: 'numbersValue'},
+        {key: 'specialCharacters', strength: 4, regex: /[^a-zA-Z0-9]+/, labelValue: 'specialCharactersValue'}
+    ];
 
     connect() {
-        this.popover = new Popover(this.element.querySelector('.tips-popover'),
+        this.passwordInput = this.element.querySelector('input');
+
+        this.popover = new Popover(
+            this.element.querySelector('.tips-popover'),
             {
                 placement: this.positionValue,
+                fallbackPlacements: ['right', 'left', 'bottom', 'top'],
+                boundary: 'viewport',
+                container: 'body',
                 html: true,
-                content: '<h4>Vous devez utiliser : </h4>' + this.showTips()
-            });
+                customClass: 'pwd-strength-popover',
+                content: this.showTips()
+            }
+        );
+    }
+
+    disconnect() {
+        this.popover?.dispose();
     }
 
     handleInput(event) {
-        this.pwd = event.target.value;
+        this.passwordInput = event.target;
         this.showPopover();
-        this.checkStrength(1, /[a-z]+/);
-        this.checkStrength(2, /[A-Z]+/);
-        this.checkStrength(3, /[0-9]+/);
-        this.checkStrength(4, /[^a-zA-Z0-9]+/);
-    }
-
-    checkStrength(strength, regex) {
-        const span = document.getElementById(strength);
-        if (strength <= this.strengthValue) {
-            if (this.pwd.match(regex)) {
-                this.incrementPasswordStrength();
-                span.classList.add(`strength-${strength}`);
-            } else {
-                span.classList.remove(`strength-${strength}`);
-            }
-        }
-        const lengthSpan = document.getElementById(0);
-        if (this.pwd.length >= 8) {
-            lengthSpan.classList.add('strength-0');
-        } else {
-            lengthSpan.classList.remove('strength-0');
-        }
+        this.updateRules(event.target.value);
         this.popover.update();
     }
 
-    incrementPasswordStrength() {
-        this.passwordStrengthValue++;
+    showTips() {
+        const title = this.escapeHtml(this.titleValue);
+        const rules = this.activeRules()
+            .map((rule) => `<span class="pwd-strength" data-pwd-strength-rule="${rule.key}">${this.escapeHtml(this[rule.labelValue])}</span>`)
+            .join('');
+
+        return `<h4>${title}</h4>${rules}`;
     }
 
-    showTips() {
-        let tipsText = '';
-        const tipsTexts = {
-            length: '<span id="0" class="pwd-strength">Au moins <strong>8 caractères</strong>.</span>',
-            lowercase_letters: '<span id="1" class="pwd-strength">Des <strong>lettres minuscules</strong>.</span>',
-            uppercase_letters: '<span id="2" class="pwd-strength">Des <strong>lettres majuscules</strong>.</span>',
-            numbers: '<span id="3" class="pwd-strength">Des <strong>chiffres</strong>.</span>',
-            special_chars: '<span id="4" class="pwd-strength">Des <strong>caractères spéciaux ($ @ # & ! *)</strong>.</span>'
-        };
-        for (let i = 0; i <= this.strengthValue; i++) {
-            tipsText += `${tipsTexts[Object.keys(tipsTexts)[i]]}<br>`;
-        }
-        return tipsText;
+    activeRules() {
+        return this.rules.filter((rule) => rule.strength <= this.strengthValue);
     }
 
     showPopover() {
-        if (this.bool) {
-            this.popover.show();
-            this.bool = false;
-        }
-        document.querySelectorAll('input').forEach((input) => {
-            input.addEventListener('click', () => {
-                this.popover.hide();
-                this.bool = true;
-            });
+        this.popover.show();
+    }
+
+    updateRules(password) {
+        this.activeRules().forEach((rule) => {
+            const ruleElement = this.ruleElement(rule.key);
+
+            if (!ruleElement) {
+                return;
+            }
+
+            ruleElement.classList.toggle(`strength-${rule.strength}`, rule.regex.test(password));
         });
+    }
+
+    ruleElement(rule) {
+        return this.popoverTipElement()?.querySelector(`[data-pwd-strength-rule="${rule}"]`);
+    }
+
+    popoverTipElement() {
+        return this.popover?.getTipElement();
+    }
+
+    escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
     }
 }

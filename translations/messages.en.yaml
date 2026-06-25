@@ -322,3 +322,11 @@ signup:
     password_strength_invalid: 'The password does not meet the security requirements.'
   error:
     email_already_used: 'An account already exists with this email. Please try logging in.'
+
+password_requirements:
+  title: 'You must use:'
+  min_length: 'At least 8 characters.'
+  lowercase: 'Lowercase letters.'
+  uppercase: 'Uppercase letters.'
+  numbers: 'Numbers.'
+  special_characters: 'Special characters ($ @ # & ! *).'
