@@ -42,7 +42,6 @@
                                         {{ form_widget(form_infos.discordPseudo, {'attr': {'class': 'form-control', 'placeholder': 'account.form.discord_pseudo.placeholder'|trans}}) }}
                                         {{ form_label(form_infos.discordPseudo) }}
                                     </div>
-                                    {{ form_help(form_infos.discordPseudo) }}
                                     <div class="text-danger">{{ form_errors(form_infos.discordPseudo) }}</div>
                                 </div>
                             {% elseif not hasLanParticipant %}

@@ -1,7 +1,7 @@
 registration:
   title: 'LAN-Anmeldung'
   subtitle: 'Erstelle deine LAN-Anmeldung und schließe danach die Zahlung ab, um Teams beizutreten oder zu erstellen.'
-  submit: 'Weiter zur Zahlung'
+  submit: 'Weiter'
   already_registered: 'Bereits registriert?'
   login_link: 'Anmelden'
   payment_notice: 'Füllen Sie dieses Formular aus, um Ihre Anmeldung zu erstellen. Die Formel wird später über die HelloAsso-Zahlung bestimmt.'

@@ -1,7 +1,7 @@
 registration:
   title: 'Inscription LAN'
   subtitle: 'Créez votre inscription LAN, puis finalisez le paiement pour rejoindre ou créer des équipes.'
-  submit: 'Continuer vers le paiement'
+  submit: 'Continuer'
   already_registered: 'Déjà inscrit ?'
   login_link: 'Connectez-vous'
   payment_notice: 'Remplissez ce formulaire pour créer votre inscription. La formule sera déterminée plus tard via le paiement HelloAsso.'

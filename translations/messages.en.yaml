@@ -1,7 +1,7 @@
 registration:
   title: 'LAN registration'
   subtitle: 'Create your LAN registration, then finalize your payment to join or create teams.'
-  submit: 'Continue to payment'
+  submit: 'Continue'
   already_registered: 'Already registered?'
   login_link: 'Log in'
   payment_notice: 'Fill in this form to create your registration. The subscription tier will be determined later through the HelloAsso payment.'
