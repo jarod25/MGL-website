@@ -2,14 +2,30 @@
 <section class="mb-5">
     <h2>{{ 'partners.title'|trans }}</h2>
     <div class="row g-3">
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h3 class="h5 card-title">Ikoula</h3>
-                    <p class="card-text">{{ 'partners.ikoula_hosting'|trans }}</p>
-                    <a href="https://www.ikoula.com/" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">{{ 'partners.ikoula_link'|trans }}</a>
+        {% for partner in partners %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 partner-card">
+                    <div class="card-body d-flex flex-column gap-3">
+                        <div class="partner-card__logo-wrapper">
+                            {% if partner.key == 'ikoula' and not partner.logoExists %}
+                                <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer" title="{{ 'partners.ikoula_title'|trans }}">
+                                    <img class="partner-card__logo" src="https://www.ikoula.com/themes/ikoula/images/logo_IKOULA_light_fr.svg" alt="{{ 'partners.ikoula_alt'|trans }}" width="204" height="79" loading="lazy">
+                                </a>
+                            {% elseif partner.logoExists %}
+                                {% if partner.url is defined %}<a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{% endif %}
+                                <img class="partner-card__logo" src="{{ asset('images/partners/' ~ partner.logo) }}" alt="{{ 'partners.logo_alt'|trans({ '%name%': partner.name }) }}" loading="lazy">
+                                {% if partner.url is defined %}</a>{% endif %}
+                            {% else %}
+                                <p class="h5 mb-0 text-center">{{ partner.name }}</p>
+                            {% endif %}
+                        </div>
+                        <h3 class="h5 card-title mb-0">{{ partner.name }}</h3>
+                        {% set descriptionKey = 'partners.descriptions.' ~ partner.key %}
+                        {% set description = descriptionKey|trans %}
+                        {% if description != descriptionKey %}<p class="card-text mb-0">{{ description|raw }}</p>{% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
 </section>

@@ -22,7 +22,9 @@ readonly class KnpMenuBuilderService
         $menu = $this->factory->createItem('root');
         $menu->addChild($this->translator->trans('navigation.home'), ['route' => 'app_home']);
         $menu->addChild($this->translator->trans('navigation.teams'), ['route' => 'app_team_index']);
+        $menu->addChild($this->translator->trans('navigation.practical_information'), ['route' => 'app_practical_information']);
         $menu->addChild($this->translator->trans('navigation.about'), ['route' => 'app_about']);
+        $menu->addChild($this->translator->trans('navigation.contact'), ['route' => 'app_contact']);
 
         return $this->setAttributes($menu);
     }

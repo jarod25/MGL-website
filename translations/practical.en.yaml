@@ -1,0 +1,47 @@
+meta: { title: 'Practical information' }
+title: 'Practical information'
+lead: 'Key information to prepare your visit to the Mulhouse Gaming Tournament.'
+place:
+  title: 'Venue and schedule'
+  address_name: 'PHG Academy – KMØ'
+  address_street: '30 rue François Spoerry'
+  address_city: '68100 Mulhouse'
+  map_title: 'Carte Google Maps de PHG Academy KMØ à Mulhouse'
+  maps_link: 'Ouvrir l’adresse dans Google Maps'
+  items: ['Arrivée demandée à 9 h.', 'Événement de 9 h à 20 h maximum.', 'Samedi 29 août 2026.', 'Dimanche 30 août 2026.', 'Les spectateurs ne sont pas autorisés.', 'Il est possible de sortir puis de revenir pendant la journée.']
+bring:
+  title: 'Equipment to bring'
+  intro: 'Chaque participant doit normalement apporter son installation complète.'
+  items: ['Ordinateur fixe : tour, écran, clavier, souris, casque, tapis de souris, alimentations et câbles nécessaires.', 'Ordinateur portable : ordinateur, chargeur, clavier, souris et casque selon les besoins du joueur.']
+  note: 'Tout matériel personnel nécessaire au jeu doit être apporté par le participant, sauf réservation préalable d’un PC en location.'
+rental:
+  title: 'PC rental'
+  intro: 'La location est facultative, uniquement sur réservation, disponible dans la limite des stocks, gérée plus tard via HelloAsso, et le tarif n’est pas encore affiché.'
+  items: ['Carte graphique : NVIDIA GeForce RTX 3070 Ti.', 'Processeur : Intel Core i9-12900KF.', 'Mémoire : 32 Go Corsair Vengeance RGB Pro 3200 MHz.', 'SSD : WD Black SN770 1 To.', 'Disque dur : Seagate Barracuda 2 To, 7200 tr/min.', 'Écran : Zowie XL2540K, 24,5 pouces, 240 Hz.', 'Même avec la location, le participant doit apporter clavier, souris, casque et tapis de souris.']
+  note: 'Configuration prévue pour les postes proposés à la location, sous réserve de disponibilité ou de remplacement par un matériel équivalent.'
+provided:
+  title: 'Equipment provided by PHG Academy'
+  items: ['PHG Academy fournit bureau, chaise, alimentation électrique, connexion réseau, switch réseau et câble Ethernet.', 'Le joueur n’a pas besoin d’apporter bureau, chaise, switch, câble Ethernet ou multiprise, sauf instruction ultérieure de l’organisation.']
+food:
+  title: 'Food and drinks'
+  items: ['Nourriture extérieure interdite.', 'Sandwiches disponibles avec certaines formules.', 'Présence d’une Kfet sur place.', 'Boissons extérieures interdites, sauf eau.', 'Contenants susceptibles d’être contrôlés dans le cadre des consignes de sécurité.', 'Alcool interdit.', 'Tabac et cigarette électronique autorisés uniquement à l’extérieur.']
+  note: 'Pour une nécessité médicale, une allergie ou un régime alimentaire particulier, contactez l’organisation avant l’événement.'
+access:
+  title: 'Access and conduct'
+  items: ['Pièce d’identité physique obligatoire.', 'Participants majeurs uniquement.', 'Aucun spectateur.', 'Respect du lieu, du matériel, du personnel de sécurité, des organisateurs, des encadrants et des autres joueurs.', 'Comportement bienveillant demandé.', 'Toute dégradation volontaire peut entraîner une exclusion.']
+security:
+  title: 'Personal equipment and security'
+  note: 'Chaque participant reste responsable du matériel qu’il apporte et doit veiller à sa surveillance pendant l’événement. Un dispositif de sécurité sera présent, mais tout incident, dommage, perte ou problème doit être signalé immédiatement à l’organisation. Le règlement général définitif pourra préciser les responsabilités.'
+cheat:
+  title: 'Accounts, smurfs and cheating'
+  items: ['Les joueurs doivent utiliser leur compte principal ou leur compte habituel et déclarer honnêtement leur niveau.', 'Le niveau déclaré doit correspondre autant que possible au niveau réel afin de constituer une compétition cohérente.', 'Logiciels de triche, scripts, outils procurant un avantage, modifications non autorisées du gameplay et triche pendant les matchs sont interdits.', 'Sanctions possibles : avertissement, modification des résultats ou du placement si le règlement le prévoit, exclusion d’un match ou exclusion du tournoi.']
+  note: 'Les modalités précises seront définies dans les règlements de chaque jeu.'
+image:
+  title: 'Image capture and publication authorization'
+  items: ['Des photos et vidéos pourront être prises pendant l’événement.', 'Une autorisation de captation et de diffusion sera proposée avant l’événement.', 'Les participants pourront indiquer leur choix à l’organisation.', 'Les modalités détaillées figureront dans le document dédié.']
+refund:
+  title: 'Cancellation and refunds'
+  note: 'Les billets peuvent être remboursés jusqu’à sept jours avant le début de l’événement. Après cette date, les absences et annulations ne donnent plus lieu à remboursement. En cas d’annulation de l’événement par l’organisation, les billets sont intégralement remboursés. Pour cette édition, la date limite correspond à samedi 22 août 2026 à 23 h 59. Cette information publique ne remplace pas les futures conditions générales ou le règlement complet.'
+rules:
+  title: 'Rules'
+  items: ['Un règlement général encadrera l’événement.', 'Chaque jeu disposera de règles spécifiques.', 'L’inscription impliquera leur acceptation.', 'Les documents détaillés seront communiqués avant le tournoi.']
