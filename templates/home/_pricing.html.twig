@@ -1,0 +1,20 @@
+<section class="py-4">
+    <h2 class="h3 mb-3">{{ 'home.pricing.title'|trans }}</h2>
+    <div class="row g-3">
+        {% for subscription in subscriptions %}
+            {% set labelKey = 'subscription.tier.' ~ subscription.slug %}
+            {% set translatedLabel = labelKey|trans %}
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h6 card-title">{{ translatedLabel == labelKey ? subscription.name : translatedLabel }}</h3>
+                        <p class="mb-1">{{ 'home.pricing.duration'|trans({ '%days%': subscription.durationDays }) }}</p>
+                        <p class="fs-4 fw-bold mb-0">{{ (subscription.price / 100)|format_currency('EUR') }}</p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12"><p class="text-muted">{{ 'home.pricing.empty'|trans }}</p></div>
+        {% endfor %}
+    </div>
+</section>

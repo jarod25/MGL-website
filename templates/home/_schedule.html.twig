@@ -1,0 +1,19 @@
+<section class="py-4">
+    <h2 class="h3 mb-3">{{ 'home.schedule.title'|trans }}</h2>
+    <div class="row g-3">
+        {% for day in ['saturday', 'sunday'] %}
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header fw-semibold">{{ ('event.date.' ~ day ~ '_full')|trans }}</div>
+                    <ul class="list-group list-group-flush">
+                        {% for game in gamesByDay[day]|default([]) %}
+                            <li class="list-group-item">{{ game.name }}</li>
+                        {% else %}
+                            <li class="list-group-item text-muted">{{ 'home.schedule.empty'|trans }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

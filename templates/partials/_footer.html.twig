@@ -1,11 +1,22 @@
-<footer class="footer bg-light py-3 mt-auto">
+<footer class="footer bg-light py-4 mt-auto">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+                <p class="fw-semibold mb-1">Mulhouse Gaming LAN</p>
+                <p class="small mb-0"><a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a></p>
+            </div>
+            <div class="col-md-4">
+                <ul class="nav justify-content-md-center">
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_about') }}">{{ 'navigation.about'|trans }}</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_team_index') }}">{{ 'navigation.teams'|trans }}</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-md-end small">
+                <p class="mb-1">{{ 'footer.hosted_by'|trans }} <a href="https://www.ikoula.com/" target="_blank" rel="noopener noreferrer">Ikoula</a></p>
                 {% if "now"|date("Y") == '2026' %}
-                    <p>&copy; 2026 Mulhouse Gaming Tournament. {{ 'footer.all_right_reserved'|trans }}</p>
+                    <p class="mb-0">&copy; 2026 Mulhouse Gaming LAN. {{ 'footer.all_right_reserved'|trans }}</p>
                 {% else %}
-                    <p>&copy; 2026 - {{ "now"|date("Y") }} Mulhouse Gaming Tournament.  {{ 'footer.all_right_reserved'|trans }}</p>
+                    <p class="mb-0">&copy; 2026 - {{ "now"|date("Y") }} Mulhouse Gaming LAN. {{ 'footer.all_right_reserved'|trans }}</p>
                 {% endif %}
             </div>
         </div>

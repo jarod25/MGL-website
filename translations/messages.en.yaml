@@ -81,7 +81,8 @@ navigation:
   logout: 'Log out'
   login_signup: 'Log in / Sign up'
   my_lan: 'My LAN space'
-  teams: 'Teams'
+  teams: 'Games and teams'
+  about: 'About'
   home: 'Home'
   language: 'Language'
   events:
@@ -92,6 +93,7 @@ navigation:
 
 footer:
   all_right_reserved: 'All rights reserved.'
+  hosted_by: 'Website hosted by'
 
 language:
   en: 'English'
@@ -103,6 +105,9 @@ team:
     title: 'Teams'
     empty: 'No active game is available yet.'
     create_link: 'Create a team'
+    subtitle: 'Choose a game to view the teams already created.'
+    created_teams: '%count% team(s) created'
+    view_teams: 'View teams'
     no_team_for_game: 'No team has been created for this game yet.'
     players_count: '%count% / %max% players'
   new:
@@ -147,6 +152,13 @@ team:
   game:
     day: 'Day: %day%'
     capacity: 'Capacity: %maxPlayers% players per team, %maxTeams% teams maximum'
+    players_per_team: '%maxPlayers% players per team'
+    max_teams: '%maxTeams% teams maximum'
+    page_title: '%game% teams'
+    heading: '%game% teams'
+    teams_capacity: 'Teams'
+    empty: 'No team has been created for %game% yet.'
+    not_found: 'Game not found.'
   action:
     back_to_list: 'Back to teams'
     back_to_team: 'Back to the team'
@@ -489,3 +501,36 @@ admin:
     validation:
       name_max_length: 'The team name cannot exceed {{ limit }} characters.'
       in_game_pseudo_max_length: 'The in-game username cannot exceed {{ limit }} characters.'
+
+
+event:
+  date:
+    saturday_full: 'Saturday, August 29, 2026'
+    sunday_full: 'Sunday, August 30, 2026'
+home:
+  meta: { title: 'Home - Mulhouse Gaming LAN' }
+  hero: { badge: 'August 29 and 30, 2026', title: 'Mulhouse Gaming LAN', dates: 'Saturday, August 29, 2026 and Sunday, August 30, 2026', subtitle: 'Two days of gaming around several tournaments, with LAN registration required before joining or creating a team.', register: 'Register for the LAN', teams: 'View games and teams', about: 'About' }
+  presentation: { title: 'A two-day gaming event', text: 'Mulhouse Gaming LAN brings video game tournaments together over one weekend, with a simple organization focused on games, teams and participant registration.', key_dates_title: 'Confirmed dates' }
+  games: { title: 'Active games', all: 'All games', view_teams: 'View teams', empty: 'No active game is available yet.' }
+  schedule: { title: 'Game schedule', empty: 'No game announced for this day.' }
+  pricing: { title: 'Pricing', duration: '%days% day(s)', empty: 'No active tier is available yet.' }
+  information: { title: 'Essential information', registration_required: 'Registration is required before joining a team.', majority: 'Each participant confirms they are of legal age.', id_required: 'A physical identity document is required on the event day.', no_id: 'Without an identity document, access is denied.', captain_adds_members: 'The captain adds the members of their team.', pseudo: 'Each member uses an in-game username.' }
+  about: { title: 'Organization', text: 'MGL is supported by schools and an organizing team. Confirmed information is grouped on the About page.', link: 'Discover the organization' }
+about:
+  title: 'About'
+  intro: 'Mulhouse Gaming LAN is a gaming event project organized around several tournaments.'
+  objective: 'Its goal is to provide a clear framework to register participants, build teams and present the event games.'
+  schools: { title: 'Schools', generic: 'Several schools take part in organizing the event. Detailed names, descriptions and visuals will be added only once confirmed.' }
+  organizers: { title: 'Organizing team', generic: 'An organizing team prepares the event. Individual profiles will be added later with confirmed information.' }
+  partners: { title: 'Partners', ikoula_hosting: 'Website hosted by Ikoula.', ikoula_link: 'Visit Ikoula' }
+  contact: { title: 'Contact', text: 'To contact the organization, send an email to the official MGL address.' }
+subscription:
+  tier:
+    men-one-day-with-meal: 'Men, 1 day, with sandwich'
+    men-two-days-with-meal: 'Men, 2 days, with sandwich'
+    men-one-day-without-meal: 'Men, 1 day, without sandwich'
+    men-two-days-without-meal: 'Men, 2 days, without sandwich'
+    women-one-day-with-meal: 'Women, 1 day, with sandwich'
+    women-two-days-with-meal: 'Women, 2 days, with sandwich'
+    women-one-day-without-meal: 'Women, 1 day, without sandwich'
+    women-two-days-without-meal: 'Women, 2 days, without sandwich'
