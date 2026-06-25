@@ -91,4 +91,19 @@ class ParticipantRepository extends ServiceEntityRepository
 
         return $queryBuilder;
     }
+
+    /**
+     * @return Participant[]
+     */
+    public function findAllForAdminExport(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->addSelect('s')
+            ->leftJoin('p.subscription', 's')
+            ->orderBy('p.lastname', 'ASC')
+            ->addOrderBy('p.firstname', 'ASC')
+            ->addOrderBy('p.email', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

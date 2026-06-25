@@ -66,4 +66,73 @@ class TeamMemberRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /**
+     * @return TeamMember[]
+     */
+    public function findAllForAdminExport(): array
+    {
+        return $this->createQueryBuilder('tm')
+            ->addSelect('p', 't', 'g', 'c', 's')
+            ->join('tm.participant', 'p')
+            ->leftJoin('p.subscription', 's')
+            ->join('tm.team', 't')
+            ->join('tm.game', 'g')
+            ->join('t.captain', 'c')
+            ->orderBy('p.lastname', 'ASC')
+            ->addOrderBy('p.firstname', 'ASC')
+            ->addOrderBy('p.email', 'ASC')
+            ->addOrderBy('g.day', 'ASC')
+            ->addOrderBy('t.name', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function countByParticipant(Participant $participant): int
+    {
+        return (int) $this->createQueryBuilder('tm')
+            ->select('COUNT(tm.id)')
+            ->andWhere('tm.participant = :participant')
+            ->setParameter('participant', $participant)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function countByParticipantExcludingTeam(Participant $participant, Team $team): int
+    {
+        return (int) $this->createQueryBuilder('tm')
+            ->select('COUNT(tm.id)')
+            ->andWhere('tm.participant = :participant')
+            ->andWhere('tm.team != :team')
+            ->setParameter('participant', $participant)
+            ->setParameter('team', $team)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * @param Team[] $teams
+     * @return array<int, int>
+     */
+    public function countGroupedByTeams(array $teams): array
+    {
+        if ($teams === []) {
+            return [];
+        }
+
+        $rows = $this->createQueryBuilder('tm')
+            ->select('IDENTITY(tm.team) AS team_id, COUNT(tm.id) AS members_count')
+            ->andWhere('tm.team IN (:teams)')
+            ->setParameter('teams', $teams)
+            ->groupBy('tm.team')
+            ->getQuery()
+            ->getArrayResult();
+
+        $counts = [];
+        foreach ($rows as $row) {
+            $counts[(int) $row['team_id']] = (int) $row['members_count'];
+        }
+
+        return $counts;
+    }
 }

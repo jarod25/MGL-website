@@ -15,7 +15,7 @@ use App\Repository\ParticipantRepository;
 use App\Repository\TeamMemberRepository;
 use App\Repository\TeamRepository;
 use App\Service\Lan\TeamRegistrationService;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\Lan\TeamManagementService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -180,8 +180,7 @@ final class TeamController extends AbstractController
         Team $team,
         Request $request,
         ParticipantRepository $participantRepository,
-        TeamMemberRepository $teamMemberRepository,
-        EntityManagerInterface $entityManager,
+        TeamManagementService $teamManagementService,
         TranslatorInterface $translator,
     ): Response {
         $participant = $this->getConnectedParticipant($participantRepository, $translator);
@@ -202,12 +201,7 @@ final class TeamController extends AbstractController
         }
 
         try {
-            foreach ($teamMemberRepository->findByTeam($team) as $member) {
-                $entityManager->remove($member);
-            }
-
-            $entityManager->remove($team);
-            $entityManager->flush();
+            $teamManagementService->deleteTeam($team);
 
             $this->addFlash('success', $translator->trans('team.flash.deleted'));
 
@@ -228,7 +222,7 @@ final class TeamController extends AbstractController
         TeamRepository $teamRepository,
         TeamMemberRepository $teamMemberRepository,
         ParticipantRepository $participantRepository,
-        EntityManagerInterface $entityManager,
+        TeamManagementService $teamManagementService,
         TranslatorInterface $translator,
     ): Response {
         $team = $teamRepository->find($teamId);
@@ -265,8 +259,7 @@ final class TeamController extends AbstractController
         }
 
         try {
-            $entityManager->remove($member);
-            $entityManager->flush();
+            $teamManagementService->removeMember($team, $member);
 
             $this->addFlash('success', $translator->trans('team.flash.member_removed'));
         } catch (\Throwable) {
