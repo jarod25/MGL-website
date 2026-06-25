@@ -16,6 +16,9 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
+    /**
+     * @return Game[]
+     */
     public function findActiveOrdered(): array
     {
         return $this->createQueryBuilder('g')
@@ -25,5 +28,16 @@ class GameRepository extends ServiceEntityRepository
             ->addOrderBy('g.name', 'ASC')
             ->getQuery()
             ->getResult();
+    }
+
+    public function findOneActiveBySlug(string $slug): ?Game
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.slug = :slug')
+            ->andWhere('g.isActive = :active')
+            ->setParameter('slug', trim($slug))
+            ->setParameter('active', true)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }

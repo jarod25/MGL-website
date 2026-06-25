@@ -40,6 +40,33 @@ class TeamRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /**
+     * @param Game[] $games
+     * @return array<int, int>
+     */
+    public function countGroupedByGames(array $games): array
+    {
+        if ($games === []) {
+            return [];
+        }
+
+        $rows = $this->createQueryBuilder('t')
+            ->select('IDENTITY(t.game) AS game_id, COUNT(t.id) AS teams_count')
+            ->andWhere('t.game IN (:games)')
+            ->setParameter('games', $games)
+            ->groupBy('t.game')
+            ->getQuery()
+            ->getArrayResult();
+
+        $counts = [];
+        foreach ($rows as $row) {
+            $counts[(int) $row['game_id']] = (int) $row['teams_count'];
+        }
+
+        return $counts;
+    }
+
     /**
      * @return Team[]
      */

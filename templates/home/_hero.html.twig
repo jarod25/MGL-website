@@ -1,0 +1,13 @@
+<section class="py-5 my-4 rounded-3 bg-light">
+    <div class="container-fluid py-4 px-4 px-md-5">
+        <span class="badge text-bg-primary mb-3">{{ 'home.hero.badge'|trans }}</span>
+        <h1 class="display-5 fw-bold">{{ 'home.hero.title'|trans }}</h1>
+        <p class="fs-4 mb-2">{{ 'home.hero.dates'|trans }}</p>
+        <p class="col-lg-8 fs-5 text-muted">{{ 'home.hero.subtitle'|trans }}</p>
+        <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+            <a class="btn btn-primary btn-lg" href="{{ path('app_registration_new') }}">{{ 'home.hero.register'|trans }}</a>
+            <a class="btn btn-outline-primary btn-lg" href="{{ path('app_team_index') }}">{{ 'home.hero.teams'|trans }}</a>
+            <a class="btn btn-outline-secondary btn-lg" href="{{ path('app_about') }}">{{ 'home.hero.about'|trans }}</a>
+        </div>
+    </div>
+</section>

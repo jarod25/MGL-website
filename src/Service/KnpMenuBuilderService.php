@@ -22,15 +22,7 @@ readonly class KnpMenuBuilderService
         $menu = $this->factory->createItem('root');
         $menu->addChild($this->translator->trans('navigation.home'), ['route' => 'app_home']);
         $menu->addChild($this->translator->trans('navigation.teams'), ['route' => 'app_team_index']);
-
-        $evenements = $menu->addChild($this->translator->trans('navigation.events.label'), ['uri' => '#']);
-        $evenements->setAttribute('dropdown', true);
-        $evenements = $evenements->addChild($this->translator->trans('navigation.events.list'), ['route' => 'app_event_index']);
-
-        if ($this->authChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $evenements->addChild($this->translator->trans('navigation.events.create'), ['route' => 'app_event_new']);
-            $evenements->addChild($this->translator->trans('navigation.events.mine'), ['route' => 'app_event_my_events']);
-        }
+        $menu->addChild($this->translator->trans('navigation.about'), ['route' => 'app_about']);
 
         return $this->setAttributes($menu);
     }

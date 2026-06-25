@@ -81,7 +81,8 @@ navigation:
   logout: 'Abmelden'
   login_signup: 'Anmelden / Registrieren'
   my_lan: 'Mein LAN-Bereich'
-  teams: 'Teams'
+  teams: 'Spiele und Teams'
+  about: 'Über uns'
   home: 'Startseite'
   language: 'Sprache'
   events:
@@ -92,6 +93,7 @@ navigation:
 
 footer:
   all_right_reserved: 'Alle Rechte vorbehalten.'
+  hosted_by: 'Website gehostet von'
 
 language:
   en: 'English'
@@ -103,6 +105,9 @@ team:
     title: 'Teams'
     empty: 'Derzeit ist kein aktives Spiel verfügbar.'
     create_link: 'Team erstellen'
+    subtitle: 'Wählen Sie ein Spiel, um die bereits erstellten Teams zu sehen.'
+    created_teams: '%count% Team(s) erstellt'
+    view_teams: 'Teams ansehen'
     no_team_for_game: 'Für dieses Spiel wurde noch kein Team erstellt.'
     players_count: '%count% / %max% Spieler'
   new:
@@ -147,6 +152,13 @@ team:
   game:
     day: 'Tag: %day%'
     capacity: 'Kapazität: %maxPlayers% Spieler pro Team, maximal %maxTeams% Teams'
+    players_per_team: '%maxPlayers% Spieler pro Team'
+    max_teams: 'maximal %maxTeams% Teams'
+    page_title: '%game%-Teams'
+    heading: '%game%-Teams'
+    teams_capacity: 'Teams'
+    empty: 'Für %game% wurde noch kein Team erstellt.'
+    not_found: 'Spiel nicht gefunden.'
   action:
     back_to_list: 'Zurück zu den Teams'
     back_to_team: 'Zurück zum Team'
@@ -486,3 +498,36 @@ admin:
     validation:
       name_max_length: 'Der Teamname darf höchstens {{ limit }} Zeichen lang sein.'
       in_game_pseudo_max_length: 'Der Ingame-Name darf höchstens {{ limit }} Zeichen lang sein.'
+
+
+event:
+  date:
+    saturday_full: 'Samstag, 29. August 2026'
+    sunday_full: 'Sonntag, 30. August 2026'
+home:
+  meta: { title: 'Startseite - Mulhouse Gaming LAN' }
+  hero: { badge: '29. und 30. August 2026', title: 'Mulhouse Gaming LAN', dates: 'Samstag, 29. August 2026 und Sonntag, 30. August 2026', subtitle: 'Zwei Tage Gaming rund um mehrere Turniere, mit verpflichtender LAN-Anmeldung vor dem Beitritt zu einem Team oder der Teamerstellung.', register: 'Für die LAN anmelden', teams: 'Spiele und Teams ansehen', about: 'Über uns' }
+  presentation: { title: 'Ein Gaming-Event über zwei Tage', text: 'Die Mulhouse Gaming LAN bündelt Videospielturniere an einem Wochenende, mit einer einfachen Organisation rund um Spiele, Teams und Teilnehmeranmeldung.', key_dates_title: 'Bestätigte Daten' }
+  games: { title: 'Aktive Spiele', all: 'Alle Spiele', view_teams: 'Teams ansehen', empty: 'Derzeit ist kein aktives Spiel verfügbar.' }
+  schedule: { title: 'Spielplan', empty: 'Für diesen Tag ist kein Spiel angekündigt.' }
+  pricing: { title: 'Preise', duration: '%days% Tag(e)', empty: 'Derzeit ist keine aktive Formel verfügbar.' }
+  information: { title: 'Wichtige Informationen', registration_required: 'Die Anmeldung ist erforderlich, bevor man einem Team beitreten kann.', majority: 'Jeder Teilnehmer bestätigt, volljährig zu sein.', id_required: 'Ein physischer Identitätsnachweis ist am Veranstaltungstag erforderlich.', no_id: 'Ohne Identitätsnachweis wird der Zugang verweigert.', captain_adds_members: 'Der Captain fügt die Mitglieder seines Teams hinzu.', pseudo: 'Jedes Mitglied verwendet einen In-Game-Namen.' }
+  about: { title: 'Organisation', text: 'Die MGL wird von Schulen und einem Organisationsteam getragen. Bestätigte Informationen stehen auf der Seite Über uns.', link: 'Organisation entdecken' }
+about:
+  title: 'Über uns'
+  intro: 'Die Mulhouse Gaming LAN ist ein Gaming-Event-Projekt rund um mehrere Turniere.'
+  objective: 'Ziel ist ein klarer Rahmen für Teilnehmeranmeldung, Teambildung und Vorstellung der Spiele.'
+  schools: { title: 'Schulen', generic: 'Mehrere Schulen beteiligen sich an der Organisation der Veranstaltung. Detaillierte Namen, Beschreibungen und Bilder werden erst nach Bestätigung ergänzt.' }
+  organizers: { title: 'Organisationsteam', generic: 'Ein Organisationsteam bereitet die Veranstaltung vor. Einzelprofile werden später mit bestätigten Informationen ergänzt.' }
+  partners: { title: 'Partner', ikoula_hosting: 'Website gehostet von Ikoula.', ikoula_link: 'Ikoula besuchen' }
+  contact: { title: 'Kontakt', text: 'Um die Organisation zu kontaktieren, senden Sie eine E-Mail an die offizielle MGL-Adresse.' }
+subscription:
+  tier:
+    men-one-day-with-meal: 'Männer, 1 Tag, mit Sandwich'
+    men-two-days-with-meal: 'Männer, 2 Tage, mit Sandwich'
+    men-one-day-without-meal: 'Männer, 1 Tag, ohne Sandwich'
+    men-two-days-without-meal: 'Männer, 2 Tage, ohne Sandwich'
+    women-one-day-with-meal: 'Frauen, 1 Tag, mit Sandwich'
+    women-two-days-with-meal: 'Frauen, 2 Tage, mit Sandwich'
+    women-one-day-without-meal: 'Frauen, 1 Tag, ohne Sandwich'
+    women-two-days-without-meal: 'Frauen, 2 Tage, ohne Sandwich'

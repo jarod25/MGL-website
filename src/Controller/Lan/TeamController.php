@@ -29,25 +29,36 @@ final class TeamController extends AbstractController
     public function index(
         GameRepository $gameRepository,
         TeamRepository $teamRepository,
-        TeamMemberRepository $teamMemberRepository,
     ): Response {
         $games = $gameRepository->findActiveOrdered();
-        $teamsByGame = [];
-        $memberCounts = [];
-
-        foreach ($games as $game) {
-            $teams = $teamRepository->findByGame($game);
-            $teamsByGame[$game->getId()] = $teams;
-
-            foreach ($teams as $team) {
-                $memberCounts[$team->getId()] = $teamMemberRepository->countByTeam($team);
-            }
-        }
 
         return $this->render('lan/team/index.html.twig', [
             'games' => $games,
-            'teamsByGame' => $teamsByGame,
-            'memberCounts' => $memberCounts,
+            'teamCounts' => $teamRepository->countGroupedByGames($games),
+        ]);
+    }
+
+    #[Route('/teams/game/{slug}', name: 'app_team_game', methods: ['GET'])]
+    public function game(
+        string $slug,
+        GameRepository $gameRepository,
+        TeamRepository $teamRepository,
+        TeamMemberRepository $teamMemberRepository,
+        TranslatorInterface $translator,
+    ): Response {
+        $game = $gameRepository->findOneActiveBySlug($slug);
+
+        if (!$game instanceof Game) {
+            throw $this->createNotFoundException($translator->trans('team.game.not_found'));
+        }
+
+        $teams = $teamRepository->findByGame($game);
+
+        return $this->render('lan/team/game.html.twig', [
+            'game' => $game,
+            'teams' => $teams,
+            'teamCount' => count($teams),
+            'memberCounts' => $teamMemberRepository->countGroupedByTeams($teams),
         ]);
     }
 
