@@ -116,6 +116,7 @@ class UserController extends AbstractController
             'form_infos' => $formInfos->createView(),
             'form_pwd' => $formPwd->createView(),
             'hasLanParticipant' => $hasLanParticipant,
+            'passwordStrength' => $_ENV['PASSWORD_STRENGTH_VALUE'],
         ]);
     }
 

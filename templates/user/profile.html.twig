@@ -16,17 +16,34 @@
                         {{ form_start(form_infos) }}
                         <div class="row g-3 mb-4">
                             <div class="col-12">
-                                {{ form_row(form_infos.firstname, {'attr': {'class': 'form-control'}}) }}
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.firstname, {'attr': {'class': 'form-control', 'placeholder': 'account.form.firstname.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.firstname) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form_infos.firstname) }}</div>
                             </div>
                             <div class="col-12">
-                                {{ form_row(form_infos.lastname, {'attr': {'class': 'form-control'}}) }}
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.lastname, {'attr': {'class': 'form-control', 'placeholder': 'account.form.lastname.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.lastname) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form_infos.lastname) }}</div>
                             </div>
                             <div class="col-12">
-                                {{ form_row(form_infos.email, {'attr': {'class': 'form-control'}}) }}
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.email, {'attr': {'class': 'form-control', 'placeholder': 'account.form.email.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.email) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form_infos.email) }}</div>
                             </div>
                             {% if form_infos.discordPseudo is defined %}
                                 <div class="col-12">
-                                    {{ form_row(form_infos.discordPseudo, {'attr': {'class': 'form-control'}}) }}
+                                    <div class="form-floating">
+                                        {{ form_widget(form_infos.discordPseudo, {'attr': {'class': 'form-control', 'placeholder': 'account.form.discord_pseudo.placeholder'|trans}}) }}
+                                        {{ form_label(form_infos.discordPseudo) }}
+                                    </div>
+                                    {{ form_help(form_infos.discordPseudo) }}
+                                    <div class="text-danger">{{ form_errors(form_infos.discordPseudo) }}</div>
                                 </div>
                             {% elseif not hasLanParticipant %}
                                 <div class="col-12">
@@ -50,17 +67,27 @@
                     <div class="card-body">
                         {{ form_start(form_pwd) }}
                         <div class="row g-3 mb-4">
-                            <div class="col-12" data-controller="pwd-eye">
-                                {{ form_row(form_pwd.oldPassword, {'attr': {'class': 'form-control', 'data-pwd-eye-target': 'input'}}) }}
+                            <div class="col-12">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.oldPassword, {'attr': {'class': 'form-control', 'placeholder': 'account.password.current.placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'current-password'}}) }}
+                                    {{ form_label(form_pwd.oldPassword) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form_pwd.oldPassword) }}</div>
                             </div>
-                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="4" data-pwd-strength-position-value="left">
-                                <div data-controller="pwd-eye">
-                                    {{ form_row(form_pwd.password.first, {'attr': {'class': 'form-control', 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput'}}) }}
+                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="{{ passwordStrength }}" data-pwd-strength-position-value="left">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.password.first, {'attr': {'class': 'form-control', 'placeholder': 'account.password.new.placeholder'|trans, 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form_pwd.password.first) }}
                                 </div>
                                 <div class="tips-popover"></div>
+                                <div class="text-danger">{{ form_errors(form_pwd.password.first) }}{{ form_errors(form_pwd.password) }}</div>
                             </div>
-                            <div class="col-12" data-controller="pwd-eye">
-                                {{ form_row(form_pwd.password.second, {'attr': {'class': 'form-control', 'data-pwd-eye-target': 'input'}}) }}
+                            <div class="col-12">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.password.second, {'attr': {'class': 'form-control', 'placeholder': 'account.password.confirm.placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form_pwd.password.second) }}
+                                </div>
+                                <div class="text-danger">{{ form_errors(form_pwd.password.second) }}</div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">

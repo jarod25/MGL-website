@@ -24,9 +24,6 @@ class ChangePasswordType extends AbstractType
                     'placeholder' => 'account.password.current.placeholder',
                     'autocomplete' => 'current-password',
                 ],
-                'row_attr' => [
-                    'class' => 'form-floating',
-                ],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -42,9 +39,6 @@ class ChangePasswordType extends AbstractType
                         'placeholder' => 'account.password.new.placeholder',
                         'autocomplete' => 'new-password',
                     ],
-                    'row_attr' => [
-                        'class' => 'form-floating',
-                    ],
                     'constraints' => [
                         new NotBlank(message: 'account.password.required'),
                     ],
@@ -55,9 +49,6 @@ class ChangePasswordType extends AbstractType
                         'placeholder' => 'account.password.confirm.placeholder',
                         'autocomplete' => 'new-password',
                     ],
-                    'row_attr' => [
-                        'class' => 'form-floating',
-                    ],
                     'constraints' => [
                         new NotBlank(message: 'account.password.confirm_required'),
                     ],
@@ -65,9 +56,6 @@ class ChangePasswordType extends AbstractType
                 'attr' => [
                     'placeholder' => 'account.password.new.placeholder',
                     'autocomplete' => 'new-password',
-                ],
-                'row_attr' => [
-                    'class' => 'form-floating',
                 ],
                 'mapped' => false,
                 'required' => false,
