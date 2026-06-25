@@ -62,7 +62,10 @@ final class ParticipantExcelExportService
         $sheet->getStyle('A1:N1')->getFont()->setBold(true);
         $sheet->setAutoFilter('A1:N'.$lastRow);
         $sheet->freezePane('A2');
-        $sheet->getStyle('H2:H'.$lastRow)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE);
+        if ($lastRow >= 2) {
+            $sheet->getStyle('H2:H'.$lastRow)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_CURRENCY_EUR);
+        }
+
 
         foreach (range('A', 'N') as $column) {
             $sheet->getColumnDimension($column)->setAutoSize(true);

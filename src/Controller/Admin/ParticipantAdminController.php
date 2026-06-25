@@ -61,11 +61,15 @@ final class ParticipantAdminController extends AbstractController
     public function export(ParticipantExcelExportService $exportService): StreamedResponse
     {
         $filename = 'mgl-participants-'.(new \DateTimeImmutable())->format('Y-m-d_H-i').'.xlsx';
-        $response = new StreamedResponse(static function () use ($exportService): void {
-            $exportService->createWriter()->save('php://output');
+        $writer = $exportService->createWriter();
+
+        $response = new StreamedResponse(static function () use ($writer): void {
+            $writer->save('php://output');
         });
         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         $response->headers->set('Content-Disposition', HeaderUtils::makeDisposition(HeaderUtils::DISPOSITION_ATTACHMENT, $filename));
+        $response->headers->set('Cache-Control', 'private, no-store, no-cache, must-revalidate');
+        $response->headers->set('Pragma', 'no-cache');
 
         return $response;
     }
