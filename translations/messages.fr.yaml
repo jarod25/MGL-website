@@ -1,3 +1,19 @@
+error:
+  common:
+    back_home: 'Retour à l’accueil'
+  403:
+    page_title: 'Accès refusé'
+    title: 'Vous ne pouvez pas accéder à cette page'
+    message: 'Vous ne disposez pas des autorisations nécessaires pour consulter cette page.'
+  404:
+    page_title: 'Page introuvable'
+    title: 'Cette page est introuvable'
+    message: 'La page que vous recherchez n’existe pas ou a peut-être été déplacée.'
+  500:
+    page_title: 'Erreur interne'
+    title: 'Une erreur est survenue'
+    message: 'Une erreur inattendue s’est produite. Veuillez réessayer dans quelques instants.'
+
 registration:
   title: 'Inscription LAN'
   subtitle: 'Créez votre inscription LAN, puis finalisez le paiement pour rejoindre ou créer des équipes.'

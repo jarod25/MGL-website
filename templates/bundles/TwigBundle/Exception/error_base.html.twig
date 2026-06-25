@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|default('fr') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block page_title %}{% endblock %}</title>
+    {% for file in encore_entry_css_files('main') %}
+        <link rel="stylesheet" href="{{ preload(file, { as: 'style', importance: 'high' }) }}">
+    {% endfor %}
+</head>
+<body>
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+            <div class="card">
+                <div class="card-body p-4">
+                    <p class="display-1 fw-bold mb-3">{% block status_code %}{% endblock %}</p>
+                    <h1 class="h3 mb-3">{% block error_title %}{% endblock %}</h1>
+                    <p class="mb-4">{% block error_message %}{% endblock %}</p>
+                    <a class="btn btn-primary" href="{{ path('app_home') }}">{% block button_label %}{% endblock %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

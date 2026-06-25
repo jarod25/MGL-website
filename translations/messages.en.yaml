@@ -1,3 +1,19 @@
+error:
+  common:
+    back_home: 'Back to home'
+  403:
+    page_title: 'Access denied'
+    title: 'You cannot access this page'
+    message: 'You do not have the required permissions to view this page.'
+  404:
+    page_title: 'Page not found'
+    title: 'This page could not be found'
+    message: 'The page you are looking for does not exist or may have been moved.'
+  500:
+    page_title: 'Internal error'
+    title: 'Something went wrong'
+    message: 'An unexpected error occurred. Please try again in a few moments.'
+
 registration:
   title: 'LAN registration'
   subtitle: 'Create your LAN registration, then finalize your payment to join or create teams.'
