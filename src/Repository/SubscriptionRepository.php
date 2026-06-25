@@ -20,4 +20,9 @@ class SubscriptionRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['slug' => trim($slug)]);
     }
+
+    public function findOneByHelloAssoTierId(string $tierId): ?Subscription
+    {
+        return $this->findOneBy(['helloAssoTierId' => trim($tierId)]);
+    }
 }

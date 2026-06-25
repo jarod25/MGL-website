@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.participant.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <h1 class="mb-4">{{ 'admin.participant.title'|trans }}</h1>
+        <form method="get" class="row g-3 align-items-end mb-4">
+            <div class="col-12 col-lg-4">
+                <label class="form-label" for="admin-participant-search">{{ 'admin.participant.search'|trans }}</label>
+                <input class="form-control" id="admin-participant-search" type="search" name="q" value="{{ filters.q }}" placeholder="{{ 'admin.participant.search_placeholder'|trans }}">
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label" for="admin-participant-status">{{ 'admin.participant.status'|trans }}</label>
+                <select class="form-select" id="admin-participant-status" name="status">
+                    <option value="">{{ 'admin.participant.all_statuses'|trans }}</option>
+                    {% for status in statuses %}
+                        <option value="{{ status.value }}" {% if filters.status == status.value %}selected{% endif %}>{{ ('registration.status.' ~ status.value)|trans }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label" for="admin-participant-subscription">{{ 'admin.participant.subscription'|trans }}</label>
+                <select class="form-select" id="admin-participant-subscription" name="subscription">
+                    <option value="">{{ 'admin.participant.all_subscriptions'|trans }}</option>
+                    {% for subscription in subscriptions %}
+                        <option value="{{ subscription.id }}" {% if filters.subscription == subscription.id %}selected{% endif %}>{{ subscription.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12 col-lg-2 d-flex gap-2">
+                <button class="btn btn-primary" type="submit">{{ 'admin.participant.filter'|trans }}</button>
+                <a class="btn btn-outline-secondary" href="{{ path('app_admin_lan_participant_index') }}">{{ 'admin.participant.reset'|trans }}</a>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <thead>
+                <tr>
+                    <th>{{ 'admin.participant.full_name'|trans }}</th>
+                    <th>{{ 'admin.participant.email'|trans }}</th>
+                    <th>{{ 'admin.participant.discord_pseudo'|trans }}</th>
+                    <th>{{ 'admin.participant.status'|trans }}</th>
+                    <th>{{ 'admin.participant.subscription'|trans }}</th>
+                    <th>{{ 'admin.participant.created_at'|trans }}</th>
+                    <th>{{ 'admin.participant.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for participant in pagination %}
+                    <tr>
+                        <td>{{ participant.firstname }} {{ participant.lastname }}</td>
+                        <td>{{ participant.email }}</td>
+                        <td>{{ participant.discordPseudo ?? 'admin.common.not_available'|trans }}</td>
+                        <td><span class="badge text-bg-secondary">{{ ('registration.status.' ~ participant.registrationStatus.value)|trans }}</span></td>
+                        <td>{{ participant.subscription ? participant.subscription.name : 'admin.common.not_available'|trans }}</td>
+                        <td>{{ participant.createdAt ? participant.createdAt|date('d/m/Y H:i') : 'admin.common.not_available'|trans }}</td>
+                        <td><a class="btn btn-sm btn-primary" href="{{ path('app_admin_lan_participant_show', { id: participant.id }) }}">{{ 'admin.participant.view'|trans }}</a></td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="7" class="text-center">{{ 'admin.participant.empty'|trans }}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {{ knp_pagination_render(pagination, 'bundles/KnpPaginatorBundle/pagination.html.twig') }}
+    </div>
+{% endblock %}
