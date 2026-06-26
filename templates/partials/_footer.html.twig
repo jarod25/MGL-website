@@ -1,17 +1,9 @@
-<footer class="footer bg-light py-4 mt-auto">
+<footer class="footer py-5 mt-auto">
     <div class="container">
-        <div class="row g-3 align-items-center">
-            <div class="col-md-4"><p class="fw-semibold mb-1">Mulhouse Gaming Tournament</p><p class="small mb-0"><a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a></p></div>
-            <div class="col-md-4"><ul class="nav justify-content-md-center">
-                <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_team_index') }}">{{ 'navigation.teams'|trans }}</a></li>
-                <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_practical_information') }}">{{ 'navigation.practical_information'|trans }}</a></li>
-                <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_about') }}">{{ 'navigation.about'|trans }}</a></li>
-                <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_contact') }}">{{ 'navigation.contact'|trans }}</a></li>
-            </ul></div>
-            <div class="col-md-4 text-md-end small">
-                <p class="mb-1">{{ 'footer.hosted_by'|trans }} <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a></p>
-                <p class="mb-0">&copy; 2026{% if "now"|date("Y") != '2026' %} - {{ "now"|date("Y") }}{% endif %} Mulhouse Gaming Tournament. {{ 'footer.all_right_reserved'|trans }}</p>
-            </div>
+        <div class="row g-4 align-items-start text-center text-md-start">
+            <div class="col-md-4"><div class="d-flex flex-column flex-md-row align-items-center gap-3"><img class="footer__icon" src="/images/branding/mgt-icon.svg" alt="" width="40" height="40"><div><p class="fw-bold mb-1">Mulhouse Gaming Tournament</p><p class="mb-0"><a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a></p></div></div></div>
+            <div class="col-md-4"><ul class="nav flex-column flex-sm-row justify-content-center"><li class="nav-item"><a class="nav-link px-2" href="{{ path('app_team_index') }}">{{ 'navigation.teams'|trans }}</a></li><li class="nav-item"><a class="nav-link px-2" href="{{ path('app_practical_information') }}">{{ 'navigation.practical_information'|trans }}</a></li><li class="nav-item"><a class="nav-link px-2" href="{{ path('app_about') }}">{{ 'navigation.about'|trans }}</a></li><li class="nav-item"><a class="nav-link px-2" href="{{ path('app_contact') }}">{{ 'navigation.contact'|trans }}</a></li></ul></div>
+            <div class="col-md-4 text-md-end"><p class="mb-1">{{ 'footer.hosted_by'|trans }} <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a></p><p class="mb-0">&copy; 2026{% if "now"|date("Y") != '2026' %} - {{ "now"|date("Y") }}{% endif %} Mulhouse Gaming Tournament. {{ 'footer.all_right_reserved'|trans }}</p></div>
         </div>
     </div>
 </footer>

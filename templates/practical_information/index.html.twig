@@ -3,8 +3,8 @@
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
 {% block body %}
 <div class="py-4">
-    <h1>{{ 'title'|trans }}</h1>
-    <p class="lead">{{ 'lead'|trans }}</p>
+    <div class="mgt-page-hero mb-4"><h1>{{ 'title'|trans }}</h1>
+    <p class="lead mb-0">{{ 'lead'|trans }}</p></div>
     <div class="row g-4">
         {% for section in ['place','bring','rental','provided','food','access','security','cheat','image','refund','rules'] %}
             <section class="col-12 {{ section in ['place','rental'] ? '' : 'col-lg-6' }}">
@@ -19,7 +19,7 @@
                         {% else %}
                             {% if (section ~ '.intro')|trans != section ~ '.intro' %}<p>{{ (section ~ '.intro')|trans }}</p>{% endif %}
                             {% if (section ~ '.items')|trans != section ~ '.items' %}<ul>{% for item in (section ~ '.items')|trans %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
-                            {% if (section ~ '.note')|trans != section ~ '.note' %}<p class="mb-0 fw-semibold">{{ (section ~ '.note')|trans }}</p>{% endif %}
+                            {% if (section ~ '.note')|trans != section ~ '.note' %}<p class="mb-0 fw-semibold mgt-info-note">{{ (section ~ '.note')|trans }}</p>{% endif %}
                         {% endif %}
                     </div>
                 </div>
