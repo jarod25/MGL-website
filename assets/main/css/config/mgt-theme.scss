@@ -11,6 +11,9 @@
   --mgt-white: #FFFFFF;
   --mgt-border: rgba(129, 121, 172, .38);
   --mgt-muted: rgba(232, 236, 242, .72);
+  --mgt-panel-bg: linear-gradient(145deg, rgba(12, 20, 20, .62), rgba(26, 17, 37, .56));
+  --mgt-panel-bg-soft: linear-gradient(145deg, rgba(13, 21, 21, .48), rgba(31, 18, 43, .42));
+  --mgt-panel-border: rgba(145, 124, 180, .42);
 }
 
 html {
@@ -308,11 +311,6 @@ body.mgt-page-home {
   background-color: transparent;
 }
 
-.mgt-page-home .card {
-  box-shadow: none;
-  background: rgba(23, 32, 31, .92);
-}
-
 .mgt-page-home .card,
 .mgt-page-home .mgt-hero,
 .mgt-page-home .mgt-pricing,
@@ -442,11 +440,13 @@ body.mgt-page-home {
 }
 
 .mgt-page-home .mgt-game-card {
-  border-color: var(--mgt-border);
+  background: var(--mgt-panel-bg);
+  border-color: var(--mgt-panel-border);
   box-shadow: none;
 }
 
 .mgt-page-home .mgt-game-card:hover {
+  background: linear-gradient(145deg, rgba(16, 25, 25, .72), rgba(36, 20, 49, .66));
   transform: translateY(-2px);
   border-color: var(--mgt-pink);
 }
@@ -594,8 +594,22 @@ body.mgt-page-home {
 .mgt-pricing {
   padding: 1.25rem;
   border: 1px solid var(--mgt-border);
-  background: rgba(23, 32, 31, .82);
   box-shadow: none;
+}
+
+.mgt-page-home .mgt-pricing,
+.mgt-page-home .mgt-practical-preview {
+  background: var(--mgt-panel-bg-soft);
+  border-color: var(--mgt-panel-border);
+  box-shadow: none;
+}
+
+.mgt-page-home .mgt-pricing {
+  border-top: 2px solid rgba(226, 113, 165, .65);
+}
+
+.mgt-page-home .mgt-practical-preview {
+  border-left: 3px solid var(--mgt-purple);
 }
 
 // Accordion, tables and forms
