@@ -14,6 +14,7 @@
 }
 
 html {
+  background-color: var(--mgt-bg);
   scroll-behavior: smooth;
 }
 
@@ -51,6 +52,12 @@ a:hover {
 }
 
 // Public layout
+
+.mgt-site-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .mgt-public {
   background:
@@ -275,10 +282,30 @@ a:hover {
 
 // Homepage
 
-.mgt-page-home {
-  background: linear-gradient(180deg, #111917 0%, #131a19 22%, #15191c 48%, #181722 74%, #1b1526 100%);
+body.mgt-page-home {
+  background-color: var(--mgt-bg);
+}
+
+.mgt-home-shell {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1b1526;
+  background-image:
+    linear-gradient(
+      180deg,
+      #111917 0%,
+      #131a19 22%,
+      #15191c 48%,
+      #181722 74%,
+      #1b1526 100%
+    );
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+}
+
+.mgt-page-home main,
+.mgt-page-home .mgt-homepage,
+.mgt-page-home .mgt-homepage > section {
+  background-color: transparent;
 }
 
 .mgt-page-home .card {
@@ -363,11 +390,26 @@ a:hover {
   color: var(--mgt-white);
 }
 
+.mgt-hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .mgt-hero__logo {
-  max-width: min(100%, 360px);
+  display: block;
+  width: min(100%, 360px);
+  max-width: 360px;
+  height: auto;
+  margin-inline: auto;
 }
 
 .mgt-cash {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
   padding: 1.25rem;
   border: 1px solid var(--mgt-purple);
   border-radius: .25rem;

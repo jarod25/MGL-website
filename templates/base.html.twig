@@ -18,8 +18,9 @@
 {% set currentRoute = app.request.attributes.get('_route')|default('') %}
 {% set isAdminPage = currentRoute starts with 'app_admin_' %}
 {% set isHomepage = currentRoute == 'app_home' %}
-<body class="d-flex flex-column min-vh-100 {{ isAdminPage ? 'mgt-admin' : 'mgt-public' }} {{ isHomepage ? 'mgt-page-home' : '' }}">
+<body class="{{ isAdminPage ? 'mgt-admin' : 'mgt-public' }} {{ isHomepage ? 'mgt-page-home' : '' }}">
 {% block content %}
+    <div class="mgt-site-shell {{ isHomepage ? 'mgt-home-shell' : '' }}">
 
     {% block navbar %}
         {% include 'partials/_navbar.html.twig' %}
@@ -39,6 +40,7 @@
         {% include "partials/_footer.html.twig" %}
     {% endblock %}
 
+    </div>
 {% endblock %}
 
 {% block javascripts %}
