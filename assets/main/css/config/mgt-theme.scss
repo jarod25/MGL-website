@@ -499,21 +499,24 @@ body.mgt-page-home {
   transition: transform .18s ease, border-color .18s ease;
 }
 
-.mgt-page-home .mgt-game-card {
+.mgt-page-home .mgt-game-card,
+.mgt-public-shell .game-card {
   background: var(--mgt-panel-bg);
-  border-color: var(--mgt-panel-border);
+  border: 1px solid var(--mgt-panel-border);
+  border-radius: .5rem;
   box-shadow: none;
 }
 
-.mgt-page-home .mgt-game-card:hover {
-  background: linear-gradient(145deg, rgba(16, 25, 25, .72), rgba(36, 20, 49, .66));
+.mgt-page-home .mgt-game-card:hover,
+.mgt-public-shell .game-card:hover {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 25, 25, .72),
+      rgba(36, 20, 49, .66)
+    );
+  border-color: var(--mgt-pink);
   transform: translateY(-2px);
-  border-color: var(--mgt-pink);
-}
-
-.game-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--mgt-pink);
 }
 
 .mgt-game-logo {
@@ -583,11 +586,6 @@ body.mgt-page-home {
   background: linear-gradient(90deg, var(--mgt-pink), transparent);
 }
 
-.game-card__logo-wrapper {
-  background: rgba(255, 255, 255, .03);
-  border: 1px solid rgba(129, 121, 172, .2);
-  border-radius: .9rem;
-}
 
 .mgt-counter {
   color: var(--mgt-pink);
@@ -865,25 +863,15 @@ body.mgt-page-home {
   box-shadow: none;
 }
 
-.mgt-public-shell .game-card {
-  background: var(--mgt-panel-bg);
-  border-color: var(--mgt-panel-border);
-  border-radius: .5rem;
-  box-shadow: none;
-}
-
-.mgt-public-shell .game-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--mgt-pink);
-}
-
 .game-card__logo-wrapper {
   display: flex;
   min-height: 7rem;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  border-radius: .5rem;
+  padding: .5rem 1rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .game-card__logo {

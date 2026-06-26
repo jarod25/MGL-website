@@ -2,7 +2,6 @@ index:
   title: 'Teams'
   empty: 'Die Spiele erscheinen hier, sobald die Auswahl bereit ist.'
   create_link: 'Team erstellen'
-  subtitle: 'Wählen Sie ein Spiel, um die bereits erstellten Teams zu sehen.'
   created_teams: '{0} %count% / %max% Teams angemeldet|{1} %count% / %max% Team angemeldet|]1,Inf] %count% / %max% Teams angemeldet'
   view_teams: 'Teams ansehen'
   players_count: '%count% / %max% Spieler'
