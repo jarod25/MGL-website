@@ -3,7 +3,7 @@
 {% block title %}{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}{% endblock %}
 
 {% block body %}
-    <div class="container py-4">
+    <div class="py-4">
         <h1>{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}</h1>
         <p>{{ 'team.member.new.current_count'|trans({ '%count%': members|length, '%max%': team.game.maxPlayersPerTeam }) }}</p>
 

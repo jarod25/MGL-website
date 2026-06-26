@@ -1,21 +1,15 @@
 {% trans_default_domain 'homepage' %}
 <section class="py-4">
-    <h2 class="h3 mb-3">{{ 'games.title'|trans }}</h2>
+    {% set gameLogos = { 'league-of-legends': '/images/games/league-of-legends.svg', 'rocket-league': '/images/games/rocket-league.png', 'valorant': '/images/games/valorant.svg', 'ea-fc-26': '/images/games/ea-fc-26.png' } %}
+    <div class="mgt-section-heading"><h2>{{ 'games.title'|trans }}</h2></div>
     <div class="row g-3">
-        {% for game in games %}
-            {% set descriptionKey = 'games.descriptions.' ~ game.slug %}
-            {% set description = descriptionKey|trans %}
-            <div class="col-12 col-md-6 col-xl-3">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="h5 card-title">{{ game.name }}</h3>
-                        <p class="text-muted mb-2">{{ 'games.day'|trans({ '%day%': ('game.day.' ~ game.day.value)|trans({}, 'messages') }) }}</p>
-                        <p class="card-text mb-0">{{ description == descriptionKey ? 'games.fallback_description'|trans : description }}</p>
-                    </div>
-                </div>
-            </div>
-        {% else %}
-            <div class="col-12"><p class="text-muted">{{ 'games.empty'|trans }}</p></div>
-        {% endfor %}
+        {% for game in games %}{% set descriptionKey = 'games.descriptions.' ~ game.slug %}{% set description = descriptionKey|trans %}
+            <div class="col-12 col-md-6 col-xl-3"><div class="card mgt-game-card h-100"><div class="card-body d-flex flex-column gap-3">
+                {% if gameLogos[game.slug] is defined %}<img class="mgt-game-logo" src="{{ gameLogos[game.slug] }}" alt="{{ game.name }}" loading="lazy">{% endif %}
+                <span class="mgt-day-badge">{{ 'games.day'|trans({ '%day%': ('game.day.' ~ game.day.value)|trans({}, 'messages') }) }}</span>
+                <h3 class="h4 card-title text-white mb-0">{{ game.name }}</h3>
+                <p class="card-text mb-0">{{ description == descriptionKey ? 'games.fallback_description'|trans : description }}</p>
+            </div></div></div>
+        {% else %}<div class="col-12"><p class="text-muted">{{ 'games.empty'|trans }}</p></div>{% endfor %}
     </div>
 </section>
