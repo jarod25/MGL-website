@@ -5,7 +5,9 @@
 
 {% block body %}
     <div class="mgt-homepage">
-        {% include 'home/_hero.html.twig' %}
+        <div class="mgt-hero-section">
+            {% include 'home/_hero.html.twig' %}
+        </div>
         {% include 'home/_presentation.html.twig' %}
         {% include 'home/_games.html.twig' %}
         {% include 'home/_pricing.html.twig' %}

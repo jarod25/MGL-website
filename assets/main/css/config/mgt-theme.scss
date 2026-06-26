@@ -296,10 +296,10 @@ body.mgt-page-home {
   background-image:
     linear-gradient(
       180deg,
-      #111917 0%,
-      #131a19 22%,
-      #15191c 48%,
-      #181722 74%,
+      #07100e 0%,
+      #091310 22%,
+      #0d1515 48%,
+      #14151d 74%,
       #1b1526 100%
     );
   background-repeat: no-repeat;
@@ -702,8 +702,10 @@ body.mgt-page-home {
   position: absolute;
   z-index: -2;
   content: "";
-  inset: 0;
-  background: url("/images/branding/mgt-background-subtle.png") center / cover no-repeat;
+  inset: -8% -6%;
+  background:
+          url("/images/branding/mgt-background-subtle.png")
+          50% 45% / cover no-repeat;
 }
 
 .mgt-public .footer::after {
@@ -728,7 +730,36 @@ body.mgt-page-home {
   height: 2.4rem;
 }
 
+.mgt-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mgt-hero__content h1 {
+  margin-bottom: 1.5rem;
+}
+
+.mgt-hero__meta {
+  margin-bottom: .8rem !important;
+}
+
+.mgt-hero__content address {
+  margin-top: .25rem;
+  line-height: 1.55;
+}
+
+.mgt-hero__actions {
+  margin-top: 1.75rem !important;
+}
+
 // Responsive
+
+@media (max-width: 991.98px) {
+  .mgt-hero__grid {
+    min-height: auto;
+  }
+}
 
 @media (max-width: 991.98px) {
   .mgt-navbar .navbar-collapse {
@@ -771,6 +802,26 @@ body.mgt-page-home {
     border-left: 0;
     padding-top: 1.25rem;
     padding-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .mgt-hero-section {
+    display: flex;
+    align-items: flex-start;
+    min-height: calc(100svh - 4rem);
+    padding-top: clamp(2.5rem, 5vh, 4rem);
+    padding-bottom: clamp(3rem, 6vh, 5rem);
+    box-sizing: border-box;
+  }
+
+  .mgt-hero-section .mgt-hero {
+    width: 100%;
+    margin: 0;
+  }
+
+  .mgt-hero__grid {
+    min-height: clamp(38rem, 72svh, 44rem);
   }
 }
 
