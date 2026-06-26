@@ -14,6 +14,8 @@
   --mgt-panel-bg: linear-gradient(145deg, rgba(12, 20, 20, .62), rgba(26, 17, 37, .56));
   --mgt-panel-bg-soft: linear-gradient(145deg, rgba(13, 21, 21, .48), rgba(31, 18, 43, .42));
   --mgt-panel-border: rgba(145, 124, 180, .42);
+  --mgt-home-section-gap: clamp(3.75rem, 6vw, 5.5rem);
+  --mgt-home-heading-gap: 1.5rem;
 }
 
 html {
@@ -308,7 +310,8 @@ body.mgt-page-home {
 
 .mgt-page-home main,
 .mgt-page-home .mgt-homepage,
-.mgt-page-home .mgt-homepage > section {
+.mgt-page-home .mgt-homepage > section,
+.mgt-page-home .mgt-home-sections {
   background-color: transparent;
 }
 
@@ -317,6 +320,24 @@ body.mgt-page-home {
 .mgt-page-home .mgt-pricing,
 .mgt-page-home .mgt-about-preview {
   border-radius: .5rem;
+}
+
+
+.mgt-home-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mgt-home-section-gap);
+  margin-top: clamp(2.5rem, 4vw, 4rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.mgt-home-section {
+  margin: 0;
+  padding: 0;
+}
+
+.mgt-home-section .mgt-section-heading {
+  margin-bottom: var(--mgt-home-heading-gap);
 }
 
 .mgt-page-home .btn {
@@ -471,7 +492,7 @@ body.mgt-page-home {
   grid-template-columns: minmax(0, 1fr) minmax(16rem, .36fr);
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
-  padding: 1.25rem 0;
+  padding: 0;
 }
 
 .mgt-presentation__text {
@@ -599,8 +620,9 @@ body.mgt-page-home {
   box-shadow: none;
 }
 
+.mgt-page-home .mgt-practical-preview .card-body,
 .mgt-page-home .mgt-about-preview .card-body {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .mgt-pricing {
@@ -831,6 +853,17 @@ body.mgt-page-home {
   }
 }
 
+@media (max-width: 767.98px) {
+  :root {
+    --mgt-home-section-gap: 3rem;
+    --mgt-home-heading-gap: 1.25rem;
+  }
+
+  .mgt-home-sections {
+    padding-bottom: 4rem;
+  }
+}
+
 @media (max-width: 575.98px) {
   .mgt-brand__text {
     display: none;
@@ -844,8 +877,7 @@ body.mgt-page-home {
     margin-top: 1rem;
   }
 
-  .mgt-hero__grid,
-  .mgt-page-home .mgt-about-preview .card-body {
+  .mgt-hero__grid {
     padding: 1.5rem;
   }
 
