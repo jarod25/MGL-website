@@ -30,8 +30,9 @@
                                         <div class="game-card__logo-wrapper">
                                             <img
                                                 class="game-card__logo"
-                                                src="{{ asset(gameLogos[game.slug]) }}"
+                                                src="{{ gameLogos[game.slug] }}"
                                                 alt="{{ 'index.logo_alt'|trans({ '%game%': game.name }) }}"
+                                                loading="lazy"
                                             >
                                         </div>
                                     {% endif %}

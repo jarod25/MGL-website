@@ -7,14 +7,25 @@
                 <div class="card h-100 partner-card">
                     <div class="card-body d-flex flex-column gap-3">
                         <div class="partner-card__logo-wrapper">
-                            {% if partner.logoPath %}
-                                {% if partner.url is defined %}<a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{% endif %}
-                                <img class="partner-card__logo" src="{{ asset(partner.logoPath) }}" alt="{{ 'partners.logo_alt'|trans({ '%name%': partner.name }) }}" loading="lazy">
-                                {% if partner.url is defined %}</a>{% endif %}
-                            {% elseif partner.key == 'ikoula' and partner.remoteLogoPath is defined %}
-                                <a href="{{ partner.url }}" target="_blank" rel="noopener noreferrer" title="{{ 'partners.ikoula_title'|trans }}">
-                                    <img class="partner-card__logo" src="{{ partner.remoteLogoPath }}" alt="{{ 'partners.ikoula_alt'|trans }}" loading="lazy">
-                                </a>
+                            {% if partner.logoPath is defined %}
+                                {% if partner.url is defined %}
+                                    <a
+                                        href="{{ partner.url }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                {% endif %}
+
+                                <img
+                                    class="partner-card__logo"
+                                    src="{{ partner.logoPath }}"
+                                    alt="{{ 'partners.logo_alt'|trans({ '%name%': partner.name }) }}"
+                                    loading="lazy"
+                                >
+
+                                {% if partner.url is defined %}
+                                    </a>
+                                {% endif %}
                             {% else %}
                                 <p class="h5 mb-0 text-center">{{ partner.name }}</p>
                             {% endif %}
