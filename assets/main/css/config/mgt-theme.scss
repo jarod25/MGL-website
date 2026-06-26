@@ -492,6 +492,31 @@ body.mgt-page-home {
   letter-spacing: .1em;
 }
 
+.mgt-home-duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  align-items: stretch;
+}
+
+.mgt-home-duo .mgt-home-section {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.mgt-home-duo .mgt-practical-preview,
+.mgt-home-duo .mgt-about-preview {
+  height: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .mgt-home-duo {
+    grid-template-columns: 1fr;
+    gap: var(--mgt-home-section-gap);
+  }
+}
+
 // Games and teams
 
 .mgt-game-card,

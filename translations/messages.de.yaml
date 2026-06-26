@@ -103,6 +103,7 @@ language:
   de: 'Deutsch'
 
 team:
+  label: 'Team'
   new:
     title: 'Team erstellen'
     submit: 'Team erstellen'
