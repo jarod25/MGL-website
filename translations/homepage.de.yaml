@@ -1,20 +1,19 @@
 meta:
   title: 'Startseite - Mulhouse Gaming Tournament'
 hero:
-  badge: '29. und 30. August 2026'
+  badge: 'Ausgabe 2026'
   title: 'Mulhouse Gaming Tournament'
   dates: 'Samstag, 29. August 2026 und Sonntag, 30. August 2026'
   place: 'PHG Academy – KMØ, Mulhouse'
   cash_prize: 'Gesamtes Preisgeld: 4.000 €'
-  address_name: 'PHG Academy – KMØ'
   address_street: '30 rue François Spoerry'
   address_city: '68100 Mulhouse'
   logo_alt: 'Logo Mulhouse Gaming Tournament'
   subtitle: 'Zwei Tage Videospielturniere in Mulhouse, mit Anmeldung vor dem Beitritt zu einem Team oder der Teamerstellung.'
   register: 'Anmelden'
-  teams: 'Spiele und Teams ansehen'
+  teams: 'Spiele & Teams'
   about: 'Über uns'
-  practical: 'Praktische Informationen'
+  practical: 'Praktische Infos'
 presentation:
   title: 'Ein Turnier über zwei Tage'
   text: 'Das Mulhouse Gaming Tournament bündelt mehrere Wettbewerbe an einem Wochenende, mit einer Organisation rund um Spiele, Teams und die Aufnahme der Teilnehmenden.'

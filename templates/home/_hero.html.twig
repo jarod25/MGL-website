@@ -6,12 +6,15 @@
             <h1 id="homepage-hero-title">{{ 'hero.title'|trans }}</h1>
             <p class="mgt-hero__meta mb-2">{{ 'hero.dates'|trans }}</p>
             <p class="fs-5 mb-1">{{ 'hero.place'|trans }}</p>
-            <address class="text-muted mb-0">{{ 'hero.address_name'|trans }}<br>{{ 'hero.address_street'|trans }}<br>{{ 'hero.address_city'|trans }}</address>
-            <div class="mgt-hero__actions d-flex flex-column flex-sm-row flex-wrap gap-2 mt-4">
-                <a class="btn btn-primary btn-lg" href="{{ path('app_registration_new') }}">{{ 'hero.register'|trans }}</a>
-                <a class="btn btn-outline-primary btn-lg" href="{{ path('app_team_index') }}">{{ 'hero.teams'|trans }}</a>
-                <a class="btn btn-outline-secondary btn-lg" href="{{ path('app_about') }}">{{ 'hero.about'|trans }}</a>
-                <a class="btn btn-outline-secondary btn-lg" href="{{ path('app_practical_information') }}">{{ 'hero.practical'|trans }}</a>
+            <address class="text-muted mb-0">
+                {{ 'hero.address_street'|trans }}<br>
+                {{ 'hero.address_city'|trans }}
+            </address>
+            <div class="mgt-hero__actions mt-4">
+                <a class="btn btn-primary mgt-hero__action" href="{{ path('app_registration_new') }}">{{ 'hero.register'|trans }}</a>
+                <a class="btn btn-outline-primary mgt-hero__action" href="{{ path('app_team_index') }}">{{ 'hero.teams'|trans }}</a>
+                <a class="btn btn-outline-secondary mgt-hero__action" href="{{ path('app_about') }}">{{ 'hero.about'|trans }}</a>
+                <a class="btn btn-outline-secondary mgt-hero__action" href="{{ path('app_practical_information') }}">{{ 'hero.practical'|trans }}</a>
             </div>
         </div>
         <div class="mgt-hero__visual">
