@@ -17,14 +17,12 @@
             </div>
         </div>
     {% endif %}
-    <div class="container mt-4">
+    <div class="mgt-public-page mgt-auth-page mgt-auth-page--narrow">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h1 class="h2 mb-0">{{ 'login.title'|trans }}</h1>
-                    </div>
-                    <div class="card-body p-4">
+                <div class="mgt-panel mgt-auth-panel">
+                    <div class="mgt-section-heading text-center"><h1>{{ 'login.title'|trans }}</h1></div>
+                    <div>
                         <form method="post" action="{{ path('app_login') }}">
                             <div class="row g-3">
                                 <div class="col-12">
@@ -45,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-lg btn-primary text-white" type="submit">
+                                    <button class="btn btn-primary" type="submit">
                                         {{ 'login.submit'|trans }}
                                     </button>
                                 </div>
@@ -53,7 +51,7 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         </form>
                     </div>
-                    <div class="card-footer text-center">
+                    <div class="mgt-auth-footer">
                         <span class="small">{{ 'login.no_account'|trans }} <a href="{{ path('app_registration_new') }}">{{ 'login.register_link'|trans }}</a></span>
                     </div>
                 </div>

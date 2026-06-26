@@ -1,56 +1,29 @@
 {% extends 'base.html.twig' %}
 {% trans_default_domain 'teams' %}
-
 {% block title %}{{ 'index.title'|trans }}{% endblock %}
-
 {% block body %}
-    <div class="py-4">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
-            <div>
-                <div class="mgt-section-heading"><h1>{{ 'index.title'|trans }}</h1></div>
-                <p class="text-muted mb-0">{{ 'index.subtitle'|trans }}</p>
-            </div>
-            <a class="btn btn-primary" href="{{ path('app_team_new') }}">{{ 'index.create_link'|trans }}</a>
-        </div>
-
-        {% if gamesByDay is empty %}
-            <p>{{ 'index.empty'|trans }}</p>
-        {% endif %}
-
-        {% for day, dayGames in gamesByDay %}
-            <section class="team-day-section mb-5">
-                <h2 class="h3 mb-4">{{ ('dates.' ~ day ~ '_full')|trans }}</h2>
-                <div class="row g-4">
-                    {% for game in dayGames %}
-                        {% set createdTeams = teamCounts[game.id]|default(0) %}
-                        <div class="col-12 col-md-6">
-                            <div class="card game-card h-100">
-                                <div class="card-body d-flex flex-column text-center gap-3">
-                                    {% if gameLogos[game.slug] is defined %}
-                                        <div class="game-card__logo-wrapper">
-                                            <img
-                                                class="game-card__logo"
-                                                src="{{ gameLogos[game.slug] }}"
-                                                alt="{{ 'index.logo_alt'|trans({ '%game%': game.name }) }}"
-                                                loading="lazy"
-                                            >
-                                        </div>
-                                    {% endif %}
-                                    <h3 class="h4 card-title mb-0">{{ game.name }}</h3>
-                                    <div class="d-flex flex-column gap-2 text-muted">
-                                        <span>{{ 'game.players_per_team'|trans({ '%maxPlayers%': game.maxPlayersPerTeam, '%count%': game.maxPlayersPerTeam }) }}</span>
-                                        <span>{{ 'game.max_teams'|trans({ '%maxTeams%': game.maxTeams, '%count%': game.maxTeams }) }}</span>
-                                        <span>{{ 'index.created_teams'|trans({ '%count%': createdTeams, '%max%': game.maxTeams }) }}</span>
-                                    </div>
-                                    <div class="mt-auto pt-2">
-                                        <a class="btn btn-primary w-100" href="{{ path('app_team_game', { slug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </section>
-        {% endfor %}
+<div class="mgt-public-page">
+  <header class="mgt-page-header">
+    <div class="mgt-page-header__row">
+      <div><div class="mgt-section-heading"><h1>{{ 'index.title'|trans }}</h1></div><p class="mgt-page-lead mb-0">{{ 'index.subtitle'|trans }}</p></div>
+      <a class="btn btn-primary" href="{{ path('app_team_new') }}">{{ 'index.create_link'|trans }}</a>
     </div>
+  </header>
+  {% if gamesByDay is empty %}<div class="mgt-panel mgt-empty-state"><p class="mb-0">{{ 'index.empty'|trans }}</p></div>{% endif %}
+  {% for day, dayGames in gamesByDay %}
+    <section class="team-day-section mgt-public-section">
+      <h2 class="h3 mb-4">{{ ('dates.' ~ day ~ '_full')|trans }}</h2>
+      <div class="row g-4">
+        {% for game in dayGames %}{% set createdTeams = teamCounts[game.id]|default(0) %}
+        <div class="col-12 col-md-6"><div class="card game-card h-100"><div class="card-body d-flex flex-column text-center gap-3">
+          {% if gameLogos[game.slug] is defined %}<div class="game-card__logo-wrapper"><img class="game-card__logo game-card__logo--{{ game.slug }}" src="{{ gameLogos[game.slug] }}" alt="{{ 'index.logo_alt'|trans({ '%game%': game.name }) }}" loading="lazy"></div>{% endif %}
+          <h3 class="h4 card-title mb-0">{{ game.name }}</h3>
+          <div class="d-flex flex-column gap-2 text-muted"><span>{{ 'game.players_per_team'|trans({ '%maxPlayers%': game.maxPlayersPerTeam, '%count%': game.maxPlayersPerTeam }) }}</span><span>{{ 'game.max_teams'|trans({ '%maxTeams%': game.maxTeams, '%count%': game.maxTeams }) }}</span><span class="mgt-counter">{{ 'index.created_teams'|trans({ '%count%': createdTeams, '%max%': game.maxTeams }) }}</span></div>
+          <div class="mt-auto pt-2"><a class="btn btn-primary w-100" href="{{ path('app_team_game', { slug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a></div>
+        </div></div></div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>
 {% endblock %}

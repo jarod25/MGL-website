@@ -3,9 +3,9 @@
 {% block title %}{{ 'team.show.title'|trans({ '%name%': team.name }) }}{% endblock %}
 
 {% block body %}
-    <div class="py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>{{ 'team.show.title'|trans({ '%name%': team.name }) }}</h1>
+    <div class="mgt-public-page">
+        <div class="mgt-page-header__row mb-4">
+            <div class="mgt-section-heading"><h1>{{ 'team.show.title'|trans({ '%name%': team.name }) }}</h1></div>
             {% if canAddMembers %}
                 <a class="btn btn-primary" href="{{ path('app_team_member_new', { id: team.id }) }}">{{ 'team.show.add_member'|trans }}</a>
             {% elseif isCaptain and isTeamFull %}
@@ -13,7 +13,7 @@
             {% endif %}
         </div>
 
-        <dl class="row">
+        <div class="mgt-panel p-4 mb-4"><dl class="mgt-info-grid mb-0">
             <dt class="col-sm-3">{{ 'team.show.game'|trans }}</dt>
             <dd class="col-sm-9">{{ team.game.name }}</dd>
 
@@ -25,10 +25,10 @@
 
             <dt class="col-sm-3">{{ 'team.show.captain'|trans }}</dt>
             <dd class="col-sm-9">{{ team.captain.firstname }} {{ team.captain.lastname }}</dd>
-        </dl>
+        </dl></div>
 
-        <h2>{{ 'team.show.members'|trans }}</h2>
-        <div class="table-responsive">
+        <div class="mgt-section-heading"><h2>{{ 'team.show.members'|trans }}</h2></div>
+        <div class="mgt-panel p-3"><div class="table-responsive">
             <table class="table">
                 <thead>
                 <tr>
@@ -64,10 +64,10 @@
                 {% endfor %}
                 </tbody>
             </table>
-        </div>
+        </div></div>
 
         {% if isCaptain %}
-            <div class="card border-danger mt-4">
+            <div class="mgt-panel mgt-panel--danger mt-4">
                 <div class="card-body">
                     <h2 class="h5 text-danger">{{ 'team.delete.title'|trans }}</h2>
                     <p>{{ 'team.delete.help'|trans }}</p>

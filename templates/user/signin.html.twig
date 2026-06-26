@@ -3,14 +3,12 @@
 {% block title %}{{ 'signup.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
+    <div class="mgt-public-page mgt-auth-page mgt-auth-page--narrow">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h1 class="h2 mb-0">{{ 'signup.title'|trans }}</h1>
-                    </div>
-                    <div class="card-body p-4">
+                <div class="mgt-panel mgt-auth-panel">
+                    <div class="mgt-section-heading text-center"><h1>{{ 'signup.title'|trans }}</h1></div>
+                    <div>
                         {{ form_start(form) }}
                         <div class="row g-3">
                             <div class="col-12">
@@ -44,11 +42,11 @@
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-lg btn-primary text-white">{{ 'signup.submit'|trans }}</button>
+                            <button type="submit" class="btn btn-primary">{{ 'signup.submit'|trans }}</button>
                         </div>
                         {{ form_end(form) }}
                     </div>
-                    <div class="card-footer text-center">
+                    <div class="mgt-auth-footer">
                         <span class="small">{{ 'signup.already_account'|trans }} <a href="{{ path('app_login') }}">{{ 'signup.login_link'|trans }}</a></span>
                     </div>
                 </div>
