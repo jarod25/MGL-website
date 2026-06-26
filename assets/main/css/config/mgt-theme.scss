@@ -88,6 +88,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 1030;
+  padding-block: .7rem;
   background: rgba(7, 13, 11, .88);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--mgt-border);
@@ -104,8 +105,8 @@ a:hover {
 }
 
 .mgt-brand__icon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .mgt-navbar .navbar-nav {
@@ -737,20 +738,24 @@ body.mgt-page-home {
 }
 
 .mgt-hero__content h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .mgt-hero__meta {
-  margin-bottom: .8rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .mgt-hero__content address {
-  margin-top: .25rem;
-  line-height: 1.55;
+  margin-top: .5rem;
+  line-height: 1.65;
 }
 
 .mgt-hero__actions {
-  margin-top: 1.75rem !important;
+  margin-top: 2rem !important;
+}
+
+.mgt-hero__logo {
+  margin-bottom: 2rem !important;
 }
 
 // Responsive
@@ -809,9 +814,9 @@ body.mgt-page-home {
   .mgt-hero-section {
     display: flex;
     align-items: flex-start;
-    min-height: calc(100svh - 4rem);
+    min-height: calc(100svh - 4.75rem);
     padding-top: clamp(2.5rem, 5vh, 4rem);
-    padding-bottom: clamp(3rem, 6vh, 5rem);
+    padding-bottom: clamp(2rem, 4vh, 3rem);
     box-sizing: border-box;
   }
 
@@ -821,7 +826,8 @@ body.mgt-page-home {
   }
 
   .mgt-hero__grid {
-    min-height: clamp(38rem, 72svh, 44rem);
+    min-height: clamp(40rem, 76svh, 46rem);
+    padding-block: clamp(3rem, 6vh, 4.5rem);
   }
 }
 
@@ -850,6 +856,15 @@ body.mgt-page-home {
   .table-responsive {
     border: 1px solid var(--mgt-border);
     border-radius: .25rem;
+  }
+
+  .mgt-navbar {
+    padding-block: .5rem;
+  }
+
+  .mgt-brand__icon {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 }
 
