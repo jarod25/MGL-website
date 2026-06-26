@@ -3,8 +3,8 @@
 {% block title %}{{ 'team.new.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="py-4">
-        <h1>{{ 'team.new.title'|trans }}</h1>
+    <div class="mgt-public-page">
+        <header class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'team.new.title'|trans }}</h1></div></header><div class="mgt-form-panel">
 
         {{ form_start(form) }}
         {{ form_row(form.name) }}
@@ -13,5 +13,6 @@
         <button class="btn btn-primary" type="submit">{{ 'team.new.submit'|trans }}</button>
         <a class="btn btn-secondary" href="{{ path('app_team_index') }}">{{ 'team.action.back_to_list'|trans }}</a>
         {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

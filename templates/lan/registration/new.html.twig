@@ -3,14 +3,12 @@
 {% block title %}{{ 'registration.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="py-4">
+    <div class="mgt-public-page mgt-auth-page">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h1 class="h2 mb-0">{{ 'registration.title'|trans }}</h1>
-                    </div>
-                    <div class="card-body p-4">
+                <div class="mgt-panel mgt-auth-panel">
+                    <div class="mgt-section-heading text-center"><h1>{{ 'registration.title'|trans }}</h1></div>
+                    <div>
                         <p class="text-muted">{{ 'registration.subtitle'|trans }}</p>
 
                         {{ form_start(form) }}
@@ -63,7 +61,7 @@
                         </div>
                         {{ form_end(form) }}
                     </div>
-                    <div class="card-footer text-center">
+                    <div class="mgt-auth-footer">
                         <span class="small">{{ 'registration.already_registered'|trans }} <a href="{{ path('app_login') }}">{{ 'registration.login_link'|trans }}</a></span>
                     </div>
                 </div>

@@ -2,15 +2,15 @@
 {% trans_default_domain 'practical' %}
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
 {% block body %}
-<div class="py-4">
-    <div class="mgt-page-hero mb-4"><h1>{{ 'title'|trans }}</h1>
-    <p class="lead mb-0">{{ 'lead'|trans }}</p></div>
+<div class="mgt-public-page">
+    <div class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
+    <p class="mgt-page-lead mb-0">{{ 'lead'|trans }}</p></div>
     <div class="row g-4">
         {% for section in ['place','bring','rental','provided','food','access','security','cheat','image','refund','rules'] %}
             <section class="col-12 {{ section in ['place','rental'] ? '' : 'col-lg-6' }}">
-                <div class="card h-100">
+                <div class="mgt-panel h-100">
                     <div class="card-body">
-                        <h2 class="h4">{{ (section ~ '.title')|trans }}</h2>
+                        <h2 class="h4 mgt-panel-title">{{ (section ~ '.title')|trans }}</h2>
                         {% if section == 'place' %}
                             <address class="mb-3">{{ 'place.address_name'|trans }}<br>{{ 'place.address_street'|trans }}<br>{{ 'place.address_city'|trans }}</address>
                             <ul>{% for item in 'place.items'|trans %}<li>{{ item }}</li>{% endfor %}</ul>

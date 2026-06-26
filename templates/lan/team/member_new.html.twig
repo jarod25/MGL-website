@@ -3,8 +3,8 @@
 {% block title %}{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}{% endblock %}
 
 {% block body %}
-    <div class="py-4">
-        <h1>{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}</h1>
+    <div class="mgt-public-page">
+        <header class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}</h1></div></header><div class="mgt-form-panel">
         <p>{{ 'team.member.new.current_count'|trans({ '%count%': members|length, '%max%': team.game.maxPlayersPerTeam }) }}</p>
 
         {{ form_start(form) }}
@@ -13,5 +13,6 @@
         <button class="btn btn-primary" type="submit">{{ 'team.member.new.submit'|trans }}</button>
         <a class="btn btn-secondary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'team.action.back_to_team'|trans }}</a>
         {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

@@ -20,7 +20,7 @@
 {% set isHomepage = currentRoute == 'app_home' %}
 <body class="{{ isAdminPage ? 'mgt-admin' : 'mgt-public' }} {{ isHomepage ? 'mgt-page-home' : '' }}">
 {% block content %}
-    <div class="mgt-site-shell {{ isHomepage ? 'mgt-home-shell' : '' }}">
+    <div class="mgt-site-shell {{ isAdminPage ? '' : 'mgt-public-shell' }} {{ isHomepage ? 'mgt-home-shell' : '' }}">
 
     {% block navbar %}
         {% include 'partials/_navbar.html.twig' %}

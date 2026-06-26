@@ -4,8 +4,8 @@
     <div class="row g-3">
         {% for partner in partners %}
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 partner-card">
-                    <div class="card-body d-flex flex-column gap-3">
+                <div class="mgt-panel h-100 partner-card">
+                    <div class="mgt-panel-body d-flex flex-column gap-3">
                         <div class="partner-card__logo-wrapper">
                             {% if partner.logoPath is defined %}
                                 {% if partner.url is defined %}
@@ -33,7 +33,7 @@
                         <h3 class="h5 card-title mb-0">{{ partner.name }}</h3>
                         {% set descriptionKey = 'partners.descriptions.' ~ partner.key %}
                         {% set description = descriptionKey|trans %}
-                        {% if description != descriptionKey %}<p class="card-text mb-0">{{ description|raw }}</p>{% endif %}
+                        {% if description != descriptionKey %}<p class="mgt-panel-text mb-0">{{ description|raw }}</p>{% endif %}
                     </div>
                 </div>
             </div>
