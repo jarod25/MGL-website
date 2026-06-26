@@ -402,15 +402,29 @@ body.mgt-page-home {
 .mgt-hero {
   margin: 2rem 0 3rem;
   border: 1px solid var(--mgt-border);
+  background:
+          linear-gradient(
+                  180deg,
+                  #0d1d2b 0%,
+                  #151c30 58%,
+                  #241a38 100%
+          );
   box-shadow: none;
 }
 
 .mgt-hero::before {
   background-image: url("/images/branding/mgt-background-pattern.png");
+  opacity: .55;
+  mix-blend-mode: screen;
 }
 
 .mgt-hero::after {
-  background: linear-gradient(180deg, rgba(8, 13, 13, .48), rgba(18, 13, 29, .62));
+  background:
+          linear-gradient(
+                  180deg,
+                  rgba(7, 14, 22, .18),
+                  rgba(28, 17, 42, .28)
+          );
 }
 
 .mgt-hero__grid {
