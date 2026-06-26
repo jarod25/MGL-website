@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#070D0B">
-    <link rel="icon" href="/images/branding/mgt-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/images/branding/mgt-icon-white.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
 </head>
 {% set currentRoute = app.request.attributes.get('_route')|default('') %}
 {% set isAdminPage = currentRoute starts with 'app_admin_' %}
-<body class="d-flex flex-column min-vh-100 {{ isAdminPage ? 'mgt-admin' : 'mgt-public' }}">
+{% set isHomepage = currentRoute == 'app_home' %}
+<body class="d-flex flex-column min-vh-100 {{ isAdminPage ? 'mgt-admin' : 'mgt-public' }} {{ isHomepage ? 'mgt-page-home' : '' }}">
 {% block content %}
 
     {% block navbar %}

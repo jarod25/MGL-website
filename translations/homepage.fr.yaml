@@ -31,8 +31,6 @@ games:
     ea-fc-26: 'Le jeu de football d’EA SPORTS, avec un gameplay retravaillé pour des matchs plus réactifs.'
 pricing:
   title: 'Les tarifs'
-  intro: 'Les formules disponibles sont regroupées ici pour garder une page d’accueil lisible.'
-  toggle: 'Voir les tarifs'
   group_men: 'Hommes'
   group_women: 'Femmes'
   formula: 'Formule'
