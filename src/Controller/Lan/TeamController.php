@@ -88,7 +88,7 @@ final class TeamController extends AbstractController
             'league-of-legends' => '/images/games/league-of-legends.svg',
             'rocket-league' => '/images/games/rocket-league.png',
             'valorant' => '/images/games/valorant.svg',
-            'ea-fc-26' => '/images/games/ea-fc-26.png',
+            'ea-fc-26' => '/images/games/ea-fc-26.svg',
         ];
     }
 
