@@ -557,6 +557,25 @@ body.mgt-page-home {
   max-height: 120px;
 }
 
+.mgt-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.mgt-hero__actions .btn {
+  padding: .55rem .8rem;
+  font-size: .95rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+  .mgt-hero__actions {
+    flex-wrap: nowrap;
+  }
+}
+
 // Practical information and contact
 
 .mgt-page-hero,
@@ -573,22 +592,14 @@ body.mgt-page-home {
 
 .mgt-page-home .mgt-about-preview {
   padding: 0;
+  background: var(--mgt-panel-bg-soft);
+  border: 1px solid var(--mgt-panel-border);
+  border-left: 3px solid var(--mgt-pink);
   box-shadow: none;
-  background: transparent;
-}
-
-.mgt-page-home .mgt-about-preview::before {
-  background-image: url("/images/branding/mgt-background-subtle.png");
-}
-
-.mgt-page-home .mgt-about-preview::after {
-  background: rgba(27, 14, 43, .48);
 }
 
 .mgt-page-home .mgt-about-preview .card-body {
-  position: relative;
-  z-index: 1;
-  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(3rem, 6vw, 5.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .mgt-pricing {
@@ -676,6 +687,36 @@ body.mgt-page-home {
   background: linear-gradient(135deg, #070D0B, #16082d);
   border-top: 1px solid var(--mgt-border);
   color: var(--mgt-text);
+}
+
+.mgt-public .footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+  border-top: 1px solid var(--mgt-border);
+  color: var(--mgt-text);
+}
+
+.mgt-public .footer::before {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  inset: 0;
+  background: url("/images/branding/mgt-background-subtle.png") center / cover no-repeat;
+}
+
+.mgt-public .footer::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 15, .76), rgba(21, 9, 36, .84));
+}
+
+.mgt-public .footer > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .footer .nav-link {
