@@ -86,12 +86,12 @@
   justify-content: center;
 }
 
-.game-card__logo {
+.game-card__logo,
+.partner-card__logo {
   display: block;
-  max-height: 130px;
-  max-width: min(100%, 320px);
+  max-height: 140px;
+  max-width: 100%;
   object-fit: contain;
-  width: 100%;
 }
 
 .event-logo {
@@ -106,11 +106,4 @@
   display: flex;
   justify-content: center;
   min-height: 110px;
-}
-
-.partner-card__logo {
-  display: block;
-  max-height: 90px;
-  max-width: 100%;
-  object-fit: contain;
 }

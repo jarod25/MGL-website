@@ -17,6 +17,7 @@ use App\Repository\TeamMemberRepository;
 use App\Repository\TeamRepository;
 use App\Service\Lan\TeamRegistrationService;
 use App\Service\Lan\TeamManagementService;
+use App\Service\PublicImageResolver;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,13 +31,14 @@ final class TeamController extends AbstractController
     public function index(
         GameRepository $gameRepository,
         TeamRepository $teamRepository,
+        PublicImageResolver $publicImageResolver,
     ): Response {
         $games = $this->orderGamesForTeamIndex($gameRepository->findActiveOrdered());
 
         return $this->render('lan/team/index.html.twig', [
             'gamesByDay' => $this->groupGamesByDay($games),
             'teamCounts' => $teamRepository->countGroupedByGames($games),
-            'gameLogos' => $this->getAvailableGameLogos(),
+            'gameLogos' => $this->getAvailableGameLogos($publicImageResolver),
         ]);
     }
 
@@ -82,13 +84,13 @@ final class TeamController extends AbstractController
     /**
      * @return array<string, string>
      */
-    private function getAvailableGameLogos(): array
+    private function getAvailableGameLogos(PublicImageResolver $publicImageResolver): array
     {
         $logos = [];
 
         foreach (['league-of-legends', 'rocket-league', 'valorant', 'ea-fc-26'] as $slug) {
-            $path = 'images/games/'.$slug.'.svg';
-            if (is_file($this->getParameter('kernel.project_dir').'/public/'.$path)) {
+            $path = $publicImageResolver->resolve('images/games', $slug);
+            if ($path !== null) {
                 $logos[$slug] = $path;
             }
         }
