@@ -2,7 +2,6 @@ index:
   title: 'Teams'
   empty: 'The games will appear here when the selection is ready.'
   create_link: 'Create a team'
-  subtitle: 'Choose a game to view the teams already created.'
   created_teams: '{0} %count% / %max% teams registered|{1} %count% / %max% team registered|]1,Inf] %count% / %max% teams registered'
   view_teams: 'View teams'
   players_count: '%count% / %max% players'
