@@ -5,7 +5,8 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
-Encore.setOutputPath('public/build')
+Encore
+    .setOutputPath('public/build')
     .setPublicPath('/build')
     .addEntry('main', './assets/main/js/base.js')
 
@@ -13,24 +14,37 @@ Encore.setOutputPath('public/build')
 
     .splitEntryChunks()
 
-    .enableSingleRuntimeChunk().configureBabel((config) => {
-    config.plugins.push('@babel/plugin-proposal-class-properties');
-})
+    .enableSingleRuntimeChunk()
+    .configureBabel((config) => {
+        config.plugins.push('@babel/plugin-proposal-class-properties');
+    })
 
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
-    }).cleanupOutputBeforeBuild().enableSourceMaps(!Encore.isProduction()).enableVersioning(Encore.isProduction()).enableSassLoader(function (options) {
-    // options.includePaths = [...]
-    options.sassOptions.sourceComments = false;
-    options.sassOptions.outputStyle = 'compressed';
-}, {
-    resolveUrlLoader: false,
-}).addAliases({
-    '#': path.resolve(__dirname, 'assets/main'),
-    '#images': path.resolve(__dirname, 'assets/main/img'),
-    '#node_modules': path.resolve(__dirname, 'node_modules'),
-});
+    })
+    .cleanupOutputBeforeBuild()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .enableSassLoader((options) => {
+        // options.includePaths = [...]
+        options.sassOptions.sourceComments = false;
+        options.sassOptions.outputStyle = Encore.isProduction()
+            ? 'compressed'
+            : 'expanded';
+    }, {
+        resolveUrlLoader: false,
+    })
+    .configureCssLoader((options) => {
+        options.url = {
+            filter: (url) => !url.startsWith('/images/'),
+        };
+    })
+    .addAliases({
+        '#': path.resolve(__dirname, 'assets/main'),
+        '#images': path.resolve(__dirname, 'assets/main/img'),
+        '#node_modules': path.resolve(__dirname, 'node_modules'),
+    });
 
 Encore.copyFiles({
     from: './assets/main/img',
