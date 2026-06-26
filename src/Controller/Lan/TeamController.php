@@ -17,7 +17,6 @@ use App\Repository\TeamMemberRepository;
 use App\Repository\TeamRepository;
 use App\Service\Lan\TeamRegistrationService;
 use App\Service\Lan\TeamManagementService;
-use App\Service\PublicImageResolver;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,14 +30,13 @@ final class TeamController extends AbstractController
     public function index(
         GameRepository $gameRepository,
         TeamRepository $teamRepository,
-        PublicImageResolver $publicImageResolver,
     ): Response {
         $games = $this->orderGamesForTeamIndex($gameRepository->findActiveOrdered());
 
         return $this->render('lan/team/index.html.twig', [
             'gamesByDay' => $this->groupGamesByDay($games),
             'teamCounts' => $teamRepository->countGroupedByGames($games),
-            'gameLogos' => $this->getAvailableGameLogos($publicImageResolver),
+            'gameLogos' => $this->getGameLogos(),
         ]);
     }
 
@@ -84,18 +82,14 @@ final class TeamController extends AbstractController
     /**
      * @return array<string, string>
      */
-    private function getAvailableGameLogos(PublicImageResolver $publicImageResolver): array
+    private function getGameLogos(): array
     {
-        $logos = [];
-
-        foreach (['league-of-legends', 'rocket-league', 'valorant', 'ea-fc-26'] as $slug) {
-            $path = $publicImageResolver->resolve('images/games', $slug);
-            if ($path !== null) {
-                $logos[$slug] = $path;
-            }
-        }
-
-        return $logos;
+        return [
+            'league-of-legends' => '/images/games/league-of-legends.svg',
+            'rocket-league' => '/images/games/rocket-league.png',
+            'valorant' => '/images/games/valorant.svg',
+            'ea-fc-26' => '/images/games/ea-fc-26.png',
+        ];
     }
 
     #[Route('/teams/game/{slug}', name: 'app_team_game', methods: ['GET'])]
