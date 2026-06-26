@@ -276,17 +276,25 @@ a:hover {
 // Homepage
 
 .mgt-page-home {
-  background: linear-gradient(180deg, #111917 0%, #151c1b 45%, #171522 100%);
+  background: linear-gradient(180deg, #111917 0%, #131a19 22%, #15191c 48%, #181722 74%, #1b1526 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .mgt-page-home .card {
-  border-radius: .25rem;
   box-shadow: none;
   background: rgba(23, 32, 31, .92);
 }
 
+.mgt-page-home .card,
+.mgt-page-home .mgt-hero,
+.mgt-page-home .mgt-pricing,
+.mgt-page-home .mgt-about-preview {
+  border-radius: .5rem;
+}
+
 .mgt-page-home .btn {
-  border-radius: .3rem;
+  border-radius: .375rem;
   box-shadow: none;
 }
 
@@ -296,27 +304,52 @@ a:hover {
   box-shadow: none;
 }
 
+.mgt-pattern-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.mgt-pattern-panel::before {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  inset: -6%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mgt-pattern-panel::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: 0;
+  background: rgba(10, 12, 18, .48);
+}
+
 .mgt-hero {
   margin: 2rem 0 3rem;
   border: 1px solid var(--mgt-border);
-  border-radius: .25rem;
-  overflow: hidden;
   box-shadow: none;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(15, 20, 19, .55),
-      rgba(18, 12, 30, .65)
-    ),
-    url("/images/branding/mgt-background-pattern.png") center / cover no-repeat;
+}
+
+.mgt-hero::before {
+  background-image: url("/images/branding/mgt-background-pattern.png");
+}
+
+.mgt-hero::after {
+  background: linear-gradient(180deg, rgba(8, 13, 13, .48), rgba(18, 13, 29, .62));
 }
 
 .mgt-hero__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(18rem, .8fr);
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
-  padding: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2.25rem, 4vw, 4rem) clamp(3rem, 6vw, 5.5rem);
 }
 
 .mgt-hero h1 {
@@ -367,7 +400,6 @@ a:hover {
 }
 
 .mgt-page-home .mgt-game-card {
-  border-radius: .25rem;
   border-color: var(--mgt-border);
   box-shadow: none;
 }
@@ -498,17 +530,28 @@ a:hover {
 }
 
 .mgt-page-home .mgt-about-preview {
-  border-radius: .25rem;
-  background:
-    linear-gradient(rgba(20, 12, 32, .45), rgba(20, 12, 32, .58)),
-    url("/images/branding/mgt-background-subtle.png") center / cover no-repeat;
+  padding: 0;
   box-shadow: none;
+  background: transparent;
+}
+
+.mgt-page-home .mgt-about-preview::before {
+  background-image: url("/images/branding/mgt-background-subtle.png");
+}
+
+.mgt-page-home .mgt-about-preview::after {
+  background: rgba(27, 14, 43, .48);
+}
+
+.mgt-page-home .mgt-about-preview .card-body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(3rem, 6vw, 5.5rem);
 }
 
 .mgt-pricing {
   padding: 1.25rem;
   border: 1px solid var(--mgt-border);
-  border-radius: .25rem;
   background: rgba(23, 32, 31, .82);
   box-shadow: none;
 }
@@ -647,8 +690,9 @@ a:hover {
     margin-top: 1rem;
   }
 
-  .mgt-hero__grid {
-    padding: 1.25rem;
+  .mgt-hero__grid,
+  .mgt-page-home .mgt-about-preview .card-body {
+    padding: 1.5rem;
   }
 
   .mgt-hero h1 {
