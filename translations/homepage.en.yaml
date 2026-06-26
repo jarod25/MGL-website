@@ -31,8 +31,6 @@ games:
     ea-fc-26: 'EA SPORTS’ football game, with reworked gameplay for more responsive matches.'
 pricing:
   title: 'Pricing'
-  intro: 'Available passes are grouped here to keep the homepage easy to read.'
-  toggle: 'View pricing'
   group_men: 'Men'
   group_women: 'Women'
   formula: 'Option'

@@ -24,7 +24,7 @@ class HomeController extends AbstractController
             'games' => $games,
             'gamesByDay' => $gamesByDay,
             'subscriptions' => $subscriptionRepository->findActiveOrdered(),
-            'eventLogoExists' => file_exists($this->getParameter('kernel.project_dir').'/public/images/branding/mgt-logo.svg'),
+            'eventLogoExists' => file_exists($this->getParameter('kernel.project_dir').'/public/images/branding/mgt-logo-white.svg'),
         ]);
     }
 }

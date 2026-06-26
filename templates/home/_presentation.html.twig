@@ -1,24 +1,16 @@
 {% trans_default_domain 'homepage' %}
 <section class="py-4">
     <div class="mgt-section-heading"><h2>{{ 'presentation.title'|trans }}</h2></div>
-    <div class="row g-4 align-items-stretch">
-        <div class="col-lg-8">
-            <div class="card h-100">
-                <div class="card-body">
-                    <p class="card-text mb-0">{{ 'presentation.text'|trans }}</p>
-                </div>
-            </div>
+    <div class="mgt-presentation">
+        <div class="mgt-presentation__text">
+            <p class="mb-0">{{ 'presentation.text'|trans }}</p>
         </div>
-        <div class="col-lg-4">
-            <div class="card h-100 border-primary">
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ 'presentation.key_dates_title'|trans }}</h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item px-0">{{ 'event.date.saturday_full'|trans({}, 'messages') }}</li>
-                        <li class="list-group-item px-0">{{ 'event.date.sunday_full'|trans({}, 'messages') }}</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="mgt-presentation__dates">
+            <h3>{{ 'presentation.key_dates_title'|trans }}</h3>
+            <ul>
+                <li>{{ 'event.date.saturday_full'|trans({}, 'messages') }}</li>
+                <li>{{ 'event.date.sunday_full'|trans({}, 'messages') }}</li>
+            </ul>
         </div>
     </div>
 </section>

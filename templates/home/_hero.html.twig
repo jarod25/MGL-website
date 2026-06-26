@@ -15,7 +15,12 @@
             </div>
         </div>
         <div class="mgt-hero__visual">
-            {% if eventLogoExists %}<img class="mgt-hero__logo mb-4" src="{{ asset('images/branding/mgt-logo.svg') }}" alt="{{ 'hero.logo_alt'|trans }}" loading="lazy">{% endif %}
+            {% if eventLogoExists %}<img
+                class="mgt-hero__logo mb-4"
+                src="/images/branding/mgt-logo-white.svg"
+                alt="{{ 'hero.logo_alt'|trans }}"
+                loading="lazy"
+            >{% endif %}
             <div class="mgt-cash"><span class="mgt-cash__value">4 000 €</span><span class="mgt-cash__label">{{ 'hero.cash_prize'|trans }}</span></div>
         </div>
     </div>

@@ -31,8 +31,6 @@ games:
     ea-fc-26: 'Das Fußballspiel von EA SPORTS mit überarbeitetem Gameplay für reaktionsschnellere Partien.'
 pricing:
   title: 'Die Preise'
-  intro: 'Die verfügbaren Formeln sind hier gebündelt, damit die Startseite übersichtlich bleibt.'
-  toggle: 'Preise ansehen'
   group_men: 'Männer'
   group_women: 'Frauen'
   formula: 'Formel'
