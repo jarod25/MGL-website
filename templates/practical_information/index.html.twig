@@ -32,11 +32,9 @@
                                 {{ 'place.address_city'|trans }}
                             </address>
 
-                            <ul class="mgt-check-list mb-3">
-                                {% for item in 'place.items'|trans %}
-                                    <li>{{ item }}</li>
-                                {% endfor %}
-                            </ul>
+                            <div class="mgt-info-note mb-3">
+                                {{ 'place.text'|trans }}
+                            </div>
 
                             <a
                                 href="https://www.google.com/maps/search/?api=1&query=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse"
@@ -62,31 +60,29 @@
         </section>
 
         <section class="mgt-public-section">
+            {% set practicalSections = [
+                'access',
+                'equipment',
+                'rental',
+                'provided',
+                'food',
+                'conduct',
+                'cheat',
+                'refund',
+                'rules'
+            ] %}
+
             <div class="mgt-practical-grid">
-                {% for section in ['access','equipment','rental','provided','food','conduct','cheat','refund','rules'] %}
+                {% for section in practicalSections %}
                     <article class="mgt-panel mgt-practical-card">
                         <div class="card-body">
                             <h2 class="h4 mgt-panel-title">
-                                {{ (section ~ '.title')|trans }}
+                                {{ ('sections.' ~ section ~ '.title')|trans }}
                             </h2>
 
-                            {% if (section ~ '.intro')|trans != section ~ '.intro' %}
-                                <p>{{ (section ~ '.intro')|trans }}</p>
-                            {% endif %}
-
-                            {% if (section ~ '.items')|trans != section ~ '.items' %}
-                                <ul class="mgt-check-list mb-0">
-                                    {% for item in (section ~ '.items')|trans %}
-                                        <li>{{ item }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-
-                            {% if (section ~ '.note')|trans != section ~ '.note' %}
-                                <p class="mgt-info-note mb-0 mt-3">
-                                    {{ (section ~ '.note')|trans }}
-                                </p>
-                            {% endif %}
+                            <div class="mgt-info-note mgt-practical-card__text">
+                                {{ ('sections.' ~ section ~ '.text')|trans }}
+                            </div>
 
                             {% if section == 'rules' %}
                                 {% if rulesDocumentUrl %}
@@ -96,11 +92,11 @@
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {{ 'rules.download'|trans }}
+                                        {{ 'sections.rules.download'|trans }}
                                     </a>
                                 {% else %}
                                     <p class="mgt-info-note mb-0 mt-3">
-                                        {{ 'rules.unavailable'|trans }}
+                                        {{ 'sections.rules.unavailable'|trans }}
                                     </p>
                                 {% endif %}
                             {% endif %}
