@@ -17,7 +17,9 @@ schools:
     text: 'Partenaire d’accueil du tournoi, PHG Academy met à disposition le lieu et l’environnement technique de l’événement au KMØ Mulhouse.'
 organizers:
   title: 'L’équipe organisatrice'
-  placeholder: 'L’équipe complète sera ajoutée prochainement. Le tournoi est préparé par un groupe de 8 personnes mobilisées sur l’organisation, la communication, les partenariats et le déroulement de l’événement.'
+  placeholder_firstname: 'Prénom'
+  placeholder_role: 'Rôle'
+  placeholder_affiliation: 'Affiliation'
   photo_alt: 'Photo de %name%'
 partners:
   title: 'Sponsors et partenaires'

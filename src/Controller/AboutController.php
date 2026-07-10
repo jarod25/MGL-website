@@ -16,6 +16,7 @@ final class AboutController extends AbstractController
                 'key' => 'phg_academy',
                 'name' => 'PHG Academy',
                 'logoPath' => '/images/partners/phg-academy-logo.png',
+                'url' => 'https://phg.academy/',
             ],
             [
                 'key' => 'crous_strasbourg',
