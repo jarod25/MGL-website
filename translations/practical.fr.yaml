@@ -7,11 +7,11 @@ lead: 'Les informations essentielles pour préparer votre venue au Mulhouse Gami
 place:
   title: 'Lieu et horaires'
   address_name: 'PHG Academy – KMØ'
-  address_street: '24 rue François Spoerry'
+  address_street: '30 rue François Spoerry'
   address_city: '68100 Mulhouse'
   map_title: 'Carte Google Maps de PHG Academy KMØ à Mulhouse'
   maps_link: 'Ouvrir l’adresse dans Google Maps'
-  text: 'Le tournoi aura lieu les 29 et 30 août 2026 à PHG Academy – KMØ, Mulhouse. Arrivée demandée à 9 h, avec un événement prévu de 10 h à 21 h.'
+  text: 'Le tournoi aura lieu les 29 et 30 août 2026 à PHG Academy – KMØ, Mulhouse. Arrivée demandée à 9 h, avec un événement prévu de 9 h à 21 h.'
 
 sections:
   access:
