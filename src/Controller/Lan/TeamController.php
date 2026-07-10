@@ -120,6 +120,7 @@ final class TeamController extends AbstractController
     public function new(
         Request $request,
         ParticipantRepository $participantRepository,
+        GameRepository $gameRepository,
         TeamRegistrationService $teamRegistrationService,
         TranslatorInterface $translator,
     ): Response {
@@ -128,7 +129,13 @@ final class TeamController extends AbstractController
             return $this->redirectToParticipantRegistration();
         }
 
-        $form = $this->createForm(TeamType::class);
+        $preselectedGame = null;
+        $gameSlug = trim((string) $request->query->get('game', ''));
+        if ($gameSlug !== '') {
+            $preselectedGame = $gameRepository->findOneActiveBySlug($gameSlug);
+        }
+
+        $form = $this->createForm(TeamType::class, ['game' => $preselectedGame]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

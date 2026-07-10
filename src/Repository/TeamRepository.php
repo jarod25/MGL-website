@@ -46,6 +46,28 @@ class TeamRepository extends ServiceEntityRepository
         return $this->findOneByGameAndSlug($game, $slug) instanceof Team;
     }
 
+    public function findOneByGameAndName(Game $game, string $name): ?Team
+    {
+        $normalizedName = mb_strtolower(trim($name));
+
+        if ($normalizedName === '') {
+            return null;
+        }
+
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.game = :game')
+            ->andWhere('LOWER(t.name) = :name')
+            ->setParameter('game', $game)
+            ->setParameter('name', $normalizedName)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function nameExistsForGame(Game $game, string $name): bool
+    {
+        return $this->findOneByGameAndName($game, $name) instanceof Team;
+    }
+
     public function findByGame(Game $game): array
     {
         return $this->createQueryBuilder('t')
