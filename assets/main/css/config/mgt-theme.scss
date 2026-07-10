@@ -1409,6 +1409,17 @@ body.mgt-page-home {
   height: 100%;
 }
 
+.mgt-school-card .btn-outline-primary {
+  --bs-btn-color: var(--mgt-pink);
+  --bs-btn-border-color: var(--mgt-pink);
+  --bs-btn-hover-bg: rgba(226, 113, 165, .18);
+  --bs-btn-hover-border-color: var(--mgt-pink);
+  --bs-btn-hover-color: var(--mgt-white);
+
+  background: rgba(226, 113, 165, .08);
+  font-weight: 800;
+}
+
 .mgt-organizer-card__photo {
   width: 7rem;
   height: 7rem;
