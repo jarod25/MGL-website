@@ -94,7 +94,7 @@ navigation:
     mine: 'Meine Veranstaltungen'
 
 footer:
-  rules: 'Reglement'
+  rules: 'Reglement ansehen'
   rules_unavailable: 'Reglement bald verfügbar'
   all_right_reserved: 'Alle Rechte vorbehalten.'
   hosted_by: 'Website gehostet von'
@@ -235,11 +235,11 @@ lan_profile:
     parental_authorization:
       title: 'Einverständniserklärung eines Erziehungsberechtigten'
       message: 'Da du nicht bestätigt hast, dass du zum Zeitpunkt der Veranstaltung mindestens 18 Jahre alt sein wirst, ist eine unterschriebene Einverständniserklärung eines Erziehungsberechtigten erforderlich. Das Dokument muss heruntergeladen, von einem gesetzlichen Vertreter unterschrieben und am Eingang der Veranstaltung zusammen mit einem physischen Ausweisdokument vorgelegt werden.'
-      download: 'Einverständniserklärung herunterladen'
+      download: 'Einverständniserklärung ansehen'
     image_rights:
       title: 'Recht am eigenen Bild'
       message: 'Während der Veranstaltung können Fotos und Videos aufgenommen werden. Ein Dokument zum Recht am eigenen Bild wird zur Verfügung gestellt. Bitte lies es, um die geltenden Bedingungen zu verstehen.'
-      download: 'Dokument zum Recht am eigenen Bild herunterladen'
+      download: 'Dokument zum Recht am eigenen Bild ansehen'
   payment_required: 'Du musst deine Zahlung abschließen, bevor du ein Team erstellen oder einem Team beitreten kannst.'
   error:
     participant_required: 'Du benötigst eine LAN-Anmeldung, bevor du deinen LAN-Bereich öffnen kannst.'

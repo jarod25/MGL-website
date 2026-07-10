@@ -94,7 +94,7 @@ navigation:
     mine: 'My events'
 
 footer:
-  rules: 'Rules'
+  rules: 'View rules'
   rules_unavailable: 'Rules coming soon'
   all_right_reserved: 'All rights reserved.'
   hosted_by: 'Website hosted by'
@@ -235,11 +235,11 @@ lan_profile:
     parental_authorization:
       title: 'Parental authorization'
       message: 'Since you did not confirm that you will be 18 or older on the event date, a signed parental authorization will be required to participate. The document must be downloaded, signed by a legal representative, and presented at the event entrance with a physical ID document.'
-      download: 'Download parental authorization'
+      download: 'View parental authorization'
     image_rights:
       title: 'Image rights'
       message: 'Photos and videos may be taken during the event. An image rights document will be made available. Please read it to understand the applicable terms.'
-      download: 'Download image rights document'
+      download: 'View image rights document'
   payment_required: 'You must finalize your payment before creating or joining a team.'
   error:
     participant_required: 'You need a LAN registration before accessing your LAN space.'

@@ -23,7 +23,7 @@
                             {% if (section ~ '.note')|trans != section ~ '.note' %}<p class="mb-0 fw-semibold mgt-info-note">{{ (section ~ '.note')|trans }}</p>{% endif %}
                             {% if section == 'rules' %}
                                 {% if rulesDocumentUrl %}
-                                    <a class="btn btn-primary mt-3" href="{{ rulesDocumentUrl }}" download>{{ 'rules.download'|trans }}</a>
+                                    <a class="btn btn-primary mt-3" href="{{ path('app_document_view', { type: 'rules' }) }}" target="_blank" rel="noopener noreferrer">{{ 'rules.download'|trans }}</a>
                                 {% else %}
                                     <p class="mb-0 mt-3 fw-semibold mgt-info-note">{{ 'rules.unavailable'|trans }}</p>
                                 {% endif %}

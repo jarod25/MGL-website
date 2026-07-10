@@ -79,7 +79,7 @@
                         <h3 class="h5">{{ 'lan_profile.documents.parental_authorization.title'|trans }}</h3>
                         <p>{{ 'lan_profile.documents.parental_authorization.message'|trans }}</p>
                         {% if parentalAuthorizationUrl %}
-                            <a class="btn btn-outline-primary" href="{{ parentalAuthorizationUrl }}" target="_blank" rel="noopener">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
+                            <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'parental_authorization' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
                         {% else %}
                             <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
                         {% endif %}
@@ -91,7 +91,7 @@
                     <h3 class="h5">{{ 'lan_profile.documents.image_rights.title'|trans }}</h3>
                     <p>{{ 'lan_profile.documents.image_rights.message'|trans }}</p>
                     {% if imageRightsUrl %}
-                        <a class="btn btn-outline-primary" href="{{ imageRightsUrl }}" target="_blank" rel="noopener">{{ 'lan_profile.documents.image_rights.download'|trans }}</a>
+                        <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'image_rights' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.image_rights.download'|trans }}</a>
                     {% else %}
                         <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
                     {% endif %}
