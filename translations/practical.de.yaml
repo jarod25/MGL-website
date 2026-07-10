@@ -2,7 +2,7 @@ meta:
   title: 'Praktische Informationen'
 
 title: 'Praktische Informationen'
-lead: 'Wichtige Informationen zur Vorbereitung Ihres Besuchs beim Mulhouse Gaming Tournament.'
+lead: 'Die wichtigsten Informationen zur Vorbereitung Ihres Besuchs beim Mulhouse Gaming Tournament.'
 
 place:
   title: 'Ort und Zeiten'
@@ -11,87 +11,35 @@ place:
   address_city: '68100 Mulhouse'
   map_title: 'Google-Maps-Karte der PHG Academy KMØ in Mulhouse'
   maps_link: 'Adresse in Google Maps öffnen'
-  items:
-    - 'Samstag, 29. August 2026 und Sonntag, 30. August 2026.'
-    - 'Ankunft um 9:00 Uhr erbeten.'
-    - 'Geplante Zeiten: 9:00 Uhr bis 21:00 Uhr.'
-    - 'League of Legends und Rocket League am Samstag.'
-    - 'Valorant und EA FC 26 am Sonntag.'
+  text: 'Das Turnier findet am 29. und 30. August 2026 in der PHG Academy – KMØ, Mulhouse, statt. Die Teilnehmenden werden gebeten, um 9:00 Uhr anzukommen; die geplanten Zeiten sind von 9:00 bis 21:00 Uhr. League of Legends und Rocket League sind für Samstag vorgesehen; Valorant und EA FC 26 sind für Sonntag vorgesehen.'
 
-access:
-  title: 'Zugang'
-  items:
-    - 'Der Zugang ist angemeldeten Teilnehmenden, der Organisation und autorisierten Personen vorbehalten.'
-    - 'Zuschauer sind nicht erlaubt, außer bei ausdrücklicher Genehmigung durch die Organisation.'
-    - 'Ein Ausweisdokument und ein Anmeldenachweis können verlangt werden.'
-    - 'Teilnehmende können tagsüber hinausgehen und wieder zurückkommen.'
-
-equipment:
-  title: 'Persönliche Ausrüstung'
-  intro: 'Alle Teilnehmenden müssen ihre Spielausrüstung vorbereiten.'
-  items:
-    - 'Für einen Desktop-PC: Computer, Bildschirm, Tastatur, Maus, Headset, Kabel und erforderliche Netzteile.'
-    - 'Für einen Laptop: Computer, Ladegerät und erforderliche Peripheriegeräte.'
-    - 'Teilnehmende bleiben für die mitgebrachte Ausrüstung verantwortlich.'
-  note: 'Am Veranstaltungstag kann kein Ersatz garantiert werden, sofern keine Miete, Leihe oder Bereitstellung im Voraus vereinbart wurde.'
-
-rental:
-  title: 'PC-Miete'
-  intro: 'PCs können zur Miete angeboten werden, nur mit Reservierung und vorbehaltlich verfügbarer Bestände.'
-  items:
-    - 'Vorgesehene Konfiguration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD und 240-Hz-Bildschirm.'
-    - 'Die Miete ermöglicht es, keinen vollständigen Computer mitzubringen.'
-    - 'Auch bei einer Miete müssen eigene Peripheriegeräte mitgebracht werden: Tastatur, Maus, Headset und Mauspad.'
-  note: 'Preis und verfügbare Bestände werden im Anmeldeprozess angegeben.'
-
-provided:
-  title: 'Vor Ort bereitgestellt'
-  items:
-    - 'PHG Academy stellt Tische und Stühle bereit.'
-    - 'Stromversorgung, Netzwerkzugang, Switches und Ethernet-Kabel sind vor Ort vorgesehen.'
-    - 'Teilnehmende müssen die Installationsanweisungen der Organisation befolgen.'
-
-food:
-  title: 'Essen und Getränke'
-  items:
-    - 'Sandwiches, Snacks und eine Cafeteria können vor Ort verfügbar sein.'
-    - 'Mitgebrachte Getränke sind verboten, außer Wasser.'
-    - 'Trinkflaschen und Wasserflaschen können kontrolliert werden.'
-    - 'Alkohol ist streng verboten.'
-    - 'Rauchen und Vaping sind nur draußen erlaubt.'
-  note: 'Bei medizinischer Notwendigkeit, Allergien oder besonderer Ernährung wenden Sie sich bitte vor der Veranstaltung an die Organisation.'
-
-conduct:
-  title: 'Verhalten'
-  items:
-    - 'Respekt gegenüber Spielern, Organisatoren, Schiedsrichtern, Betreuungspersonen, Sicherheitspersonal, Räumlichkeiten und Ausrüstung ist erforderlich.'
-    - 'Fair Play, Wohlwollen und Respekt werden während der gesamten Veranstaltung erwartet.'
-    - 'Beleidigungen, Drohungen, Diskriminierung, Gewalt, Beschädigung oder störendes Verhalten sind verboten.'
-  note: 'Regelwidriges Verhalten kann zu einer Sanktion oder zum Ausschluss führen.'
-
-cheat:
-  title: 'Accounts und Cheating'
-  items:
-    - 'Spielerinnen und Spieler müssen ihr persönliches Konto oder ein der Organisation gemeldetes Konto verwenden.'
-    - 'Das tatsächliche Spielniveau muss ehrlich angegeben werden.'
-    - 'Cheat-Software, Skripte, vorteilsverschaffende Tools und unerlaubte Gameplay-Änderungen sind verboten.'
-    - 'Die detaillierten Match-Regeln werden in den spezifischen Regeln jedes Spiels festgelegt.'
-
-refund:
-  title: 'Stornierung und Rückerstattung'
-  items:
-    - 'Eine vollständige Rückerstattung ist bis 7 Tage vor dem betreffenden Turnier möglich.'
-    - 'Nach dieser Frist ist keine Rückerstattung vorgesehen, außer durch eine außergewöhnliche Entscheidung der Organisation.'
-    - 'Bei Abwesenheit am Turniertag gilt das Ticket als genutzt.'
-    - 'Bei Ausschluss wegen Nichteinhaltung der Regeln ist keine Rückerstattung vorgesehen.'
-
-rules:
-  title: 'Regelwerke und Dokumente'
-  items:
-    - 'Mit der Anmeldung wird das allgemeine Reglement akzeptiert.'
-    - 'Jedes Spiel erhält eigene spezifische Regeln.'
-    - 'Während der Veranstaltung können Fotos und Videos aufgenommen werden.'
-    - 'Eine separate Einwilligung zur Nutzung des Bildes kann angeboten werden.'
-    - 'Minderjährige Teilnehmende müssen die angeforderten Dokumente vor der Veranstaltung vorlegen.'
-  download: 'Allgemeines Reglement ansehen'
-  unavailable: 'Dokument bald verfügbar'
+sections:
+  access:
+    title: 'Zugang'
+    text: 'Der Zugang ist registrierten Teilnehmenden, Mitgliedern der Organisation und autorisierten Personen vorbehalten. Zuschauer sind nicht zugelassen, außer nach besonderer Zustimmung. Ein Ausweisdokument, ein Anmeldenachweis und, falls erforderlich, die Unterlagen für minderjährige Teilnehmende können verlangt werden. Teilnehmende können im Laufe des Tages das Gelände verlassen und zurückkehren.'
+  equipment:
+    title: 'Persönliche Ausrüstung'
+    text: 'Alle Teilnehmenden müssen die gesamte zum Spielen erforderliche Ausrüstung bereitstellen. Bei einem Desktop-PC sind insbesondere Computer, Bildschirm, Tastatur, Maus, Headset, Kabel und die notwendigen Netzteile erforderlich. Die Teilnehmenden bleiben für ihre eigene Ausrüstung verantwortlich.'
+  rental:
+    title: 'PC-Miete'
+    text: 'PCs können zur Miete angeboten werden, ausschließlich mit Reservierung und vorbehaltlich verfügbarer Bestände. Die vorgesehene Konfiguration umfasst eine RTX 3070 Ti, einen i9-12900KF, 32 GB RAM, eine 1-TB-SSD und einen 240-Hz-Bildschirm. Auch bei einer Miete muss der Spieler seine persönlichen Peripheriegeräte bereitstellen.'
+  provided:
+    title: 'Vor Ort bereitgestellt'
+    text: 'PHG Academy stellt Tische, Stühle, Stromversorgung, Netzwerk, Switches und Ethernet-Kabel bereit. Die Teilnehmenden müssen die Installationsanweisungen der Organisation vor Ort befolgen.'
+  food:
+    title: 'Essen und Getränke'
+    text: 'Sandwiches, Snacks und eine Cafeteria können vor Ort verfügbar sein. Getränke von außerhalb sind verboten, außer Wasser; Trinkflaschen oder Flaschen können kontrolliert werden. Alkohol ist streng verboten. Rauchen und Dampfen sind nur im Außenbereich erlaubt.'
+  conduct:
+    title: 'Verhalten'
+    text: 'Ein respektvolles Verhalten gegenüber Spielern, Organisatoren, Schiedsrichtern, Betreuern, Sicherheitspersonal, Räumlichkeiten und Material wird erwartet. Beleidigungen, Drohungen, Diskriminierung, Gewalt, Beschädigungen oder störendes Verhalten sind verboten und können zu einer Sanktion führen.'
+  cheat:
+    title: 'Konten und Cheating'
+    text: 'Die Spieler müssen ihr persönliches Konto oder ein der Organisation gemeldetes Konto verwenden und ihr tatsächliches Niveau ehrlich angeben. Cheat-Software, Skripte, Tools, die einen unfairen Vorteil verschaffen, sowie nicht autorisierte Gameplay-Änderungen sind verboten. Die detaillierten Regeln werden in den spezifischen Regelwerken für jedes Spiel präzisiert.'
+  refund:
+    title: 'Stornierung und Rückerstattung'
+    text: 'Eine Stornierungsanfrage bis 7 Tage vor dem betreffenden Turnier berechtigt zu einer vollständigen Rückerstattung. Nach Ablauf dieser Frist ist keine Rückerstattung vorgesehen, außer durch eine besondere Entscheidung der Organisation. Bei Abwesenheit am Turniertag gilt das Ticket als genutzt.'
+  rules:
+    title: 'Regeln und Dokumente'
+    text: 'Die Anmeldung setzt die Annahme des allgemeinen Regelwerks und der spezifischen Regelwerke der betreffenden Spiele voraus. Die Regelwerke für jedes Spiel werden separat hinzugefügt. Während der Veranstaltung können Fotos und Videos aufgenommen werden, und minderjährige Teilnehmende müssen die angeforderten Unterlagen vor der Veranstaltung einreichen.'
+    download: 'Allgemeines Regelwerk ansehen'
+    unavailable: 'Dokument bald verfügbar'

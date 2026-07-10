@@ -11,87 +11,35 @@ place:
   address_city: '68100 Mulhouse'
   map_title: 'Carte Google Maps de PHG Academy KMØ à Mulhouse'
   maps_link: 'Ouvrir l’adresse dans Google Maps'
-  items:
-    - 'Samedi 29 août 2026 et dimanche 30 août 2026.'
-    - 'Arrivée demandée à 9 h.'
-    - 'Horaires prévus : 9 h à 21 h.'
-    - 'League of Legends et Rocket League le samedi.'
-    - 'Valorant et EA FC 26 le dimanche.'
+  text: 'Le tournoi aura lieu les 29 et 30 août 2026 à PHG Academy – KMØ, Mulhouse. L’arrivée des participants est demandée à 9 h, avec des horaires prévus de 9 h à 21 h. League of Legends et Rocket League sont prévus le samedi ; Valorant et EA FC 26 sont prévus le dimanche.'
 
-access:
-  title: 'Accès'
-  items:
-    - 'Accès réservé aux participants inscrits, à l’organisation et aux personnes autorisées.'
-    - 'Les spectateurs ne sont pas autorisés, sauf accord exceptionnel de l’organisation.'
-    - 'Une pièce d’identité et une preuve d’inscription peuvent être demandées.'
-    - 'Les participants peuvent sortir et revenir pendant la journée.'
-
-equipment:
-  title: 'Matériel personnel'
-  intro: 'Chaque participant doit prévoir son matériel de jeu.'
-  items:
-    - 'Pour une tour : ordinateur, écran, clavier, souris, casque, câbles et alimentations nécessaires.'
-    - 'Pour un ordinateur portable : ordinateur, chargeur et périphériques nécessaires.'
-    - 'Le participant reste responsable du matériel qu’il apporte.'
-  note: 'Aucun remplacement ne peut être garanti le jour de l’événement sans location, prêt ou mise à disposition prévu à l’avance.'
-
-rental:
-  title: 'Location de PC'
-  intro: 'Des PC peuvent être proposés à la location, uniquement sur réservation et dans la limite des stocks disponibles.'
-  items:
-    - 'Configuration prévue : RTX 3070 Ti, i9-12900KF, 32 Go de RAM, SSD 1 To et écran 240 Hz.'
-    - 'La location permet d’éviter d’apporter son ordinateur complet.'
-    - 'Même avec une location, le joueur doit apporter ses périphériques personnels : clavier, souris, casque et tapis de souris.'
-  note: 'Le tarif et les stocks seront précisés via le parcours d’inscription.'
-
-provided:
-  title: 'Fourni sur place'
-  items:
-    - 'PHG Academy fournit les bureaux et les chaises.'
-    - 'L’alimentation électrique, le réseau, les switchs et les câbles Ethernet sont prévus sur place.'
-    - 'Les participants doivent suivre les consignes d’installation données par l’organisation.'
-
-food:
-  title: 'Nourriture et boissons'
-  items:
-    - 'Des sandwichs, collations et une cafétéria peuvent être disponibles sur place.'
-    - 'Les boissons extérieures sont interdites, sauf l’eau.'
-    - 'Les gourdes et bouteilles peuvent être contrôlées.'
-    - 'L’alcool est strictement interdit.'
-    - 'Tabac et vapotage uniquement à l’extérieur.'
-  note: 'En cas de besoin médical, d’allergie ou de régime particulier, contactez l’organisation avant l’événement.'
-
-conduct:
-  title: 'Comportement'
-  items:
-    - 'Respect des joueurs, organisateurs, arbitres, encadrants, agents de sécurité, locaux et matériels.'
-    - 'Fair-play, bienveillance et respect sont attendus pendant toute la durée de l’événement.'
-    - 'Les insultes, menaces, discriminations, violences, dégradations ou comportements perturbateurs sont interdits.'
-  note: 'Un comportement contraire au règlement peut entraîner une sanction ou une exclusion.'
-
-cheat:
-  title: 'Comptes et triche'
-  items:
-    - 'Les joueurs doivent utiliser leur compte personnel ou un compte déclaré à l’organisation.'
-    - 'Le niveau réel doit être déclaré honnêtement.'
-    - 'Les logiciels de triche, scripts, outils procurant un avantage et modifications non autorisées du gameplay sont interdits.'
-    - 'Les règles détaillées de match seront précisées dans les règlements spécifiques de chaque jeu.'
-
-refund:
-  title: 'Annulation et remboursement'
-  items:
-    - 'Un remboursement intégral est possible jusqu’à 7 jours avant le tournoi concerné.'
-    - 'Après ce délai, aucun remboursement n’est prévu sauf décision exceptionnelle de l’organisation.'
-    - 'En cas d’absence le jour du tournoi, le billet est considéré comme utilisé.'
-    - 'Aucun remboursement n’est prévu en cas d’exclusion pour non-respect du règlement.'
-
-rules:
-  title: 'Règlements et documents'
-  items:
-    - 'L’inscription implique l’acceptation du règlement général.'
-    - 'Chaque jeu aura son règlement spécifique.'
-    - 'Des photos et vidéos peuvent être prises pendant l’événement.'
-    - 'Une autorisation de droit à l’image pourra être proposée séparément.'
-    - 'Les participants mineurs devront fournir les documents demandés avant l’événement.'
-  download: 'Consulter le règlement général'
-  unavailable: 'Document bientôt disponible'
+sections:
+  access:
+    title: 'Accès'
+    text: 'L’accès est réservé aux participants inscrits, aux membres de l’organisation et aux personnes autorisées. Les spectateurs ne sont pas autorisés, sauf accord exceptionnel. Une pièce d’identité, une preuve d’inscription et, si nécessaire, les documents pour les participants mineurs pourront être demandés. Les participants peuvent sortir et revenir pendant la journée.'
+  equipment:
+    title: 'Matériel personnel'
+    text: 'Chaque participant doit prévoir tout le matériel nécessaire pour jouer. Pour une tour, il faut notamment apporter l’ordinateur, l’écran, le clavier, la souris, le casque, les câbles et les alimentations nécessaires. Le participant reste responsable du matériel qu’il apporte.'
+  rental:
+    title: 'Location de PC'
+    text: 'Des PC peuvent être proposés à la location, uniquement sur réservation et dans la limite des stocks disponibles. La configuration prévue comprend une RTX 3070 Ti, un i9-12900KF, 32 Go de RAM, un SSD 1 To et un écran 240 Hz. Même avec une location, le joueur doit apporter ses périphériques personnels.'
+  provided:
+    title: 'Fourni sur place'
+    text: 'PHG Academy fournit les bureaux, les chaises, l’alimentation électrique, le réseau, les switchs et les câbles Ethernet. Les participants doivent suivre les consignes d’installation données par l’organisation sur place.'
+  food:
+    title: 'Nourriture et boissons'
+    text: 'Des sandwichs, collations et une cafétéria peuvent être disponibles sur place. Les boissons extérieures sont interdites, sauf l’eau, et les gourdes ou bouteilles peuvent être contrôlées. L’alcool est strictement interdit. Le tabac et le vapotage sont autorisés uniquement à l’extérieur.'
+  conduct:
+    title: 'Comportement'
+    text: 'Un comportement respectueux est attendu envers les joueurs, les organisateurs, les arbitres, les encadrants, les agents de sécurité, les locaux et le matériel. Les insultes, menaces, discriminations, violences, dégradations ou comportements perturbateurs sont interdits et peuvent entraîner une sanction.'
+  cheat:
+    title: 'Comptes et triche'
+    text: 'Les joueurs doivent utiliser leur compte personnel ou un compte déclaré à l’organisation, avec un niveau réel annoncé honnêtement. Les logiciels de triche, scripts, outils donnant un avantage injuste et modifications non autorisées du gameplay sont interdits. Les règles détaillées seront précisées dans les règlements spécifiques de chaque jeu.'
+  refund:
+    title: 'Annulation et remboursement'
+    text: 'Une demande d’annulation effectuée jusqu’à 7 jours avant le tournoi concerné donne droit à un remboursement intégral. Après ce délai, aucun remboursement n’est prévu sauf décision exceptionnelle de l’organisation. En cas d’absence le jour du tournoi, le billet est considéré comme utilisé.'
+  rules:
+    title: 'Règlements et documents'
+    text: 'L’inscription implique l’acceptation du règlement général et des règlements spécifiques aux jeux concernés. Les règlements de chaque jeu seront ajoutés séparément. Des photos et vidéos peuvent être prises pendant l’événement, et les participants mineurs devront fournir les documents demandés avant l’événement.'
+    download: 'Consulter le règlement général'
+    unavailable: 'Document bientôt disponible'
