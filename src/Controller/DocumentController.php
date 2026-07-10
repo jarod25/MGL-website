@@ -12,8 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class DocumentController extends AbstractController
 {
-    #[Route('/documents/{type}', name: 'app_document_view', requirements: ['type' => 'rules|parental_authorization|image_rights'], methods: ['GET'])]
-    public function view(string $type, Request $request, LocalizedDocumentProvider $documentProvider): Response
+    #[Route('/documents/view/{type}', name: 'app_document_view', requirements: ['type' => 'rules|parental_authorization|image_rights'], methods: ['GET'])]    public function view(string $type, Request $request, LocalizedDocumentProvider $documentProvider): Response
     {
         $document = $documentProvider->getDocument($type, $request->getLocale());
 
