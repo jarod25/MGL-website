@@ -1,38 +1,113 @@
 {% extends 'base.html.twig' %}
 {% trans_default_domain 'practical' %}
+
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
+
 {% block body %}
-{% set rulesDocumentUrl = localized_document_url('rules', app.request.locale) %}
-<div class="mgt-public-page">
-    <div class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
-    <p class="mgt-page-lead mb-0">{{ 'lead'|trans }}</p></div>
-    <div class="row g-4">
-        {% for section in ['place','bring','rental','provided','food','access','security','cheat','image','refund','rules'] %}
-            <section class="col-12 {{ section in ['place','rental'] ? '' : 'col-lg-6' }}">
-                <div class="mgt-panel h-100">
-                    <div class="card-body">
-                        <h2 class="h4 mgt-panel-title">{{ (section ~ '.title')|trans }}</h2>
-                        {% if section == 'place' %}
-                            <address class="mb-3">{{ 'place.address_name'|trans }}<br>{{ 'place.address_street'|trans }}<br>{{ 'place.address_city'|trans }}</address>
-                            <ul>{% for item in 'place.items'|trans %}<li>{{ item }}</li>{% endfor %}</ul>
-                            <div class="ratio ratio-16x9 mb-3"><iframe title="{{ 'place.map_title'|trans }}" src="https://www.google.com/maps?q=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse" target="_blank" rel="noopener noreferrer">{{ 'place.maps_link'|trans }}</a>
-                        {% else %}
-                            {% if (section ~ '.intro')|trans != section ~ '.intro' %}<p>{{ (section ~ '.intro')|trans }}</p>{% endif %}
-                            {% if (section ~ '.items')|trans != section ~ '.items' %}<ul>{% for item in (section ~ '.items')|trans %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
-                            {% if (section ~ '.note')|trans != section ~ '.note' %}<p class="mb-0 fw-semibold mgt-info-note">{{ (section ~ '.note')|trans }}</p>{% endif %}
-                            {% if section == 'rules' %}
-                                {% if rulesDocumentUrl %}
-                                    <a class="btn btn-primary mt-3" href="{{ path('app_document_view', { type: 'rules' }) }}" target="_blank" rel="noopener noreferrer">{{ 'rules.download'|trans }}</a>
-                                {% else %}
-                                    <p class="mb-0 mt-3 fw-semibold mgt-info-note">{{ 'rules.unavailable'|trans }}</p>
-                                {% endif %}
-                            {% endif %}
-                        {% endif %}
+    {% set rulesDocumentUrl = localized_document_url('rules', app.request.locale) %}
+
+    <div class="mgt-public-page mgt-practical-page">
+        <header class="mgt-page-header">
+            <div class="mgt-section-heading">
+                <h1>{{ 'title'|trans }}</h1>
+            </div>
+
+            <p class="mgt-page-lead mb-0">
+                {{ 'lead'|trans }}
+            </p>
+        </header>
+
+        <section class="mgt-public-section">
+            <div class="mgt-panel mgt-practical-place">
+                <div class="card-body">
+                    <div class="mgt-section-heading mgt-section-heading--sm">
+                        <h2>{{ 'place.title'|trans }}</h2>
+                    </div>
+
+                    <div class="mgt-practical-place__grid">
+                        <div>
+                            <address class="mb-3">
+                                {{ 'place.address_name'|trans }}<br>
+                                {{ 'place.address_street'|trans }}<br>
+                                {{ 'place.address_city'|trans }}
+                            </address>
+
+                            <ul class="mgt-check-list mb-3">
+                                {% for item in 'place.items'|trans %}
+                                    <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {{ 'place.maps_link'|trans }}
+                            </a>
+                        </div>
+
+                        <div class="ratio ratio-16x9 mgt-map">
+                            <iframe
+                                title="{{ 'place.map_title'|trans }}"
+                                src="https://www.google.com/maps?q=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse&output=embed"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
                     </div>
                 </div>
-            </section>
-        {% endfor %}
+            </div>
+        </section>
+
+        <section class="mgt-public-section">
+            <div class="mgt-practical-grid">
+                {% for section in ['access','equipment','rental','provided','food','conduct','cheat','refund','rules'] %}
+                    <article class="mgt-panel mgt-practical-card">
+                        <div class="card-body">
+                            <h2 class="h4 mgt-panel-title">
+                                {{ (section ~ '.title')|trans }}
+                            </h2>
+
+                            {% if (section ~ '.intro')|trans != section ~ '.intro' %}
+                                <p>{{ (section ~ '.intro')|trans }}</p>
+                            {% endif %}
+
+                            {% if (section ~ '.items')|trans != section ~ '.items' %}
+                                <ul class="mgt-check-list mb-0">
+                                    {% for item in (section ~ '.items')|trans %}
+                                        <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            {% if (section ~ '.note')|trans != section ~ '.note' %}
+                                <p class="mgt-info-note mb-0 mt-3">
+                                    {{ (section ~ '.note')|trans }}
+                                </p>
+                            {% endif %}
+
+                            {% if section == 'rules' %}
+                                {% if rulesDocumentUrl %}
+                                    <a
+                                        class="btn btn-primary mt-3"
+                                        href="{{ path('app_document_view', { type: 'rules' }) }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {{ 'rules.download'|trans }}
+                                    </a>
+                                {% else %}
+                                    <p class="mgt-info-note mb-0 mt-3">
+                                        {{ 'rules.unavailable'|trans }}
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
     </div>
-</div>
 {% endblock %}

@@ -1,6 +1,9 @@
-meta: { title: 'Practical information' }
+meta:
+  title: 'Practical information'
+
 title: 'Practical information'
 lead: 'Key information to prepare your visit to the Mulhouse Gaming Tournament.'
+
 place:
   title: 'Venue and schedule'
   address_name: 'PHG Academy – KMØ'
@@ -8,42 +11,87 @@ place:
   address_city: '68100 Mulhouse'
   map_title: 'Google Maps map of PHG Academy KMØ in Mulhouse'
   maps_link: 'Open the address in Google Maps'
-  items: ['Arrival requested at 9:00 a.m.', 'Event from 9:00 a.m. to 8:00 p.m. at the latest.', 'Saturday, August 29, 2026.', 'Sunday, August 30, 2026.', 'Spectators are not allowed.', 'Participants may leave and come back during the day.']
-bring:
-  title: 'Equipment to bring'
-  intro: 'Each participant should normally bring their complete setup.'
-  items: ['Desktop computer: tower, monitor, keyboard, mouse, headset, mouse pad, power supplies and required cables.', 'Laptop computer: laptop, charger, keyboard, mouse and headset according to the player’s needs.']
-  note: 'All personal equipment needed to play must be brought by the participant, unless a rental PC has been booked in advance.'
+  items:
+    - 'Saturday, August 29, 2026 and Sunday, August 30, 2026.'
+    - 'Arrival requested at 9:00 a.m.'
+    - 'Planned hours: 9:00 a.m. to 9:00 p.m.'
+    - 'League of Legends and Rocket League on Saturday.'
+    - 'Valorant and EA FC 26 on Sunday.'
+
+access:
+  title: 'Access'
+  items:
+    - 'Access is reserved for registered participants, the organisation and authorised persons.'
+    - 'Spectators are not allowed, unless exceptionally authorised by the organisation.'
+    - 'An identity document and proof of registration may be requested.'
+    - 'Participants may leave and come back during the day.'
+
+equipment:
+  title: 'Personal equipment'
+  intro: 'Each participant must prepare their gaming equipment.'
+  items:
+    - 'For a desktop setup: computer, monitor, keyboard, mouse, headset, cables and required power supplies.'
+    - 'For a laptop: computer, charger and required peripherals.'
+    - 'Participants remain responsible for the equipment they bring.'
+  note: 'No replacement can be guaranteed on the day of the event unless rental, loan or provision has been arranged in advance.'
+
 rental:
   title: 'PC rental'
-  intro: 'Rental is optional, available by reservation only, subject to stock, managed later through HelloAsso, and the price is not displayed yet.'
-  items: ['Graphics card: NVIDIA GeForce RTX 3070 Ti.', 'Processor: Intel Core i9-12900KF.', 'Memory: 32 GB Corsair Vengeance RGB Pro 3200 MHz.', 'SSD: WD Black SN770 1 TB.', 'Hard drive: Seagate Barracuda 2 TB, 7200 rpm.', 'Monitor: Zowie XL2540K, 24.5 inches, 240 Hz.', 'Even with a rental, the participant must bring a keyboard, mouse, headset and mouse pad.']
-  note: 'Planned configuration for rental stations, subject to availability or replacement with equivalent equipment.'
+  intro: 'PCs may be available for rental, by reservation only and subject to stock availability.'
+  items:
+    - 'Planned configuration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD and 240 Hz monitor.'
+    - 'Rental allows players to avoid bringing their full computer setup.'
+    - 'Even with a rental, players must bring their own peripherals: keyboard, mouse, headset and mouse pad.'
+  note: 'Price and stock availability will be specified through the registration process.'
+
 provided:
-  title: 'Equipment provided by PHG Academy'
-  items: ['PHG Academy provides a desk, chair, power supply, network connection, network switch and Ethernet cable.', 'Players do not need to bring a desk, chair, switch, Ethernet cable or power strip unless otherwise instructed by the organization.']
+  title: 'Provided on site'
+  items:
+    - 'PHG Academy provides desks and chairs.'
+    - 'Power supply, network access, switches and Ethernet cables are planned on site.'
+    - 'Participants must follow the setup instructions given by the organisation.'
+
 food:
   title: 'Food and drinks'
-  items: ['Outside food is prohibited.', 'Sandwiches are available with some packages.', 'A Kfet will be available on site.', 'Outside drinks are prohibited, except water.', 'Containers may be checked as part of the safety instructions.', 'Alcohol is prohibited.', 'Smoking and vaping are allowed outside only.']
-  note: 'For a medical need, allergy or specific diet, please contact the organization before the event.'
-access:
-  title: 'Access and conduct'
-  items: ['A physical identity document is mandatory.', 'Underage participants must present a signed parental authorization.', 'No spectators.', 'Respect for the venue, equipment, security staff, organizers, supervisors and other players is required.', 'Kind behavior is expected.', 'Any intentional damage may lead to exclusion.']
-security:
-  title: 'Personal equipment and security'
-  note: 'Each participant remains responsible for the equipment they bring and must keep it under supervision during the event. Security will be present, but any incident, damage, loss or issue must be reported immediately to the organization. The final general rules may specify responsibilities.'
+  items:
+    - 'Sandwiches, snacks and a cafeteria may be available on site.'
+    - 'Outside drinks are prohibited, except water.'
+    - 'Water bottles and flasks may be checked.'
+    - 'Alcohol is strictly prohibited.'
+    - 'Smoking and vaping are allowed outside only.'
+  note: 'For a medical need, allergy or specific diet, please contact the organisation before the event.'
+
+conduct:
+  title: 'Conduct'
+  items:
+    - 'Respect for players, organisers, referees, supervisors, security staff, premises and equipment is required.'
+    - 'Fair play, goodwill and respect are expected throughout the event.'
+    - 'Insults, threats, discrimination, violence, damage or disruptive behaviour are prohibited.'
+  note: 'Behaviour contrary to the rules may result in a sanction or exclusion.'
+
 cheat:
-  title: 'Accounts, smurfs and cheating'
-  items: ['Players must use their main or usual account and honestly declare their level.', 'The declared level should match the real level as closely as possible in order to build a consistent competition.', 'Cheat software, scripts, tools providing an advantage, unauthorized gameplay modifications and cheating during matches are prohibited.', 'Possible sanctions: warning, modification of results or placement if provided for by the rules, exclusion from a match or exclusion from the tournament.']
-  note: 'The precise terms will be defined in each game’s rules.'
-image:
-  title: 'Image capture and publication authorization'
-  items: ['Photos and videos may be taken during the event.', 'An authorization for capture and publication will be offered before the event.', 'Participants will be able to indicate their choice to the organization.', 'Detailed terms will appear in the dedicated document.']
+  title: 'Accounts and cheating'
+  items:
+    - 'Players must use their personal account or an account declared to the organisation.'
+    - 'The real skill level must be declared honestly.'
+    - 'Cheat software, scripts, tools providing an advantage and unauthorised gameplay modifications are prohibited.'
+    - 'Detailed match rules will be specified in each game-specific rulebook.'
+
 refund:
   title: 'Cancellation and refunds'
-  note: 'Tickets can be refunded up to seven days before the start of the event. After that date, absences and cancellations are no longer refundable. If the event is cancelled by the organization, tickets are fully refunded. For this edition, the deadline is Saturday, August 22, 2026 at 11:59 p.m. This public information does not replace the future terms and conditions or the complete rules.'
+  items:
+    - 'A full refund is possible up to 7 days before the relevant tournament.'
+    - 'After this deadline, no refund is planned except by exceptional decision of the organisation.'
+    - 'In the event of absence on the tournament day, the ticket is considered used.'
+    - 'No refund is planned in the event of exclusion for failure to comply with the rules.'
+
 rules:
-  title: 'Rules'
-  items: ['General rules govern the event.', 'Each game has or will have its own specific rules.', 'Registration implies acceptance of the general rules and of the rules for the selected game or games.', 'The documents will be shared before the tournament and can be downloaded from this page.']
-  download: 'View rules'
+  title: 'Rules and documents'
+  items:
+    - 'Registration implies acceptance of the general regulations.'
+    - 'Each game will have its own specific rules.'
+    - 'Photos and videos may be taken during the event.'
+    - 'A separate image rights authorisation may be offered.'
+    - 'Underage participants must provide the requested documents before the event.'
+  download: 'View general regulations'
   unavailable: 'Document coming soon'
