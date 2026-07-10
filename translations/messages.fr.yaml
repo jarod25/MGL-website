@@ -166,6 +166,7 @@ team:
     member_does_not_belong_to_team: 'Ce membre n’appartient pas à cette équipe.'
     cannot_remove_captain: 'Le capitaine ne peut pas être retiré de l’équipe.'
     creation_failed: 'L’équipe n’a pas pu être créée.'
+    name_already_used_for_game: 'Ce nom d’équipe est déjà utilisé pour ce jeu.'
     member_add_failed: 'Le membre n’a pas pu être ajouté.'
     member_remove_failed: 'Le membre n’a pas pu être retiré.'
     only_captain_can_delete_team: 'Seul le capitaine peut supprimer cette équipe.'
