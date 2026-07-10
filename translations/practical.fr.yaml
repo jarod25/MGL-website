@@ -28,7 +28,7 @@ food:
   note: 'Pour une nécessité médicale, une allergie ou un régime alimentaire particulier, contactez l’organisation avant l’événement.'
 access:
   title: 'Accès et comportement'
-  items: ['Pièce d’identité physique obligatoire.', 'Participants majeurs uniquement.', 'Aucun spectateur.', 'Respect du lieu, du matériel, du personnel de sécurité, des organisateurs, des encadrants et des autres joueurs.', 'Comportement bienveillant demandé.', 'Toute dégradation volontaire peut entraîner une exclusion.']
+  items: ['Pièce d’identité physique obligatoire.', 'Les participants mineurs devront présenter une autorisation parentale signée.', 'Aucun spectateur.', 'Respect du lieu, du matériel, du personnel de sécurité, des organisateurs, des encadrants et des autres joueurs.', 'Comportement bienveillant demandé.', 'Toute dégradation volontaire peut entraîner une exclusion.']
 security:
   title: 'Matériel personnel et sécurité'
   note: 'Chaque participant reste responsable du matériel qu’il apporte et doit veiller à sa surveillance pendant l’événement. Un dispositif de sécurité sera présent, mais tout incident, dommage, perte ou problème doit être signalé immédiatement à l’organisation. Le règlement général définitif pourra préciser les responsabilités.'
@@ -44,4 +44,6 @@ refund:
   note: 'Les billets peuvent être remboursés jusqu’à sept jours avant le début de l’événement. Après cette date, les absences et annulations ne donnent plus lieu à remboursement. En cas d’annulation de l’événement par l’organisation, les billets sont intégralement remboursés. Pour cette édition, la date limite correspond à samedi 22 août 2026 à 23 h 59. Cette information publique ne remplace pas les futures conditions générales ou le règlement complet.'
 rules:
   title: 'Règlements'
-  items: ['Un règlement général encadrera l’événement.', 'Chaque jeu disposera de règles spécifiques.', 'L’inscription impliquera leur acceptation.', 'Les documents détaillés seront communiqués avant le tournoi.']
+  items: ['Un règlement général encadre l’événement.', 'Chaque jeu dispose ou disposera de règles spécifiques.', 'L’inscription implique l’acceptation du règlement général et des règles du ou des jeux concernés.', 'Les documents seront communiqués avant le tournoi et pourront être téléchargés depuis cette page.']
+  download: 'Télécharger le règlement'
+  unavailable: 'Document bientôt disponible'

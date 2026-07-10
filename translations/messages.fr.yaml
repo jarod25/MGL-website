@@ -94,6 +94,8 @@ navigation:
     mine: 'Mes événements'
 
 footer:
+  rules: 'Règlement'
+  rules_unavailable: 'Règlement bientôt disponible'
   all_right_reserved: 'Tous droits réservés.'
   hosted_by: 'Site hébergé par'
 

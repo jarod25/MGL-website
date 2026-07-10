@@ -94,6 +94,8 @@ navigation:
     mine: 'My events'
 
 footer:
+  rules: 'Rules'
+  rules_unavailable: 'Rules coming soon'
   all_right_reserved: 'All rights reserved.'
   hosted_by: 'Website hosted by'
 
