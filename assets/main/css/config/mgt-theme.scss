@@ -660,11 +660,10 @@ body.mgt-page-home {
   }
 }
 
-// Practical information and contact
+// Practical information
 
 .mgt-page-hero,
-.mgt-about-preview,
-.mgt-contact-panel {
+.mgt-about-preview {
   border: 1px solid var(--mgt-border);
   border-radius: 1rem;
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -1031,32 +1030,31 @@ body.mgt-page-home {
 
 
 .mgt-contact-page {
-  max-width: 68rem;
+  max-width: 68.75rem;
+  margin-inline: auto;
 }
 
-.mgt-contact-panel {
-  display: grid;
-  gap: clamp(1.25rem, 3vw, 2rem);
-  background: var(--mgt-panel-bg);
-  border-color: var(--mgt-panel-border);
-  border-radius: .75rem;
-  box-shadow: none;
+.mgt-contact-page__header {
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  text-align: center;
 }
 
-.mgt-contact-panel__intro {
-  max-width: 46rem;
-}
-
-.mgt-contact-panel__intro p:last-child,
-.mgt-contact-practical p:last-child {
+.mgt-contact-page__header .mgt-section-heading {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 0;
-  color: var(--mgt-muted);
+}
+
+.mgt-contact-page__header .mgt-section-heading::after {
+  margin-inline: auto;
 }
 
 .mgt-contact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  width: 100%;
 }
 
 .mgt-contact-card {
@@ -1064,11 +1062,27 @@ body.mgt-page-home {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100%;
-  gap: 1.25rem;
-  padding: clamp(1.1rem, 2vw, 1.35rem);
-  background: rgba(7, 13, 11, .42);
-  border: 1px solid var(--mgt-panel-border);
-  border-radius: .75rem;
+  gap: 1.5rem;
+  padding: clamp(1.35rem, 2.4vw, 1.75rem);
+  background:
+    linear-gradient(145deg, rgba(12, 20, 20, .78), rgba(36, 11, 79, .36));
+  border: 1px solid rgba(226, 113, 165, .38);
+  border-radius: .95rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, .16);
+}
+
+.mgt-contact-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mgt-contact-card__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  filter: drop-shadow(0 .35rem .8rem rgba(0, 0, 0, .28));
 }
 
 .mgt-contact-card__label {
@@ -1076,31 +1090,30 @@ body.mgt-page-home {
   color: var(--mgt-pink);
   font-size: .78rem;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-.mgt-contact-card h3 {
+.mgt-contact-card h2 {
   margin-bottom: .75rem;
   color: var(--mgt-white);
-  font-size: 1.1rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  line-height: 1.15;
 }
 
 .mgt-contact-card p:not(.mgt-contact-card__label) {
+  margin-bottom: 1rem;
   color: var(--mgt-muted);
 }
 
-.mgt-contact-card a:not(.btn) {
+.mgt-contact-card__link {
   color: var(--mgt-white);
   font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-.mgt-contact-practical {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+.mgt-contact-card .btn {
+  align-self: flex-start;
 }
 
 .ratio iframe, .mgt-info-note { border-radius: .5rem; }
@@ -1112,14 +1125,14 @@ body.mgt-page-home {
 
 @media (max-width: 991.98px) {
   .mgt-profile-grid { grid-template-columns: 1fr; }
-  .mgt-contact-grid { grid-template-columns: 1fr; }
-  .mgt-contact-practical { align-items: flex-start; flex-direction: column; }
+  .mgt-contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 575.98px) {
+  .mgt-contact-grid { grid-template-columns: 1fr; }
+
   .mgt-actions > .btn,
-  .mgt-contact-card .btn,
-  .mgt-contact-practical .btn { width: 100%; }
+  .mgt-contact-card .btn { width: 100%; }
 }
 
 // Footer
