@@ -11,35 +11,35 @@ place:
   address_city: '68100 Mulhouse'
   map_title: 'Google Maps map of PHG Academy KMØ in Mulhouse'
   maps_link: 'Open the address in Google Maps'
-  text: 'The tournament will take place on August 29 and 30, 2026 at PHG Academy – KMØ, Mulhouse. Participants are asked to arrive at 9:00 a.m., with planned hours from 9:00 a.m. to 9:00 p.m. League of Legends and Rocket League are scheduled for Saturday; Valorant and EA FC 26 are scheduled for Sunday.'
+  text: 'The tournament will take place on August 29 and 30, 2026 at PHG Academy – KMØ, Mulhouse. Arrival is requested at 9:00 a.m., with the event planned from 10:00 a.m. to 9:00 p.m.'
 
 sections:
   access:
     title: 'Access'
-    text: 'Access is reserved for registered participants, organisation members and authorised persons. Spectators are not allowed, except by exceptional agreement. An ID document, proof of registration and, if necessary, documents for underage participants may be requested. Participants may leave and return during the day.'
+    text: 'Access is reserved for registered participants and authorised persons. An ID document and proof of registration may be requested.'
   equipment:
     title: 'Personal equipment'
-    text: 'Each participant must provide all the equipment required to play. For a desktop PC, this includes in particular the computer, monitor, keyboard, mouse, headset, cables and required power supplies. Participants remain responsible for their own equipment.'
+    text: 'Each player brings their full setup: PC, monitor, keyboard, mouse, headset, cables and power supplies. Personal equipment remains the participant’s responsibility.'
   rental:
     title: 'PC rental'
-    text: 'PCs may be available for rental, by reservation only and subject to stock availability. The planned configuration includes an RTX 3070 Ti, an i9-12900KF, 32 GB of RAM, a 1 TB SSD and a 240 Hz monitor. Even with a rental, players must provide their own personal peripherals.'
+    text: 'PCs can be rented by reservation, subject to availability. Planned configuration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD, Zowie 240 Hz monitor. Players still need to bring their peripherals.'
   provided:
     title: 'Provided on site'
-    text: 'PHG Academy provides desks, chairs, power supply, network, switches and Ethernet cables. Participants must follow the installation instructions given by the organisation on site.'
+    text: 'PHG Academy provides desks, chairs, power connections, network, switches and Ethernet cables.'
   food:
     title: 'Food and drinks'
-    text: 'Sandwiches, snacks and a cafeteria may be available on site. Outside drinks are prohibited, except water, and flasks or bottles may be checked. Alcohol is strictly prohibited. Smoking and vaping are only allowed outside.'
+    text: 'Sandwiches, snacks and cafeteria service may be available on site. Outside drinks are prohibited except water; alcohol is prohibited; smoking and vaping are outside only.'
   conduct:
     title: 'Conduct'
-    text: 'Respectful conduct is expected towards players, organisers, referees, supervisors, safety staff, premises and equipment. Insults, threats, discrimination, violence, damage or disruptive behaviour are prohibited and may result in a sanction.'
+    text: 'Fair play and respect for the venue, equipment, players and organisation are expected. Abusive behaviour may result in a sanction.'
   cheat:
     title: 'Accounts and cheating'
-    text: 'Players must use their personal account or an account declared to the organisation, with an honestly stated real level. Cheating software, scripts, tools providing an unfair advantage and unauthorised gameplay modifications are prohibited. Detailed rules will be specified in the specific rulebooks for each game.'
+    text: 'Players must honestly declare their level. Cheating, scripts, advantage software and unauthorised gameplay modifications are prohibited.'
   refund:
     title: 'Cancellation and refund'
-    text: 'A cancellation request made up to 7 days before the relevant tournament entitles the participant to a full refund. After this deadline, no refund is planned except by exceptional decision of the organisation. In case of absence on the tournament day, the ticket is considered used.'
+    text: 'Refunds are possible up to 7 days before the relevant tournament. After that deadline, absence or cancellation does not entitle you to a refund, except by exceptional decision.'
   rules:
     title: 'Rules and documents'
-    text: 'Registration implies acceptance of the general rules and the specific rules for the relevant games. The rulebooks for each game will be added separately. Photos and videos may be taken during the event, and underage participants will have to provide the requested documents before the event.'
+    text: 'Registration implies acceptance of the general rules. Game-specific rules will be added separately.'
     download: 'View the general rules'
     unavailable: 'Document coming soon'
