@@ -1,7 +1,5 @@
 meta: { title: 'Nous contacter' }
 title: 'Nous contacter'
-header:
-  eyebrow: 'Contact'
 cards:
   aria_label: 'Canaux de contact'
   email:
