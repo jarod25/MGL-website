@@ -15,7 +15,7 @@
                 </li>
 
                 <li class="breadcrumb-item">
-                    <a href="{{ path('app_team_game', { slug: team.game.slug }) }}">
+                    <a href="{{ path('app_team_game', { gameSlug: team.game.slug }) }}">
                         {{ team.game.name }}
                     </a>
                 </li>
@@ -36,7 +36,7 @@
             <div class="mgt-actions">
                 <a
                     class="btn btn-secondary"
-                    href="{{ path('app_team_game', { slug: team.game.slug }) }}"
+                    href="{{ path('app_team_game', { gameSlug: team.game.slug }) }}"
                 >
                     {{ 'team.action.back_to_list'|trans }}
                 </a>

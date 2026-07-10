@@ -9,6 +9,8 @@ final class LocalizedDocumentProvider
     private const FALLBACK_LOCALE = 'fr';
     private const DOCUMENTS = [
         'rules' => 'documents/rules/regulations_mgt_%s.pdf',
+        'parental_authorization' => 'documents/authorizations/parental_authorization_%s.pdf',
+        'image_rights' => 'documents/image-rights/image_rights_%s.pdf',
     ];
 
     /** @var string[] */

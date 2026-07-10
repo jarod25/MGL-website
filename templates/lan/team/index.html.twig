@@ -19,7 +19,7 @@
           {% if gameLogos[game.slug] is defined %}<div class="game-card__logo-wrapper"><img class="game-card__logo game-card__logo--{{ game.slug }}" src="{{ gameLogos[game.slug] }}" alt="{{ 'index.logo_alt'|trans({ '%game%': game.name }) }}" loading="lazy"></div>{% endif %}
           <h3 class="h4 card-title mb-0">{{ game.name }}</h3>
           <div class="d-flex flex-column gap-2 text-muted"><span>{{ 'game.players_per_team'|trans({ '%maxPlayers%': game.maxPlayersPerTeam, '%count%': game.maxPlayersPerTeam }) }}</span><span>{{ 'game.max_teams'|trans({ '%maxTeams%': game.maxTeams, '%count%': game.maxTeams }) }}</span><span class="mgt-counter">{{ 'index.created_teams'|trans({ '%count%': createdTeams, '%max%': game.maxTeams }) }}</span></div>
-          <div class="mt-auto pt-2"><a class="btn btn-primary w-100" href="{{ path('app_team_game', { slug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a></div>
+          <div class="mt-auto pt-2"><a class="btn btn-primary w-100" href="{{ path('app_team_game', { gameSlug: game.slug }) }}">{{ 'index.view_teams'|trans }}</a></div>
         </div></div></div>
         {% endfor %}
       </div>
