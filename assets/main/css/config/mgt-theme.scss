@@ -1310,3 +1310,60 @@ body.mgt-page-home {
     animation-iteration-count: 1 !important;
   }
 }
+
+// About page
+
+.mgt-schools-grid,
+.mgt-organizers-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.mgt-schools-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mgt-organizers-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.mgt-school-card,
+.mgt-organizer-card {
+  height: 100%;
+}
+
+.mgt-organizer-card__photo {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--mgt-panel-border);
+  background: rgba(255, 255, 255, .08);
+}
+
+.partner-card__description a {
+  color: var(--mgt-pink);
+  font-weight: 700;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+}
+
+.partner-card__description a:hover {
+  color: var(--mgt-white);
+}
+
+@media (max-width: 991.98px) {
+  .mgt-schools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mgt-organizers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .mgt-organizers-grid {
+    grid-template-columns: 1fr;
+  }
+}

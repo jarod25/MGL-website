@@ -21,16 +21,19 @@ final class AboutController extends AbstractController
                 'key' => 'crous_strasbourg',
                 'name' => 'Crous de Strasbourg',
                 'logoPath' => '/images/partners/crous-strasbourg-logo.jpg',
+                'url' => 'https://www.crous-strasbourg.fr/',
             ],
             [
                 'key' => 'mulhouse_alsace_agglomeration',
                 'name' => 'Mulhouse Alsace Agglomération',
                 'logoPath' => '/images/partners/mulhouse-alsace-agglomeration-logo.png',
+                'url' => 'https://www.m2a.fr/',
             ],
             [
                 'key' => 'universite_haute_alsace',
                 'name' => 'Université de Haute-Alsace',
                 'logoPath' => '/images/partners/universite-haute-alsace-logo.png',
+                'url' => 'https://www.uha.fr/',
             ],
             [
                 'key' => 'ikoula',
@@ -42,16 +45,21 @@ final class AboutController extends AbstractController
                 'key' => 'enscmu',
                 'name' => 'ENSCMu',
                 'logoPath' => '/images/partners/enscmu-logo.png',
+                'url' => 'https://www.enscmu.uha.fr/',
             ],
             [
                 'key' => 'ensisa',
                 'name' => 'ENSISA',
                 'logoPath' => '/images/partners/ensisa-logo.png',
+                'url' => 'https://www.ensisa.uha.fr/',
             ],
         ];
 
+        $organizers = [];
+
         return $this->render('about/index.html.twig', [
             'partners' => $partners,
+            'organizers' => $organizers,
         ]);
     }
 }

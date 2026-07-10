@@ -1,9 +1,29 @@
 {% trans_default_domain 'about' %}
 <section class="mb-5">
     <div class="mgt-section-heading"><h2>{{ 'organizers.title'|trans }}</h2></div>
-    <div class="mgt-panel">
-        <div class="mgt-panel-body">
-            <p class="mb-0">{{ 'organizers.generic'|trans }}</p>
+    {% if organizers is empty %}
+        <div class="mgt-panel">
+            <div class="mgt-panel-body">
+                <p class="mb-0">{{ 'organizers.placeholder'|trans }}</p>
+            </div>
         </div>
-    </div>
+    {% else %}
+        <div class="mgt-organizers-grid">
+            {% for organizer in organizers %}
+                <article class="mgt-panel mgt-organizer-card">
+                    <div class="mgt-panel-body text-center">
+                        {% set organizerName = organizer.firstname ~ ' ' ~ organizer.lastname %}
+                        <img
+                            class="mgt-organizer-card__photo mb-3"
+                            src="{{ organizer.photoPath|default('/images/team/no-photo.png') }}"
+                            alt="{{ 'organizers.photo_alt'|trans({ '%name%': organizerName }) }}"
+                            loading="lazy"
+                        >
+                        <h3 class="h5 mb-1">{{ organizerName }}</h3>
+                        <p class="mgt-panel-text mb-0">{{ organizer.role }}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>

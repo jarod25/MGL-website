@@ -4,24 +4,36 @@ intro:
   title: 'À propos'
 schools:
   title: 'Les écoles et établissements'
-  generic: 'Le tournoi est organisé avec des étudiants et des établissements mulhousiens, notamment l’Université de Haute-Alsace, l’ENSCMu et l’ENSISA.'
+  intro: 'Le Mulhouse Gaming Tournament est organisé par des étudiants de l’<a href="https://www.enscmu.uha.fr/" target="_blank" rel="noopener noreferrer">ENSCMu</a> et le XID de l’<a href="https://www.ensisa.uha.fr/" target="_blank" rel="noopener noreferrer">ENSISA</a>, en partenariat avec PHG Academy. L’ENSCMu et l’ENSISA font partie de l’<a href="https://www.uha.fr/" target="_blank" rel="noopener noreferrer">Université de Haute-Alsace</a>.'
+  website_link: 'Voir le site'
+  enscmu:
+    title: 'ENSCMu'
+    text: 'École d’ingénieurs de l’Université de Haute-Alsace, l’ENSCMu participe à l’organisation étudiante du tournoi.'
+  ensisa:
+    title: 'ENSISA / XID'
+    text: 'École d’ingénieurs de l’Université de Haute-Alsace, l’ENSISA est impliquée via le XID de l’ENSISA.'
+  phg_academy:
+    title: 'PHG Academy'
+    text: 'Partenaire d’accueil du tournoi, PHG Academy met à disposition le lieu et l’environnement technique de l’événement au KMØ Mulhouse.'
 organizers:
   title: 'L’équipe organisatrice'
-  generic: 'Une équipe d’étudiants et d’organisateurs prépare l’événement. Une liste détaillée des membres, rôles et photos pourra être ajoutée ultérieurement dans public/images/team/ au format prenom-nom.webp.'
+  placeholder: 'L’équipe complète sera ajoutée prochainement. Le tournoi est préparé par un groupe de 8 personnes mobilisées sur l’organisation, la communication, les partenariats et le déroulement de l’événement.'
+  photo_alt: 'Photo de %name%'
 partners:
   title: 'Sponsors et partenaires'
   logo_alt: 'Logo de %name%'
+  website_link: 'Découvrir'
   ikoula_title: 'Hébergement web, serveurs dédiés et solutions sur mesure'
   ikoula_alt: 'Partenaire Ikoula'
   descriptions:
-    phg_academy: 'Lieu d’accueil du tournoi à KMØ Mulhouse.'
-    crous_strasbourg: 'Partenaire institutionnel de l’événement.'
-    mulhouse_alsace_agglomeration: 'Partenaire territorial de l’événement.'
-    universite_haute_alsace: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
+    phg_academy: 'Partenaire d’accueil du tournoi, PHG Academy met à disposition le lieu et l’environnement technique nécessaires à l’organisation de l’événement au KMØ Mulhouse.'
+    crous_strasbourg: 'Acteur central de la vie étudiante, le Crous de Strasbourg accompagne les étudiants sur des sujets comme les aides, le logement, la restauration, l’action sociale et les initiatives étudiantes.'
+    mulhouse_alsace_agglomeration: 'Mulhouse Alsace Agglomération soutient le territoire mulhousien et ses projets locaux, notamment autour de l’attractivité, de l’enseignement supérieur, de la jeunesse et de la vie du territoire.'
+    universite_haute_alsace: 'Université ancrée à Mulhouse et Colmar, l’UHA rassemble notamment l’ENSCMu et l’ENSISA, deux écoles impliquées dans l’organisation étudiante du tournoi.'
     ikoula: 'Ikoula est un hébergeur et infogéreur français proposant des solutions d’hébergement web, de serveurs et de cloud. Ikoula héberge le site du Mulhouse Gaming Tournament.<br>Site hébergé par <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a>.'
-    enscmu: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
-    ensisa: 'Établissement mulhousien associé à la dynamique étudiante du tournoi.'
+    enscmu: 'Première école de chimie de France, l’ENSCMu est une école d’ingénieurs de l’Université de Haute-Alsace. Des étudiants de l’école participent à l’organisation du tournoi.'
+    ensisa: 'École d’ingénieurs de l’Université de Haute-Alsace, l’ENSISA forme notamment dans les domaines de l’informatique, des réseaux, de l’automatique, de la mécanique, du textile et du génie industriel. Le XID participe à l’organisation du tournoi.'
 contact:
   title: 'Nous contacter'
-  text: 'La page de contact regroupe l’adresse e-mail et les informations utiles pour joindre l’organisation.'
+  text: 'Une question sur le tournoi, les partenariats ou l’organisation ? La page de contact rassemble les informations utiles pour nous joindre.'
   link: 'Ouvrir la page de contact'
