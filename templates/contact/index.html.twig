@@ -1,22 +1,67 @@
 {% extends 'base.html.twig' %}
 {% trans_default_domain 'contact' %}
+
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
+
 {% block body %}
-    <div class="mgt-public-page">
-        <div class="mgt-page-header">
-            <div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
-        </div>
-        <div class="mgt-contact-panel text-center">
-            <div>
-                <p class="mb-2"><strong>{{ 'email_label'|trans }}</strong> <a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a>
-                </p>
-                <p>{{ 'place'|trans }}</p>
-                <div class="d-flex flex-column flex-sm-row gap-2">
-                    <a class="btn btn-primary" href="mailto:mulhousegaminglan@gmail.com">{{ 'mail_button'|trans }}</a>
-                    <a class="btn btn-outline-primary"
-                       href="{{ path('app_practical_information') }}">{{ 'practical_link'|trans }}</a>
-                </div>
+    {% set emailAddress = 'mulhousegaminglan@gmail.com' %}
+    {% set discordUrl = 'https://discord.gg/hN4aHdPNyR' %}
+    {% set instagramUrl = 'https://www.instagram.com/mulhousegt?igsh=ZW4zejNwMzl4YjBz' %}
+
+    <div class="mgt-public-page mgt-contact-page">
+        <header class="mgt-page-header">
+            <div class="mgt-section-heading">
+                <p class="mgt-section-heading__eyebrow">{{ 'header.eyebrow'|trans }}</p>
+                <h1>{{ 'title'|trans }}</h1>
             </div>
-        </div>
+            <p class="mgt-page-lead">{{ 'header.lead'|trans }}</p>
+        </header>
+
+        <section class="mgt-contact-panel mgt-panel" aria-labelledby="contact-organization-title">
+            <div class="mgt-contact-panel__intro">
+                <p class="mgt-eyebrow mb-2">{{ 'organization.eyebrow'|trans }}</p>
+                <h2 id="contact-organization-title" class="mgt-panel-title">{{ 'organization.title'|trans }}</h2>
+                <p>{{ 'organization.text'|trans }}</p>
+            </div>
+
+            <div class="mgt-contact-grid">
+                <article class="mgt-contact-card">
+                    <div class="mgt-contact-card__content">
+                        <p class="mgt-contact-card__label">{{ 'cards.email.label'|trans }}</p>
+                        <h3>{{ 'cards.email.title'|trans }}</h3>
+                        <p>{{ 'cards.email.text'|trans }}</p>
+                        <a href="mailto:{{ emailAddress }}">{{ emailAddress }}</a>
+                    </div>
+                    <a class="btn btn-primary" href="mailto:{{ emailAddress }}">{{ 'cards.email.button'|trans }}</a>
+                </article>
+
+                <article class="mgt-contact-card">
+                    <div class="mgt-contact-card__content">
+                        <p class="mgt-contact-card__label">{{ 'cards.discord.label'|trans }}</p>
+                        <h3>{{ 'cards.discord.title'|trans }}</h3>
+                        <p>{{ 'cards.discord.text'|trans }}</p>
+                    </div>
+                    <a class="btn btn-primary" href="{{ discordUrl }}" target="_blank" rel="noopener noreferrer">{{ 'cards.discord.button'|trans }}</a>
+                </article>
+
+                <article class="mgt-contact-card">
+                    <div class="mgt-contact-card__content">
+                        <p class="mgt-contact-card__label">{{ 'cards.instagram.label'|trans }}</p>
+                        <h3>{{ 'cards.instagram.title'|trans }}</h3>
+                        <p>{{ 'cards.instagram.text'|trans }}</p>
+                    </div>
+                    <a class="btn btn-primary" href="{{ instagramUrl }}" target="_blank" rel="noopener noreferrer">{{ 'cards.instagram.button'|trans }}</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="mgt-contact-practical mgt-panel mgt-panel--soft">
+            <div>
+                <p class="mgt-eyebrow mb-2">{{ 'practical.eyebrow'|trans }}</p>
+                <h2 class="mgt-panel-title">{{ 'practical.title'|trans }}</h2>
+                <p>{{ 'practical.text'|trans }}</p>
+            </div>
+            <a class="btn btn-outline-primary" href="{{ path('app_practical_information') }}">{{ 'practical.button'|trans }}</a>
+        </section>
     </div>
 {% endblock %}

@@ -1029,7 +1029,79 @@ body.mgt-page-home {
 .partner-card__logo-wrapper { border-radius: .5rem; }
 .partner-card__logo { width: 100%; object-fit: contain; }
 
-.mgt-contact-panel { max-width: 42rem; margin-inline: auto; background: var(--mgt-panel-bg); border-color: var(--mgt-panel-border); border-radius: .5rem; box-shadow: none; }
+
+.mgt-contact-page {
+  max-width: 68rem;
+}
+
+.mgt-contact-panel {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  background: var(--mgt-panel-bg);
+  border-color: var(--mgt-panel-border);
+  border-radius: .75rem;
+  box-shadow: none;
+}
+
+.mgt-contact-panel__intro {
+  max-width: 46rem;
+}
+
+.mgt-contact-panel__intro p:last-child,
+.mgt-contact-practical p:last-child {
+  margin-bottom: 0;
+  color: var(--mgt-muted);
+}
+
+.mgt-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mgt-contact-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 1.25rem;
+  padding: clamp(1.1rem, 2vw, 1.35rem);
+  background: rgba(7, 13, 11, .42);
+  border: 1px solid var(--mgt-panel-border);
+  border-radius: .75rem;
+}
+
+.mgt-contact-card__label {
+  margin-bottom: .55rem;
+  color: var(--mgt-pink);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.mgt-contact-card h3 {
+  margin-bottom: .75rem;
+  color: var(--mgt-white);
+  font-size: 1.1rem;
+}
+
+.mgt-contact-card p:not(.mgt-contact-card__label) {
+  color: var(--mgt-muted);
+}
+
+.mgt-contact-card a:not(.btn) {
+  color: var(--mgt-white);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.mgt-contact-practical {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
 
 .ratio iframe, .mgt-info-note { border-radius: .5rem; }
 
@@ -1040,10 +1112,14 @@ body.mgt-page-home {
 
 @media (max-width: 991.98px) {
   .mgt-profile-grid { grid-template-columns: 1fr; }
+  .mgt-contact-grid { grid-template-columns: 1fr; }
+  .mgt-contact-practical { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 575.98px) {
-  .mgt-actions > .btn { width: 100%; }
+  .mgt-actions > .btn,
+  .mgt-contact-card .btn,
+  .mgt-contact-practical .btn { width: 100%; }
 }
 
 // Footer

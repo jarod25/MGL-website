@@ -1,6 +1,30 @@
 meta: { title: 'Contact us' }
 title: 'Contact us'
-email_label: 'Email:'
-place: 'Venue: PHG Academy – KMØ, 30 rue François Spoerry, 68100 Mulhouse.'
-mail_button: 'Send an email'
-practical_link: 'View practical information'
+header:
+  eyebrow: 'Contact'
+  lead: 'Have a question about the Mulhouse Gaming Tournament? Use the official channels below to reach the organizers.'
+organization:
+  eyebrow: 'MGT organization'
+  title: 'Contact the organization'
+  text: 'Choose the channel that fits best: email for detailed requests, Discord to talk with the community, Instagram to follow announcements.'
+cards:
+  email:
+    label: 'Email'
+    title: 'Write to the team'
+    text: 'For partnerships, press requests, registrations or questions that need follow-up.'
+    button: 'Send an email'
+  discord:
+    label: 'Discord'
+    title: 'Join the server'
+    text: 'Chat with participants and follow information shared by the organizers.'
+    button: 'Open Discord'
+  instagram:
+    label: 'Instagram'
+    title: 'Follow the news'
+    text: 'Find announcements, visuals and important reminders about the event.'
+    button: 'View Instagram'
+practical:
+  eyebrow: 'Venue'
+  title: 'Plan your visit'
+  text: 'The tournament takes place at PHG Academy – KMØ, 30 rue François Spoerry, 68100 Mulhouse. Access details and useful information are available on the dedicated page.'
+  button: 'View practical information'
