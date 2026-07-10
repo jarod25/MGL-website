@@ -4,24 +4,36 @@ intro:
   title: 'About'
 schools:
   title: 'Schools and institutions'
-  generic: 'The tournament is organized with students and Mulhouse institutions, including Université de Haute-Alsace, ENSCMu and ENSISA.'
+  intro: 'The Mulhouse Gaming Tournament is organized by students from <a href="https://www.enscmu.uha.fr/" target="_blank" rel="noopener noreferrer">ENSCMu</a> and the XID of <a href="https://www.ensisa.uha.fr/" target="_blank" rel="noopener noreferrer">ENSISA</a>, in partnership with PHG Academy. ENSCMu and ENSISA are part of <a href="https://www.uha.fr/" target="_blank" rel="noopener noreferrer">Université de Haute-Alsace</a>.'
+  website_link: 'Visit website'
+  enscmu:
+    title: 'ENSCMu'
+    text: 'An engineering school of Université de Haute-Alsace, ENSCMu is involved in the student organisation of the tournament.'
+  ensisa:
+    title: 'ENSISA / XID'
+    text: 'An engineering school of Université de Haute-Alsace, ENSISA is involved through the XID of ENSISA.'
+  phg_academy:
+    title: 'PHG Academy'
+    text: 'As the host partner, PHG Academy provides the venue and technical environment for the event at KMØ Mulhouse.'
 organizers:
   title: 'Organizing team'
-  generic: 'A team of students and organizers is preparing the event. A detailed list of members, roles and photos may be added later in public/images/team/ using the prenom-nom.webp format.'
+  placeholder: 'The full team will be added soon. The tournament is prepared by a group of 8 people working on organisation, communication, partnerships and event operations.'
+  photo_alt: 'Photo of %name%'
 partners:
   title: 'Sponsors and partners'
   logo_alt: '%name% logo'
+  website_link: 'Visit website'
   ikoula_title: 'Web hosting, dedicated servers and tailored solutions'
   ikoula_alt: 'Ikoula partner'
   descriptions:
-    phg_academy: 'Tournament venue at KMØ Mulhouse.'
-    crous_strasbourg: 'Institutional partner of the event.'
-    mulhouse_alsace_agglomeration: 'Local territorial partner of the event.'
-    universite_haute_alsace: 'Mulhouse institution connected to the tournament’s student community.'
+    phg_academy: 'As the host partner of the tournament, PHG Academy provides the venue and technical environment needed to run the event at KMØ Mulhouse.'
+    crous_strasbourg: 'A key player in student life, Crous de Strasbourg supports students through financial aid, housing, catering, social support and student initiatives.'
+    mulhouse_alsace_agglomeration: 'Mulhouse Alsace Agglomération supports the Mulhouse area and local projects, including attractiveness, higher education, youth and community life.'
+    universite_haute_alsace: 'Based in Mulhouse and Colmar, Université de Haute-Alsace includes ENSCMu and ENSISA, two schools involved in the student organisation of the tournament.'
     ikoula: 'Ikoula is a French hosting and managed services provider offering web hosting, server and cloud solutions. Ikoula hosts the Mulhouse Gaming Tournament website.<br>Website hosted by <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a>.'
-    enscmu: 'Mulhouse institution connected to the tournament’s student community.'
-    ensisa: 'Mulhouse institution connected to the tournament’s student community.'
+    enscmu: 'The first chemistry school in France, ENSCMu is an engineering school of Université de Haute-Alsace. Students from the school are involved in organising the tournament.'
+    ensisa: 'ENSISA is an engineering school of Université de Haute-Alsace, with programmes including computer science, networks, automation, mechanics, textiles and industrial engineering. The XID is involved in organising the tournament.'
 contact:
   title: 'Contact us'
-  text: 'The contact page provides the email address and useful information to reach the organizers.'
+  text: 'Have a question about the tournament, partnerships or organisation? The contact page gathers the useful information to reach us.'
   link: 'Open the contact page'
