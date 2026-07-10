@@ -42,7 +42,7 @@ registration:
       placeholder: 'Votre pseudo Discord'
       help: 'Optionnel, mais utile pour vous retrouver avant la LAN.'
     is_major_confirmed:
-      label: 'Je confirme être majeur·e.'
+      label: 'Je confirme être majeur·e au moment de l’événement.'
     submit_payment: 'Continuer vers le paiement'
   status:
     pending_payment: 'Paiement en attente'
@@ -230,9 +230,22 @@ lan_profile:
     teams: 'Voir les équipes'
     create_team: 'Créer une équipe'
     payment_pending: 'Finaliser le paiement'
+  documents:
+    title: 'Documents utiles'
+    parental_authorization:
+      title: 'Autorisation parentale'
+      message: 'Comme tu n’as pas confirmé être majeur·e au moment de l’événement, une autorisation parentale signée sera nécessaire pour participer. Le document devra être téléchargé, signé par un représentant légal, puis présenté à l’entrée de l’événement avec une pièce d’identité physique.'
+      download: 'Télécharger l’autorisation parentale'
+    image_rights:
+      title: 'Droit à l’image'
+      message: 'Des photos et vidéos pourront être prises pendant l’événement. Un document relatif au droit à l’image sera mis à disposition. Merci de le consulter afin de connaître les modalités applicables.'
+      download: 'Télécharger le document droit à l’image'
   payment_required: 'Tu dois finaliser ton paiement avant de créer ou rejoindre une équipe.'
   error:
     participant_required: 'Tu dois avoir une inscription LAN avant d’accéder à ton espace LAN.'
+
+documents:
+  unavailable: 'Document bientôt disponible'
 
 account:
   title: 'Mon compte'

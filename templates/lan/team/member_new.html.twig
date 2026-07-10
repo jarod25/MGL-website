@@ -11,7 +11,7 @@
         {{ form_row(form.participantEmail) }}
         {{ form_row(form.inGamePseudo) }}
         <button class="btn btn-primary" type="submit">{{ 'team.member.new.submit'|trans }}</button>
-        <a class="btn btn-secondary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'team.action.back_to_team'|trans }}</a>
+        <a class="btn btn-secondary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'team.action.back_to_team'|trans }}</a>
         {{ form_end(form) }}
         </div>
     </div>

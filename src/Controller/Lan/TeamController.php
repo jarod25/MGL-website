@@ -92,15 +92,15 @@ final class TeamController extends AbstractController
         ];
     }
 
-    #[Route('/teams/game/{slug}', name: 'app_team_game', methods: ['GET'])]
+    #[Route('/teams/{gameSlug}', name: 'app_team_game', requirements: ['gameSlug' => '(?!new$)[a-z][a-z0-9-]*'], methods: ['GET'])]
     public function game(
-        string $slug,
+        string $gameSlug,
         GameRepository $gameRepository,
         TeamRepository $teamRepository,
         TeamMemberRepository $teamMemberRepository,
         TranslatorInterface $translator,
     ): Response {
-        $game = $gameRepository->findOneActiveBySlug($slug);
+        $game = $gameRepository->findOneActiveBySlug($gameSlug);
 
         if (!$game instanceof Game) {
             throw $this->createNotFoundException($translator->trans('team.game.not_found'));
@@ -146,7 +146,7 @@ final class TeamController extends AbstractController
 
                     $this->addFlash('success', $translator->trans('team.flash.created'));
 
-                    return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+                    return $this->redirectToTeam($team);
                 } catch (LanRegistrationException $exception) {
                     $this->addFlash('danger', $translator->trans($exception->getMessage()));
                 } catch (\Throwable) {
@@ -160,34 +160,44 @@ final class TeamController extends AbstractController
         ]);
     }
 
-    #[Route('/teams/{id}', name: 'app_team_show', requirements: ['id' => '\\d+'], methods: ['GET'])]
-    public function show(
+    #[Route('/teams/{gameSlug}/{teamSlug}', name: 'app_team_show_slug', requirements: ['gameSlug' => '[a-z][a-z0-9-]*', 'teamSlug' => '[a-z0-9][a-z0-9-]*'], methods: ['GET'])]
+    public function showBySlug(
+        string $gameSlug,
+        string $teamSlug,
+        GameRepository $gameRepository,
+        TeamRepository $teamRepository,
+        ParticipantRepository $participantRepository,
+        TeamMemberRepository $teamMemberRepository,
+        TranslatorInterface $translator,
+    ): Response {
+        $game = $gameRepository->findOneActiveBySlug($gameSlug);
+
+        if (!$game instanceof Game) {
+            throw $this->createNotFoundException($translator->trans('team.game.not_found'));
+        }
+
+        $team = $teamRepository->findOneByGameAndSlug($game, $teamSlug);
+
+        if (!$team instanceof Team) {
+            throw $this->createNotFoundException($translator->trans('team.show.not_found'));
+        }
+
+        return $this->renderTeam($team, $participantRepository, $teamMemberRepository);
+    }
+
+    #[Route('/teams/{id}', name: 'app_team_show_legacy', requirements: ['id' => '\\d+'], methods: ['GET'])]
+    public function showLegacy(
         Team $team,
         ParticipantRepository $participantRepository,
         TeamMemberRepository $teamMemberRepository,
     ): Response {
-        $participant = null;
-        $user = $this->getUser();
+        $game = $team->getGame();
 
-        if ($user instanceof User) {
-            $participant = $participantRepository->findOneByUser($user);
+        if ($game instanceof Game && $game->getSlug() !== null && $team->getSlug() !== null) {
+            return $this->redirectToTeam($team);
         }
 
-        $members = $teamMemberRepository->findByTeam($team);
-        $memberCount = $teamMemberRepository->countByTeam($team);
-        $maxPlayers = $team->getGame()?->getMaxPlayersPerTeam();
-        $isTeamFull = $maxPlayers !== null && $maxPlayers > 0 && $memberCount >= $maxPlayers;
-        $isCaptain = $this->isCaptain($participant, $team);
-
-        return $this->render('lan/team/show.html.twig', [
-            'team' => $team,
-            'members' => $members,
-            'memberCount' => $memberCount,
-            'maxPlayers' => $maxPlayers,
-            'isTeamFull' => $isTeamFull,
-            'isCaptain' => $isCaptain,
-            'canAddMembers' => $isCaptain && !$isTeamFull,
-        ]);
+        return $this->renderTeam($team, $participantRepository, $teamMemberRepository);
     }
 
     #[Route('/teams/{id}/members/new', name: 'app_team_member_new', requirements: ['id' => '\\d+'], methods: ['GET', 'POST'])]
@@ -207,7 +217,7 @@ final class TeamController extends AbstractController
         if (!$this->isCaptain($participant, $team)) {
             $this->addFlash('danger', $translator->trans('team.error.only_captain_can_add_member'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         $form = $this->createForm(TeamMemberType::class);
@@ -224,7 +234,7 @@ final class TeamController extends AbstractController
                     $teamRegistrationService->addMember($team, $targetParticipant, (string) $data['inGamePseudo']);
                     $this->addFlash('success', $translator->trans('team.flash.member_added'));
 
-                    return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+                    return $this->redirectToTeam($team);
                 } catch (LanRegistrationException $exception) {
                     $this->addFlash('danger', $translator->trans($exception->getMessage()));
                 } catch (\Throwable) {
@@ -256,13 +266,13 @@ final class TeamController extends AbstractController
         if (!$this->isCaptain($participant, $team)) {
             $this->addFlash('danger', $translator->trans('team.error.only_captain_can_delete_team'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         if (!$this->isCsrfTokenValid('delete_team_'.$team->getId(), (string) $request->request->get('_token'))) {
             $this->addFlash('danger', $translator->trans('team.error.invalid_delete_token'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         try {
@@ -274,7 +284,7 @@ final class TeamController extends AbstractController
         } catch (\Throwable) {
             $this->addFlash('danger', $translator->trans('team.error.delete_failed'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
     }
 
@@ -307,20 +317,20 @@ final class TeamController extends AbstractController
         if (!$this->isCaptain($participant, $team)) {
             $this->addFlash('danger', $translator->trans('team.error.only_captain_can_remove_member'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         if ($member->getTeam()?->getId() !== $team->getId()) {
             $this->addFlash('danger', $translator->trans('team.error.member_does_not_belong_to_team'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         $captain = $team->getCaptain();
         if ($captain instanceof Participant && $member->getParticipant()?->getId() === $captain->getId()) {
             $this->addFlash('danger', $translator->trans('team.error.cannot_remove_captain'));
 
-            return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+            return $this->redirectToTeam($team);
         }
 
         try {
@@ -331,7 +341,51 @@ final class TeamController extends AbstractController
             $this->addFlash('danger', $translator->trans('team.error.member_remove_failed'));
         }
 
-        return $this->redirectToRoute('app_team_show', ['id' => $team->getId()]);
+        return $this->redirectToTeam($team);
+    }
+
+
+    private function renderTeam(
+        Team $team,
+        ParticipantRepository $participantRepository,
+        TeamMemberRepository $teamMemberRepository,
+    ): Response {
+        $participant = null;
+        $user = $this->getUser();
+
+        if ($user instanceof User) {
+            $participant = $participantRepository->findOneByUser($user);
+        }
+
+        $members = $teamMemberRepository->findByTeam($team);
+        $memberCount = $teamMemberRepository->countByTeam($team);
+        $maxPlayers = $team->getGame()?->getMaxPlayersPerTeam();
+        $isTeamFull = $maxPlayers !== null && $maxPlayers > 0 && $memberCount >= $maxPlayers;
+        $isCaptain = $this->isCaptain($participant, $team);
+
+        return $this->render('lan/team/show.html.twig', [
+            'team' => $team,
+            'members' => $members,
+            'memberCount' => $memberCount,
+            'maxPlayers' => $maxPlayers,
+            'isTeamFull' => $isTeamFull,
+            'isCaptain' => $isCaptain,
+            'canAddMembers' => $isCaptain && !$isTeamFull,
+        ]);
+    }
+
+    private function redirectToTeam(Team $team): Response
+    {
+        $game = $team->getGame();
+
+        if ($game instanceof Game && $game->getSlug() !== null && $team->getSlug() !== null) {
+            return $this->redirectToRoute('app_team_show_slug', [
+                'gameSlug' => $game->getSlug(),
+                'teamSlug' => $team->getSlug(),
+            ]);
+        }
+
+        return $this->redirectToRoute('app_team_show_legacy', ['id' => $team->getId()]);
     }
 
     private function getConnectedParticipant(ParticipantRepository $participantRepository, TranslatorInterface $translator): ?Participant

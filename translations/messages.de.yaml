@@ -42,7 +42,7 @@ registration:
       placeholder: 'Ihr Discord-Name'
       help: 'Optional, aber hilfreich, um Sie vor der LAN zu finden.'
     is_major_confirmed:
-      label: 'Ich bestätige, dass ich volljährig bin.'
+      label: 'Ich bestätige, dass ich zum Zeitpunkt der Veranstaltung mindestens 18 Jahre alt sein werde.'
     submit_payment: 'Weiter zur Zahlung'
   status:
     pending_payment: 'Zahlung ausstehend'
@@ -230,9 +230,22 @@ lan_profile:
     teams: 'Teams ansehen'
     create_team: 'Team erstellen'
     payment_pending: 'Zahlung abschließen'
+  documents:
+    title: 'Nützliche Dokumente'
+    parental_authorization:
+      title: 'Einverständniserklärung eines Erziehungsberechtigten'
+      message: 'Da du nicht bestätigt hast, dass du zum Zeitpunkt der Veranstaltung mindestens 18 Jahre alt sein wirst, ist eine unterschriebene Einverständniserklärung eines Erziehungsberechtigten erforderlich. Das Dokument muss heruntergeladen, von einem gesetzlichen Vertreter unterschrieben und am Eingang der Veranstaltung zusammen mit einem physischen Ausweisdokument vorgelegt werden.'
+      download: 'Einverständniserklärung herunterladen'
+    image_rights:
+      title: 'Recht am eigenen Bild'
+      message: 'Während der Veranstaltung können Fotos und Videos aufgenommen werden. Ein Dokument zum Recht am eigenen Bild wird zur Verfügung gestellt. Bitte lies es, um die geltenden Bedingungen zu verstehen.'
+      download: 'Dokument zum Recht am eigenen Bild herunterladen'
   payment_required: 'Du musst deine Zahlung abschließen, bevor du ein Team erstellen oder einem Team beitreten kannst.'
   error:
     participant_required: 'Du benötigst eine LAN-Anmeldung, bevor du deinen LAN-Bereich öffnen kannst.'
+
+documents:
+  unavailable: 'Dokument bald verfügbar'
 
 account:
   title: 'Mein Konto'

@@ -30,6 +30,22 @@ class TeamRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
+    public function findOneByGameAndSlug(Game $game, string $slug): ?Team
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.game = :game')
+            ->andWhere('t.slug = :slug')
+            ->setParameter('game', $game)
+            ->setParameter('slug', trim($slug))
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function slugExistsForGame(Game $game, string $slug): bool
+    {
+        return $this->findOneByGameAndSlug($game, $slug) instanceof Team;
+    }
+
     public function findByGame(Game $game): array
     {
         return $this->createQueryBuilder('t')

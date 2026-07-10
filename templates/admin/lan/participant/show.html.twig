@@ -45,13 +45,13 @@
                             <thead><tr><th>{{ 'admin.participant.game'|trans }}</th><th>{{ 'admin.participant.day'|trans }}</th><th>{{ 'admin.participant.team'|trans }}</th><th>{{ 'team.show.in_game_pseudo'|trans }}</th><th>{{ 'admin.participant.role'|trans }}</th><th>{{ 'admin.participant.public_link'|trans }}</th></tr></thead>
                             <tbody>
                             {% for member in teamMembers %}
-                                <tr><td>{{ member.game.name }}</td><td>{{ ('game.day.' ~ member.game.day.value)|trans }}</td><td>{{ member.team.name }}</td><td>{{ member.inGamePseudo }}</td><td>{{ member.team.captain and member.team.captain.id == participant.id ? 'team.show.captain'|trans : 'team.show.member'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: member.team.id }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
+                                <tr><td>{{ member.game.name }}</td><td>{{ ('game.day.' ~ member.game.day.value)|trans }}</td><td>{{ member.team.name }}</td><td>{{ member.inGamePseudo }}</td><td>{{ member.team.captain and member.team.captain.id == participant.id ? 'team.show.captain'|trans : 'team.show.member'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: member.team.game.slug, teamSlug: member.team.slug }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
                             {% endfor %}
                             {% for team in captainTeams %}
                                 {% set alreadyListed = false %}
                                 {% for member in teamMembers %}{% if member.team.id == team.id %}{% set alreadyListed = true %}{% endif %}{% endfor %}
                                 {% if not alreadyListed %}
-                                    <tr><td>{{ team.game.name }}</td><td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td><td>{{ team.name }}</td><td>{{ 'admin.common.not_available'|trans }}</td><td>{{ 'team.show.captain'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
+                                    <tr><td>{{ team.game.name }}</td><td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td><td>{{ team.name }}</td><td>{{ 'admin.common.not_available'|trans }}</td><td>{{ 'team.show.captain'|trans }}</td><td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'admin.participant.public_link'|trans }}</a></td></tr>
                                 {% endif %}
                             {% endfor %}
                             </tbody>

@@ -17,6 +17,7 @@ final class TeamRegistrationService
         private readonly ParticipantAccessChecker $participantAccessChecker,
         private readonly TeamCapacityChecker $teamCapacityChecker,
         private readonly TeamMemberRepository $teamMemberRepository,
+        private readonly TeamSlugGenerator $teamSlugGenerator,
     ) {
     }
 
@@ -37,6 +38,7 @@ final class TeamRegistrationService
                 ->setGame($game)
                 ->setCaptain($captain)
                 ->setName($name)
+                ->setSlug($this->teamSlugGenerator->generate($game, $name))
                 ->setCreatedAt(new \DateTimeImmutable());
 
             $captainMember = (new TeamMember())

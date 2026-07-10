@@ -12,5 +12,21 @@
             <a href="{{ path('app_team_index') }}" class="btn btn-primary">{{ 'registration.pending.go_to_teams'|trans }}</a>
         {% else %}
             <p>{{ 'registration.pending.status_pending'|trans }}</p>
-        {% endif %}    </div>
+        {% endif %}
+
+        {% if not participant.isMajorConfirmed %}
+            {% set parentalAuthorizationUrl = localized_document_url('parental_authorization', app.request.locale) %}
+            <section class="mgt-panel mt-4">
+                <div class="card-body">
+                    <h2 class="h4 card-title">{{ 'lan_profile.documents.parental_authorization.title'|trans }}</h2>
+                    <p>{{ 'lan_profile.documents.parental_authorization.message'|trans }}</p>
+                    {% if parentalAuthorizationUrl %}
+                        <a class="btn btn-outline-primary" href="{{ parentalAuthorizationUrl }}" target="_blank" rel="noopener">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
+                    {% else %}
+                        <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
+                    {% endif %}
+                </div>
+            </section>
+        {% endif %}
+    </div>
 {% endblock %}

@@ -42,7 +42,7 @@ registration:
       placeholder: 'Your Discord username'
       help: 'Optional, but useful to find you before the LAN.'
     is_major_confirmed:
-      label: 'I confirm that I am of legal age.'
+      label: 'I confirm that I will be 18 or older on the event date.'
     submit_payment: 'Continue to payment'
   status:
     pending_payment: 'Pending payment'
@@ -230,9 +230,22 @@ lan_profile:
     teams: 'Browse teams'
     create_team: 'Create a team'
     payment_pending: 'Finalize payment'
+  documents:
+    title: 'Useful documents'
+    parental_authorization:
+      title: 'Parental authorization'
+      message: 'Since you did not confirm that you will be 18 or older on the event date, a signed parental authorization will be required to participate. The document must be downloaded, signed by a legal representative, and presented at the event entrance with a physical ID document.'
+      download: 'Download parental authorization'
+    image_rights:
+      title: 'Image rights'
+      message: 'Photos and videos may be taken during the event. An image rights document will be made available. Please read it to understand the applicable terms.'
+      download: 'Download image rights document'
   payment_required: 'You must finalize your payment before creating or joining a team.'
   error:
     participant_required: 'You need a LAN registration before accessing your LAN space.'
+
+documents:
+  unavailable: 'Document coming soon'
 
 account:
   title: 'My account'

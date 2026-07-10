@@ -68,6 +68,37 @@
             </div>
         </section>
 
+
+        <section class="mgt-panel mb-4">
+            <div class="card-body">
+                <h2 class="h4 card-title">{{ 'lan_profile.documents.title'|trans }}</h2>
+
+                {% if not participant.isMajorConfirmed %}
+                    {% set parentalAuthorizationUrl = localized_document_url('parental_authorization', app.request.locale) %}
+                    <div class="mb-4">
+                        <h3 class="h5">{{ 'lan_profile.documents.parental_authorization.title'|trans }}</h3>
+                        <p>{{ 'lan_profile.documents.parental_authorization.message'|trans }}</p>
+                        {% if parentalAuthorizationUrl %}
+                            <a class="btn btn-outline-primary" href="{{ parentalAuthorizationUrl }}" target="_blank" rel="noopener">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                {% set imageRightsUrl = localized_document_url('image_rights', app.request.locale) %}
+                <div>
+                    <h3 class="h5">{{ 'lan_profile.documents.image_rights.title'|trans }}</h3>
+                    <p>{{ 'lan_profile.documents.image_rights.message'|trans }}</p>
+                    {% if imageRightsUrl %}
+                        <a class="btn btn-outline-primary" href="{{ imageRightsUrl }}" target="_blank" rel="noopener">{{ 'lan_profile.documents.image_rights.download'|trans }}</a>
+                    {% else %}
+                        <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
         <section class="mgt-panel mb-4">
             <div class="card-body">
                 <h2 class="h4 card-title">{{ 'lan_profile.teams_as_captain.title'|trans }}</h2>
@@ -92,7 +123,7 @@
                                     <td>{{ team.game.name }}</td>
                                     <td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td>
                                     <td>{{ 'lan_profile.team.members_count'|trans({ '%count%': memberCounts[team.id]|default(0), '%max%': team.game.maxPlayersPerTeam }) }}</td>
-                                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'lan_profile.team.details'|trans }}</a></td>
+                                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'lan_profile.team.details'|trans }}</a></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -135,7 +166,7 @@
                                     <td>{{ ('game.day.' ~ member.game.day.value)|trans }}</td>
                                     <td>{{ team.captain.firstname }} {{ team.captain.lastname }}</td>
                                     <td>{{ member.inGamePseudo }}</td>
-                                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show', { id: team.id }) }}">{{ 'lan_profile.team.details'|trans }}</a></td>
+                                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'lan_profile.team.details'|trans }}</a></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
