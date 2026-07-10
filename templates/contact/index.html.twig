@@ -2,16 +2,21 @@
 {% trans_default_domain 'contact' %}
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
 {% block body %}
-<div class="mgt-public-page">
-    <div class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
-    <p class="mgt-page-lead mb-0">{{ 'lead'|trans }}</p></div>
-    <div class="mgt-contact-panel text-center"><div>
-        <p class="mb-2"><strong>{{ 'email_label'|trans }}</strong> <a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a></p>
-        <p>{{ 'place'|trans }}</p>
-        <div class="d-flex flex-column flex-sm-row gap-2">
-            <a class="btn btn-primary" href="mailto:mulhousegaminglan@gmail.com">{{ 'mail_button'|trans }}</a>
-            <a class="btn btn-outline-primary" href="{{ path('app_practical_information') }}">{{ 'practical_link'|trans }}</a>
+    <div class="mgt-public-page">
+        <div class="mgt-page-header">
+            <div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
         </div>
-    </div></div>
-</div>
+        <div class="mgt-contact-panel text-center">
+            <div>
+                <p class="mb-2"><strong>{{ 'email_label'|trans }}</strong> <a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a>
+                </p>
+                <p>{{ 'place'|trans }}</p>
+                <div class="d-flex flex-column flex-sm-row gap-2">
+                    <a class="btn btn-primary" href="mailto:mulhousegaminglan@gmail.com">{{ 'mail_button'|trans }}</a>
+                    <a class="btn btn-outline-primary"
+                       href="{{ path('app_practical_information') }}">{{ 'practical_link'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
