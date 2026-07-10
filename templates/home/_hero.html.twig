@@ -23,7 +23,7 @@
             <div class="mgt-hero__actions mt-4">
                 <a
                         class="btn btn-primary mgt-hero__action"
-                        href="{{ path('app_registration_new') }}"
+                        href="{{ path(app.user ? 'app_team_index' : 'app_registration_new') }}"
                 >
                     {{ 'hero.register'|trans }}
                 </a>
