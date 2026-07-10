@@ -11,7 +11,6 @@
     <div class="mgt-public-page mgt-contact-page">
         <header class="mgt-page-header mgt-contact-page__header">
             <div class="mgt-section-heading">
-                <p class="mgt-section-heading__eyebrow">{{ 'header.eyebrow'|trans }}</p>
                 <h1>{{ 'title'|trans }}</h1>
             </div>
         </header>
@@ -29,22 +28,26 @@
 
             <article class="mgt-contact-card">
                 <div class="mgt-contact-card__content">
-                    <img class="mgt-contact-card__icon" src="/images/social/discord.svg" alt="" width="32" height="32" loading="lazy">
                     <p class="mgt-contact-card__label">{{ 'cards.discord.label'|trans }}</p>
                     <h2>{{ 'cards.discord.title'|trans }}</h2>
                     <p>{{ 'cards.discord.text'|trans }}</p>
                 </div>
-                <a class="btn btn-primary" href="{{ discordUrl }}" target="_blank" rel="noopener noreferrer">{{ 'cards.discord.button'|trans }}</a>
+                <a class="btn btn-primary mgt-contact-card__social-link" href="{{ discordUrl }}" target="_blank" rel="noopener noreferrer">
+                    <img class="mgt-contact-card__icon" src="/images/social/discord.svg" alt="" width="20" height="20" loading="lazy">
+                    <span>{{ 'cards.discord.button'|trans }}</span>
+                </a>
             </article>
 
             <article class="mgt-contact-card">
                 <div class="mgt-contact-card__content">
-                    <img class="mgt-contact-card__icon" src="/images/social/instagram.svg" alt="" width="32" height="32" loading="lazy">
                     <p class="mgt-contact-card__label">{{ 'cards.instagram.label'|trans }}</p>
                     <h2>{{ 'cards.instagram.title'|trans }}</h2>
                     <p>{{ 'cards.instagram.text'|trans }}</p>
                 </div>
-                <a class="btn btn-primary" href="{{ instagramUrl }}" target="_blank" rel="noopener noreferrer">{{ 'cards.instagram.button'|trans }}</a>
+                <a class="btn btn-primary mgt-contact-card__social-link" href="{{ instagramUrl }}" target="_blank" rel="noopener noreferrer">
+                    <img class="mgt-contact-card__icon" src="/images/social/instagram.svg" alt="" width="20" height="20" loading="lazy">
+                    <span>{{ 'cards.instagram.button'|trans }}</span>
+                </a>
             </article>
         </section>
     </div>
