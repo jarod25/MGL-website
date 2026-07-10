@@ -1,6 +1,9 @@
-meta: { title: 'Praktische Informationen' }
+meta:
+  title: 'Praktische Informationen'
+
 title: 'Praktische Informationen'
 lead: 'Wichtige Informationen zur Vorbereitung Ihres Besuchs beim Mulhouse Gaming Tournament.'
+
 place:
   title: 'Ort und Zeiten'
   address_name: 'PHG Academy – KMØ'
@@ -8,42 +11,87 @@ place:
   address_city: '68100 Mulhouse'
   map_title: 'Google-Maps-Karte der PHG Academy KMØ in Mulhouse'
   maps_link: 'Adresse in Google Maps öffnen'
-  items: ['Ankunft um 9:00 Uhr erbeten.', 'Veranstaltung von 9:00 Uhr bis maximal 20:00 Uhr.', 'Samstag, 29. August 2026.', 'Sonntag, 30. August 2026.', 'Zuschauer sind nicht erlaubt.', 'Teilnehmende können tagsüber hinausgehen und wieder zurückkommen.']
-bring:
-  title: 'Mitgebrachte Ausrüstung'
-  intro: 'Alle Teilnehmenden sollten normalerweise ihr vollständiges Setup mitbringen.'
-  items: ['Desktop-Computer: Tower, Bildschirm, Tastatur, Maus, Headset, Mauspad, Netzteile und erforderliche Kabel.', 'Laptop: Computer, Ladegerät, Tastatur, Maus und Headset je nach Bedarf des Spielers oder der Spielerin.']
-  note: 'Alle zum Spielen benötigten persönlichen Geräte müssen von den Teilnehmenden mitgebracht werden, außer wenn vorab ein Miet-PC reserviert wurde.'
+  items:
+    - 'Samstag, 29. August 2026 und Sonntag, 30. August 2026.'
+    - 'Ankunft um 9:00 Uhr erbeten.'
+    - 'Geplante Zeiten: 9:00 Uhr bis 21:00 Uhr.'
+    - 'League of Legends und Rocket League am Samstag.'
+    - 'Valorant und EA FC 26 am Sonntag.'
+
+access:
+  title: 'Zugang'
+  items:
+    - 'Der Zugang ist angemeldeten Teilnehmenden, der Organisation und autorisierten Personen vorbehalten.'
+    - 'Zuschauer sind nicht erlaubt, außer bei ausdrücklicher Genehmigung durch die Organisation.'
+    - 'Ein Ausweisdokument und ein Anmeldenachweis können verlangt werden.'
+    - 'Teilnehmende können tagsüber hinausgehen und wieder zurückkommen.'
+
+equipment:
+  title: 'Persönliche Ausrüstung'
+  intro: 'Alle Teilnehmenden müssen ihre Spielausrüstung vorbereiten.'
+  items:
+    - 'Für einen Desktop-PC: Computer, Bildschirm, Tastatur, Maus, Headset, Kabel und erforderliche Netzteile.'
+    - 'Für einen Laptop: Computer, Ladegerät und erforderliche Peripheriegeräte.'
+    - 'Teilnehmende bleiben für die mitgebrachte Ausrüstung verantwortlich.'
+  note: 'Am Veranstaltungstag kann kein Ersatz garantiert werden, sofern keine Miete, Leihe oder Bereitstellung im Voraus vereinbart wurde.'
+
 rental:
   title: 'PC-Miete'
-  intro: 'Die Miete ist optional, nur mit Reservierung möglich, abhängig vom Bestand, wird später über HelloAsso verwaltet, und der Preis wird noch nicht angezeigt.'
-  items: ['Grafikkarte: NVIDIA GeForce RTX 3070 Ti.', 'Prozessor: Intel Core i9-12900KF.', 'Arbeitsspeicher: 32 GB Corsair Vengeance RGB Pro 3200 MHz.', 'SSD: WD Black SN770 1 TB.', 'Festplatte: Seagate Barracuda 2 TB, 7200 U/min.', 'Bildschirm: Zowie XL2540K, 24,5 Zoll, 240 Hz.', 'Auch bei einer Miete müssen Teilnehmende Tastatur, Maus, Headset und Mauspad mitbringen.']
-  note: 'Vorgesehene Konfiguration für Mietplätze, vorbehaltlich Verfügbarkeit oder Ersatz durch gleichwertige Ausstattung.'
+  intro: 'PCs können zur Miete angeboten werden, nur mit Reservierung und vorbehaltlich verfügbarer Bestände.'
+  items:
+    - 'Vorgesehene Konfiguration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD und 240-Hz-Bildschirm.'
+    - 'Die Miete ermöglicht es, keinen vollständigen Computer mitzubringen.'
+    - 'Auch bei einer Miete müssen eigene Peripheriegeräte mitgebracht werden: Tastatur, Maus, Headset und Mauspad.'
+  note: 'Preis und verfügbare Bestände werden im Anmeldeprozess angegeben.'
+
 provided:
-  title: 'Von PHG Academy bereitgestellte Ausstattung'
-  items: ['PHG Academy stellt Tisch, Stuhl, Stromversorgung, Netzwerkverbindung, Netzwerkswitch und Ethernet-Kabel bereit.', 'Spielerinnen und Spieler müssen keinen Tisch, Stuhl, Switch, kein Ethernet-Kabel und keine Mehrfachsteckdose mitbringen, sofern die Organisation nichts anderes mitteilt.']
+  title: 'Vor Ort bereitgestellt'
+  items:
+    - 'PHG Academy stellt Tische und Stühle bereit.'
+    - 'Stromversorgung, Netzwerkzugang, Switches und Ethernet-Kabel sind vor Ort vorgesehen.'
+    - 'Teilnehmende müssen die Installationsanweisungen der Organisation befolgen.'
+
 food:
   title: 'Essen und Getränke'
-  items: ['Mitgebrachtes Essen ist verboten.', 'Sandwiches sind in bestimmten Paketen verfügbar.', 'Eine Kfet ist vor Ort vorhanden.', 'Mitgebrachte Getränke sind verboten, außer Wasser.', 'Behälter können im Rahmen der Sicherheitsanweisungen kontrolliert werden.', 'Alkohol ist verboten.', 'Rauchen und E-Zigaretten sind nur draußen erlaubt.']
+  items:
+    - 'Sandwiches, Snacks und eine Cafeteria können vor Ort verfügbar sein.'
+    - 'Mitgebrachte Getränke sind verboten, außer Wasser.'
+    - 'Trinkflaschen und Wasserflaschen können kontrolliert werden.'
+    - 'Alkohol ist streng verboten.'
+    - 'Rauchen und Vaping sind nur draußen erlaubt.'
   note: 'Bei medizinischer Notwendigkeit, Allergien oder besonderer Ernährung wenden Sie sich bitte vor der Veranstaltung an die Organisation.'
-access:
-  title: 'Zugang und Verhalten'
-  items: ['Ein physisches Ausweisdokument ist verpflichtend.', 'Minderjährige Teilnehmende müssen eine unterschriebene Einverständniserklärung eines Erziehungsberechtigten vorlegen.', 'Keine Zuschauer.', 'Der Veranstaltungsort, die Ausrüstung, das Sicherheitspersonal, die Organisatoren, Betreuungspersonen und andere Spielerinnen und Spieler sind zu respektieren.', 'Ein wohlwollendes Verhalten wird erwartet.', 'Jede vorsätzliche Beschädigung kann zum Ausschluss führen.']
-security:
-  title: 'Persönliche Ausrüstung und Sicherheit'
-  note: 'Alle Teilnehmenden bleiben für die mitgebrachte Ausrüstung verantwortlich und müssen sie während der Veranstaltung beaufsichtigen. Ein Sicherheitsdienst wird anwesend sein, aber jeder Vorfall, Schaden, Verlust oder jedes Problem muss der Organisation sofort gemeldet werden. Das endgültige allgemeine Reglement kann die Verantwortlichkeiten genauer festlegen.'
+
+conduct:
+  title: 'Verhalten'
+  items:
+    - 'Respekt gegenüber Spielern, Organisatoren, Schiedsrichtern, Betreuungspersonen, Sicherheitspersonal, Räumlichkeiten und Ausrüstung ist erforderlich.'
+    - 'Fair Play, Wohlwollen und Respekt werden während der gesamten Veranstaltung erwartet.'
+    - 'Beleidigungen, Drohungen, Diskriminierung, Gewalt, Beschädigung oder störendes Verhalten sind verboten.'
+  note: 'Regelwidriges Verhalten kann zu einer Sanktion oder zum Ausschluss führen.'
+
 cheat:
-  title: 'Accounts, Smurfs und Cheating'
-  items: ['Spielerinnen und Spieler müssen ihr Hauptkonto oder ihr übliches Konto verwenden und ihr Niveau ehrlich angeben.', 'Das angegebene Niveau sollte dem tatsächlichen Niveau möglichst genau entsprechen, damit ein stimmiger Wettbewerb organisiert werden kann.', 'Cheat-Software, Skripte, vorteilsverschaffende Tools, unerlaubte Gameplay-Änderungen und Cheating während der Matches sind verboten.', 'Mögliche Sanktionen: Verwarnung, Änderung von Ergebnissen oder Platzierung, sofern das Reglement dies vorsieht, Ausschluss von einem Match oder Ausschluss vom Turnier.']
-  note: 'Die genauen Modalitäten werden in den Regeln jedes Spiels festgelegt.'
-image:
-  title: 'Genehmigung zur Aufnahme und Veröffentlichung von Bildmaterial'
-  items: ['Während der Veranstaltung können Fotos und Videos aufgenommen werden.', 'Vor der Veranstaltung wird eine Genehmigung zur Aufnahme und Veröffentlichung angeboten.', 'Teilnehmende können der Organisation ihre Wahl mitteilen.', 'Die detaillierten Modalitäten werden im entsprechenden Dokument aufgeführt.']
+  title: 'Accounts und Cheating'
+  items:
+    - 'Spielerinnen und Spieler müssen ihr persönliches Konto oder ein der Organisation gemeldetes Konto verwenden.'
+    - 'Das tatsächliche Spielniveau muss ehrlich angegeben werden.'
+    - 'Cheat-Software, Skripte, vorteilsverschaffende Tools und unerlaubte Gameplay-Änderungen sind verboten.'
+    - 'Die detaillierten Match-Regeln werden in den spezifischen Regeln jedes Spiels festgelegt.'
+
 refund:
   title: 'Stornierung und Rückerstattung'
-  note: 'Tickets können bis sieben Tage vor Beginn der Veranstaltung erstattet werden. Nach diesem Datum sind Abwesenheiten und Stornierungen nicht mehr erstattungsfähig. Wenn die Veranstaltung von der Organisation abgesagt wird, werden die Tickets vollständig erstattet. Für diese Ausgabe ist die Frist Samstag, der 22. August 2026 um 23:59 Uhr. Diese öffentliche Information ersetzt nicht die zukünftigen allgemeinen Bedingungen oder das vollständige Reglement.'
+  items:
+    - 'Eine vollständige Rückerstattung ist bis 7 Tage vor dem betreffenden Turnier möglich.'
+    - 'Nach dieser Frist ist keine Rückerstattung vorgesehen, außer durch eine außergewöhnliche Entscheidung der Organisation.'
+    - 'Bei Abwesenheit am Turniertag gilt das Ticket als genutzt.'
+    - 'Bei Ausschluss wegen Nichteinhaltung der Regeln ist keine Rückerstattung vorgesehen.'
+
 rules:
-  title: 'Regelwerke'
-  items: ['Ein allgemeines Reglement gilt für die Veranstaltung.', 'Für jedes Spiel gibt es eigene Regeln oder es werden eigene Regeln bereitgestellt.', 'Mit der Anmeldung werden das allgemeine Reglement sowie die Regeln des oder der gewählten Spiele akzeptiert.', 'Die Dokumente werden vor dem Turnier bereitgestellt und können auf dieser Seite heruntergeladen werden.']
-  download: 'Reglement ansehen'
+  title: 'Regelwerke und Dokumente'
+  items:
+    - 'Mit der Anmeldung wird das allgemeine Reglement akzeptiert.'
+    - 'Jedes Spiel erhält eigene spezifische Regeln.'
+    - 'Während der Veranstaltung können Fotos und Videos aufgenommen werden.'
+    - 'Eine separate Einwilligung zur Nutzung des Bildes kann angeboten werden.'
+    - 'Minderjährige Teilnehmende müssen die angeforderten Dokumente vor der Veranstaltung vorlegen.'
+  download: 'Allgemeines Reglement ansehen'
   unavailable: 'Dokument bald verfügbar'
