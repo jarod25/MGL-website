@@ -9,11 +9,13 @@
                         <p class="fw-bold mb-1">Mulhouse Gaming Tournament</p>
                         <p class="mb-2"><a href="mailto:mulhousegaminglan@gmail.com">mulhousegaminglan@gmail.com</a></p>
                         <div class="footer__socials" aria-label="Social networks">
-                            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                                <img src="/images/social/discord.svg" alt="" width="24" height="24">
+                            <a class="footer__social-link" href="https://discord.gg/hN4aHdPNyR" target="_blank" rel="noopener noreferrer"
+                               aria-label="Discord">
+                                <img src="/images/social/discord.svg" alt="Discord Logo" width="24" height="24">
                             </a>
-                            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <img src="/images/social/instagram.svg" alt="" width="24" height="24">
+                            <a class="footer__social-link" href="https://www.instagram.com/mulhousegt?igsh=ZW4zejNwMzl4YjBz" target="_blank" rel="noopener noreferrer"
+                               aria-label="Instagram">
+                                <img src="/images/social/instagram.svg" alt="Instagram Logo" width="24" height="24">
                             </a>
                         </div>
                     </div>
@@ -21,20 +23,31 @@
             </div>
             <div class="col-md-4">
                 <ul class="nav flex-column flex-sm-row justify-content-center">
-                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_team_index') }}">{{ 'navigation.teams'|trans }}</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_practical_information') }}">{{ 'navigation.practical_information'|trans }}</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_about') }}">{{ 'navigation.about'|trans }}</a></li>
-                    <li class="nav-item"><a class="nav-link px-2" href="{{ path('app_contact') }}">{{ 'navigation.contact'|trans }}</a></li>
+                    <li class="nav-item"><a class="nav-link px-2"
+                                            href="{{ path('app_team_index') }}">{{ 'navigation.teams'|trans }}</a></li>
+                    <li class="nav-item"><a class="nav-link px-2"
+                                            href="{{ path('app_practical_information') }}">{{ 'navigation.practical_information'|trans }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link px-2"
+                                            href="{{ path('app_about') }}">{{ 'navigation.about'|trans }}</a></li>
+                    <li class="nav-item"><a class="nav-link px-2"
+                                            href="{{ path('app_contact') }}">{{ 'navigation.contact'|trans }}</a></li>
                     <li class="nav-item">
                         {% if rulesDocumentUrl %}
-                            <a class="nav-link px-2" href="{{ rulesDocumentUrl }}" download>{{ 'footer.rules'|trans }}</a>
+                            <a class="nav-link px-2" href="{{ rulesDocumentUrl }}"
+                               download>{{ 'footer.rules'|trans }}</a>
                         {% else %}
                             <span class="nav-link px-2 footer__unavailable">{{ 'footer.rules_unavailable'|trans }}</span>
                         {% endif %}
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4 text-md-end"><p class="mb-1">{{ 'footer.hosted_by'|trans }} <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a></p><p class="mb-0">&copy; 2026{% if "now"|date("Y") != '2026' %} - {{ "now"|date("Y") }}{% endif %} Mulhouse Gaming Tournament. {{ 'footer.all_right_reserved'|trans }}</p></div>
+            <div class="col-md-4 text-md-end"><p class="mb-1">{{ 'footer.hosted_by'|trans }} <a
+                            href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp"
+                            target="_blank" rel="noopener noreferrer">Ikoula</a></p>
+                <p class="mb-0">&copy; 2026{% if "now"|date("Y") != '2026' %} - {{ "now"|date("Y") }}{% endif %}
+                    Mulhouse Gaming Tournament.<br>
+                    {{ 'footer.all_right_reserved'|trans }}</p></div>
         </div>
     </div>
 </footer>

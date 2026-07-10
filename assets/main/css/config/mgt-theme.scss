@@ -1033,6 +1033,23 @@ body.mgt-page-home {
   color: var(--mgt-muted);
 }
 
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus,
+.footer__social-link:active {
+  text-decoration: none;
+}
+
+.footer__social-link img {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .footer__socials {
     justify-content: flex-start;
