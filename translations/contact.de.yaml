@@ -2,12 +2,8 @@ meta: { title: 'Kontakt' }
 title: 'Kontakt'
 header:
   eyebrow: 'Kontakt'
-  lead: 'Sie haben eine Frage zum Mulhouse Gaming Tournament? Hier finden Sie die offiziellen Kanäle, um das Organisationsteam zu erreichen.'
-organization:
-  eyebrow: 'MGT-Organisation'
-  title: 'Organisation kontaktieren'
-  text: 'Wählen Sie den passenden Kanal: E-Mail für ausführliche Anfragen, Discord für den Austausch mit der Community, Instagram für Ankündigungen.'
 cards:
+  aria_label: 'Kontaktkanäle'
   email:
     label: 'E-Mail'
     title: 'Dem Team schreiben'
@@ -23,8 +19,3 @@ cards:
     title: 'Neuigkeiten folgen'
     text: 'Hier finden Sie Ankündigungen, Bilder und wichtige Erinnerungen rund um die Veranstaltung.'
     button: 'Instagram ansehen'
-practical:
-  eyebrow: 'Anreise'
-  title: 'Besuch vorbereiten'
-  text: 'Das Turnier findet in der PHG Academy – KMØ, 30 rue François Spoerry, 68100 Mulhouse statt. Zugang und nützliche Informationen stehen auf der entsprechenden Seite.'
-  button: 'Praktische Informationen ansehen'
