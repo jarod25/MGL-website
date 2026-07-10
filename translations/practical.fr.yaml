@@ -45,5 +45,5 @@ refund:
 rules:
   title: 'Règlements'
   items: ['Un règlement général encadre l’événement.', 'Chaque jeu dispose ou disposera de règles spécifiques.', 'L’inscription implique l’acceptation du règlement général et des règles du ou des jeux concernés.', 'Les documents seront communiqués avant le tournoi et pourront être téléchargés depuis cette page.']
-  download: 'Télécharger le règlement'
+  download: 'Consulter le règlement'
   unavailable: 'Document bientôt disponible'

@@ -24,15 +24,37 @@ final class LocalizedDocumentProvider
 
     public function getPublicUrl(string $type, string $locale): ?string
     {
+        $document = $this->getDocument($type, $locale);
+
+        return $document ? '/' . $document->relativePath : null;
+    }
+
+    public function getDocument(string $type, string $locale): ?LocalizedDocument
+    {
         if (!isset(self::DOCUMENTS[$type])) {
             return null;
         }
 
         $normalizedLocale = $this->normalizeLocale($locale);
-        $relativePath = $this->getExistingRelativePath($type, $normalizedLocale)
-            ?? $this->getExistingRelativePath($type, self::FALLBACK_LOCALE);
+        $documentLocale = $normalizedLocale;
+        $relativePath = $this->getExistingRelativePath($type, $documentLocale);
 
-        return $relativePath ? '/' . $relativePath : null;
+        if (null === $relativePath && self::FALLBACK_LOCALE !== $documentLocale) {
+            $documentLocale = self::FALLBACK_LOCALE;
+            $relativePath = $this->getExistingRelativePath($type, $documentLocale);
+        }
+
+        if (null === $relativePath) {
+            return null;
+        }
+
+        return new LocalizedDocument(
+            $type,
+            $documentLocale,
+            $relativePath,
+            $this->publicDirectory . '/' . $relativePath,
+            basename($relativePath),
+        );
     }
 
     private function normalizeLocale(string $locale): string

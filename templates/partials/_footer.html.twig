@@ -34,8 +34,7 @@
                                             href="{{ path('app_contact') }}">{{ 'navigation.contact'|trans }}</a></li>
                     <li class="nav-item">
                         {% if rulesDocumentUrl %}
-                            <a class="nav-link px-2" href="{{ rulesDocumentUrl }}"
-                               download>{{ 'footer.rules'|trans }}</a>
+                            <a class="nav-link px-2" href="{{ path('app_document_view', { type: 'rules' }) }}" target="_blank" rel="noopener noreferrer">{{ 'footer.rules'|trans }}</a>
                         {% else %}
                             <span class="nav-link px-2 footer__unavailable">{{ 'footer.rules_unavailable'|trans }}</span>
                         {% endif %}

@@ -45,5 +45,5 @@ refund:
 rules:
   title: 'Rules'
   items: ['General rules govern the event.', 'Each game has or will have its own specific rules.', 'Registration implies acceptance of the general rules and of the rules for the selected game or games.', 'The documents will be shared before the tournament and can be downloaded from this page.']
-  download: 'Download rules'
+  download: 'View rules'
   unavailable: 'Document coming soon'

@@ -94,7 +94,7 @@ navigation:
     mine: 'Mes événements'
 
 footer:
-  rules: 'Règlement'
+  rules: 'Consulter le règlement'
   rules_unavailable: 'Règlement bientôt disponible'
   all_right_reserved: 'Tous droits réservés.'
   hosted_by: 'Site hébergé par'
@@ -235,11 +235,11 @@ lan_profile:
     parental_authorization:
       title: 'Autorisation parentale'
       message: 'Comme tu n’as pas confirmé être majeur·e au moment de l’événement, une autorisation parentale signée sera nécessaire pour participer. Le document devra être téléchargé, signé par un représentant légal, puis présenté à l’entrée de l’événement avec une pièce d’identité physique.'
-      download: 'Télécharger l’autorisation parentale'
+      download: 'Consulter l’autorisation parentale'
     image_rights:
       title: 'Droit à l’image'
       message: 'Des photos et vidéos pourront être prises pendant l’événement. Un document relatif au droit à l’image sera mis à disposition. Merci de le consulter afin de connaître les modalités applicables.'
-      download: 'Télécharger le document droit à l’image'
+      download: 'Consulter le document droit à l’image'
   payment_required: 'Tu dois finaliser ton paiement avant de créer ou rejoindre une équipe.'
   error:
     participant_required: 'Tu dois avoir une inscription LAN avant d’accéder à ton espace LAN.'

@@ -45,5 +45,5 @@ refund:
 rules:
   title: 'Regelwerke'
   items: ['Ein allgemeines Reglement gilt für die Veranstaltung.', 'Für jedes Spiel gibt es eigene Regeln oder es werden eigene Regeln bereitgestellt.', 'Mit der Anmeldung werden das allgemeine Reglement sowie die Regeln des oder der gewählten Spiele akzeptiert.', 'Die Dokumente werden vor dem Turnier bereitgestellt und können auf dieser Seite heruntergeladen werden.']
-  download: 'Reglement herunterladen'
+  download: 'Reglement ansehen'
   unavailable: 'Dokument bald verfügbar'
