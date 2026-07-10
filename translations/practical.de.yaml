@@ -19,13 +19,13 @@ sections:
     text: 'Der Zugang ist registrierten Teilnehmenden und autorisierten Personen vorbehalten. Ein Ausweisdokument und ein Anmeldenachweis können verlangt werden.'
   equipment:
     title: 'Persönliche Ausrüstung'
-    text: 'Jeder Spieler bringt seine vollständige Ausrüstung mit: PC, Bildschirm, Tastatur, Maus, Headset, Kabel und Netzteile. Persönliche Ausrüstung bleibt in der Verantwortung des Teilnehmenden.'
+    text: 'Alle Spieler bringen ihr vollständiges Setup mit: PC, Bildschirm, Tastatur, Maus, Headset, Ethernet-Kabel, Kabel und Netzteile. Persönliche Ausrüstung bleibt in der Verantwortung der Teilnehmenden.'
   rental:
     title: 'PC-Miete'
     text: 'PCs können nach Reservierung und je nach Verfügbarkeit gemietet werden. Vorgesehene Konfiguration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD, Zowie-240-Hz-Bildschirm. Peripheriegeräte sind weiterhin mitzubringen.'
   provided:
     title: 'Vor Ort bereitgestellt'
-    text: 'PHG Academy stellt Tische, Stühle, Stromanschlüsse, Netzwerk, Switches und Ethernet-Kabel bereit.'
+    text: 'PHG Academy stellt Tische, Stühle, Stromversorgung und Netzwerkzugang bereit. Alle Teilnehmenden müssen ihr eigenes Ethernet-Kabel zum Anschließen mitbringen.'
   food:
     title: 'Essen und Getränke'
     text: 'Sandwiches, Snacks und Cafeteria-Angebote können vor Ort verfügbar sein. Getränke von außen sind außer Wasser verboten; Alkohol ist verboten; Rauchen und Dampfen nur draußen.'

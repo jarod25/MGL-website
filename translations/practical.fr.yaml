@@ -19,13 +19,13 @@ sections:
     text: 'Accès réservé aux participants inscrits et aux personnes autorisées. Une pièce d’identité et une preuve d’inscription peuvent être demandées.'
   equipment:
     title: 'Matériel personnel'
-    text: 'Chaque joueur apporte son matériel complet : PC, écran, clavier, souris, casque, câbles et alimentations. Le matériel personnel reste sous la responsabilité du participant.'
+    text: 'Chaque joueur apporte son matériel complet : PC, écran, clavier, souris, casque, câble Ethernet, câbles et alimentations. Le matériel personnel reste sous la responsabilité du participant.'
   rental:
     title: 'Location de PC'
     text: 'Des PC peuvent être loués sur réservation, dans la limite des stocks. Configuration prévue : RTX 3070 Ti, i9-12900KF, 32 Go RAM, SSD 1 To, écran Zowie 240 Hz. Les périphériques restent à apporter.'
   provided:
     title: 'Fourni sur place'
-    text: 'PHG Academy fournit les bureaux, chaises, branchements électriques, réseau, switchs et câbles Ethernet.'
+    text: 'PHG Academy fournit les bureaux, les chaises, l’alimentation électrique et l’accès au réseau. Chaque participant doit apporter son propre câble Ethernet pour se brancher.'
   food:
     title: 'Nourriture et boissons'
     text: 'Sandwichs, collations et cafétéria peuvent être disponibles sur place. Boissons extérieures interdites sauf eau ; alcool interdit ; tabac et vapotage uniquement dehors.'

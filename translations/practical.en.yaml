@@ -19,13 +19,13 @@ sections:
     text: 'Access is reserved for registered participants and authorised persons. An ID document and proof of registration may be requested.'
   equipment:
     title: 'Personal equipment'
-    text: 'Each player brings their full setup: PC, monitor, keyboard, mouse, headset, cables and power supplies. Personal equipment remains the participant’s responsibility.'
+    text: 'Each player brings their full setup: PC, monitor, keyboard, mouse, headset, Ethernet cable, cables and power supplies. Personal equipment remains the participant’s responsibility.'
   rental:
     title: 'PC rental'
     text: 'PCs can be rented by reservation, subject to availability. Planned configuration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD, Zowie 240 Hz monitor. Players still need to bring their peripherals.'
   provided:
     title: 'Provided on site'
-    text: 'PHG Academy provides desks, chairs, power connections, network, switches and Ethernet cables.'
+    text: 'PHG Academy provides desks, chairs, power supply and network access. Each participant must bring their own Ethernet cable to connect.'
   food:
     title: 'Food and drinks'
     text: 'Sandwiches, snacks and cafeteria service may be available on site. Outside drinks are prohibited except water; alcohol is prohibited; smoking and vaping are outside only.'
