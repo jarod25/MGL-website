@@ -2,6 +2,7 @@
 {% trans_default_domain 'practical' %}
 {% block title %}{{ 'meta.title'|trans }}{% endblock %}
 {% block body %}
+{% set rulesDocumentUrl = localized_document_url('rules', app.request.locale) %}
 <div class="mgt-public-page">
     <div class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'title'|trans }}</h1></div>
     <p class="mgt-page-lead mb-0">{{ 'lead'|trans }}</p></div>
@@ -20,6 +21,13 @@
                             {% if (section ~ '.intro')|trans != section ~ '.intro' %}<p>{{ (section ~ '.intro')|trans }}</p>{% endif %}
                             {% if (section ~ '.items')|trans != section ~ '.items' %}<ul>{% for item in (section ~ '.items')|trans %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
                             {% if (section ~ '.note')|trans != section ~ '.note' %}<p class="mb-0 fw-semibold mgt-info-note">{{ (section ~ '.note')|trans }}</p>{% endif %}
+                            {% if section == 'rules' %}
+                                {% if rulesDocumentUrl %}
+                                    <a class="btn btn-primary mt-3" href="{{ rulesDocumentUrl }}" download>{{ 'rules.download'|trans }}</a>
+                                {% else %}
+                                    <p class="mb-0 mt-3 fw-semibold mgt-info-note">{{ 'rules.unavailable'|trans }}</p>
+                                {% endif %}
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>

@@ -6,42 +6,44 @@ place:
   address_name: 'PHG Academy – KMØ'
   address_street: '30 rue François Spoerry'
   address_city: '68100 Mulhouse'
-  map_title: 'Carte Google Maps de PHG Academy KMØ à Mulhouse'
-  maps_link: 'Ouvrir l’adresse dans Google Maps'
-  items: ['Arrivée demandée à 9 h.', 'Événement de 9 h à 20 h maximum.', 'Samedi 29 août 2026.', 'Dimanche 30 août 2026.', 'Les spectateurs ne sont pas autorisés.', 'Il est possible de sortir puis de revenir pendant la journée.']
+  map_title: 'Google-Maps-Karte der PHG Academy KMØ in Mulhouse'
+  maps_link: 'Adresse in Google Maps öffnen'
+  items: ['Ankunft um 9:00 Uhr erbeten.', 'Veranstaltung von 9:00 Uhr bis maximal 20:00 Uhr.', 'Samstag, 29. August 2026.', 'Sonntag, 30. August 2026.', 'Zuschauer sind nicht erlaubt.', 'Teilnehmende können tagsüber hinausgehen und wieder zurückkommen.']
 bring:
   title: 'Mitgebrachte Ausrüstung'
-  intro: 'Chaque participant doit normalement apporter son installation complète.'
-  items: ['Ordinateur fixe : tour, écran, clavier, souris, casque, tapis de souris, alimentations et câbles nécessaires.', 'Ordinateur portable : ordinateur, chargeur, clavier, souris et casque selon les besoins du joueur.']
-  note: 'Tout matériel personnel nécessaire au jeu doit être apporté par le participant, sauf réservation préalable d’un PC en location.'
+  intro: 'Alle Teilnehmenden sollten normalerweise ihr vollständiges Setup mitbringen.'
+  items: ['Desktop-Computer: Tower, Bildschirm, Tastatur, Maus, Headset, Mauspad, Netzteile und erforderliche Kabel.', 'Laptop: Computer, Ladegerät, Tastatur, Maus und Headset je nach Bedarf des Spielers oder der Spielerin.']
+  note: 'Alle zum Spielen benötigten persönlichen Geräte müssen von den Teilnehmenden mitgebracht werden, außer wenn vorab ein Miet-PC reserviert wurde.'
 rental:
   title: 'PC-Miete'
-  intro: 'La location est facultative, uniquement sur réservation, disponible dans la limite des stocks, gérée plus tard via HelloAsso, et le tarif n’est pas encore affiché.'
-  items: ['Carte graphique : NVIDIA GeForce RTX 3070 Ti.', 'Processeur : Intel Core i9-12900KF.', 'Mémoire : 32 Go Corsair Vengeance RGB Pro 3200 MHz.', 'SSD : WD Black SN770 1 To.', 'Disque dur : Seagate Barracuda 2 To, 7200 tr/min.', 'Écran : Zowie XL2540K, 24,5 pouces, 240 Hz.', 'Même avec la location, le participant doit apporter clavier, souris, casque et tapis de souris.']
-  note: 'Configuration prévue pour les postes proposés à la location, sous réserve de disponibilité ou de remplacement par un matériel équivalent.'
+  intro: 'Die Miete ist optional, nur mit Reservierung möglich, abhängig vom Bestand, wird später über HelloAsso verwaltet, und der Preis wird noch nicht angezeigt.'
+  items: ['Grafikkarte: NVIDIA GeForce RTX 3070 Ti.', 'Prozessor: Intel Core i9-12900KF.', 'Arbeitsspeicher: 32 GB Corsair Vengeance RGB Pro 3200 MHz.', 'SSD: WD Black SN770 1 TB.', 'Festplatte: Seagate Barracuda 2 TB, 7200 U/min.', 'Bildschirm: Zowie XL2540K, 24,5 Zoll, 240 Hz.', 'Auch bei einer Miete müssen Teilnehmende Tastatur, Maus, Headset und Mauspad mitbringen.']
+  note: 'Vorgesehene Konfiguration für Mietplätze, vorbehaltlich Verfügbarkeit oder Ersatz durch gleichwertige Ausstattung.'
 provided:
   title: 'Von PHG Academy bereitgestellte Ausstattung'
-  items: ['PHG Academy fournit bureau, chaise, alimentation électrique, connexion réseau, switch réseau et câble Ethernet.', 'Le joueur n’a pas besoin d’apporter bureau, chaise, switch, câble Ethernet ou multiprise, sauf instruction ultérieure de l’organisation.']
+  items: ['PHG Academy stellt Tisch, Stuhl, Stromversorgung, Netzwerkverbindung, Netzwerkswitch und Ethernet-Kabel bereit.', 'Spielerinnen und Spieler müssen keinen Tisch, Stuhl, Switch, kein Ethernet-Kabel und keine Mehrfachsteckdose mitbringen, sofern die Organisation nichts anderes mitteilt.']
 food:
   title: 'Essen und Getränke'
-  items: ['Nourriture extérieure interdite.', 'Sandwiches disponibles avec certaines formules.', 'Présence d’une Kfet sur place.', 'Boissons extérieures interdites, sauf eau.', 'Contenants susceptibles d’être contrôlés dans le cadre des consignes de sécurité.', 'Alcool interdit.', 'Tabac et cigarette électronique autorisés uniquement à l’extérieur.']
-  note: 'Pour une nécessité médicale, une allergie ou un régime alimentaire particulier, contactez l’organisation avant l’événement.'
+  items: ['Mitgebrachtes Essen ist verboten.', 'Sandwiches sind in bestimmten Paketen verfügbar.', 'Eine Kfet ist vor Ort vorhanden.', 'Mitgebrachte Getränke sind verboten, außer Wasser.', 'Behälter können im Rahmen der Sicherheitsanweisungen kontrolliert werden.', 'Alkohol ist verboten.', 'Rauchen und E-Zigaretten sind nur draußen erlaubt.']
+  note: 'Bei medizinischer Notwendigkeit, Allergien oder besonderer Ernährung wenden Sie sich bitte vor der Veranstaltung an die Organisation.'
 access:
   title: 'Zugang und Verhalten'
-  items: ['Pièce d’identité physique obligatoire.', 'Participants majeurs uniquement.', 'Aucun spectateur.', 'Respect du lieu, du matériel, du personnel de sécurité, des organisateurs, des encadrants et des autres joueurs.', 'Comportement bienveillant demandé.', 'Toute dégradation volontaire peut entraîner une exclusion.']
+  items: ['Ein physisches Ausweisdokument ist verpflichtend.', 'Minderjährige Teilnehmende müssen eine unterschriebene Einverständniserklärung eines Erziehungsberechtigten vorlegen.', 'Keine Zuschauer.', 'Der Veranstaltungsort, die Ausrüstung, das Sicherheitspersonal, die Organisatoren, Betreuungspersonen und andere Spielerinnen und Spieler sind zu respektieren.', 'Ein wohlwollendes Verhalten wird erwartet.', 'Jede vorsätzliche Beschädigung kann zum Ausschluss führen.']
 security:
   title: 'Persönliche Ausrüstung und Sicherheit'
-  note: 'Chaque participant reste responsable du matériel qu’il apporte et doit veiller à sa surveillance pendant l’événement. Un dispositif de sécurité sera présent, mais tout incident, dommage, perte ou problème doit être signalé immédiatement à l’organisation. Le règlement général définitif pourra préciser les responsabilités.'
+  note: 'Alle Teilnehmenden bleiben für die mitgebrachte Ausrüstung verantwortlich und müssen sie während der Veranstaltung beaufsichtigen. Ein Sicherheitsdienst wird anwesend sein, aber jeder Vorfall, Schaden, Verlust oder jedes Problem muss der Organisation sofort gemeldet werden. Das endgültige allgemeine Reglement kann die Verantwortlichkeiten genauer festlegen.'
 cheat:
   title: 'Accounts, Smurfs und Cheating'
-  items: ['Les joueurs doivent utiliser leur compte principal ou leur compte habituel et déclarer honnêtement leur niveau.', 'Le niveau déclaré doit correspondre autant que possible au niveau réel afin de constituer une compétition cohérente.', 'Logiciels de triche, scripts, outils procurant un avantage, modifications non autorisées du gameplay et triche pendant les matchs sont interdits.', 'Sanctions possibles : avertissement, modification des résultats ou du placement si le règlement le prévoit, exclusion d’un match ou exclusion du tournoi.']
-  note: 'Les modalités précises seront définies dans les règlements de chaque jeu.'
+  items: ['Spielerinnen und Spieler müssen ihr Hauptkonto oder ihr übliches Konto verwenden und ihr Niveau ehrlich angeben.', 'Das angegebene Niveau sollte dem tatsächlichen Niveau möglichst genau entsprechen, damit ein stimmiger Wettbewerb organisiert werden kann.', 'Cheat-Software, Skripte, vorteilsverschaffende Tools, unerlaubte Gameplay-Änderungen und Cheating während der Matches sind verboten.', 'Mögliche Sanktionen: Verwarnung, Änderung von Ergebnissen oder Platzierung, sofern das Reglement dies vorsieht, Ausschluss von einem Match oder Ausschluss vom Turnier.']
+  note: 'Die genauen Modalitäten werden in den Regeln jedes Spiels festgelegt.'
 image:
-  title: 'Genehmigung zur Aufnahme und Veröffentlichung des Bildes'
-  items: ['Des photos et vidéos pourront être prises pendant l’événement.', 'Une autorisation de captation et de diffusion sera proposée avant l’événement.', 'Les participants pourront indiquer leur choix à l’organisation.', 'Les modalités détaillées figureront dans le document dédié.']
+  title: 'Genehmigung zur Aufnahme und Veröffentlichung von Bildmaterial'
+  items: ['Während der Veranstaltung können Fotos und Videos aufgenommen werden.', 'Vor der Veranstaltung wird eine Genehmigung zur Aufnahme und Veröffentlichung angeboten.', 'Teilnehmende können der Organisation ihre Wahl mitteilen.', 'Die detaillierten Modalitäten werden im entsprechenden Dokument aufgeführt.']
 refund:
   title: 'Stornierung und Rückerstattung'
-  note: 'Les billets peuvent être remboursés jusqu’à sept jours avant le début de l’événement. Après cette date, les absences et annulations ne donnent plus lieu à remboursement. En cas d’annulation de l’événement par l’organisation, les billets sont intégralement remboursés. Pour cette édition, la date limite correspond à samedi 22 août 2026 à 23 h 59. Cette information publique ne remplace pas les futures conditions générales ou le règlement complet.'
+  note: 'Tickets können bis sieben Tage vor Beginn der Veranstaltung erstattet werden. Nach diesem Datum sind Abwesenheiten und Stornierungen nicht mehr erstattungsfähig. Wenn die Veranstaltung von der Organisation abgesagt wird, werden die Tickets vollständig erstattet. Für diese Ausgabe ist die Frist Samstag, der 22. August 2026 um 23:59 Uhr. Diese öffentliche Information ersetzt nicht die zukünftigen allgemeinen Bedingungen oder das vollständige Reglement.'
 rules:
   title: 'Regelwerke'
-  items: ['Un règlement général encadrera l’événement.', 'Chaque jeu disposera de règles spécifiques.', 'L’inscription impliquera leur acceptation.', 'Les documents détaillés seront communiqués avant le tournoi.']
+  items: ['Ein allgemeines Reglement gilt für die Veranstaltung.', 'Für jedes Spiel gibt es eigene Regeln oder es werden eigene Regeln bereitgestellt.', 'Mit der Anmeldung werden das allgemeine Reglement sowie die Regeln des oder der gewählten Spiele akzeptiert.', 'Die Dokumente werden vor dem Turnier bereitgestellt und können auf dieser Seite heruntergeladen werden.']
+  download: 'Reglement herunterladen'
+  unavailable: 'Dokument bald verfügbar'

@@ -999,6 +999,46 @@ body.mgt-page-home {
   height: 2.4rem;
 }
 
+.footer__socials {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--mgt-text);
+  border: 1px solid var(--mgt-border);
+  border-radius: 999px;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus {
+  color: var(--mgt-white);
+  border-color: var(--mgt-pink);
+  transform: translateY(-1px);
+}
+
+.footer__social-link img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.footer__unavailable {
+  color: var(--mgt-muted);
+}
+
+@media (min-width: 768px) {
+  .footer__socials {
+    justify-content: flex-start;
+  }
+}
+
 .mgt-hero__content {
   display: flex;
   flex-direction: column;

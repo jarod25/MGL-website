@@ -94,6 +94,8 @@ navigation:
     mine: 'Meine Veranstaltungen'
 
 footer:
+  rules: 'Reglement'
+  rules_unavailable: 'Reglement bald verfügbar'
   all_right_reserved: 'Alle Rechte vorbehalten.'
   hosted_by: 'Website gehostet von'
 
