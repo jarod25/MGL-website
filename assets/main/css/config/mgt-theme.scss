@@ -627,7 +627,8 @@ body.mgt-page-home {
 }
 
 .partner-card a {
-  color: #240B4F;
+  color: var(--mgt-pink);
+  font-weight: 700;
 }
 
 .partner-card__logo-wrapper {
@@ -1341,6 +1342,20 @@ body.mgt-page-home {
   background: rgba(255, 255, 255, .08);
 }
 
+.mgt-organizer-card__affiliation {
+  color: var(--mgt-muted);
+}
+
+.partner-card__link {
+  --bs-btn-color: var(--mgt-pink);
+  --bs-btn-border-color: var(--mgt-pink);
+  --bs-btn-hover-bg: var(--mgt-pink);
+  --bs-btn-hover-border-color: var(--mgt-pink);
+  --bs-btn-hover-color: #070D0B;
+  color: var(--mgt-pink);
+  border-color: var(--mgt-pink);
+}
+
 .partner-card__description a {
   color: var(--mgt-pink);
   font-weight: 700;
@@ -1349,7 +1364,7 @@ body.mgt-page-home {
 }
 
 .partner-card__description a:hover {
-  color: var(--mgt-white);
+  color: #240B4F;
 }
 
 @media (max-width: 991.98px) {

@@ -17,7 +17,9 @@ schools:
     text: 'As the host partner, PHG Academy provides the venue and technical environment for the event at KMØ Mulhouse.'
 organizers:
   title: 'Organizing team'
-  placeholder: 'The full team will be added soon. The tournament is prepared by a group of 8 people working on organisation, communication, partnerships and event operations.'
+  placeholder_firstname: 'First name'
+  placeholder_role: 'Role'
+  placeholder_affiliation: 'Affiliation'
   photo_alt: 'Photo of %name%'
 partners:
   title: 'Sponsors and partners'
