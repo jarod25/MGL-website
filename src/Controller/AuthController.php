@@ -139,7 +139,7 @@ class AuthController extends AbstractController
             $this->em->flush();
             $this->addFlash('success', $this->translator->trans('temporary_password.flash.updated'));
 
-            return $this->redirectToRoute('app_profile');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->renderTemporaryPasswordForm($form);
