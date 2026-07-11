@@ -4,20 +4,29 @@
 
 {% block body %}
     <div class="mgt-public-page">
-        <div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4">
-            <div>
-                <div class="mgt-section-heading"><h1>{{ 'lan_profile.title'|trans }}</h1></div>
-                <p class="text-muted mb-0">{{ 'lan_profile.registration.reference'|trans }}: {{ participant.internalReference }}</p>
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading">
+                    <h1>{{ 'lan_profile.title'|trans }}</h1>
+                </div>
+
+                <div class="mgt-actions">
+                    <a class="btn btn-outline-primary" href="{{ path('app_team_index') }}">
+                        {{ 'lan_profile.actions.teams'|trans }}
+                    </a>
+
+                    {% if isPaid %}
+                        <a class="btn btn-primary" href="{{ path('app_team_new') }}">
+                            {{ 'lan_profile.actions.create_team'|trans }}
+                        </a>
+                    {% else %}
+                        <a class="btn btn-warning" href="{{ path('app_registration_payment_pending', { internalReference: participant.internalReference }) }}">
+                            {{ 'lan_profile.actions.payment_pending'|trans }}
+                        </a>
+                    {% endif %}
+                </div>
             </div>
-            <div class="d-flex flex-wrap gap-2 align-items-start">
-                <a class="btn btn-outline-primary" href="{{ path('app_team_index') }}">{{ 'lan_profile.actions.teams'|trans }}</a>
-                {% if isPaid %}
-                    <a class="btn btn-primary" href="{{ path('app_team_new') }}">{{ 'lan_profile.actions.create_team'|trans }}</a>
-                {% else %}
-                    <a class="btn btn-warning" href="{{ path('app_registration_payment_pending', { internalReference: participant.internalReference }) }}">{{ 'lan_profile.actions.payment_pending'|trans }}</a>
-                {% endif %}
-            </div>
-        </div>
+        </header>
 
         {% if not isPaid %}
             <div class="alert alert-warning" role="alert">
@@ -25,119 +34,80 @@
             </div>
         {% endif %}
 
-        <section class="mgt-panel mb-4">
-            <div class="card-body">
-                <h2 class="h4 card-title">{{ 'lan_profile.registration.title'|trans }}</h2>
-                <dl class="row mb-0">
-                    <dt class="col-sm-4">{{ 'registration.form.firstname.label'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.firstname }}</dd>
+        <div class="mgt-lan-profile-grid">
+            <section class="mgt-panel">
+                <div class="card-body">
+                    <h2 class="h4 mgt-panel-heading">{{ 'lan_profile.registration.title'|trans }}</h2>
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">{{ 'registration.form.firstname.label'|trans }}</dt>
+                        <dd class="col-sm-8">{{ participant.firstname }}</dd>
 
-                    <dt class="col-sm-4">{{ 'registration.form.lastname.label'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.lastname }}</dd>
+                        <dt class="col-sm-4">{{ 'registration.form.lastname.label'|trans }}</dt>
+                        <dd class="col-sm-8">{{ participant.lastname }}</dd>
 
-                    <dt class="col-sm-4">{{ 'registration.form.email.label'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.email }}</dd>
+                        <dt class="col-sm-4">{{ 'registration.form.email.label'|trans }}</dt>
+                        <dd class="col-sm-8">{{ participant.email }}</dd>
 
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.discord'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.discordPseudo ?: 'lan_profile.registration.not_available'|trans }}</dd>
+                        <dt class="col-sm-4">{{ 'lan_profile.registration.discord'|trans }}</dt>
+                        <dd class="col-sm-8">{{ participant.discordPseudo ?: 'lan_profile.registration.not_available'|trans }}</dd>
 
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.reference'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.internalReference }}</dd>
+                        <dt class="col-sm-4">{{ 'lan_profile.registration.reference'|trans }}</dt>
+                        <dd class="col-sm-8">{{ participant.internalReference }}</dd>
 
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.status'|trans }}</dt>
-                    <dd class="col-sm-8">{{ ('registration.status.' ~ participant.registrationStatus.value)|trans }}</dd>
+                        <dt class="col-sm-4">{{ 'lan_profile.registration.status'|trans }}</dt>
+                        <dd class="col-sm-8">{{ ('registration.status.' ~ participant.registrationStatus.value)|trans }}</dd>
 
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.created_at'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.createdAt ? participant.createdAt|date('d/m/Y H:i') : 'lan_profile.registration.not_available'|trans }}</dd>
+                        {% set subscription = participant.subscription %}
+                        <dt class="col-sm-4">{{ 'lan_profile.registration.subscription'|trans }}</dt>
+                        <dd class="col-sm-8">{{ subscription ? subscription.name : 'lan_profile.registration.no_subscription'|trans }}</dd>
 
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.paid_at'|trans }}</dt>
-                    <dd class="col-sm-8">{{ participant.paidAt ? participant.paidAt|date('d/m/Y H:i') : 'lan_profile.registration.not_available'|trans }}</dd>
+                        {% if subscription %}
+                            <dt class="col-sm-4">{{ 'lan_profile.registration.price'|trans }}</dt>
+                            <dd class="col-sm-8">{{ (subscription.price / 100)|format_currency('EUR') }}</dd>
 
-                    {% set subscription = participant.subscription %}
-                    <dt class="col-sm-4">{{ 'lan_profile.registration.subscription'|trans }}</dt>
-                    <dd class="col-sm-8">{{ subscription ? subscription.name : 'lan_profile.registration.no_subscription'|trans }}</dd>
+                            <dt class="col-sm-4">{{ 'lan_profile.registration.duration'|trans }}</dt>
+                            <dd class="col-sm-8">{{ 'lan_profile.registration.duration_days'|trans({ '%days%': subscription.durationDays }) }}</dd>
+                        {% endif %}
+                    </dl>
+                </div>
+            </section>
 
-                    {% if subscription %}
-                        <dt class="col-sm-4">{{ 'lan_profile.registration.price'|trans }}</dt>
-                        <dd class="col-sm-8">{{ (subscription.price / 100)|format_currency('EUR') }}</dd>
+            <section class="mgt-panel">
+                <div class="card-body">
+                    <h2 class="h4 mgt-panel-heading">{{ 'lan_profile.documents.title'|trans }}</h2>
 
-                        <dt class="col-sm-4">{{ 'lan_profile.registration.duration'|trans }}</dt>
-                        <dd class="col-sm-8">{{ 'lan_profile.registration.duration_days'|trans({ '%days%': subscription.durationDays }) }}</dd>
+                    {% if not participant.isMajorConfirmed %}
+                        {% set parentalAuthorizationUrl = localized_document_url('parental_authorization', app.request.locale) %}
+                        <div class="mb-4">
+                            <h3 class="h5">{{ 'lan_profile.documents.parental_authorization.title'|trans }}</h3>
+                            <p>{{ 'lan_profile.documents.parental_authorization.message'|trans }}</p>
+                            {% if parentalAuthorizationUrl %}
+                                <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'parental_authorization' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
+                            {% else %}
+                                <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
-                </dl>
-            </div>
-        </section>
 
-
-        <section class="mgt-panel mb-4">
-            <div class="card-body">
-                <h2 class="h4 card-title">{{ 'lan_profile.documents.title'|trans }}</h2>
-
-                {% if not participant.isMajorConfirmed %}
-                    {% set parentalAuthorizationUrl = localized_document_url('parental_authorization', app.request.locale) %}
-                    <div class="mb-4">
-                        <h3 class="h5">{{ 'lan_profile.documents.parental_authorization.title'|trans }}</h3>
-                        <p>{{ 'lan_profile.documents.parental_authorization.message'|trans }}</p>
-                        {% if parentalAuthorizationUrl %}
-                            <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'parental_authorization' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.parental_authorization.download'|trans }}</a>
+                    {% set imageRightsUrl = localized_document_url('image_rights', app.request.locale) %}
+                    <div>
+                        <h3 class="h5">{{ 'lan_profile.documents.image_rights.title'|trans }}</h3>
+                        <p>{{ 'lan_profile.documents.image_rights.message'|trans }}</p>
+                        {% if imageRightsUrl %}
+                            <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'image_rights' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.image_rights.download'|trans }}</a>
                         {% else %}
                             <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
                         {% endif %}
                     </div>
-                {% endif %}
-
-                {% set imageRightsUrl = localized_document_url('image_rights', app.request.locale) %}
-                <div>
-                    <h3 class="h5">{{ 'lan_profile.documents.image_rights.title'|trans }}</h3>
-                    <p>{{ 'lan_profile.documents.image_rights.message'|trans }}</p>
-                    {% if imageRightsUrl %}
-                        <a class="btn btn-outline-primary" href="{{ path('app_document_view', { type: 'image_rights' }) }}" target="_blank" rel="noopener noreferrer">{{ 'lan_profile.documents.image_rights.download'|trans }}</a>
-                    {% else %}
-                        <span class="badge bg-secondary">{{ 'documents.unavailable'|trans }}</span>
-                    {% endif %}
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section class="mgt-panel mb-4">
+        <section class="mgt-panel mt-4">
             <div class="card-body">
-                <h2 class="h4 card-title">{{ 'lan_profile.teams_as_captain.title'|trans }}</h2>
-                {% if captainTeams is empty %}
-                    <p class="mb-0">{{ 'lan_profile.teams_as_captain.empty'|trans }}</p>
-                {% else %}
-                    <div class="table-responsive">
-                        <table class="table align-middle mb-0">
-                            <thead>
-                            <tr>
-                                <th scope="col">{{ 'lan_profile.team.name'|trans }}</th>
-                                <th scope="col">{{ 'team.show.game'|trans }}</th>
-                                <th scope="col">{{ 'team.show.day'|trans }}</th>
-                                <th scope="col">{{ 'team.show.players'|trans }}</th>
-                                <th scope="col">{{ 'team.show.actions'|trans }}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for team in captainTeams %}
-                                <tr>
-                                    <td>{{ team.name }}</td>
-                                    <td>{{ team.game.name }}</td>
-                                    <td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td>
-                                    <td>{{ 'lan_profile.team.members_count'|trans({ '%count%': memberCounts[team.id]|default(0), '%max%': team.game.maxPlayersPerTeam }) }}</td>
-                                    <td><a class="btn btn-sm btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'lan_profile.team.details'|trans }}</a></td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                {% endif %}
-            </div>
-        </section>
-
-        <section class="mgt-panel mb-4">
-            <div class="card-body">
-                <h2 class="h4 card-title">{{ 'lan_profile.teams_as_member.title'|trans }}</h2>
+                <h2 class="h4 mgt-panel-heading">{{ 'lan_profile.teams.title'|trans }}</h2>
                 {% if memberTeams is empty %}
-                    <p class="mb-0">{{ 'lan_profile.teams_as_member.empty'|trans }}</p>
+                    <p class="mb-0">{{ 'lan_profile.teams.empty'|trans }}</p>
                 {% else %}
                     <div class="table-responsive">
                         <table class="table align-middle mb-0">

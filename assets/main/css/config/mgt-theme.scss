@@ -146,6 +146,34 @@ a:hover {
   color: var(--mgt-text);
 }
 
+
+.account-menu .dropdown-menu {
+  min-width: 13rem;
+  padding: .45rem;
+  background:
+    linear-gradient(180deg, rgba(13, 23, 35, .98), rgba(24, 16, 43, .98));
+  border: 1px solid var(--mgt-panel-border);
+  border-radius: .5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .35);
+}
+
+.account-menu .dropdown-item {
+  border-radius: .35rem;
+  color: var(--mgt-text);
+  font-weight: 700;
+}
+
+.account-menu .dropdown-item:hover,
+.account-menu .dropdown-item:focus {
+  background: rgba(226, 113, 165, .16);
+  color: var(--mgt-white);
+}
+
+.account-menu .dropdown-divider {
+  border-color: var(--mgt-panel-border);
+  opacity: 1;
+}
+
 .language-switcher__link--active {
   outline: 1px solid var(--mgt-pink);
   opacity: .65;
@@ -284,6 +312,65 @@ a:hover {
   margin-top: .65rem;
   background: linear-gradient(90deg, var(--mgt-pink), var(--mgt-purple));
   border-radius: 999px;
+}
+
+
+.mgt-panel-heading {
+  position: relative;
+  margin-bottom: 1.25rem;
+  padding-bottom: .65rem;
+  color: var(--mgt-white);
+  font-weight: 800;
+}
+
+.mgt-panel-heading::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3.5rem;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, var(--mgt-pink), var(--mgt-purple));
+  border-radius: 999px;
+}
+
+.mgt-lan-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+.mgt-team-form-page {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.mgt-team-form-panel {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.mgt-stacked-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mgt-form-field label {
+  margin-bottom: .4rem;
+  color: var(--mgt-white);
+  font-weight: 800;
+}
+
+.mgt-form-field .form-control,
+.mgt-form-field .form-select {
+  min-height: 2.75rem;
+}
+
+@media (max-width: 991.98px) {
+  .mgt-lan-profile-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Homepage
