@@ -9,7 +9,10 @@ use App\Service\Lan\ParticipantRegistrationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\User\UserInterface;
+use App\Enum\RegistrationStatusEnum;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -67,9 +70,29 @@ final class RegistrationController extends AbstractController
         if ($participant === null) {
             throw $this->createNotFoundException($translator->trans('registration.error.not_found'));
         }
+        if ($this->getUser() === null || $participant->getUser()?->getId() !== $this->getUser()->getId()) {
+            throw $this->createAccessDeniedException();
+        }
 
         return $this->render('lan/registration/pending.html.twig', [
             'participant' => $participant,
+            'helloAssoWidgetUrl' => $_ENV['HELLOASSO_WIDGET_URL'] ?? '',
+            'helloAssoPublicUrl' => $_ENV['HELLOASSO_PUBLIC_URL'] ?? '',
+        ]);
+    }
+    #[Route('/{internalReference}/payment-status', name: 'app_registration_payment_status', methods: ['GET'])]
+    public function paymentStatus(string $internalReference, ParticipantRepository $participantRepository): JsonResponse
+    {
+        $participant = $participantRepository->findOneBy(['internalReference' => $internalReference]);
+        if ($participant === null || $this->getUser() === null || $participant->getUser()?->getId() !== $this->getUser()->getId()) {
+            throw $this->createNotFoundException();
+        }
+        $paid = $participant->getRegistrationStatus() === RegistrationStatusEnum::PAID;
+        return new JsonResponse([
+            'status' => $participant->getRegistrationStatus()->value,
+            'paid' => $paid,
+            'redirectUrl' => $paid ? $this->generateUrl('app_lan_profile') : null,
+            'updatedAt' => ($participant->getPaidAt() ?? $participant->getCreatedAt())?->format(DATE_ATOM),
         ]);
     }
 }
