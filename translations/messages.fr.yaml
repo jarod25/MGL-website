@@ -412,6 +412,9 @@ admin:
     title: 'Administration LAN'
     subscriptions: 'Souscriptions'
     participants: 'Participants'
+    subscriptions_help: 'Gérer les formules, prix et identifiants HelloAsso.'
+    participants_help: 'Consulter les inscriptions, statuts et informations des participants.'
+    teams_help: 'Suivre les équipes, capitaines et membres inscrits.'
     teams: 'Équipes'
   subscription:
     title: 'Souscriptions'
