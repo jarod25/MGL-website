@@ -3,68 +3,67 @@
 {% block title %}{{ 'registration.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="mgt-public-page mgt-auth-page">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
-                <div class="mgt-panel mgt-auth-panel">
-                    <div class="mgt-section-heading text-center"><h1>{{ 'registration.title'|trans }}</h1></div>
-                    <div>
-                        <p class="text-muted">{{ 'registration.subtitle'|trans }}</p>
-
-                        {{ form_start(form) }}
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                {{ form_row(form.firstname, {'attr': {'class': 'form-control'}}) }}
-                            </div>
-                            <div class="col-md-6">
-                                {{ form_row(form.lastname, {'attr': {'class': 'form-control'}}) }}
-                            </div>
-                            <div class="col-12">
-                                {{ form_row(form.email, {'attr': {'class': 'form-control'}, 'help_attr': {'class': 'form-text text-muted'}}) }}
-                            </div>
-                            <div class="col-md-6" data-controller="pwd-strength"
-                                     data-pwd-strength-strength-value="{{ passwordStrength }}"
-                                     data-pwd-strength-position-value="left"
-                                     data-pwd-strength-title-value="{{ 'password_requirements.title'|trans }}"
-                                     data-pwd-strength-min-length-value="{{ 'password_requirements.min_length'|trans }}"
-                                     data-pwd-strength-lowercase-value="{{ 'password_requirements.lowercase'|trans }}"
-                                     data-pwd-strength-uppercase-value="{{ 'password_requirements.uppercase'|trans }}"
-                                     data-pwd-strength-numbers-value="{{ 'password_requirements.numbers'|trans }}"
-                                     data-pwd-strength-special-characters-value="{{ 'password_requirements.special_characters'|trans }}">
-                                <div class="form-floating" data-controller="pwd-eye">
-                                    {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.first_placeholder'|trans, 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput', 'autocomplete': 'new-password'}}) }}
-                                    {{ form_label(form.password.first) }}
-                                </div>
-                                <div class="tips-popover"></div>
-                                <div class="text-danger">{{ form_errors(form.password.first) }}{{ form_errors(form.password) }}</div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating" data-controller="pwd-eye">
-                                    {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.second_placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'new-password'}}) }}
-                                    {{ form_label(form.password.second) }}
-                                </div>
-                                <div class="text-danger">{{ form_errors(form.password.second) }}</div>
-                            </div>
-                            <div class="col-12">
-                                {{ form_row(form.discordPseudo, {'attr': {'class': 'form-control'}}) }}
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    {{ form_widget(form.isMajorConfirmed, {'attr': {'class': 'form-check-input'}}) }}
-                                    {{ form_label(form.isMajorConfirmed, null, {'label_attr': {'class': 'form-check-label'}}) }}
-                                </div>
-                                <div class="text-danger">{{ form_errors(form.isMajorConfirmed) }}</div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end mt-4">
-                            <button class="btn btn-primary" type="submit">{{ 'registration.submit'|trans }}</button>
-                        </div>
-                        {{ form_end(form) }}
+    <div class="mgt-public-page mgt-auth-page mgt-auth-page--registration">
+        <div class="mgt-panel mgt-auth-panel">
+            <div class="mgt-section-heading"><h1>{{ 'registration.title'|trans }}</h1></div>
+            <div>
+                {{ form_start(form) }}
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        {{ form_row(form.firstname, {'attr': {'class': 'form-control'}}) }}
                     </div>
-                    <div class="mgt-auth-footer">
-                        <span class="small">{{ 'registration.already_registered'|trans }} <a href="{{ path('app_login') }}">{{ 'registration.login_link'|trans }}</a></span>
+                    <div class="col-md-6">
+                        {{ form_row(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_row(form.email, {'attr': {'class': 'form-control'}, 'help_attr': {'class': 'form-text text-muted'}}) }}
+                    </div>
+                    <div class="col-md-6" data-controller="pwd-strength"
+                         data-pwd-strength-strength-value="{{ passwordStrength }}"
+                         data-pwd-strength-position-value="left"
+                         data-pwd-strength-title-value="{{ 'password_requirements.title'|trans }}"
+                         data-pwd-strength-min-length-value="{{ 'password_requirements.min_length'|trans }}"
+                         data-pwd-strength-lowercase-value="{{ 'password_requirements.lowercase'|trans }}"
+                         data-pwd-strength-uppercase-value="{{ 'password_requirements.uppercase'|trans }}"
+                         data-pwd-strength-numbers-value="{{ 'password_requirements.numbers'|trans }}"
+                         data-pwd-strength-special-characters-value="{{ 'password_requirements.special_characters'|trans }}">
+                        <div class="form-floating" data-controller="pwd-eye">
+                            {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.first_placeholder'|trans, 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput', 'autocomplete': 'new-password'}}) }}
+                            {{ form_label(form.password.first) }}
+                        </div>
+                        <div class="tips-popover"></div>
+                        <div class="text-danger">{{ form_errors(form.password.first) }}{{ form_errors(form.password) }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating" data-controller="pwd-eye">
+                            {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'registration.form.password.second_placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'new-password'}}) }}
+                            {{ form_label(form.password.second) }}
+                        </div>
+                        <div class="text-danger">{{ form_errors(form.password.second) }}</div>
+                    </div>
+                    <div class="col-12">
+                        {{ form_row(form.discordPseudo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-12">
+                        <div class="mgt-checkbox-block">
+                            <div class="form-check">
+                                {{ form_widget(form.isMajorConfirmed, {'attr': {'class': 'form-check-input'}}) }}
+                                {{ form_label(form.isMajorConfirmed, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                            </div>
+                            <p class="form-text mgt-auth-helper mb-0">
+                                {{ 'registration.form.is_major_confirmed.help'|trans }}
+                            </p>
+                            <div class="text-danger">{{ form_errors(form.isMajorConfirmed) }}</div>
+                        </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn btn-primary" type="submit">{{ 'registration.submit'|trans }}</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="mgt-auth-footer">
+                <span class="small">{{ 'registration.already_registered'|trans }} <a href="{{ path('app_login') }}">{{ 'registration.login_link'|trans }}</a></span>
             </div>
         </div>
     </div>

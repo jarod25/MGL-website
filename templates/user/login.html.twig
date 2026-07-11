@@ -17,44 +17,41 @@
             </div>
         </div>
     {% endif %}
-    <div class="mgt-public-page mgt-auth-page mgt-auth-page--narrow">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="mgt-panel mgt-auth-panel">
-                    <div class="mgt-section-heading text-center"><h1>{{ 'login.title'|trans }}</h1></div>
-                    <div>
-                        <form method="post" action="{{ path('app_login') }}">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="email" value="{{ last_username }}"
-                                               name="_username" id="inputUsername" placeholder="{{ 'login.email.placeholder'|trans }}"
-                                               class="form-control"
-                                               autocomplete="email" autofocus required>
-                                        <label for="inputUsername">{{ 'login.email.label'|trans }}</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating" data-controller="pwd-eye">
-                                        <input type="password" placeholder="{{ 'login.password.placeholder'|trans }}"
-                                               name="_password" id="inputPassword" class="form-control"
-                                               autocomplete="current-password" required data-pwd-eye-target="input">
-                                        <label for="inputPassword">{{ 'login.password.label'|trans }}</label>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary" type="submit">
-                                        {{ 'login.submit'|trans }}
-                                    </button>
-                                </div>
-                            </div>
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        </form>
+    <div class="mgt-public-page mgt-auth-page mgt-auth-page--login">
+        <div class="mgt-panel mgt-auth-panel">
+            <div class="mgt-section-heading"><h1>{{ 'login.title'|trans }}</h1></div>
+            <form method="post" action="{{ path('app_login') }}">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="email" value="{{ last_username }}"
+                                   name="_username" id="inputUsername" placeholder="{{ 'login.email.placeholder'|trans }}"
+                                   class="form-control"
+                                   autocomplete="email" autofocus required>
+                            <label for="inputUsername">{{ 'login.email.label'|trans }}</label>
+                        </div>
                     </div>
-                    <div class="mgt-auth-footer">
-                        <span class="small">{{ 'login.no_account'|trans }} <a href="{{ path('app_registration_new') }}">{{ 'login.register_link'|trans }}</a></span>
+                    <div class="col-12">
+                        <div class="form-floating" data-controller="pwd-eye">
+                            <input type="password" placeholder="{{ 'login.password.placeholder'|trans }}"
+                                   name="_password" id="inputPassword" class="form-control"
+                                   autocomplete="current-password" required data-pwd-eye-target="input">
+                            <label for="inputPassword">{{ 'login.password.label'|trans }}</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        {# TODO: brancher le lien “Mot de passe oublié ?” quand le flux de réinitialisation sera disponible. #}
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">
+                            {{ 'login.submit'|trans }}
+                        </button>
                     </div>
                 </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            </form>
+            <div class="mgt-auth-footer">
+                <span class="small">{{ 'login.no_account'|trans }} <a href="{{ path('app_registration_new') }}">{{ 'login.register_link'|trans }}</a></span>
             </div>
         </div>
     </div>
