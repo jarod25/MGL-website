@@ -305,6 +305,36 @@ account:
     login_required_events: 'You must be logged in to view your events.'
     new_password_same_as_old: 'The new password must be different from the old one.'
 
+forgot_password:
+  title: 'Forgot password'
+  instructions: 'Enter the email address of your account. If an account exists, a temporary password will be sent to you.'
+  submit: 'Receive a temporary password'
+  back_to_login: 'Back to login'
+  request_success: 'If an account exists with this email address, a temporary password has just been sent.'
+  form:
+    email:
+      label: 'Email address'
+      placeholder: 'your.email@example.com'
+  email:
+    subject: 'Your temporary MGT 2026 password'
+    greeting: 'Hello %firstname%,'
+    line_1: 'A password reset request was made for your MGT 2026 account.'
+    line_2: 'Your temporary password is: %temporaryPassword%'
+    line_3: 'Log in with this temporary password, then choose a new password immediately.'
+    line_4: 'If you did not request this, please contact the organisation.'
+  error:
+    send_failed: 'The temporary password was generated, but the email could not be sent. Please try again later.'
+
+temporary_password:
+  title: 'Change your password'
+  instructions: 'You are using a temporary password. To continue, please choose a new password.'
+  submit: 'Change my password'
+  flash:
+    updated: 'Your password has been updated.'
+  error:
+    current_password_invalid: 'The temporary password you entered is invalid.'
+    new_password_same_as_old: 'The new password must be different from the temporary password.'
+
 login:
   title: 'Log in'
   email:

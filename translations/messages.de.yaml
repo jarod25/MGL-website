@@ -304,6 +304,36 @@ account:
     login_required_events: 'Du musst angemeldet sein, um deine Veranstaltungen zu sehen.'
     new_password_same_as_old: 'Das neue Passwort muss sich vom alten unterscheiden.'
 
+forgot_password:
+  title: 'Passwort vergessen'
+  instructions: 'Geben Sie die E-Mail-Adresse Ihres Kontos ein. Wenn ein Konto existiert, wird Ihnen ein temporäres Passwort gesendet.'
+  submit: 'Temporäres Passwort erhalten'
+  back_to_login: 'Zurück zur Anmeldung'
+  request_success: 'Wenn ein Konto mit dieser E-Mail-Adresse existiert, wurde ein temporäres Passwort gesendet.'
+  form:
+    email:
+      label: 'E-Mail-Adresse'
+      placeholder: 'ihre.email@example.com'
+  email:
+    subject: 'Ihr temporäres MGT-2026-Passwort'
+    greeting: 'Hallo %firstname%,'
+    line_1: 'Für Ihr MGT-2026-Konto wurde eine Anfrage zum Zurücksetzen des Passworts gestellt.'
+    line_2: 'Ihr temporäres Passwort lautet: %temporaryPassword%'
+    line_3: 'Melden Sie sich mit diesem temporären Passwort an und wählen Sie anschließend sofort ein neues Passwort.'
+    line_4: 'Wenn Sie diese Anfrage nicht gestellt haben, kontaktieren Sie bitte die Organisation.'
+  error:
+    send_failed: 'Das temporäre Passwort wurde generiert, aber die E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.'
+
+temporary_password:
+  title: 'Passwort ändern'
+  instructions: 'Sie verwenden ein temporäres Passwort. Um fortzufahren, wählen Sie bitte ein neues Passwort.'
+  submit: 'Mein Passwort ändern'
+  flash:
+    updated: 'Ihr Passwort wurde geändert.'
+  error:
+    current_password_invalid: 'Das eingegebene temporäre Passwort ist ungültig.'
+    new_password_same_as_old: 'Das neue Passwort muss sich vom temporären Passwort unterscheiden.'
+
 login:
   title: 'Anmelden'
   email:

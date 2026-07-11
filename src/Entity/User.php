@@ -33,6 +33,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\Column(options: ['default' => false])]
+    private bool $mustChangePassword = false;
+
     #[ORM\OneToMany(targetEntity: Event::class, mappedBy: 'owner')]
     private Collection $events;
 
@@ -101,6 +104,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPassword(): ?string
     {
         return $this->password;
+    }
+
+    public function mustChangePassword(): bool
+    {
+        return $this->mustChangePassword;
+    }
+
+    public function setMustChangePassword(bool $mustChangePassword): static
+    {
+        $this->mustChangePassword = $mustChangePassword;
+
+        return $this;
     }
 
     /**

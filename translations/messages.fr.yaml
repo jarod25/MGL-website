@@ -305,6 +305,36 @@ account:
     login_required_events: 'Vous devez être connecté pour voir vos événements.'
     new_password_same_as_old: 'Le nouveau mot de passe doit être différent de l’ancien.'
 
+forgot_password:
+  title: 'Mot de passe oublié'
+  instructions: 'Saisissez l’adresse e-mail de votre compte. Si un compte existe, un mot de passe temporaire vous sera envoyé.'
+  submit: 'Recevoir un mot de passe temporaire'
+  back_to_login: 'Retour à la connexion'
+  request_success: 'Si un compte existe avec cette adresse e-mail, un mot de passe temporaire vient d’être envoyé.'
+  form:
+    email:
+      label: 'Adresse e-mail'
+      placeholder: 'votre.email@example.com'
+  email:
+    subject: 'Votre mot de passe temporaire MGT 2026'
+    greeting: 'Bonjour %firstname%,'
+    line_1: 'Une demande de réinitialisation de mot de passe a été effectuée pour votre compte MGT 2026.'
+    line_2: 'Votre mot de passe temporaire est : %temporaryPassword%'
+    line_3: 'Connectez-vous avec ce mot de passe temporaire, puis choisissez immédiatement un nouveau mot de passe.'
+    line_4: 'Si vous n’êtes pas à l’origine de cette demande, contactez l’organisation.'
+  error:
+    send_failed: 'Le mot de passe temporaire a été généré, mais l’e-mail n’a pas pu être envoyé. Veuillez réessayer plus tard.'
+
+temporary_password:
+  title: 'Changer votre mot de passe'
+  instructions: 'Vous utilisez un mot de passe temporaire. Pour continuer, choisissez un nouveau mot de passe.'
+  submit: 'Modifier mon mot de passe'
+  flash:
+    updated: 'Votre mot de passe a bien été modifié.'
+  error:
+    current_password_invalid: 'Le mot de passe temporaire saisi est incorrect.'
+    new_password_same_as_old: 'Le nouveau mot de passe doit être différent du mot de passe temporaire.'
+
 login:
   title: 'Se connecter'
   email:
