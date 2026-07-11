@@ -76,12 +76,76 @@ a:hover {
 }
 
 .mgt-admin {
-  background: #fff;
-  color: #212529;
+  background-color: #211a39;
+  background-image:
+    linear-gradient(
+      180deg,
+      #07101a 0%,
+      #09131f 20%,
+      #0b1524 42%,
+      #10172a 62%,
+      #17172f 80%,
+      #211a39 100%
+    );
+  background-repeat: no-repeat;
+  color: var(--mgt-text);
 }
 
 .mgt-admin a {
-  color: #0d6efd;
+  color: var(--mgt-pink);
+}
+
+.mgt-admin a:hover,
+.mgt-admin a:focus {
+  color: var(--mgt-white);
+}
+
+.mgt-admin .mgt-site-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background-color: #211a39;
+  background-image:
+    linear-gradient(
+      180deg,
+      #07101a 0%,
+      #09131f 20%,
+      #0b1524 42%,
+      #10172a 62%,
+      #17172f 80%,
+      #211a39 100%
+    );
+  background-repeat: no-repeat;
+}
+
+.mgt-admin .mgt-site-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .08;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .75) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, .65) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 28% 62%, rgba(255, 255, 255, .55) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, .58) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 55% 38%, rgba(255, 255, 255, .4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 82%, rgba(255, 255, 255, .45) 0 1px, transparent 1.7px);
+}
+
+.mgt-admin .mgt-site-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mgt-admin main {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.mgt-admin .mgt-public-page {
+  padding-block: clamp(2rem, 4vw, 4rem);
 }
 
 // Navigation
@@ -1303,7 +1367,8 @@ body.mgt-page-home {
   color: var(--mgt-text);
 }
 
-.mgt-public .footer {
+.mgt-public .footer,
+.mgt-admin .footer {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -1312,7 +1377,8 @@ body.mgt-page-home {
   color: var(--mgt-text);
 }
 
-.mgt-public .footer::before {
+.mgt-public .footer::before,
+.mgt-admin .footer::before {
   position: absolute;
   z-index: -2;
   content: "";
@@ -1322,7 +1388,8 @@ body.mgt-page-home {
           50% 45% / cover no-repeat;
 }
 
-.mgt-public .footer::after {
+.mgt-public .footer::after,
+.mgt-admin .footer::after {
   position: absolute;
   z-index: -1;
   content: "";
@@ -1330,7 +1397,8 @@ body.mgt-page-home {
   background: linear-gradient(180deg, rgba(8, 9, 15, .76), rgba(21, 9, 36, .84));
 }
 
-.mgt-public .footer > .container {
+.mgt-public .footer > .container,
+.mgt-admin .footer > .container {
   position: relative;
   z-index: 1;
 }
@@ -1645,10 +1713,41 @@ body.mgt-page-home {
 
 // LAN administration
 .mgt-admin-page { width: 100%; }
+.mgt-admin-page .mgt-page-header {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: linear-gradient(145deg, rgba(12, 20, 28, .78), rgba(36, 20, 49, .66));
+  border: 1px solid var(--mgt-panel-border);
+  border-radius: .5rem;
+}
 .mgt-admin-page .mgt-page-header__row { flex-direction: row; flex-wrap: wrap; gap: 1rem; align-items: flex-start; justify-content: space-between; }
+.mgt-admin-page .mgt-section-heading h1 { color: var(--mgt-white); }
+.mgt-admin-page .mgt-section-heading::after { background: linear-gradient(90deg, var(--mgt-pink), var(--mgt-purple)); }
 .mgt-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
 .mgt-admin-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
-.mgt-admin-card { display: flex; min-height: 11rem; flex-direction: column; }
+.mgt-admin-card {
+  display: flex;
+  min-height: 11rem;
+  flex-direction: column;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 20, 28, .88),
+      rgba(36, 20, 49, .76)
+    );
+  border: 1px solid var(--mgt-panel-border);
+  border-left: 3px solid rgba(226, 113, 165, .7);
+  box-shadow: none;
+}
+.mgt-admin-card:hover {
+  border-color: var(--mgt-pink);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 25, 35, .92),
+      rgba(45, 23, 62, .82)
+    );
+}
 .mgt-admin-card .mgt-panel-body { display: flex; height: 100%; flex-direction: column; gap: 1rem; }
 .mgt-admin-card__badge { width: 2.4rem; height: 2.4rem; display: inline-grid; place-items: center; border: 1px solid var(--mgt-panel-border); border-radius: 999px; color: var(--mgt-pink); background: rgba(226, 113, 165, .08); font-weight: 900; }
 .mgt-admin-card__title { margin: 0; color: var(--mgt-white); font-size: 1.45rem; }
@@ -1658,7 +1757,14 @@ body.mgt-page-home {
 .mgt-admin-filters label, .mgt-stacked-form label { color: var(--mgt-white); font-weight: 800; }
 .mgt-admin-table-panel { overflow: hidden; }
 .mgt-admin-table-panel .table-responsive { border: 0; border-radius: 0; }
-.mgt-admin-table { margin-bottom: 0; color: var(--mgt-text); }
+.mgt-admin-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--mgt-text);
+  --bs-table-hover-bg: rgba(226, 113, 165, .06);
+  --bs-table-hover-color: var(--mgt-white);
+  margin-bottom: 0;
+  color: var(--mgt-text);
+}
 .mgt-admin-table thead th { color: var(--mgt-white); background: rgba(226, 113, 165, .1); border-bottom: 1px solid var(--mgt-panel-border); font-weight: 800; }
 .mgt-admin-table tbody td { color: var(--mgt-text); border-color: rgba(255, 255, 255, .08); vertical-align: middle; }
 .mgt-admin-table tbody tr:hover td { background: rgba(226, 113, 165, .06); }
