@@ -410,6 +410,9 @@ admin:
     title: 'LAN-Administration'
     subscriptions: 'Subscriptions'
     participants: 'Teilnehmende'
+    subscriptions_help: 'Tarife, Preise und HelloAsso-IDs verwalten.'
+    participants_help: 'Anmeldungen, Status und Teilnehmerinformationen einsehen.'
+    teams_help: 'Teams, Kapitäne und registrierte Mitglieder verfolgen.'
   subscription:
     title: 'Subscriptions'
     edit_title: '%name% bearbeiten'

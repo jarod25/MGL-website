@@ -3,24 +3,26 @@
 {% block title %}{{ 'admin.subscription.edit_title'|trans({ '%name%': subscription.name }) }}{% endblock %}
 
 {% block body %}
-    <div class="container py-4">
-        <h1 class="mb-4">{{ 'admin.subscription.edit_title'|trans({ '%name%': subscription.name }) }}</h1>
-        <div class="card mb-4">
-            <div class="card-body">
-                <strong>{{ 'admin.subscription.slug'|trans }}</strong>
-                <code>{{ subscription.slug }}</code>
+    <div class="mgt-public-page mgt-admin-page">
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading"><h1>{{ 'admin.subscription.edit_title'|trans({ '%name%': subscription.name }) }}</h1></div>
+                <div class="mgt-actions"><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_subscription_index') }}">{{ 'admin.subscription.back'|trans }}</a></div>
             </div>
+        </header>
+        <div class="mgt-panel mgt-admin-form-panel">
+            <p class="mgt-admin-note"><strong>{{ 'admin.subscription.slug'|trans }}</strong> <code>{{ subscription.slug }}</code></p>
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.helloAssoTierId) }}
+                {{ form_row(form.price) }}
+                {{ form_row(form.durationDays) }}
+                {{ form_row(form.isActive) }}
+                <div class="mgt-actions mt-4">
+                    <button class="btn btn-primary" type="submit">{{ 'admin.subscription.save'|trans }}</button>
+                    <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_subscription_index') }}">{{ 'admin.subscription.back'|trans }}</a>
+                </div>
+            {{ form_end(form) }}
         </div>
-        {{ form_start(form) }}
-            {{ form_row(form.name) }}
-            {{ form_row(form.helloAssoTierId) }}
-            {{ form_row(form.price) }}
-            {{ form_row(form.durationDays) }}
-            {{ form_row(form.isActive) }}
-            <div class="d-flex gap-2 mt-4">
-                <button class="btn btn-primary" type="submit">{{ 'admin.subscription.save'|trans }}</button>
-                <a class="btn btn-outline-secondary" href="{{ path('app_admin_lan_subscription_index') }}">{{ 'admin.subscription.back'|trans }}</a>
-            </div>
-        {{ form_end(form) }}
     </div>
 {% endblock %}
