@@ -21,6 +21,9 @@ organizers:
   placeholder_role: 'Rôle'
   placeholder_affiliation: 'Affiliation'
   photo_alt: 'Photo de %name%'
+  roles:
+    organizer: 'Organisateur'
+    developer: 'Développeur'
 partners:
   title: 'Sponsors et partenaires'
   logo_alt: 'Logo de %name%'
