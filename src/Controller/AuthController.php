@@ -203,6 +203,10 @@ class AuthController extends AbstractController
                 $this->translator->trans('forgot_password.email.line_2', ['%temporaryPassword%' => $temporaryPassword]),
                 $this->translator->trans('forgot_password.email.line_3'),
                 $this->translator->trans('forgot_password.email.line_4'),
+            ]))
+            ->html($this->renderView('emails/forgot_password.html.twig', [
+                'user' => $user,
+                'temporaryPassword' => $temporaryPassword,
             ]));
     }
 

@@ -322,6 +322,12 @@ forgot_password:
     line_2: 'Your temporary password is: %temporaryPassword%'
     line_3: 'Log in with this temporary password, then choose a new password immediately.'
     line_4: 'If you did not request this, please contact the organisation.'
+    title: 'MGT 2026'
+    subtitle: 'Temporary password'
+    temporary_password_label: 'Your temporary password'
+    login_instruction: 'Log in with this temporary password, then change it immediately.'
+    security_note: 'If you did not request this, please contact the organisation.'
+    signature: 'Mulhouse Gaming Tournament'
   error:
     send_failed: 'The temporary password was generated, but the email could not be sent. Please try again later.'
 
