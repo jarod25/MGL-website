@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Participant;
 use App\Entity\Subscription;
 use App\Enum\RegistrationStatusEnum;
+use App\Repository\HelloAssoPaymentRepository;
 use App\Repository\ParticipantRepository;
 use App\Repository\SubscriptionRepository;
 use App\Repository\TeamMemberRepository;
@@ -75,12 +76,13 @@ final class ParticipantAdminController extends AbstractController
     }
 
     #[Route('/admin/lan/participants/{id}', name: 'app_admin_lan_participant_show', requirements: ['id' => '\\d+'], methods: ['GET'])]
-    public function show(Participant $participant, TeamMemberRepository $teamMemberRepository, TeamRepository $teamRepository): Response
+    public function show(Participant $participant, TeamMemberRepository $teamMemberRepository, TeamRepository $teamRepository, HelloAssoPaymentRepository $helloAssoPaymentRepository): Response
     {
         return $this->render('admin/lan/participant/show.html.twig', [
             'participant' => $participant,
             'teamMembers' => $teamMemberRepository->findByParticipant($participant),
             'captainTeams' => $teamRepository->findByCaptain($participant),
+            'helloAssoPayments' => $helloAssoPaymentRepository->findByParticipant($participant),
         ]);
     }
 

@@ -29,3 +29,15 @@ services:
         arguments: [ "@knp_menu.factory", "@security.authorization_checker", "@translator" ]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main }
+    App\Service\HelloAsso\HelloAssoWebhookAuthenticator:
+        arguments:
+            $secret: '%env(HELLOASSO_WEBHOOK_SECRET)%'
+            $allowedIps: '%env(HELLOASSO_WEBHOOK_ALLOWED_IPS)%'
+            $allowUnsigned: '%env(bool:HELLOASSO_ALLOW_UNSIGNED_WEBHOOKS)%'
+            $environment: '%kernel.environment%'
+
+    App\Service\HelloAsso\HelloAssoPaymentProcessor:
+        arguments:
+            $org: '%env(HELLOASSO_ORGANIZATION_SLUG)%'
+            $formType: '%env(HELLOASSO_FORM_TYPE)%'
+            $formSlug: '%env(HELLOASSO_FORM_SLUG)%'

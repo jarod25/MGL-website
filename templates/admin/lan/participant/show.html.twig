@@ -58,4 +58,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+    <section class="mgt-panel mt-4"><div class="mgt-panel-body"><h2 class="h5">{{ 'helloasso_admin.title'|trans }}</h2>{% for payment in helloAssoPayments %}<p><a href="{{ path('app_admin_lan_helloasso_payment_show',{id:payment.id}) }}"><code>{{ payment.paymentId }}</code></a> — {{ payment.matchStatus.value }} — {{ payment.paymentState }}</p>{% else %}<p>{{ 'admin.common.not_available'|trans }}</p>{% endfor %}</div></section>{% endblock %}

@@ -1,0 +1,1 @@
+{"eventType":"Payment","data":{"id":"RECETTE_CODEX_PAY_WRONG","state":"Authorized","order":{"id":"RECETTE_CODEX_ORDER_WRONG","organizationSlug":"wrong-org","formType":"Event","formSlug":"ckg"},"payer":{"email":"recette_codex_player@example.test","firstName":"Recette","lastName":"Codex"},"items":[{"tierId":"RECETTE_CODEX_TIER_001","amount":2500}]}}
