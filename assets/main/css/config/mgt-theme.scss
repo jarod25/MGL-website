@@ -417,18 +417,63 @@ a:hover {
 .mgt-stacked-form {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.15rem;
+}
+
+.mgt-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.mgt-form-field label,
+.mgt-form-check label {
+  color: var(--mgt-white);
+  font-weight: 800;
 }
 
 .mgt-form-field label {
-  margin-bottom: .4rem;
   color: var(--mgt-white);
   font-weight: 800;
 }
 
 .mgt-form-field .form-control,
 .mgt-form-field .form-select {
+  width: 100%;
   min-height: 2.75rem;
+  background-color: rgba(13, 23, 24, .92);
+  border-color: var(--mgt-border);
+  color: var(--mgt-text);
+}
+
+.mgt-form-field .form-control:focus,
+.mgt-form-field .form-select:focus {
+  background-color: #0D1718;
+  color: var(--mgt-text);
+  border-color: var(--mgt-pink);
+  box-shadow: 0 0 0 .25rem rgba(226, 113, 165, .22);
+}
+
+.mgt-form-check {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  min-height: 2.75rem;
+  padding: .85rem 1rem;
+  border: 1px solid var(--mgt-panel-border);
+  border-radius: .5rem;
+  background: rgba(226, 113, 165, .08);
+}
+
+.mgt-form-check .form-check-input {
+  margin-top: 0;
+  background-color: rgba(13, 23, 24, .92);
+  border-color: var(--mgt-border);
+}
+
+.mgt-form-check .form-check-input:checked {
+  background-color: var(--mgt-pink);
+  border-color: var(--mgt-pink);
 }
 
 @media (max-width: 991.98px) {
@@ -1771,8 +1816,7 @@ body.mgt-page-home {
 .mgt-admin-table code, .mgt-admin-page code { color: var(--mgt-pink); background: rgba(226, 113, 165, .08); border-radius: .35rem; padding: .15rem .35rem; }
 .mgt-admin-empty { padding: 2rem !important; text-align: center; color: var(--mgt-muted) !important; }
 .mgt-danger-panel { border-color: rgba(255, 99, 132, .55); background: linear-gradient(145deg, rgba(40, 12, 28, .78), rgba(20, 12, 30, .82)); }
-.mgt-admin-form-panel { max-width: 48rem; padding: clamp(1.25rem, 3vw, 2rem); }
-.mgt-stacked-form > div + div { margin-top: 1rem; }
+.mgt-admin-form-panel { width: 100%; max-width: 48rem; padding: clamp(1.25rem, 3vw, 2rem); }
 .mgt-admin-page .pagination { gap: .35rem; margin-top: 1.5rem; flex-wrap: wrap; }
 .mgt-admin-page .page-link { background: rgba(13, 23, 24, .86); border-color: var(--mgt-panel-border); color: var(--mgt-text); }
 .mgt-admin-page .page-item.active .page-link { background: var(--mgt-pink); border-color: var(--mgt-pink); color: #070D0B; }

@@ -13,7 +13,15 @@
 
         <div class="mgt-panel mgt-admin-form-panel">
             {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
-                    {{ form_row(form.name) }}
+                    <div class="mgt-form-field">
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name, {
+                            attr: {
+                                class: 'form-control'
+                            }
+                        }) }}
+                        <div class="text-danger">{{ form_errors(form.name) }}</div>
+                    </div>
                 <div class="mgt-actions mt-4">
                     <button class="btn btn-primary" type="submit">{{ 'admin.team.save'|trans }}</button>
                     <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a>
