@@ -322,6 +322,12 @@ forgot_password:
     line_2: 'Votre mot de passe temporaire est : %temporaryPassword%'
     line_3: 'Connectez-vous avec ce mot de passe temporaire, puis choisissez immédiatement un nouveau mot de passe.'
     line_4: 'Si vous n’êtes pas à l’origine de cette demande, contactez l’organisation.'
+    title: 'MGT 2026'
+    subtitle: 'Mot de passe temporaire'
+    temporary_password_label: 'Votre mot de passe temporaire'
+    login_instruction: 'Connectez-vous avec ce mot de passe temporaire, puis modifiez-le immédiatement.'
+    security_note: 'Si vous n’êtes pas à l’origine de cette demande, contactez l’organisation.'
+    signature: 'Mulhouse Gaming Tournament'
   error:
     send_failed: 'Le mot de passe temporaire a été généré, mais l’e-mail n’a pas pu être envoyé. Veuillez réessayer plus tard.'
 
