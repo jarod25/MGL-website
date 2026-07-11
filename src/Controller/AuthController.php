@@ -6,11 +6,11 @@ use App\Entity\User;
 use App\Form\User\ChangePasswordType;
 use App\Form\User\ForgotPasswordRequestType;
 use App\Form\User\SignInType;
-use App\Security\AppAuthenticator;
 use App\Service\Security\TemporaryPasswordGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,6 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AuthController extends AbstractController
@@ -30,8 +29,7 @@ class AuthController extends AbstractController
         private readonly AuthenticationUtils         $authenticationUtils,
         private readonly EntityManagerInterface      $em,
         private readonly UserPasswordHasherInterface $userPasswordHasher,
-        private readonly UserAuthenticatorInterface  $userAuthenticator,
-        private readonly AppAuthenticator            $authenticator,
+        private readonly Security                    $security,
         private readonly TranslatorInterface         $translator
     )
     {
@@ -171,11 +169,9 @@ class AuthController extends AbstractController
             $this->em->persist($user);
             $this->em->flush();
 
-            return $this->userAuthenticator->authenticateUser(
-                $user,
-                $this->authenticator,
-                $request
-            );
+            $this->security->login($user, 'form_login', 'main');
+
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('user/signin.html.twig', [
