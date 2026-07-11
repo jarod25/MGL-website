@@ -42,7 +42,8 @@ registration:
       placeholder: 'Ihr Discord-Name'
       help: 'Optional, aber hilfreich, um Sie vor der LAN zu finden.'
     is_major_confirmed:
-      label: 'Ich bestätige, dass ich zum Zeitpunkt der Veranstaltung mindestens 18 Jahre alt sein werde.'
+      label: 'Ich werde zum Zeitpunkt der Veranstaltung volljährig sein.'
+      help: 'Wenn du nicht volljährig bist, wird eine unterschriebene elterliche Genehmigung zur Teilnahme benötigt.'
     submit_payment: 'Weiter zur Zahlung'
   status:
     pending_payment: 'Zahlung ausstehend'
@@ -312,6 +313,7 @@ login:
     label: 'Passwort'
     placeholder: 'Dein Passwort'
   submit: 'Anmelden'
+  forgot_password: 'Passwort vergessen?'
   error:
     invalid_credentials: 'Benutzername oder Passwort ungültig.'
   no_account: 'Noch nicht registriert?'

@@ -42,7 +42,8 @@ registration:
       placeholder: 'Votre pseudo Discord'
       help: 'Optionnel, mais utile pour vous retrouver avant la LAN.'
     is_major_confirmed:
-      label: 'Je confirme être majeur·e au moment de l’événement.'
+      label: 'Je serai majeur·e au moment de l’événement.'
+      help: 'Si vous n’êtes pas majeur·e, une autorisation parentale signée sera demandée pour participer.'
     submit_payment: 'Continuer vers le paiement'
   status:
     pending_payment: 'Paiement en attente'
@@ -313,6 +314,7 @@ login:
     label: 'Mot de passe'
     placeholder: 'Votre mot de passe'
   submit: 'Se connecter'
+  forgot_password: 'Mot de passe oublié ?'
   error:
     invalid_credentials: 'Identifiant ou mot de passe invalides.'
   no_account: 'Pas encore inscrit ?'
