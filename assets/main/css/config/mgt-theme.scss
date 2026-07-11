@@ -922,12 +922,6 @@ body.mgt-page-home {
 .mgt-team-row:last-child { border-bottom: 0; }
 .mgt-team-row:hover { background: rgba(129, 121, 172, .14); color: var(--mgt-white); }
 
-
-.mgt-practical-page {
-  max-width: 1180px;
-  margin-inline: auto;
-}
-
 .mgt-practical-place .card-body {
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -1027,12 +1021,6 @@ body.mgt-page-home {
 .partner-card { border-radius: .5rem; box-shadow: none; }
 .partner-card__logo-wrapper { border-radius: .5rem; }
 .partner-card__logo { width: 100%; object-fit: contain; }
-
-
-.mgt-contact-page {
-  max-width: 68.75rem;
-  margin-inline: auto;
-}
 
 .mgt-contact-page__header {
   margin-bottom: clamp(1.75rem, 4vw, 2.75rem);

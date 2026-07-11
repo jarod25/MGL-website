@@ -5,7 +5,7 @@
     <div class="mgt-organizers-grid">
         {% for organizer in organizerPlaceholders %}
             {% set isPlaceholder = organizers is empty %}
-            {% set organizerName = isPlaceholder ? 'organizers.placeholder_firstname'|trans : organizer.firstname ~ ' ' ~ organizer.lastname %}
+            {% set organizerName = isPlaceholder ? 'organizers.placeholder_firstname'|trans : organizer.firstname %}
             <article class="mgt-panel mgt-organizer-card">
                 <div class="mgt-panel-body text-center">
                     <img
