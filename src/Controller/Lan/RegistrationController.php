@@ -7,6 +7,7 @@ use App\Form\Lan\ParticipantRegistrationType;
 use App\Repository\ParticipantRepository;
 use App\Service\Lan\ParticipantRegistrationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route('/registration')]
 final class RegistrationController extends AbstractController
 {
+    public function __construct(
+        private readonly Security $security,
+    ) {
+    }
+
     #[Route('', name: 'app_registration_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ParticipantRegistrationService $registrationService): Response
     {
@@ -33,6 +39,11 @@ final class RegistrationController extends AbstractController
                     $data['discordPseudo'] ?? null,
                     (bool) $data['isMajorConfirmed'],
                 );
+
+                $user = $participant->getUser();
+                if ($user !== null) {
+                    $this->security->login($user, 'form_login', 'main');
+                }
 
                 return $this->redirectToRoute('app_registration_payment_pending', [
                     'internalReference' => $participant->getInternalReference(),
