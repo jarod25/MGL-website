@@ -3,16 +3,56 @@
 {% block title %}{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}{% endblock %}
 
 {% block body %}
-    <div class="mgt-public-page">
-        <header class="mgt-page-header"><div class="mgt-section-heading"><h1>{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}</h1></div></header><div class="mgt-form-panel">
-        <p>{{ 'team.member.new.current_count'|trans({ '%count%': members|length, '%max%': team.game.maxPlayersPerTeam }) }}</p>
+    <div class="mgt-public-page mgt-team-form-page">
+        <header class="mgt-page-header">
+            <div class="mgt-section-heading">
+                <h1>{{ 'team.member.new.title'|trans({ '%name%': team.name }) }}</h1>
+            </div>
+        </header>
 
-        {{ form_start(form) }}
-        {{ form_row(form.participantEmail) }}
-        {{ form_row(form.inGamePseudo) }}
-        <button class="btn btn-primary" type="submit">{{ 'team.member.new.submit'|trans }}</button>
-        <a class="btn btn-secondary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">{{ 'team.action.back_to_team'|trans }}</a>
-        {{ form_end(form) }}
+        <div class="mgt-form-panel mgt-team-form-panel">
+            <div class="mgt-info-note mb-4">
+                {{ 'team.member.new.current_count'|trans({
+                    '%count%': members|length,
+                    '%max%': team.game.maxPlayersPerTeam
+                }) }}
+            </div>
+
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+
+            <div class="mgt-form-field">
+                {{ form_label(form.participantEmail) }}
+                {{ form_widget(form.participantEmail, {
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'team.member.form.participant_email.placeholder'|trans
+                    }
+                }) }}
+                <div class="text-danger">{{ form_errors(form.participantEmail) }}</div>
+            </div>
+
+            <div class="mgt-form-field">
+                {{ form_label(form.inGamePseudo) }}
+                {{ form_widget(form.inGamePseudo, {
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'team.member.form.in_game_pseudo.placeholder'|trans
+                    }
+                }) }}
+                <div class="text-danger">{{ form_errors(form.inGamePseudo) }}</div>
+            </div>
+
+            <div class="mgt-actions mt-4">
+                <button class="btn btn-primary" type="submit">
+                    {{ 'team.member.new.submit'|trans }}
+                </button>
+
+                <a class="btn btn-outline-primary" href="{{ path('app_team_show_slug', { gameSlug: team.game.slug, teamSlug: team.slug }) }}">
+                    {{ 'team.action.back_to_team'|trans }}
+                </a>
+            </div>
+
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

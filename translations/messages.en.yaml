@@ -222,6 +222,9 @@ lan_profile:
   teams_as_member:
     title: 'My teams as member'
     empty: 'You are not a member of any team yet.'
+  teams:
+    title: 'My teams'
+    empty: 'You are not in any team yet.'
   team:
     name: 'Team'
     members_count: '%count% / %max% members'
