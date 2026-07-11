@@ -14,7 +14,15 @@
         <div class="mgt-panel mgt-admin-form-panel">
             {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
                     <p class="mgt-admin-note">{{ member.participant.firstname }} {{ member.participant.lastname }}</p>
-                    {{ form_row(form.inGamePseudo) }}
+                    <div class="mgt-form-field">
+                        {{ form_label(form.inGamePseudo) }}
+                        {{ form_widget(form.inGamePseudo, {
+                            attr: {
+                                class: 'form-control'
+                            }
+                        }) }}
+                        <div class="text-danger">{{ form_errors(form.inGamePseudo) }}</div>
+                    </div>
                 <div class="mgt-actions mt-4">
                     <button class="btn btn-primary" type="submit">{{ 'admin.team.save'|trans }}</button>
                     <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a>
