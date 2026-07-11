@@ -94,11 +94,11 @@ final class AboutController extends AbstractController
                 'photoPath' => '/images/team/nathan.jpg',
             ],
             [
-                'key' => 'unknown',
-                'firstname' => 'Unknown',
+                'key' => 'jean',
+                'firstname' => 'Jean',
                 'role' => 'Organisateur',
-                'affiliation' => 'ENSCMu',
-//                'photoPath' => '/images/team/unknown.jpg',
+                'affiliation' => 'ENSISA / XID',
+                'photoPath' => '/images/team/jean.jpg',
             ],
             [
                 'key' => 'jarod',
