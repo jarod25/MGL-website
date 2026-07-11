@@ -6,6 +6,12 @@
         {% for organizer in organizerPlaceholders %}
             {% set isPlaceholder = organizers is empty %}
             {% set organizerName = isPlaceholder ? 'organizers.placeholder_firstname'|trans : organizer.firstname %}
+            {% set organizerRole = isPlaceholder
+                ? 'organizers.placeholder_role'|trans
+                : organizer.roleKey is defined
+                    ? ('organizers.roles.' ~ organizer.roleKey)|trans
+                    : ''
+            %}
             <article class="mgt-panel mgt-organizer-card">
                 <div class="mgt-panel-body text-center">
                     <img
@@ -15,7 +21,7 @@
                         loading="lazy"
                     >
                     <h3 class="h5 mb-1">{{ organizerName }}</h3>
-                    <p class="mgt-panel-text mb-1">{{ isPlaceholder ? 'organizers.placeholder_role'|trans : organizer.role }}</p>
+                    <p class="mgt-panel-text mb-1">{{ organizerRole }}</p>
                     <p class="mgt-panel-text mgt-organizer-card__affiliation mb-0">{{ isPlaceholder ? 'organizers.placeholder_affiliation'|trans : organizer.affiliation|default('') }}</p>
                 </div>
             </article>
