@@ -1112,6 +1112,12 @@ body.mgt-page-home {
   margin-inline: auto;
 }
 
+.mgt-auth-page--forgot-password,
+.mgt-auth-page--temporary-password {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
 .mgt-auth-panel {
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -1145,6 +1151,12 @@ body.mgt-page-home {
   line-height: 1.45;
 }
 
+.mgt-auth-instructions {
+  color: var(--mgt-muted);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
 .mgt-auth-secondary-link {
   color: var(--mgt-pink);
   font-weight: 700;
@@ -1172,7 +1184,9 @@ body.mgt-page-home {
   }
 
   .mgt-auth-page--login,
-  .mgt-auth-page--registration {
+  .mgt-auth-page--registration,
+  .mgt-auth-page--forgot-password,
+  .mgt-auth-page--temporary-password {
     max-width: 100%;
   }
 

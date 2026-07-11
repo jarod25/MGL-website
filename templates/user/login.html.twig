@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        {# TODO: brancher le lien “Mot de passe oublié ?” quand le flux de réinitialisation sera disponible. #}
+                        <a class="mgt-auth-secondary-link" href="{{ path('app_forgot_password') }}">{{ 'login.forgot_password'|trans }}</a>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">
