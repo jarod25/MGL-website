@@ -1,0 +1,4 @@
+<?php
+namespace App\Service\HelloAsso;
+use App\Entity\Participant;
+final class ParticipantIdentityMatcher{/** Conservative rule: normalize names; exact passes, otherwise per-field Levenshtein <= min(2,max(1,floor(maxLen*0.15))). */public function matches(Participant $p,?string $first,?string $last):bool{return $this->field($p->getFirstname(),$first)&&$this->field($p->getLastname(),$last);}private function field(?string $a,?string $b):bool{$a=$this->norm($a);$b=$this->norm($b);if($a===''||$b==='')return false;if($a===$b)return true;$max=max(mb_strlen($a),mb_strlen($b));return levenshtein($a,$b)<=min(2,max(1,(int)floor($max*0.15)));}private function norm(?string $v):string{$v=trim((string)$v);$v=str_replace(['’','`','´','-'],["'","'","'",' '],$v);$v=transliterator_transliterate('Any-Latin; Latin-ASCII; Lower()', $v)?:mb_strtolower($v);$v=preg_replace('/[^a-z0-9\s]+/u',' ',$v)??$v;return trim(preg_replace('/\s+/',' ',$v)??$v);}}

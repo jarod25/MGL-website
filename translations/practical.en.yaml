@@ -1,0 +1,44 @@
+meta:
+  title: 'Practical information'
+
+title: 'Practical information'
+
+place:
+  title: 'Venue and schedule'
+  address_name: 'PHG Academy – KMØ'
+  address_street: '30 rue François Spoerry'
+  address_city: '68100 Mulhouse'
+  map_title: 'Google Maps map of PHG Academy KMØ in Mulhouse'
+  maps_link: 'Open the address in Google Maps'
+  text: 'The tournament will take place on August 29 and 30, 2026 at PHG Academy – KMØ, Mulhouse. Arrival is requested at 9:00 a.m., with the event planned from 9:00 a.m. to 9:00 p.m.'
+
+sections:
+  access:
+    title: 'Access'
+    text: 'Access is reserved for registered participants and authorised persons. An ID document and proof of registration may be requested.'
+  equipment:
+    title: 'Personal equipment'
+    text: 'Each player brings their full setup: PC, monitor, keyboard, mouse, headset, Ethernet cable, cables and power supplies. Personal equipment remains the participant’s responsibility.'
+  rental:
+    title: 'PC rental'
+    text: 'PCs can be rented by reservation, subject to availability. Planned configuration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD, Zowie 240 Hz monitor. Players still need to bring their peripherals.'
+  provided:
+    title: 'Provided on site'
+    text: 'PHG Academy provides desks, chairs, power supply and network access. Each participant must bring their own Ethernet cable to connect.'
+  food:
+    title: 'Food and drinks'
+    text: 'Sandwiches, snacks and cafeteria service may be available on site. Outside drinks are prohibited except water; alcohol is prohibited; smoking and vaping are outside only.'
+  conduct:
+    title: 'Conduct'
+    text: 'Fair play and respect for the venue, equipment, players and organisation are expected. Abusive behaviour may result in a sanction.'
+  cheat:
+    title: 'Accounts and cheating'
+    text: 'Players must honestly declare their level. Cheating, scripts, advantage software and unauthorised gameplay modifications are prohibited.'
+  refund:
+    title: 'Cancellation and refund'
+    text: 'Refunds are possible up to 7 days before the relevant tournament. After that deadline, absence or cancellation does not entitle you to a refund, except by exceptional decision.'
+  rules:
+    title: 'Rules and documents'
+    text: 'Registration implies acceptance of the general rules. Game-specific rules will be added separately.'
+    download: 'View the general rules'
+    unavailable: 'Document coming soon'

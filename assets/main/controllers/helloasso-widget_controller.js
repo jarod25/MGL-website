@@ -1,0 +1,2 @@
+import { Controller } from '@hotwired/stimulus';
+export default class extends Controller { static targets=['iframe']; connect(){this.onMessage=this.onMessage.bind(this);window.addEventListener('message',this.onMessage);} disconnect(){window.removeEventListener('message',this.onMessage);} onMessage(event){if(event.origin!=='https://www.helloasso.com')return;const data=event.data||{};const h=Number(data.height ?? data.widgetHeight ?? data);if(!Number.isFinite(h)||h<300||h>5000)return;if(this.hasIframeTarget)this.iframeTarget.style.height=`${h}px`;}}

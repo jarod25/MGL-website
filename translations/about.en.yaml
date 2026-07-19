@@ -1,0 +1,43 @@
+meta:
+  title: 'About'
+intro:
+  title: 'About'
+schools:
+  title: 'Schools and institutions'
+  intro: 'The Mulhouse Gaming Tournament is organized by students from <a href="https://www.enscmu.uha.fr/" target="_blank" rel="noopener noreferrer">ENSCMu</a> and the XID of <a href="https://www.ensisa.uha.fr/" target="_blank" rel="noopener noreferrer">ENSISA</a>, in partnership with PHG Academy. ENSCMu and ENSISA are part of <a href="https://www.uha.fr/" target="_blank" rel="noopener noreferrer">Université de Haute-Alsace</a>.'
+  website_link: 'Visit website'
+  enscmu:
+    title: 'ENSCMu'
+    text: 'An engineering school of Université de Haute-Alsace, ENSCMu is involved in the student organisation of the tournament.'
+  ensisa:
+    title: 'ENSISA / XID'
+    text: 'ENSISA is an engineering school of Université de Haute-Alsace. It is involved through XID, its computer science and video game club.'
+  phg_academy:
+    title: 'PHG Academy'
+    text: 'As the host partner, PHG Academy provides the venue and technical environment for the event at KMØ Mulhouse.'
+organizers:
+  title: 'Organizing team'
+  placeholder_firstname: 'First name'
+  placeholder_role: 'Role'
+  placeholder_affiliation: 'Affiliation'
+  photo_alt: 'Photo of %name%'
+  roles:
+    organizer: 'Organizer'
+    developer: 'Developer'
+partners:
+  title: 'Sponsors and partners'
+  logo_alt: '%name% logo'
+  website_link: 'Visit website'
+  ikoula_title: 'Web hosting, dedicated servers and tailored solutions'
+  ikoula_alt: 'Ikoula partner'
+  descriptions:
+    phg_academy: 'As the host partner of the tournament, PHG Academy provides the venue and technical environment needed to run the event at KMØ Mulhouse.'
+    crous_strasbourg: 'A key player in student life, Crous de Strasbourg supports students through financial aid, housing, catering, social support and student initiatives.'
+    universite_haute_alsace: 'Based in Mulhouse and Colmar, Université de Haute-Alsace includes ENSCMu and ENSISA, two schools involved in the student organisation of the tournament.'
+    ikoula: 'Ikoula is a French hosting and managed services provider offering web hosting, server and cloud solutions. Ikoula hosts the Mulhouse Gaming Tournament website.<br>Website hosted by <a href="https://www.ikoula.com/fr/hebergement-web/linux?utm_source=enscmu&utm_medium=banner&utm_campaign=iksvp" target="_blank" rel="noopener noreferrer">Ikoula</a>.'
+    enscmu: 'The first chemistry school in France, ENSCMu is an engineering school of Université de Haute-Alsace. Students from the school are involved in organising the tournament.'
+    ensisa: 'ENSISA is an engineering school of Université de Haute-Alsace, with programmes including computer science, networks, automation, mechanics, textiles and industrial engineering. The XID is involved in organising the tournament.'
+contact:
+  title: 'Contact us'
+  text: 'Have a question about the tournament, partnerships or organisation? The contact page gathers the useful information to reach us.'
+  link: 'Open the contact page'

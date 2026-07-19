@@ -19,61 +19,43 @@ class ChangePasswordType extends AbstractType
     {
         $builder
             ->add('oldPassword', PasswordType::class, [
-                'label' => 'Mot de passe actuel',
+                'label' => 'account.password.current.label',
                 'attr' => [
-                    'placeholder' => 'Mot de passe actuel',
-                    'autocomplete' => 'current-password'
-                ],
-                'row_attr' => [
-                    'class' => 'form-floating',
+                    'placeholder' => 'account.password.current.placeholder',
+                    'autocomplete' => 'current-password',
                 ],
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre mot de passe actuel',
-                    ]),
+                    new NotBlank(message: 'account.password.required'),
                 ],
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Les deux mots de passe doivent être identiques.',
+                'invalid_message' => 'account.password.mismatch',
                 'first_options' => [
+                    'label' => 'account.password.new.label',
                     'attr' => [
-                        'label' => 'Mot de passe',
-                        'placeholder' => 'Mot de passe',
-                        'autocomplete' => 'new-password'
-                    ],
-                    'row_attr' => [
-                        'class' => 'form-floating',
+                        'placeholder' => 'account.password.new.placeholder',
+                        'autocomplete' => 'new-password',
                     ],
                     'constraints' => [
-                        new NotBlank([
-                            'message' => 'Veuillez saisir votre mot de passe',
-                        ]),
+                        new NotBlank(message: 'account.password.required'),
                     ],
                 ],
                 'second_options' => [
+                    'label' => 'account.password.confirm.label',
                     'attr' => [
-                        'label' => 'Confirmation du mot de passe',
-                        'placeholder' => 'Confirmation du mot de passe',
-                        'autocomplete' => 'new-password'
-                    ],
-                    'row_attr' => [
-                        'class' => 'form-floating',
+                        'placeholder' => 'account.password.confirm.placeholder',
+                        'autocomplete' => 'new-password',
                     ],
                     'constraints' => [
-                        new NotBlank([
-                            'message' => 'Veuillez confirmer votre mot de passe',
-                        ]),
+                        new NotBlank(message: 'account.password.confirm_required'),
                     ],
                 ],
                 'attr' => [
-                    'placeholder' => 'Mot de passe',
-                    'autocomplete' => 'new-password'
-                ],
-                'row_attr' => [
-                    'class' => 'form-floating',
+                    'placeholder' => 'account.password.new.placeholder',
+                    'autocomplete' => 'new-password',
                 ],
                 'mapped' => false,
                 'required' => false,
@@ -81,17 +63,17 @@ class ChangePasswordType extends AbstractType
                     new Length(
                         min: 8,
                         max: 4096,
-                        minMessage: 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-                        maxMessage: 'Votre mot de passe doit comporter maximum {{ limit }} caractères',
+                        minMessage: 'account.password.min_length',
+                        maxMessage: 'account.password.max_length',
                     ),
                     new Regex([
                         'pattern' => match ($_ENV['PASSWORD_STRENGTH_VALUE']) {
-                            "1" => '/^(?=.*[a-z]).{8,}$/',
-                            "2" => '/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
-                            "3" => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/',
-                            "4" => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/',
+                            '1' => '/^(?=.*[a-z]).{8,}$/',
+                            '2' => '/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
+                            '3' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/',
+                            '4' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/',
                         },
-                        'message' => 'Le mot de passe ne respecte pas les critères de sécurité',
+                        'message' => 'account.password.strength_invalid',
                     ]),
                 ],
             ]);

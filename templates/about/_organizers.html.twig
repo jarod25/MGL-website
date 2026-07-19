@@ -1,0 +1,30 @@
+{% trans_default_domain 'about' %}
+{% set organizerPlaceholders = organizers is empty ? 1..8 : organizers %}
+<section class="mb-5">
+    <div class="mgt-section-heading"><h2>{{ 'organizers.title'|trans }}</h2></div>
+    <div class="mgt-organizers-grid">
+        {% for organizer in organizerPlaceholders %}
+            {% set isPlaceholder = organizers is empty %}
+            {% set organizerName = isPlaceholder ? 'organizers.placeholder_firstname'|trans : organizer.firstname %}
+            {% set organizerRole = isPlaceholder
+                ? 'organizers.placeholder_role'|trans
+                : organizer.roleKey is defined
+                    ? ('organizers.roles.' ~ organizer.roleKey)|trans
+                    : ''
+            %}
+            <article class="mgt-panel mgt-organizer-card">
+                <div class="mgt-panel-body text-center">
+                    <img
+                        class="mgt-organizer-card__photo mb-3"
+                        src="{{ isPlaceholder ? '/images/team/no-photo.png' : organizer.photoPath|default('/images/team/no-photo.png') }}"
+                        alt="{{ 'organizers.photo_alt'|trans({ '%name%': organizerName }) }}"
+                        loading="lazy"
+                    >
+                    <h3 class="h5 mb-1">{{ organizerName }}</h3>
+                    <p class="mgt-panel-text mb-1">{{ organizerRole }}</p>
+                    <p class="mgt-panel-text mgt-organizer-card__affiliation mb-0">{{ isPlaceholder ? 'organizers.placeholder_affiliation'|trans : organizer.affiliation|default('') }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>

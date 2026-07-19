@@ -4,80 +4,141 @@ import {Popover} from 'bootstrap';
 export default class extends Controller {
     static values = {
         strength: Number,
-        position: String
+        position: String,
+        title: String,
+        minLength: String,
+        lowercase: String,
+        uppercase: String,
+        numbers: String,
+        specialCharacters: String
     };
 
-    passwordStrengthValue = 0;
     popover;
-    pwd;
-    bool = true;
+    passwordInput;
+    triggerElement;
+    tipElement = null;
+    isPopoverVisible = false;
+    rules = [
+        {key: 'length', selector: '.pwd-strength-rule--length', strength: 0, regex: /.{8,}/, labelValue: 'minLengthValue'},
+        {key: 'lowercase', selector: '.pwd-strength-rule--lowercase', strength: 1, regex: /[a-z]+/, labelValue: 'lowercaseValue'},
+        {key: 'uppercase', selector: '.pwd-strength-rule--uppercase', strength: 2, regex: /[A-Z]+/, labelValue: 'uppercaseValue'},
+        {key: 'numbers', selector: '.pwd-strength-rule--numbers', strength: 3, regex: /[0-9]+/, labelValue: 'numbersValue'},
+        {key: 'specialCharacters', selector: '.pwd-strength-rule--special-characters', strength: 4, regex: /[^a-zA-Z0-9]+/, labelValue: 'specialCharactersValue'}
+    ];
 
     connect() {
-        this.popover = new Popover(this.element.querySelector('.tips-popover'),
+        this.passwordInput = this.element.querySelector('input');
+        this.triggerElement = this.element.querySelector('.tips-popover');
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
+        this.handleShown = this.handleShown.bind(this);
+        this.handleHidden = this.handleHidden.bind(this);
+
+        this.popover = new Popover(
+            this.triggerElement,
             {
                 placement: this.positionValue,
+                fallbackPlacements: ['right', 'left', 'bottom', 'top'],
+                boundary: 'viewport',
+                container: 'body',
+                trigger: 'manual',
                 html: true,
-                content: '<h4>Vous devez utiliser : </h4>' + this.showTips()
-            });
+                customClass: 'pwd-strength-popover',
+                content: this.showTips()
+            }
+        );
+
+        this.passwordInput?.addEventListener('focus', this.handleFocus);
+        this.passwordInput?.addEventListener('blur', this.handleBlur);
+        this.triggerElement?.addEventListener('shown.bs.popover', this.handleShown);
+        this.triggerElement?.addEventListener('hidden.bs.popover', this.handleHidden);
+    }
+
+    disconnect() {
+        this.passwordInput?.removeEventListener('focus', this.handleFocus);
+        this.passwordInput?.removeEventListener('blur', this.handleBlur);
+        this.triggerElement?.removeEventListener('shown.bs.popover', this.handleShown);
+        this.triggerElement?.removeEventListener('hidden.bs.popover', this.handleHidden);
+        this.popover?.dispose();
     }
 
     handleInput(event) {
-        this.pwd = event.target.value;
+        this.passwordInput = event.target;
         this.showPopover();
-        this.checkStrength(1, /[a-z]+/);
-        this.checkStrength(2, /[A-Z]+/);
-        this.checkStrength(3, /[0-9]+/);
-        this.checkStrength(4, /[^a-zA-Z0-9]+/);
+        this.updateRules(event.target.value);
     }
 
-    checkStrength(strength, regex) {
-        const span = document.getElementById(strength);
-        if (strength <= this.strengthValue) {
-            if (this.pwd.match(regex)) {
-                this.incrementPasswordStrength();
-                span.classList.add(`strength-${strength}`);
-            } else {
-                span.classList.remove(`strength-${strength}`);
-            }
-        }
-        const lengthSpan = document.getElementById(0);
-        if (this.pwd.length >= 8) {
-            lengthSpan.classList.add('strength-0');
-        } else {
-            lengthSpan.classList.remove('strength-0');
-        }
-        this.popover.update();
+    handleFocus(event) {
+        this.passwordInput = event.target;
+        this.showPopover();
+        this.updateRules(event.target.value);
     }
 
-    incrementPasswordStrength() {
-        this.passwordStrengthValue++;
+    handleBlur() {
+        this.popover?.hide();
+    }
+
+    handleShown() {
+        this.isPopoverVisible = true;
+        this.tipElement = document.getElementById(
+            this.triggerElement.getAttribute('aria-describedby')
+        );
+
+        this.updateRules(this.passwordInput?.value ?? '');
+    }
+
+    handleHidden() {
+        this.isPopoverVisible = false;
+        this.tipElement = null;
     }
 
     showTips() {
-        let tipsText = '';
-        const tipsTexts = {
-            length: '<span id="0" class="pwd-strength">Au moins <strong>8 caractères</strong>.</span>',
-            lowercase_letters: '<span id="1" class="pwd-strength">Des <strong>lettres minuscules</strong>.</span>',
-            uppercase_letters: '<span id="2" class="pwd-strength">Des <strong>lettres majuscules</strong>.</span>',
-            numbers: '<span id="3" class="pwd-strength">Des <strong>chiffres</strong>.</span>',
-            special_chars: '<span id="4" class="pwd-strength">Des <strong>caractères spéciaux ($ @ # & ! *)</strong>.</span>'
-        };
-        for (let i = 0; i <= this.strengthValue; i++) {
-            tipsText += `${tipsTexts[Object.keys(tipsTexts)[i]]}<br>`;
-        }
-        return tipsText;
+        const title = this.escapeHtml(this.titleValue);
+        const rules = this.activeRules()
+            .map((rule) => `<li class="pwd-strength text-danger ${rule.selector.substring(1)}">${this.escapeHtml(this[rule.labelValue])}</li>`)
+            .join('');
+
+        return `<h4 class="h5">${title}</h4><ul class="pwd-strength-list mb-0 ps-3">${rules}</ul>`;
+    }
+
+    activeRules() {
+        return this.rules.filter((rule) => rule.strength <= this.strengthValue);
     }
 
     showPopover() {
-        if (this.bool) {
-            this.popover.show();
-            this.bool = false;
+        if (this.isPopoverVisible) {
+            return;
         }
-        document.querySelectorAll('input').forEach((input) => {
-            input.addEventListener('click', () => {
-                this.popover.hide();
-                this.bool = true;
-            });
+
+        this.isPopoverVisible = true;
+        this.popover.show();
+    }
+
+    updateRules(password) {
+        this.activeRules().forEach((rule) => {
+            const ruleElement = this.ruleElement(rule);
+
+            if (!ruleElement) {
+                return;
+            }
+
+            const isValid = rule.regex.test(password);
+
+            ruleElement.classList.toggle('text-success', isValid);
+            ruleElement.classList.toggle('text-danger', !isValid);
         });
+    }
+
+    ruleElement(rule) {
+        return this.tipElement?.querySelector(rule.selector) ?? null;
+    }
+
+    escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
     }
 }

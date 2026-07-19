@@ -1,0 +1,27 @@
+{% trans_default_domain 'homepage' %}
+
+<section class="mgt-home-section">
+    <div class="mgt-section-heading">
+        <h2>{{ 'information.title'|trans }}</h2>
+    </div>
+
+    <div class="card mgt-practical-preview">
+        <div class="card-body d-flex flex-column gap-3 h-100">
+            <ul class="mb-0">
+                <li>{{ 'information.arrival'|trans }}</li>
+                <li>{{ 'information.equipment'|trans }}</li>
+                <li>{{ 'information.provided'|trans }}</li>
+                <li>{{ 'information.id_required'|trans }}</li>
+            </ul>
+
+            <div class="mt-auto">
+                <a
+                    class="btn btn-outline-primary"
+                    href="{{ path('app_practical_information') }}"
+                >
+                    {{ 'information.link'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

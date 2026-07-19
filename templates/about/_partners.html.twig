@@ -1,0 +1,37 @@
+{% trans_default_domain 'about' %}
+<section class="mb-5">
+    <div class="mgt-section-heading"><h2>{{ 'partners.title'|trans }}</h2></div>
+    <div class="row g-3">
+        {% for partner in partners %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="mgt-panel h-100 partner-card">
+                    <div class="mgt-panel-body d-flex flex-column gap-3 h-100">
+                        <div class="partner-card__logo-wrapper">
+                            {% if partner.logoPath is defined %}
+                                <img
+                                    class="partner-card__logo"
+                                    src="{{ partner.logoPath }}"
+                                    alt="{{ 'partners.logo_alt'|trans({ '%name%': partner.name }) }}"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <p class="h5 mb-0 text-center">{{ partner.name }}</p>
+                            {% endif %}
+                        </div>
+                        <h3 class="h5 card-title mb-0">{{ partner.name }}</h3>
+                        {% set descriptionKey = 'partners.descriptions.' ~ partner.key %}
+                        {% set description = descriptionKey|trans %}
+                        {% if description != descriptionKey %}
+                            <p class="mgt-panel-text partner-card__description mb-0">{% if partner.key == 'ikoula' %}{{ description|raw }}{% else %}{{ description }}{% endif %}</p>
+                        {% endif %}
+                        {% if partner.url is defined and partner.url is not empty %}
+                            <div class="mt-auto pt-2">
+                                <a class="btn btn-outline-primary btn-sm partner-card__link" href="{{ partner.url }}" target="_blank" rel="noopener noreferrer">{{ 'partners.website_link'|trans }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+</section>

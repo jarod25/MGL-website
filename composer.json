@@ -7,6 +7,7 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-pdo_mysql": "*",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
@@ -16,6 +17,7 @@
         "knplabs/knp-paginator-bundle": "^6.3",
         "mailjet/mailjet-apiv3-php": "^1.6",
         "phpdocumentor/reflection-docblock": "^5.4",
+        "phpoffice/phpspreadsheet": "^5.8",
         "phpstan/phpdoc-parser": "^1.29",
         "stof/doctrine-extensions-bundle": "^1.10",
         "stripe/stripe-php": "^14.10",
@@ -51,6 +53,7 @@
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/intl-extra": "^3.26",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {

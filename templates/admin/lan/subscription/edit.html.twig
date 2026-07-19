@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.subscription.edit_title'|trans({ '%name%': subscription.name }) }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page mgt-admin-page">
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading"><h1>{{ 'admin.subscription.edit_title'|trans({ '%name%': subscription.name }) }}</h1></div>
+                <div class="mgt-actions"><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_subscription_index') }}">{{ 'admin.subscription.back'|trans }}</a></div>
+            </div>
+        </header>
+        <div class="mgt-panel mgt-admin-form-panel">
+            <p class="mgt-admin-note"><strong>{{ 'admin.subscription.slug'|trans }}</strong> <code>{{ subscription.slug }}</code></p>
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+                <div class="mgt-form-field">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, { attr: { class: 'form-control' } }) }}
+                    <div class="text-danger">{{ form_errors(form.name) }}</div>
+                </div>
+                <div class="mgt-form-field">
+                    {{ form_label(form.helloAssoTierId) }}
+                    {{ form_widget(form.helloAssoTierId, { attr: { class: 'form-control' } }) }}
+                    <div class="text-danger">{{ form_errors(form.helloAssoTierId) }}</div>
+                </div>
+                <div class="mgt-form-field">
+                    {{ form_label(form.price) }}
+                    {{ form_widget(form.price, { attr: { class: 'form-control' } }) }}
+                    <div class="text-danger">{{ form_errors(form.price) }}</div>
+                </div>
+                <div class="mgt-form-field">
+                    {{ form_label(form.durationDays) }}
+                    {{ form_widget(form.durationDays, { attr: { class: 'form-control' } }) }}
+                    <div class="text-danger">{{ form_errors(form.durationDays) }}</div>
+                </div>
+                <div class="mgt-form-field">
+                    <div class="form-check mgt-form-check">
+                        {{ form_widget(form.isActive, {
+                            attr: {
+                                class: 'form-check-input'
+                            }
+                        }) }}
+                        {{ form_label(form.isActive, null, {
+                            label_attr: {
+                                class: 'form-check-label'
+                            }
+                        }) }}
+                    </div>
+                    <div class="text-danger">{{ form_errors(form.isActive) }}</div>
+                </div>
+                <div class="mgt-actions mt-4">
+                    <button class="btn btn-primary" type="submit">{{ 'admin.subscription.save'|trans }}</button>
+                    <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_subscription_index') }}">{{ 'admin.subscription.back'|trans }}</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

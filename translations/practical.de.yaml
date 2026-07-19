@@ -1,0 +1,44 @@
+meta:
+  title: 'Praktische Informationen'
+
+title: 'Praktische Informationen'
+
+place:
+  title: 'Ort und Zeiten'
+  address_name: 'PHG Academy – KMØ'
+  address_street: '30 rue François Spoerry'
+  address_city: '68100 Mulhouse'
+  map_title: 'Google-Maps-Karte der PHG Academy KMØ in Mulhouse'
+  maps_link: 'Adresse in Google Maps öffnen'
+  text: 'Das Turnier findet am 29. und 30. August 2026 in der PHG Academy – KMØ, Mulhouse, statt. Ankunft ist um 9:00 Uhr gewünscht; die Veranstaltung ist von 9:00 bis 21:00 Uhr geplant.'
+
+sections:
+  access:
+    title: 'Zugang'
+    text: 'Der Zugang ist registrierten Teilnehmenden und autorisierten Personen vorbehalten. Ein Ausweisdokument und ein Anmeldenachweis können verlangt werden.'
+  equipment:
+    title: 'Persönliche Ausrüstung'
+    text: 'Alle Spieler bringen ihr vollständiges Setup mit: PC, Bildschirm, Tastatur, Maus, Headset, Ethernet-Kabel, Kabel und Netzteile. Persönliche Ausrüstung bleibt in der Verantwortung der Teilnehmenden.'
+  rental:
+    title: 'PC-Miete'
+    text: 'PCs können nach Reservierung und je nach Verfügbarkeit gemietet werden. Vorgesehene Konfiguration: RTX 3070 Ti, i9-12900KF, 32 GB RAM, 1 TB SSD, Zowie-240-Hz-Bildschirm. Peripheriegeräte sind weiterhin mitzubringen.'
+  provided:
+    title: 'Vor Ort bereitgestellt'
+    text: 'PHG Academy stellt Tische, Stühle, Stromversorgung und Netzwerkzugang bereit. Alle Teilnehmenden müssen ihr eigenes Ethernet-Kabel zum Anschließen mitbringen.'
+  food:
+    title: 'Essen und Getränke'
+    text: 'Sandwiches, Snacks und Cafeteria-Angebote können vor Ort verfügbar sein. Getränke von außen sind außer Wasser verboten; Alkohol ist verboten; Rauchen und Dampfen nur draußen.'
+  conduct:
+    title: 'Verhalten'
+    text: 'Fair Play und Respekt gegenüber Ort, Material, Spielern und Organisation werden erwartet. Missbräuchliches Verhalten kann zu einer Sanktion führen.'
+  cheat:
+    title: 'Konten und Cheating'
+    text: 'Spieler müssen ihr Niveau ehrlich angeben. Cheating, Skripte, Vorteil-Software und nicht autorisierte Gameplay-Änderungen sind verboten.'
+  refund:
+    title: 'Stornierung und Rückerstattung'
+    text: 'Eine Rückerstattung ist bis 7 Tage vor dem betreffenden Turnier möglich. Danach geben Abwesenheit oder Stornierung keinen Anspruch auf Rückerstattung, außer bei Ausnahmeentscheidung.'
+  rules:
+    title: 'Regeln und Dokumente'
+    text: 'Die Anmeldung setzt die Annahme des allgemeinen Regelwerks voraus. Spielspezifische Regelwerke werden separat ergänzt.'
+    download: 'Allgemeines Regelwerk ansehen'
+    unavailable: 'Dokument bald verfügbar'

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.team.member.edit_title'|trans({ '%name%': team.name }) }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page mgt-admin-page">
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading"><h1>{{ 'admin.team.member.edit_title'|trans({ '%name%': team.name }) }}</h1></div>
+                <div class="mgt-actions"><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a></div>
+            </div>
+        </header>
+
+        <div class="mgt-panel mgt-admin-form-panel">
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+                    <p class="mgt-admin-note">{{ member.participant.firstname }} {{ member.participant.lastname }}</p>
+                    <div class="mgt-form-field">
+                        {{ form_label(form.inGamePseudo) }}
+                        {{ form_widget(form.inGamePseudo, {
+                            attr: {
+                                class: 'form-control'
+                            }
+                        }) }}
+                        <div class="text-danger">{{ form_errors(form.inGamePseudo) }}</div>
+                    </div>
+                <div class="mgt-actions mt-4">
+                    <button class="btn btn-primary" type="submit">{{ 'admin.team.save'|trans }}</button>
+                    <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

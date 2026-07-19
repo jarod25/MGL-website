@@ -1,78 +1,104 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'account.title'|trans }}{% endblock %}
+
 {% block body %}
-    <div class="container mt-4 w-75">
-        <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white text-center">
-                <h2>Mon profil</h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
+    <div class="mgt-public-page">
+        <div class="mgt-section-heading"><h1>{{ 'account.title'|trans }}</h1></div>
+
+        <div class="mgt-profile-grid">
+            <div>
+                <div class="mgt-panel h-100">
+                    <div class="px-4 pt-4">
+                        <h2 class="h5 mb-0">{{ 'account.info.title'|trans }}</h2>
+                    </div>
+                    <div class="card-body">
                         {{ form_start(form_infos) }}
-                        <div class="row mb-4 g-3">
-                            <div class="col-12 form-floating">
-                                {{ form_widget(form_infos.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
-                                {{ form_label(form_infos.firstname, 'Prénom', {'label_attr': {'for': form_infos.firstname.vars.id}}) }}
-                                <div class="text-danger">
-                                    {{ form_errors(form_infos.firstname) }}
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.firstname, {'attr': {'class': 'form-control', 'placeholder': 'account.form.firstname.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.firstname) }}
                                 </div>
+                                <div class="text-danger">{{ form_errors(form_infos.firstname) }}</div>
                             </div>
-                            <div class="col-12 form-floating">
-                                {{ form_widget(form_infos.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
-                                {{ form_label(form_infos.lastname, 'Nom', {'label_attr': {'for': form_infos.lastname.vars.id}}) }}
-                                <div class="text-danger">
-                                    {{ form_errors(form_infos.lastname) }}
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.lastname, {'attr': {'class': 'form-control', 'placeholder': 'account.form.lastname.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.lastname) }}
                                 </div>
+                                <div class="text-danger">{{ form_errors(form_infos.lastname) }}</div>
                             </div>
-                            <div class="col-12 form-floating">
-                                {{ form_widget(form_infos.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
-                                {{ form_label(form_infos.email, 'Email', {'label_attr': {'for': form_infos.email.vars.id}}) }}
-                                <div class="text-danger">
-                                    {{ form_errors(form_infos.email) }}
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    {{ form_widget(form_infos.email, {'attr': {'class': 'form-control', 'placeholder': 'account.form.email.placeholder'|trans}}) }}
+                                    {{ form_label(form_infos.email) }}
                                 </div>
+                                <div class="text-danger">{{ form_errors(form_infos.email) }}</div>
                             </div>
+                            {% if form_infos.discordPseudo is defined %}
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        {{ form_widget(form_infos.discordPseudo, {'attr': {'class': 'form-control', 'placeholder': 'account.form.discord_pseudo.placeholder'|trans}}) }}
+                                        {{ form_label(form_infos.discordPseudo) }}
+                                    </div>
+                                    <div class="text-danger">{{ form_errors(form_infos.discordPseudo) }}</div>
+                                </div>
+                            {% elseif not hasLanParticipant %}
+                                <div class="col-12">
+                                    <p class="small text-muted mb-0">{{ 'account.form.discord_pseudo.participant_required'|trans }}</p>
+                                </div>
+                            {% endif %}
                         </div>
-                        <div class="d-flex justify-content-end mb-2 ">
-                            <button type="submit" class="btn btn-primary">Modifier mes informations</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">{{ 'account.form.submit_info'|trans }}</button>
                         </div>
                         {{ form_end(form_infos) }}
                     </div>
+                </div>
+            </div>
 
-                    <div class="col-md-6">
+            <div>
+                <div class="mgt-panel h-100">
+                    <div class="px-4 pt-4">
+                        <h2 class="h5 mb-0">{{ 'account.password.title'|trans }}</h2>
+                    </div>
+                    <div class="card-body">
                         {{ form_start(form_pwd) }}
                         <div class="row g-3 mb-4">
                             <div class="col-12">
                                 <div class="form-floating" data-controller="pwd-eye">
-                                    {{ form_widget(form_pwd.oldPassword, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe actuel', 'data-pwd-eye-target': 'input'}}) }}
-                                    {{ form_label(form_pwd.oldPassword, 'Mot de passe actuel', {'label_attr': {'for': form_pwd.oldPassword.vars.id}}) }}
-                                    <div class="text-danger">
-                                        {{ form_errors(form_pwd.oldPassword) }}
-                                    </div>
+                                    {{ form_widget(form_pwd.oldPassword, {'attr': {'class': 'form-control', 'placeholder': 'account.password.current.placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'current-password'}}) }}
+                                    {{ form_label(form_pwd.oldPassword) }}
                                 </div>
+                                <div class="text-danger">{{ form_errors(form_pwd.oldPassword) }}</div>
                             </div>
-                            <div class="col-12" data-controller="pwd-strength" data-pwd-strength-strength-value="4" data-pwd-strength-position-value="left">
-                                <div data-controller="pwd-eye" class="form-floating">
-                                    {{ form_widget(form_pwd.password.first, {'attr': {'class': 'form-control',  'placeholder': 'Mot de passe', 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput'}}) }}
-                                    {{ form_label(form_pwd.password.first, 'Mot de passe', {'label_attr': {'for': form_pwd.password.first.vars.id}}) }}
-                                </div>
-                                <div class="text-danger">
-                                    {{ form_errors(form_pwd.password.first) }}
+                            <div class="col-12" data-controller="pwd-strength"
+                                     data-pwd-strength-strength-value="{{ passwordStrength }}"
+                                     data-pwd-strength-position-value="left"
+                                     data-pwd-strength-title-value="{{ 'password_requirements.title'|trans }}"
+                                     data-pwd-strength-min-length-value="{{ 'password_requirements.min_length'|trans }}"
+                                     data-pwd-strength-lowercase-value="{{ 'password_requirements.lowercase'|trans }}"
+                                     data-pwd-strength-uppercase-value="{{ 'password_requirements.uppercase'|trans }}"
+                                     data-pwd-strength-numbers-value="{{ 'password_requirements.numbers'|trans }}"
+                                     data-pwd-strength-special-characters-value="{{ 'password_requirements.special_characters'|trans }}">
+                                <div class="form-floating" data-controller="pwd-eye">
+                                    {{ form_widget(form_pwd.password.first, {'attr': {'class': 'form-control', 'placeholder': 'account.password.new.placeholder'|trans, 'data-pwd-eye-target': 'input', 'data-action': 'pwd-strength#handleInput', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form_pwd.password.first) }}
                                 </div>
                                 <div class="tips-popover"></div>
+                                <div class="text-danger">{{ form_errors(form_pwd.password.first) }}{{ form_errors(form_pwd.password) }}</div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating" data-controller="pwd-eye">
-                                    {{ form_widget(form_pwd.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmation du mot de passe', 'data-pwd-eye-target': 'input'}}) }}
-                                    {{ form_label(form_pwd.password.second, 'Confirmation du mot de passe', {'label_attr': {'for': form_pwd.password.second.vars.id}}) }}
-                                    <div class="text-danger">
-                                        {{ form_errors(form_pwd.password.second) }}
-                                    </div>
+                                    {{ form_widget(form_pwd.password.second, {'attr': {'class': 'form-control', 'placeholder': 'account.password.confirm.placeholder'|trans, 'data-pwd-eye-target': 'input', 'autocomplete': 'new-password'}}) }}
+                                    {{ form_label(form_pwd.password.second) }}
                                 </div>
+                                <div class="text-danger">{{ form_errors(form_pwd.password.second) }}</div>
                             </div>
                         </div>
-                        <div class="text-end mb-2">
-                            <button type="submit" class="btn btn-primary" value="submit-pwd">Modifier mon mot de passe</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">{{ 'account.form.submit_password'|trans }}</button>
                         </div>
                         {{ form_end(form_pwd) }}
                     </div>

@@ -1,9 +1,22 @@
 {% extends 'base.html.twig' %}
+{% trans_default_domain 'homepage' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}{{ 'meta.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
-        {% include 'partials/_list_events.html.twig' %}
+    <div class="mgt-homepage">
+        <div class="mgt-hero-section">
+            {% include 'home/_hero.html.twig' %}
+        </div>
+
+        <div class="mgt-home-sections">
+            {% include 'home/_presentation.html.twig' %}
+            {% include 'home/_games.html.twig' %}
+            {% include 'home/_pricing.html.twig' %}
+            <div class="mgt-home-duo">
+                {% include 'home/_practical_information.html.twig' %}
+                {% include 'home/_about_preview.html.twig' %}
+            </div>
+        </div>
     </div>
 {% endblock %}

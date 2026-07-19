@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'team.new.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page mgt-team-form-page">
+        <header class="mgt-page-header">
+            <div class="mgt-section-heading">
+                <h1>{{ 'team.new.title'|trans }}</h1>
+            </div>
+        </header>
+
+        <div class="mgt-form-panel mgt-team-form-panel">
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+
+            <div class="mgt-form-field">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, {
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'team.form.name.placeholder'|trans
+                    }
+                }) }}
+                <div class="text-danger">{{ form_errors(form.name) }}</div>
+            </div>
+
+            <div class="mgt-form-field">
+                {{ form_label(form.game) }}
+                {{ form_widget(form.game, {
+                    attr: {
+                        class: 'form-select'
+                    }
+                }) }}
+                <div class="text-danger">{{ form_errors(form.game) }}</div>
+            </div>
+
+            <div class="mgt-form-field">
+                {{ form_label(form.captainInGamePseudo) }}
+                {{ form_widget(form.captainInGamePseudo, {
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'team.form.captain_in_game_pseudo.placeholder'|trans
+                    }
+                }) }}
+                <div class="text-danger">{{ form_errors(form.captainInGamePseudo) }}</div>
+            </div>
+
+            <div class="mgt-actions mt-4">
+                <button class="btn btn-primary" type="submit">
+                    {{ 'team.new.submit'|trans }}
+                </button>
+
+                <a class="btn btn-outline-primary" href="{{ path('app_team_index') }}">
+                    {{ 'team.action.back_to_list'|trans }}
+                </a>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

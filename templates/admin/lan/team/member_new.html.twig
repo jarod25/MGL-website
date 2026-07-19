@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.team.member.new_title'|trans({ '%name%': team.name }) }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page mgt-admin-page">
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading"><h1>{{ 'admin.team.member.new_title'|trans({ '%name%': team.name }) }}</h1></div>
+                <div class="mgt-actions"><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a></div>
+            </div>
+        </header>
+
+        <div class="mgt-panel mgt-admin-form-panel">
+            {{ form_start(form, { attr: { class: 'mgt-stacked-form' } }) }}
+                    <div class="mgt-form-field">
+                        {{ form_label(form.participantEmail) }}
+                        {{ form_widget(form.participantEmail, {
+                            attr: {
+                                class: 'form-control'
+                            }
+                        }) }}
+                        <div class="text-danger">{{ form_errors(form.participantEmail) }}</div>
+                    </div>
+                    <div class="mgt-form-field">
+                        {{ form_label(form.inGamePseudo) }}
+                        {{ form_widget(form.inGamePseudo, {
+                            attr: {
+                                class: 'form-control'
+                            }
+                        }) }}
+                        <div class="text-danger">{{ form_errors(form.inGamePseudo) }}</div>
+                    </div>
+                <div class="mgt-actions mt-4">
+                    <button class="btn btn-primary" type="submit">{{ 'admin.team.member.add_submit'|trans }}</button>
+                    <a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_show',{id:team.id}) }}">{{ 'admin.team.back_to_team'|trans }}</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

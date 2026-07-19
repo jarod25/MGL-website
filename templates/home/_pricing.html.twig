@@ -1,0 +1,64 @@
+{% trans_default_domain 'homepage' %}
+<section class="mgt-home-section">
+    <div class="mgt-section-heading"><h2>{{ 'pricing.title'|trans }}</h2></div>
+    {% set prices = {} %}
+    {% set knownSlugs = [
+        'men-one-day-with-meal', 'men-two-days-with-meal', 'men-one-day-without-meal', 'men-two-days-without-meal',
+        'women-one-day-with-meal', 'women-two-days-with-meal', 'women-one-day-without-meal', 'women-two-days-without-meal'
+    ] %}
+    {% set unknownSubscriptions = [] %}
+    {% for subscription in subscriptions %}
+        {% if subscription.slug in knownSlugs %}
+            {% set prices = prices|merge({ (subscription.slug): subscription }) %}
+        {% else %}
+            {% set unknownSubscriptions = unknownSubscriptions|merge([subscription]) %}
+        {% endif %}
+    {% endfor %}
+
+    {% if subscriptions is empty %}
+        <p class="text-muted">{{ 'pricing.empty'|trans }}</p>
+    {% else %}
+        <div class="mgt-pricing">
+            <div class="row g-4">
+                {% for group, titleKey in { men: 'pricing.group_men', women: 'pricing.group_women' } %}
+                    <div class="col-12 col-lg-6">
+                        <h3 class="h5">{{ titleKey|trans }}</h3>
+                        <div class="table-responsive">
+                            <table class="table table-sm align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>{{ 'pricing.formula'|trans }}</th>
+                                        <th class="text-end">{{ 'pricing.one_day'|trans }}</th>
+                                        <th class="text-end">{{ 'pricing.two_days'|trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for meal, labelKey in { 'with-meal': 'pricing.with_meal', 'without-meal': 'pricing.without_meal' } %}
+                                        <tr>
+                                            <th scope="row">{{ labelKey|trans }}</th>
+                                            {% for duration in ['one-day', 'two-days'] %}
+                                                {% set slug = group ~ '-' ~ duration ~ '-' ~ meal %}
+                                                <td class="text-end">{{ prices[slug] is defined ? (prices[slug].price / 100)|format_currency('EUR') : '—' }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if unknownSubscriptions is not empty %}
+                <h3 class="h5 mt-4">{{ 'pricing.unknown_title'|trans }}</h3>
+                <ul class="list-unstyled mb-0">
+                    {% for subscription in unknownSubscriptions %}
+                        {% set labelKey = 'subscription.tier.' ~ subscription.slug %}
+                        {% set translatedLabel = labelKey|trans({}, 'messages') %}
+                        <li>{{ translatedLabel == labelKey ? subscription.name : translatedLabel }} — {{ (subscription.price / 100)|format_currency('EUR') }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+</section>

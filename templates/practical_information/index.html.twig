@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'practical' %}
+
+{% block title %}{{ 'meta.title'|trans }}{% endblock %}
+
+{% block body %}
+    {% set rulesDocumentUrl = localized_document_url('rules', app.request.locale) %}
+
+    <div class="mgt-public-page mgt-practical-page">
+        <header class="mgt-page-header">
+            <div class="mgt-section-heading">
+                <h1>{{ 'title'|trans }}</h1>
+            </div>
+        </header>
+
+        <section class="mgt-public-section">
+            <div class="mgt-panel mgt-practical-place">
+                <div class="card-body">
+                    <div class="mgt-section-heading mgt-section-heading--sm">
+                        <h2>{{ 'place.title'|trans }}</h2>
+                    </div>
+
+                    <div class="mgt-practical-place__grid">
+                        <div>
+                            <address class="mb-3">
+                                {{ 'place.address_name'|trans }}<br>
+                                {{ 'place.address_street'|trans }}<br>
+                                {{ 'place.address_city'|trans }}
+                            </address>
+
+                            <div class="mgt-info-note mb-3">
+                                {{ 'place.text'|trans }}
+                            </div>
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {{ 'place.maps_link'|trans }}
+                            </a>
+                        </div>
+
+                        <div class="ratio ratio-16x9 mgt-map">
+                            <iframe
+                                title="{{ 'place.map_title'|trans }}"
+                                src="https://www.google.com/maps?q=PHG%20Academy%20KM%C3%98%2C%2030%20rue%20Fran%C3%A7ois%20Spoerry%2C%2068100%20Mulhouse&output=embed"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mgt-public-section">
+            {% set practicalSections = [
+                'access',
+                'equipment',
+                'rental',
+                'provided',
+                'food',
+                'conduct',
+                'cheat',
+                'refund',
+                'rules'
+            ] %}
+
+            <div class="mgt-practical-grid">
+                {% for section in practicalSections %}
+                    <article class="mgt-panel mgt-practical-card">
+                        <div class="card-body">
+                            <h2 class="h4 mgt-panel-title">
+                                {{ ('sections.' ~ section ~ '.title')|trans }}
+                            </h2>
+
+                            <div class="mgt-info-note mgt-practical-card__text">
+                                {{ ('sections.' ~ section ~ '.text')|trans }}
+                            </div>
+
+                            {% if section == 'rules' %}
+                                {% if rulesDocumentUrl %}
+                                    <a
+                                        class="btn btn-primary mt-3"
+                                        href="{{ path('app_document_view', { type: 'rules' }) }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {{ 'sections.rules.download'|trans }}
+                                    </a>
+                                {% else %}
+                                    <p class="mgt-info-note mb-0 mt-3">
+                                        {{ 'sections.rules.unavailable'|trans }}
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}

@@ -1,3 +1,109 @@
 .dropdown-item:hover {
   background-color: #737270;
 }
+
+.language-switcher__link {
+  align-items: center;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  padding: 0.25rem;
+  width: 2.25rem;
+}
+
+.language-switcher__flag {
+  border-radius: 0.125rem;
+  display: block;
+  height: 16px;
+  object-fit: cover;
+  width: 24px;
+}
+
+.language-switcher__link--active {
+  cursor: not-allowed;
+  filter: grayscale(0.6);
+  opacity: 0.35;
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+.language-switcher__link:not(.language-switcher__link--active):hover,
+.language-switcher__link:not(.language-switcher__link--active):focus {
+  opacity: 0.85;
+}
+
+.navbar-action-link {
+  white-space: nowrap;
+}
+
+.navbar-user-area {
+  margin-left: auto;
+}
+
+.account-menu {
+  align-items: center;
+  display: flex;
+}
+
+.account-menu__toggle {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  min-width: 2.5rem;
+  padding: 0.375rem 0.55rem;
+}
+
+.account-menu__toggle:hover,
+.account-menu__toggle:focus {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.account-menu__toggle:focus-visible {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.35);
+  outline: 0;
+}
+
+.account-menu__icon {
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.team-day-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+.game-card__logo-wrapper {
+  align-items: center;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+}
+
+.game-card__logo,
+.partner-card__logo {
+  display: block;
+  max-height: 140px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.event-logo {
+  display: block;
+  max-height: 180px;
+  max-width: min(100%, 420px);
+  object-fit: contain;
+}
+
+.partner-card__logo-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 110px;
+}

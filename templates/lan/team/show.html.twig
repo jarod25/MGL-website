@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'team.label'|trans }} - {{ 'team.show.title'|trans({ '%name%': team.name }) }}
+{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page">
+        <nav class="mgt-breadcrumb" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_team_index') }}">
+                        {{ 'index.title'|trans({}, 'teams') }}
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{{ path('app_team_game', { gameSlug: team.game.slug }) }}">
+                        {{ team.game.name }}
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ team.name }}
+                </li>
+            </ol>
+        </nav>
+
+        <div class="mgt-page-header__row mb-4">
+            <div class="mgt-section-heading">
+                <h1>
+                    {{ 'team.show.title'|trans({ '%name%': team.name }) }}
+                </h1>
+            </div>
+
+            <div class="mgt-actions">
+                <a
+                    class="btn btn-secondary"
+                    href="{{ path('app_team_game', { gameSlug: team.game.slug }) }}"
+                >
+                    {{ 'team.action.back_to_list'|trans }}
+                </a>
+
+                {% if canAddMembers %}
+                    <a
+                        class="btn btn-primary"
+                        href="{{ path('app_team_member_new', { id: team.id }) }}"
+                    >
+                        {{ 'team.show.add_member'|trans }}
+                    </a>
+                {% elseif isCaptain and isTeamFull %}
+                    <span class="badge bg-secondary">
+                        {{ 'team.show.team_full'|trans }}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="mgt-panel p-4 mb-4">
+            <dl class="mgt-info-grid mb-0">
+                <dt class="col-sm-3">
+                    {{ 'team.show.game'|trans }}
+                </dt>
+                <dd class="col-sm-9">
+                    {{ team.game.name }}
+                </dd>
+
+                <dt class="col-sm-3">
+                    {{ 'team.show.day'|trans }}
+                </dt>
+                <dd class="col-sm-9">
+                    {{ ('game.day.' ~ team.game.day.value)|trans }}
+                </dd>
+
+                <dt class="col-sm-3">
+                    {{ 'team.show.players'|trans }}
+                </dt>
+                <dd class="col-sm-9">
+                    {{ 'team.show.players_count'|trans({
+                        '%count%': memberCount,
+                        '%max%': maxPlayers
+                    }) }}
+                </dd>
+
+                <dt class="col-sm-3">
+                    {{ 'team.show.captain'|trans }}
+                </dt>
+                <dd class="col-sm-9">
+                    {{ team.captain.firstname }} {{ team.captain.lastname }}
+                </dd>
+            </dl>
+        </div>
+
+        <div class="mgt-section-heading">
+            <h2>
+                {{ 'team.show.members'|trans }}
+            </h2>
+        </div>
+
+        <div class="mgt-panel p-3">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                {{ 'team.show.member'|trans }}
+                            </th>
+
+                            <th scope="col">
+                                {{ 'team.show.in_game_pseudo'|trans }}
+                            </th>
+
+                            {% if isCaptain %}
+                                <th scope="col">
+                                    {{ 'team.show.actions'|trans }}
+                                </th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for member in members %}
+                            {% set isCaptainMember = member.participant.id == team.captain.id %}
+
+                            <tr>
+                                <td>
+                                    {{ member.participant.firstname }}
+                                    {{ member.participant.lastname }}
+
+                                    {% if isCaptainMember %}
+                                        <span class="badge bg-secondary">
+                                            {{ 'team.show.captain_badge'|trans }}
+                                        </span>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    {{ member.inGamePseudo }}
+                                </td>
+
+                                {% if isCaptain %}
+                                    <td>
+                                        {% if not isCaptainMember %}
+                                            <form
+                                                method="post"
+                                                action="{{ path('app_team_member_delete', {
+                                                    teamId: team.id,
+                                                    memberId: member.id
+                                                }) }}"
+                                                class="d-inline"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="_token"
+                                                    value="{{ csrf_token('delete_team_member_' ~ member.id) }}"
+                                                >
+
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                >
+                                                    {{ 'team.action.remove_member'|trans }}
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% if isCaptain %}
+            <div class="mgt-panel mgt-panel--danger mt-4">
+                <div class="card-body">
+                    <h2 class="h5 text-danger">
+                        {{ 'team.delete.title'|trans }}
+                    </h2>
+
+                    <p>
+                        {{ 'team.delete.help'|trans }}
+                    </p>
+
+                    <form
+                        method="post"
+                        action="{{ path('app_team_delete', { id: team.id }) }}"
+                    >
+                        <input
+                            type="hidden"
+                            name="_token"
+                            value="{{ csrf_token('delete_team_' ~ team.id) }}"
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn btn-outline-danger"
+                            onclick="return confirm('{{ 'team.delete.confirm'|trans|e('js') }}');"
+                        >
+                            {{ 'team.action.delete_team'|trans }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

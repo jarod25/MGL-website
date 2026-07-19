@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'about' %}
+
+{% block title %}{{ 'intro.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page">
+        <section class="mgt-page-header">
+            <div class="mgt-section-heading"><h1>{{ 'intro.title'|trans }}</h1></div>
+        </section>
+        {% include 'about/_schools.html.twig' %}
+        {% include 'about/_organizers.html.twig' %}
+        {% include 'about/_partners.html.twig' %}
+        {% include 'about/_contact.html.twig' %}
+    </div>
+{% endblock %}

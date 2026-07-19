@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Projet PHP S6 Kohler Graber{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070D0B">
+    <link rel="icon" href="/images/branding/mgt-icon-white.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
+    <title>{% block title %}Mulhouse Gaming Tournament{% endblock %}</title>
     {% block stylesheets %}
         {% for file in encore_entry_css_files('main') %}
             <link rel="stylesheet" href="{{ preload(file, { as: 'style', importance: 'high' }) }}">
         {% endfor %}
     {% endblock %}
 </head>
-<body class="d-flex flex-column min-vh-100">
+{% set currentRoute = app.request.attributes.get('_route')|default('') %}
+{% set isAdminPage = currentRoute starts with 'app_admin_' %}
+{% set isHomepage = currentRoute == 'app_home' %}
+<body class="{{ isAdminPage ? 'mgt-admin' : 'mgt-public' }} {{ isHomepage ? 'mgt-page-home' : '' }}">
 {% block content %}
+    <div class="mgt-site-shell {{ isAdminPage ? '' : 'mgt-public-shell' }} {{ isHomepage ? 'mgt-home-shell' : '' }}">
 
     {% block navbar %}
         {% include 'partials/_navbar.html.twig' %}
@@ -20,20 +30,17 @@
         {% include 'partials/_flash.html.twig' %}
     </div>
 
-    <div class="container flex-grow-1">
-        <div class="row">
-            <div class="col-md-12">
-                {% block body %}
+    <main class="container flex-grow-1">
+        {% block body %}
 
-                {% endblock %}
-            </div>
-        </div>
-    </div>
+        {% endblock %}
+    </main>
 
     {% block footer %}
         {% include "partials/_footer.html.twig" %}
     {% endblock %}
 
+    </div>
 {% endblock %}
 
 {% block javascripts %}

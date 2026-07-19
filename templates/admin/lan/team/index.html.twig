@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'admin.team.title'|trans }}{% endblock %}
+{% block body %}
+<div class="mgt-public-page mgt-admin-page">
+  <header class="mgt-page-header"><div class="mgt-page-header__row"><div class="mgt-section-heading"><h1>{{ 'admin.team.title'|trans }}</h1></div><div class="mgt-actions"><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_index') }}">{{ 'admin.subscription.back_to_admin'|trans }}</a></div></div></header>
+  <form method="get" class="mgt-panel mgt-admin-filters row g-3 align-items-end">
+    <div class="col-12 col-lg-4"><label class="form-label" for="q">{{ 'admin.team.search'|trans }}</label><input id="q" class="form-control" type="search" name="q" value="{{ filters.q }}" placeholder="{{ 'admin.team.search_placeholder'|trans }}"></div>
+    <div class="col-12 col-md-4 col-lg-3"><label class="form-label" for="game">{{ 'admin.team.game'|trans }}</label><select id="game" class="form-select" name="game"><option value="">{{ 'admin.team.all_games'|trans }}</option>{% for game in games %}<option value="{{ game.id }}" {% if filters.game == game.id %}selected{% endif %}>{{ game.name }}</option>{% endfor %}</select></div>
+    <div class="col-12 col-md-4 col-lg-3"><label class="form-label" for="day">{{ 'admin.team.day'|trans }}</label><select id="day" class="form-select" name="day"><option value="">{{ 'admin.team.all_days'|trans }}</option>{% for day in days %}<option value="{{ day.value }}" {% if filters.day == day.value %}selected{% endif %}>{{ ('game.day.' ~ day.value)|trans }}</option>{% endfor %}</select></div>
+    <div class="col-12 col-md-4 col-lg-2 d-flex gap-2"><button class="btn btn-primary" type="submit">{{ 'admin.team.filter'|trans }}</button><a class="btn btn-outline-primary" href="{{ path('app_admin_lan_team_index') }}">{{ 'admin.team.reset'|trans }}</a></div>
+  </form>
+  <div class="mgt-panel mgt-admin-table-panel"><div class="table-responsive"><table class="table align-middle mgt-admin-table"><thead><tr><th>{{ 'admin.team.name'|trans }}</th><th>{{ 'admin.team.game'|trans }}</th><th>{{ 'admin.team.day'|trans }}</th><th>{{ 'admin.team.captain'|trans }}</th><th>{{ 'admin.team.members'|trans }}</th><th>{{ 'admin.team.created_at'|trans }}</th><th>{{ 'admin.team.actions'|trans }}</th></tr></thead><tbody>
+  {% for team in pagination %}<tr><td>{{ team.name }}</td><td>{{ team.game.name }}</td><td>{{ ('game.day.' ~ team.game.day.value)|trans }}</td><td>{{ team.captain.firstname }} {{ team.captain.lastname }}<br><span class="text-muted small">{{ team.captain.email }}</span></td><td>{{ 'admin.team.members_count'|trans({ '%count%': memberCounts[team.id]|default(0), '%max%': team.game.maxPlayersPerTeam }) }}</td><td>{{ team.createdAt ? team.createdAt|date('d/m/Y H:i') : 'admin.common.not_available'|trans }}</td><td><a class="btn btn-sm btn-primary" href="{{ path('app_admin_lan_team_show', {id: team.id}) }}">{{ 'admin.team.view'|trans }}</a></td></tr>{% else %}<tr><td colspan="7" class="mgt-admin-empty">{{ 'admin.team.empty'|trans }}</td></tr>{% endfor %}
+  </tbody></table></div>{{ knp_pagination_render(pagination, 'bundles/KnpPaginatorBundle/pagination.html.twig') }}
+  </div>
+</div>
+{% endblock %}

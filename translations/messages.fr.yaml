@@ -1,0 +1,605 @@
+error:
+  common:
+    back_home: 'Retour à l’accueil'
+  403:
+    page_title: 'Accès refusé'
+    title: 'Vous ne pouvez pas accéder à cette page'
+    message: 'Vous ne disposez pas des autorisations nécessaires pour consulter cette page.'
+  404:
+    page_title: 'Page introuvable'
+    title: 'Cette page est introuvable'
+    message: 'La page que vous recherchez n’existe pas ou a peut-être été déplacée.'
+  500:
+    page_title: 'Erreur interne'
+    title: 'Une erreur est survenue'
+    message: 'Une erreur inattendue s’est produite. Veuillez réessayer dans quelques instants.'
+
+registration:
+  title: 'Inscription LAN'
+  subtitle: 'Créez votre inscription LAN, puis finalisez le paiement pour rejoindre ou créer des équipes.'
+  submit: 'Continuer'
+  already_registered: 'Déjà inscrit ?'
+  login_link: 'Connectez-vous'
+  payment_notice: 'Remplissez ce formulaire pour créer votre inscription. La formule sera déterminée plus tard via le paiement HelloAsso.'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
+    password:
+      first_label: 'Mot de passe'
+      first_placeholder: 'Votre mot de passe'
+      second_label: 'Confirmation du mot de passe'
+      second_placeholder: 'Confirmez votre mot de passe'
+    discord_pseudo:
+      label: 'Pseudo Discord'
+      placeholder: 'Votre pseudo Discord'
+      help: 'Optionnel, mais utile pour vous retrouver avant la LAN.'
+    is_major_confirmed:
+      label: 'Je serai majeur·e au moment de l’événement.'
+      help: 'Si vous n’êtes pas majeur·e, une autorisation parentale signée sera demandée pour participer.'
+    submit_payment: 'Continuer vers le paiement'
+  status:
+    pending_payment: 'Paiement en attente'
+    paid: 'Payée'
+    cancelled: 'Annulée'
+    refunded: 'Remboursée'
+  pending:
+    title: 'Paiement en attente'
+    message: 'Votre inscription LAN est créée et en attente de paiement.'
+    reference: 'Référence interne : %reference%'
+    payment_next_step: 'La redirection HelloAsso sera intégrée prochainement.'
+    status_pending: 'Le paiement est toujours en attente. Le parcours de paiement HelloAsso sera branché plus tard.'
+    status_paid: 'Votre inscription LAN est validée.'
+    go_to_teams: 'Accéder aux équipes'
+  error:
+    email_already_used: 'Un compte existe déjà avec cet email.'
+    not_found: 'Inscription introuvable.'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir un email.'
+    email_invalid: 'Veuillez saisir un email valide.'
+    password_required: 'Veuillez saisir un mot de passe.'
+    password_min_length: 'Le mot de passe doit contenir au moins {{ limit }} caractères.'
+    password_mismatch: 'Les mots de passe doivent correspondre.'
+    password_strength_invalid: 'Le mot de passe ne respecte pas les exigences de sécurité.'
+    major_confirmation_required: 'La confirmation de majorité est obligatoire.'
+
+navigation:
+  toggle: 'Afficher ou masquer la navigation'
+  close: 'Fermer'
+  profile: 'Mon compte'
+  account: 'Mon compte'
+  account_menu: 'Menu du compte'
+  login: 'Se connecter'
+  logout: 'Se déconnecter'
+  login_signup: 'Se connecter / S’inscrire'
+  my_lan: 'Mon espace LAN'
+  teams: 'Jeux et équipes'
+  practical_information: 'Informations pratiques'
+  contact: 'Nous contacter'
+  about: 'À propos'
+  home: 'Accueil'
+  language: 'Langue'
+  events:
+    label: 'Évènements'
+    list: 'Liste des événements'
+    create: 'Créer un événement'
+    mine: 'Mes événements'
+
+footer:
+  rules: 'Consulter le règlement'
+  rules_unavailable: 'Règlement bientôt disponible'
+  all_right_reserved: 'Tous droits réservés.'
+  hosted_by: 'Site hébergé par'
+
+language:
+  en: 'English'
+  fr: 'Français'
+  de: 'Deutsch'
+
+team:
+  label: 'Équipe'
+  new:
+    title: 'Créer une équipe'
+    submit: 'Créer l’équipe'
+  show:
+    title: '%name%'
+    game: 'Jeu'
+    day: 'Jour'
+    players: 'Joueurs'
+    players_count: '%count% / %max% joueurs'
+    captain: 'Capitaine'
+    members: 'Membres'
+    member: 'Membre'
+    in_game_pseudo: 'Pseudo in-game'
+    captain_badge: 'Capitaine'
+    add_member: 'Ajouter un membre'
+    actions: 'Actions'
+    team_full: 'Équipe complète'
+  member:
+    new:
+      title: 'Ajouter un membre à %name%'
+      submit: 'Ajouter le membre'
+      current_count: '%count% / %max% joueurs'
+    form:
+      participant_email:
+        label: 'Email participant ou pseudo Discord'
+        placeholder: 'participant@example.com ou pseudo Discord'
+      in_game_pseudo:
+        label: 'Pseudo in-game'
+        placeholder: 'Pseudo in-game du membre'
+  form:
+    name:
+      label: 'Nom de l’équipe'
+      placeholder: 'Nom de votre équipe'
+    game:
+      label: 'Jeu'
+      placeholder: 'Choisir un jeu'
+    captain_in_game_pseudo:
+      label: 'Pseudo in-game du capitaine'
+      placeholder: 'Votre pseudo in-game'
+  game:
+    not_found: 'Jeu introuvable.'
+  action:
+    back_to_list: 'Retour aux équipes'
+    back_to_team: 'Retour à l’équipe'
+    remove_member: 'Retirer'
+    delete_team: 'Supprimer l’équipe'
+  flash:
+    created: 'L’équipe a été créée.'
+    member_added: 'Le membre a été ajouté à l’équipe.'
+    member_removed: 'Le membre a été retiré de l’équipe.'
+    deleted: 'L’équipe a été supprimée.'
+  error:
+    login_required: 'Vous devez être connecté pour gérer les équipes LAN.'
+    participant_required: 'Vous devez avoir une inscription LAN avant de gérer une équipe.'
+    member_not_found: 'Aucun participant inscrit ne correspond à cet email ou pseudo Discord.'
+    only_captain_can_add_member: 'Seul le capitaine peut ajouter des membres à cette équipe.'
+    only_captain_can_remove_member: 'Seul le capitaine peut retirer des membres de cette équipe.'
+    member_does_not_belong_to_team: 'Ce membre n’appartient pas à cette équipe.'
+    cannot_remove_captain: 'Le capitaine ne peut pas être retiré de l’équipe.'
+    creation_failed: 'L’équipe n’a pas pu être créée.'
+    name_already_used_for_game: 'Ce nom d’équipe est déjà utilisé pour ce jeu.'
+    member_add_failed: 'Le membre n’a pas pu être ajouté.'
+    member_remove_failed: 'Le membre n’a pas pu être retiré.'
+    only_captain_can_delete_team: 'Seul le capitaine peut supprimer cette équipe.'
+    delete_failed: 'L’équipe n’a pas pu être supprimée.'
+    invalid_delete_token: 'La demande de suppression de l’équipe est invalide. Veuillez réessayer.'
+    participant_must_be_paid: 'Le participant doit avoir payé pour rejoindre une équipe.'
+    participant_subscription_required: 'Le participant doit avoir une formule pour rejoindre une équipe.'
+    game_not_active: 'Ce jeu n’est pas actif.'
+    subscription_duration_invalid: 'La durée de la formule est invalide.'
+    subscription_duration_unsupported: 'Cette durée de formule n’est pas prise en charge.'
+    participant_day_lock_mismatch: 'Le jour de la formule du participant ne correspond pas au jour de ce jeu.'
+    captain_already_registered_for_game: 'Le capitaine est déjà inscrit dans une équipe pour ce jeu.'
+    participant_already_registered_for_game: 'Ce participant est déjà inscrit dans une équipe pour ce jeu.'
+    team_has_no_game: 'Cette équipe n’a pas de jeu associé.'
+    game_max_teams_invalid: 'La capacité d’équipes du jeu est invalide.'
+    game_max_teams_reached: 'Ce jeu a atteint sa capacité d’équipes.'
+    game_max_players_invalid: 'La capacité de joueurs du jeu est invalide.'
+    team_max_players_reached: 'Cette équipe a atteint sa capacité de joueurs.'
+  delete:
+    title: 'Supprimer l’équipe'
+    help: 'Supprimer cette équipe retirera aussi tous ses membres. Cette action est irréversible.'
+    confirm: 'Voulez-vous vraiment supprimer cette équipe ?'
+  validation:
+    name_required: 'Veuillez saisir un nom d’équipe.'
+    game_required: 'Veuillez choisir un jeu.'
+    captain_in_game_pseudo_required: 'Veuillez saisir le pseudo in-game du capitaine.'
+    participant_identifier_required: 'Veuillez saisir un email participant ou un pseudo Discord.'
+    in_game_pseudo_required: 'Veuillez saisir le pseudo in-game.'
+
+game:
+  day:
+    saturday: 'Samedi'
+    sunday: 'Dimanche'
+
+lan_profile:
+  title: 'Mon espace LAN'
+  registration:
+    title: 'Inscription'
+    status: 'Statut d’inscription'
+    reference: 'Référence interne'
+    discord: 'Pseudo Discord'
+    created_at: 'Créée le'
+    paid_at: 'Payée le'
+    subscription: 'Souscription'
+    no_subscription: 'Aucune souscription'
+    price: 'Prix'
+    duration: 'Durée'
+    duration_days: '%days% jours'
+    not_available: 'Non renseigné'
+  teams_as_captain:
+    title: 'Mes équipes en tant que capitaine'
+    empty: 'Tu n’es capitaine d’aucune équipe pour le moment.'
+  teams_as_member:
+    title: 'Mes équipes en tant que membre'
+    empty: 'Tu n’es membre d’aucune équipe pour le moment.'
+  teams:
+    title: 'Mes équipes'
+    empty: 'Tu n’es dans aucune équipe pour le moment.'
+  team:
+    name: 'Équipe'
+    members_count: '%count% / %max% membres'
+    captain_badge: 'Capitaine'
+    details: 'Voir l’équipe'
+  actions:
+    teams: 'Voir les équipes'
+    create_team: 'Créer une équipe'
+    payment_pending: 'Finaliser le paiement'
+  documents:
+    title: 'Documents utiles'
+    parental_authorization:
+      title: 'Autorisation parentale'
+      message: 'Comme tu n’as pas confirmé être majeur·e au moment de l’événement, une autorisation parentale signée sera nécessaire pour participer. Le document devra être téléchargé, signé par un représentant légal, puis présenté à l’entrée de l’événement avec une pièce d’identité physique.'
+      download: 'Consulter l’autorisation parentale'
+    image_rights:
+      title: 'Droit à l’image'
+      message: 'Des photos et vidéos pourront être prises pendant l’événement. Un document relatif au droit à l’image sera mis à disposition. Merci de le consulter afin de connaître les modalités applicables.'
+      download: 'Consulter le document droit à l’image'
+  payment_required: 'Tu dois finaliser ton paiement avant de créer ou rejoindre une équipe.'
+  error:
+    participant_required: 'Tu dois avoir une inscription LAN avant d’accéder à ton espace LAN.'
+
+documents:
+  unavailable: 'Document bientôt disponible'
+
+account:
+  title: 'Mon compte'
+  info:
+    title: 'Informations du compte'
+  password:
+    title: 'Mot de passe'
+    current:
+      label: 'Mot de passe actuel'
+      placeholder: 'Mot de passe actuel'
+    new:
+      label: 'Nouveau mot de passe'
+      placeholder: 'Nouveau mot de passe'
+    confirm:
+      label: 'Confirmation du mot de passe'
+      placeholder: 'Confirmez le nouveau mot de passe'
+    mismatch: 'Les deux mots de passe doivent être identiques.'
+    required: 'Veuillez saisir votre mot de passe.'
+    confirm_required: 'Veuillez confirmer votre mot de passe.'
+    min_length: 'Votre mot de passe doit comporter au moins {{ limit }} caractères.'
+    max_length: 'Votre mot de passe doit comporter maximum {{ limit }} caractères.'
+    strength_invalid: 'Le mot de passe ne respecte pas les critères de sécurité.'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
+    discord_pseudo:
+      label: 'Pseudo Discord'
+      placeholder: 'Votre pseudo Discord'
+      help: 'Pseudo Discord LAN optionnel affiché dans votre espace LAN.'
+      participant_required: 'Créez une inscription LAN pour gérer votre pseudo Discord ici.'
+    submit_info: 'Modifier mes informations'
+    submit_password: 'Modifier mon mot de passe'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir une adresse email.'
+    email_invalid: 'Veuillez saisir une adresse email valide.'
+  flash:
+    info_updated: 'Vos informations ont bien été mises à jour.'
+    password_updated: 'Votre mot de passe a bien été mis à jour.'
+  error:
+    email_already_used: 'Cet email est déjà utilisé sur un autre compte.'
+    current_password_invalid: 'Le mot de passe actuel est incorrect.'
+    login_required_events: 'Vous devez être connecté pour voir vos événements.'
+    new_password_same_as_old: 'Le nouveau mot de passe doit être différent de l’ancien.'
+
+forgot_password:
+  title: 'Mot de passe oublié'
+  instructions: 'Saisissez l’adresse e-mail de votre compte. Si un compte existe, un mot de passe temporaire vous sera envoyé.'
+  submit: 'Recevoir un mot de passe temporaire'
+  back_to_login: 'Retour à la connexion'
+  request_success: 'Si un compte existe avec cette adresse e-mail, un mot de passe temporaire vient d’être envoyé.'
+  form:
+    email:
+      label: 'Adresse e-mail'
+      placeholder: 'votre.email@example.com'
+  email:
+    subject: 'Votre mot de passe temporaire MGT 2026'
+    greeting: 'Bonjour %firstname%,'
+    line_1: 'Une demande de réinitialisation de mot de passe a été effectuée pour votre compte MGT 2026.'
+    line_2: 'Votre mot de passe temporaire est : %temporaryPassword%'
+    line_3: 'Connectez-vous avec ce mot de passe temporaire, puis choisissez immédiatement un nouveau mot de passe.'
+    line_4: 'Si vous n’êtes pas à l’origine de cette demande, contactez l’organisation.'
+    title: 'MGT 2026'
+    subtitle: 'Mot de passe temporaire'
+    temporary_password_label: 'Votre mot de passe temporaire'
+    login_instruction: 'Connectez-vous avec ce mot de passe temporaire, puis modifiez-le immédiatement.'
+    security_note: 'Si vous n’êtes pas à l’origine de cette demande, contactez l’organisation.'
+    signature: 'Mulhouse Gaming Tournament'
+  error:
+    send_failed: 'Le mot de passe temporaire a été généré, mais l’e-mail n’a pas pu être envoyé. Veuillez réessayer plus tard.'
+
+temporary_password:
+  title: 'Changer votre mot de passe'
+  instructions: 'Vous utilisez un mot de passe temporaire. Pour continuer, choisissez un nouveau mot de passe.'
+  submit: 'Modifier mon mot de passe'
+  flash:
+    updated: 'Votre mot de passe a bien été modifié.'
+  error:
+    current_password_invalid: 'Le mot de passe temporaire saisi est incorrect.'
+    new_password_same_as_old: 'Le nouveau mot de passe doit être différent du mot de passe temporaire.'
+
+login:
+  title: 'Se connecter'
+  email:
+    label: 'Email'
+    placeholder: 'votre.email@example.com'
+  password:
+    label: 'Mot de passe'
+    placeholder: 'Votre mot de passe'
+  submit: 'Se connecter'
+  forgot_password: 'Mot de passe oublié ?'
+  error:
+    invalid_credentials: 'Identifiant ou mot de passe invalides.'
+  no_account: 'Pas encore inscrit ?'
+  register_link: 'Inscrivez-vous'
+  close: 'Fermer'
+
+
+signup:
+  title: 'Créer un compte'
+  submit: 'Créer mon compte'
+  already_account: 'Vous avez déjà un compte ?'
+  login_link: 'Connectez-vous'
+  form:
+    firstname:
+      label: 'Prénom'
+      placeholder: 'Votre prénom'
+    lastname:
+      label: 'Nom'
+      placeholder: 'Votre nom'
+    email:
+      label: 'Email'
+      placeholder: 'votre.email@example.com'
+      help: 'Utilisez la même adresse e-mail que celle utilisée sur HelloAsso.'
+    password:
+      label: 'Mot de passe'
+      placeholder: 'Votre mot de passe'
+    password_confirm:
+      label: 'Confirmation du mot de passe'
+      placeholder: 'Confirmez votre mot de passe'
+  validation:
+    firstname_required: 'Veuillez saisir un prénom.'
+    lastname_required: 'Veuillez saisir un nom.'
+    email_required: 'Veuillez saisir une adresse email.'
+    email_invalid: 'Veuillez saisir une adresse email valide.'
+    password_required: 'Veuillez saisir votre mot de passe.'
+    password_confirm_required: 'Veuillez confirmer votre mot de passe.'
+    password_mismatch: 'Les deux mots de passe doivent être identiques.'
+    password_min_length: 'Votre mot de passe doit comporter au moins {{ limit }} caractères.'
+    password_max_length: 'Votre mot de passe doit comporter maximum {{ limit }} caractères.'
+    password_strength_invalid: 'Le mot de passe ne respecte pas les critères de sécurité.'
+  error:
+    email_already_used: 'Un compte existe déjà avec cette adresse email, essayez de vous connecter !'
+
+password_requirements:
+  title: 'Vous devez utiliser :'
+  min_length: 'Au moins 8 caractères.'
+  lowercase: 'Des lettres minuscules.'
+  uppercase: 'Des lettres majuscules.'
+  numbers: 'Des chiffres.'
+  special_characters: 'Des caractères spéciaux ($ @ # & ! *).'
+
+admin:
+  navigation: 'Administration'
+  common:
+    not_available: 'Non renseigné'
+    yes: 'Oui'
+    no: 'Non'
+  lan:
+    title: 'Administration LAN'
+    subscriptions: 'Souscriptions'
+    participants: 'Participants'
+    subscriptions_help: 'Gérer les formules, prix et identifiants HelloAsso.'
+    participants_help: 'Consulter les inscriptions, statuts et informations des participants.'
+    teams_help: 'Suivre les équipes, capitaines et membres inscrits.'
+    teams: 'Équipes'
+  subscription:
+    title: 'Souscriptions'
+    edit_title: 'Modifier %name%'
+    name: 'Nom'
+    slug: 'Slug'
+    price: 'Prix'
+    duration: 'Durée'
+    duration_one_day: '1 jour'
+    duration_two_days: '2 jours'
+    duration_days: '%days% jour(s)'
+    helloasso_tier_id: 'HelloAsso tier ID'
+    active: 'Active'
+    inactive: 'Inactive'
+    status: 'Statut'
+    actions: 'Actions'
+    edit: 'Modifier'
+    save: 'Enregistrer'
+    back: 'Retour aux souscriptions'
+    back_to_admin: 'Retour à l’administration'
+    flash:
+      updated: 'La souscription a été mise à jour.'
+    error:
+      duplicate_tier_id: 'Ce tier ID HelloAsso est déjà utilisé par une autre souscription.'
+  participant:
+    title: 'Participants'
+    show_title: '%firstname% %lastname%'
+    search: 'Rechercher'
+    search_placeholder: 'Nom, email ou pseudo Discord'
+    status: 'Statut'
+    subscription: 'Souscription'
+    all_statuses: 'Tous les statuts'
+    all_subscriptions: 'Toutes les souscriptions'
+    filter: 'Filtrer'
+    reset: 'Réinitialiser'
+    view: 'Voir'
+    personal_information: 'Informations personnelles'
+    registration_information: 'Inscription'
+    teams: 'Équipes'
+    no_team: 'Aucune équipe'
+    full_name: 'Nom complet'
+    firstname: 'Prénom'
+    lastname: 'Nom'
+    email: 'Email'
+    discord_pseudo: 'Pseudo Discord'
+    created_at: 'Date d’inscription'
+    paid_at: 'Date de paiement'
+    actions: 'Actions'
+    empty: 'Aucun participant trouvé.'
+    back: 'Retour aux participants'
+    major_confirmed: 'Majorité confirmée'
+    internal_reference: 'Référence interne'
+    game: 'Jeu'
+    day: 'Jour'
+    team: 'Équipe'
+    role: 'Rôle'
+    public_link: 'Page publique'
+
+    export:
+      download: 'Télécharger la liste des participants'
+      columns:
+        lastname: 'Nom'
+        firstname: 'Prénom'
+        email: 'Email'
+        discord_pseudo: 'Pseudo Discord'
+        major_confirmed: 'Majeur confirmé'
+        status: 'Statut'
+        subscription: 'Souscription'
+        subscription_price: 'Prix de la souscription'
+        duration: 'Durée'
+        game: 'Jeu'
+        day: 'Jour'
+        team: 'Équipe'
+        role: 'Rôle'
+        in_game_pseudo: 'Pseudo en jeu'
+  team:
+    title: 'Équipes'
+    show_title: '%name%'
+    search: 'Rechercher'
+    search_placeholder: 'Nom d’équipe, capitaine, email ou Discord'
+    all_games: 'Tous les jeux'
+    all_days: 'Tous les jours'
+    filter: 'Filtrer'
+    reset: 'Réinitialiser'
+    name: 'Nom'
+    game: 'Jeu'
+    day: 'Jour'
+    captain: 'Capitaine'
+    members: 'Membres'
+    members_count: '%count% / %max%'
+    created_at: 'Date de création'
+    actions: 'Actions'
+    view: 'Voir'
+    empty: 'Aucune équipe trouvée.'
+    back: 'Retour aux équipes'
+    back_to_team: 'Retour à l’équipe'
+    details: 'Détails'
+    role: 'Rôle'
+    rename: 'Renommer'
+    edit_title: 'Renommer %name%'
+    add_member: 'Ajouter un membre'
+    remove_member: 'Retirer'
+    edit_pseudo: 'Modifier le pseudo'
+    participant_file: 'Fiche participant'
+    save: 'Enregistrer'
+    form:
+      name:
+        label: 'Nom de l’équipe'
+        placeholder: 'Nom de l’équipe'
+    member:
+      new_title: 'Ajouter un membre à %name%'
+      edit_title: 'Modifier le pseudo dans %name%'
+      add_submit: 'Ajouter le membre'
+      delete_confirm: 'Retirer ce membre de l’équipe ?'
+      form:
+        in_game_pseudo:
+          label: 'Pseudo en jeu'
+          placeholder: 'Pseudo en jeu'
+    delete:
+      title: 'Supprimer l’équipe'
+      help: 'Tous les membres seront retirés et cette action est irréversible.'
+      confirm: 'Voulez-vous vraiment supprimer cette équipe ?'
+      submit: 'Supprimer l’équipe'
+    flash:
+      updated: 'L’équipe a été renommée.'
+      member_added: 'Le membre a été ajouté à l’équipe.'
+      member_updated: 'Le pseudo en jeu a été modifié.'
+      member_removed: 'Le membre a été retiré de l’équipe.'
+      deleted: 'L’équipe a été supprimée.'
+    validation:
+      name_max_length: 'Le nom de l’équipe ne peut pas dépasser {{ limit }} caractères.'
+      in_game_pseudo_max_length: 'Le pseudo en jeu ne peut pas dépasser {{ limit }} caractères.'
+
+
+event:
+  date:
+    saturday_full: 'Samedi 29 août 2026'
+    sunday_full: 'Dimanche 30 août 2026'
+subscription:
+  tier:
+    men-one-day-with-meal: 'Hommes, 1 jour, avec sandwich'
+    men-two-days-with-meal: 'Hommes, 2 jours, avec sandwich'
+    men-one-day-without-meal: 'Hommes, 1 jour, sans sandwich'
+    men-two-days-without-meal: 'Hommes, 2 jours, sans sandwich'
+    women-one-day-with-meal: 'Femmes, 1 jour, avec sandwich'
+    women-two-days-with-meal: 'Femmes, 2 jours, avec sandwich'
+    women-one-day-without-meal: 'Femmes, 1 jour, sans sandwich'
+    women-two-days-without-meal: 'Femmes, 2 jours, sans sandwich'
+
+helloasso_registration:
+  same_email_warning: 'Utilisez exactement la même adresse e-mail que sur votre compte MGT pour payer sur HelloAsso.'
+  expected_email: 'Adresse e-mail attendue'
+  expected_identity: 'Identité attendue'
+  internal_reference: 'Référence d’inscription'
+  open_helloasso: 'Ouvrir HelloAsso dans un nouvel onglet'
+  checking: 'Paiement en cours de vérification…'
+  temporary_error: 'Erreur temporaire de vérification.'
+  retry: 'Vérifier à nouveau'
+  status_refunded: 'Paiement remboursé. Contactez l’organisation.'
+  status_cancelled: 'Inscription annulée.'
+  go_to_profile: 'Mon espace tournoi'
+  validation_delay: 'La validation peut prendre quelques secondes après le paiement.'
+  widget_title: 'Widget de paiement HelloAsso'
+  noscript: 'JavaScript est nécessaire pour afficher le widget intégré.'
+helloasso_admin:
+  title: 'Administration des paiements HelloAsso'
+  help: 'Suivre les paiements, rapprochements et blocages HelloAsso.'
+  search: 'Paiement, commande, e-mail, nom ou référence'
+  payment_id: 'Identifiant du paiement'
+  order_id: 'Identifiant de commande'
+  tier_id: 'tierId'
+  payment_state: 'État externe'
+  match_status: 'Statut de rapprochement'
+  mismatch_reason: 'Motif de non-correspondance'
+  receipt: 'Reçu'
+  received_at: 'Date de réception'
+  processed_at: 'Date de traitement'
+  reconcile: 'Relancer la réconciliation'
+  missing_tier_id: 'tierId manquant'
+  payer: 'Payeur'
+  amount: 'Montant'
+  association: 'Association'
+  associated: 'Associé'
+  unassociated: 'Non associé'
+  view: 'Voir'
+  form: 'Formulaire'
+  flash:
+    reconciled: 'Réconciliation relancée.'

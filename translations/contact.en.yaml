@@ -1,0 +1,19 @@
+meta: { title: 'Contact us' }
+title: 'Contact us'
+cards:
+  aria_label: 'Contact channels'
+  email:
+    label: 'Email'
+    title: 'Write to the team'
+    text: 'For partnerships, press requests, registrations or questions that need follow-up.'
+    button: 'Send an email'
+  discord:
+    label: 'Discord'
+    title: 'Join the server'
+    text: 'Chat with participants and follow information shared by the organizers.'
+    button: 'Open Discord'
+  instagram:
+    label: 'Instagram'
+    title: 'Follow the news'
+    text: 'Find announcements, visuals and important reminders about the event.'
+    button: 'View Instagram'

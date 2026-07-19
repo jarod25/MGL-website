@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'contact' %}
+
+{% block title %}{{ 'meta.title'|trans }}{% endblock %}
+
+{% block body %}
+    {% set emailAddress = 'mulhousegaminglan@gmail.com' %}
+    {% set discordUrl = 'https://discord.gg/hN4aHdPNyR' %}
+    {% set instagramUrl = 'https://www.instagram.com/mulhousegt?igsh=ZW4zejNwMzl4YjBz' %}
+
+    <div class="mgt-public-page mgt-contact-page">
+        <header class="mgt-page-header mgt-contact-page__header">
+            <div class="mgt-section-heading">
+                <h1>{{ 'title'|trans }}</h1>
+            </div>
+        </header>
+
+        <section class="mgt-contact-grid" aria-label="{{ 'cards.aria_label'|trans }}">
+            <article class="mgt-contact-card">
+                <div class="mgt-contact-card__content">
+                    <p class="mgt-contact-card__label">{{ 'cards.email.label'|trans }}</p>
+                    <h2>{{ 'cards.email.title'|trans }}</h2>
+                    <p>{{ 'cards.email.text'|trans }}</p>
+                    <a class="mgt-contact-card__link" href="mailto:{{ emailAddress }}">{{ emailAddress }}</a>
+                </div>
+                <a class="btn btn-primary" href="mailto:{{ emailAddress }}">{{ 'cards.email.button'|trans }}</a>
+            </article>
+
+            <article class="mgt-contact-card">
+                <div class="mgt-contact-card__content">
+                    <p class="mgt-contact-card__label">{{ 'cards.discord.label'|trans }}</p>
+                    <h2>{{ 'cards.discord.title'|trans }}</h2>
+                    <p>{{ 'cards.discord.text'|trans }}</p>
+                </div>
+                <a class="btn btn-primary mgt-contact-card__social-link" href="{{ discordUrl }}" target="_blank" rel="noopener noreferrer">
+                    <img class="mgt-contact-card__icon" src="/images/social/discord.svg" alt="" width="20" height="20" loading="lazy">
+                    <span>{{ 'cards.discord.button'|trans }}</span>
+                </a>
+            </article>
+
+            <article class="mgt-contact-card">
+                <div class="mgt-contact-card__content">
+                    <p class="mgt-contact-card__label">{{ 'cards.instagram.label'|trans }}</p>
+                    <h2>{{ 'cards.instagram.title'|trans }}</h2>
+                    <p>{{ 'cards.instagram.text'|trans }}</p>
+                </div>
+                <a class="btn btn-primary mgt-contact-card__social-link" href="{{ instagramUrl }}" target="_blank" rel="noopener noreferrer">
+                    <img class="mgt-contact-card__icon" src="/images/social/instagram.svg" alt="" width="20" height="20" loading="lazy">
+                    <span>{{ 'cards.instagram.button'|trans }}</span>
+                </a>
+            </article>
+        </section>
+    </div>
+{% endblock %}

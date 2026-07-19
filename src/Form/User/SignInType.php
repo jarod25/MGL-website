@@ -4,6 +4,7 @@ namespace App\Form\User;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,89 +21,77 @@ class SignInType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'signup.form.firstname.label',
                 'attr' => [
-                    'placeholder' => 'Prénom',
+                    'placeholder' => 'signup.form.firstname.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir un prénom',
-                    ]),
+                    new NotBlank(message: 'signup.validation.firstname_required'),
                 ],
                 'required' => false,
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'signup.form.lastname.label',
                 'attr' => [
-                    'placeholder' => 'Nom',
+                    'placeholder' => 'signup.form.lastname.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir un nom',
-                    ]),
+                    new NotBlank(message: 'signup.validation.lastname_required'),
                 ],
                 'required' => false,
             ])
-            ->add('email', TextType::class, [
-                'label' => 'Email',
+            ->add('email', EmailType::class, [
+                'label' => 'signup.form.email.label',
                 'attr' => [
-                    'placeholder' => 'Email',
+                    'placeholder' => 'signup.form.email.placeholder',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
                 ],
                 'constraints' => [
-                    new NotBlank(
-                        message: 'Veuillez saisir une adresse email',
-                    ),
-                    new Email(
-                        message: 'L\'adresse email n\'est pas valide',
-                    ),
+                    new NotBlank(message: 'signup.validation.email_required'),
+                    new Email(message: 'signup.validation.email_invalid'),
                 ],
                 'required' => false,
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Les deux mots de passe doivent être identiques.',
+                'invalid_message' => 'signup.validation.password_mismatch',
                 'first_options' => [
+                    'label' => 'signup.form.password.label',
                     'attr' => [
-                        'label' => 'Mot de passe',
-                        'placeholder' => 'Mot de passe',
-                        'autocomplete' => 'new-password'
+                        'placeholder' => 'signup.form.password.placeholder',
+                        'autocomplete' => 'new-password',
                     ],
                     'row_attr' => [
                         'class' => 'form-floating',
                     ],
                     'constraints' => [
-                        new NotBlank([
-                            'message' => 'Veuillez saisir votre mot de passe',
-                        ]),
+                        new NotBlank(message: 'signup.validation.password_required'),
                     ],
                 ],
                 'second_options' => [
+                    'label' => 'signup.form.password_confirm.label',
                     'attr' => [
-                        'label' => 'Confirmation du mot de passe',
-                        'placeholder' => 'Confirmation du mot de passe',
-                        'autocomplete' => 'new-password'
+                        'placeholder' => 'signup.form.password_confirm.placeholder',
+                        'autocomplete' => 'new-password',
                     ],
                     'row_attr' => [
                         'class' => 'form-floating',
                     ],
                     'constraints' => [
-                        new NotBlank([
-                            'message' => 'Veuillez confirmer votre mot de passe',
-                        ]),
+                        new NotBlank(message: 'signup.validation.password_confirm_required'),
                     ],
                 ],
                 'attr' => [
-                    'placeholder' => 'Mot de passe',
-                    'autocomplete' => 'new-password'
+                    'placeholder' => 'signup.form.password.placeholder',
+                    'autocomplete' => 'new-password',
                 ],
                 'row_attr' => [
                     'class' => 'form-floating',
@@ -113,21 +102,20 @@ class SignInType extends AbstractType
                     new Length(
                         min: 8,
                         max: 4096,
-                        minMessage: 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-                        maxMessage: 'Votre mot de passe doit comporter maximum {{ limit }} caractères',
+                        minMessage: 'signup.validation.password_min_length',
+                        maxMessage: 'signup.validation.password_max_length',
                     ),
                     new Regex([
                         'pattern' => match ($_ENV['PASSWORD_STRENGTH_VALUE']) {
-                            "1" => '/^(?=.*[a-z]).{8,}$/',
-                            "2" => '/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
-                            "3" => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/',
-                            "4" => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/',
+                            '1' => '/^(?=.*[a-z]).{8,}$/',
+                            '2' => '/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
+                            '3' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/',
+                            '4' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/',
                         },
-                        'message' => 'Le mot de passe ne respecte pas les critères de sécurité',
+                        'message' => 'signup.validation.password_strength_invalid',
                     ]),
                 ],
-            ])
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

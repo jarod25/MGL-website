@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'admin.lan.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="mgt-public-page mgt-admin-page">
+        <header class="mgt-page-header">
+            <div class="mgt-page-header__row">
+                <div class="mgt-section-heading">
+                    <h1>{{ 'admin.lan.title'|trans }}</h1>
+                </div>
+                <div class="mgt-actions">
+                    <a class="btn btn-primary" href="{{ path('app_admin_lan_participant_export') }}">{{ 'admin.participant.export.download'|trans }}</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="mgt-admin-dashboard">
+            <div class="mgt-admin-card-grid">
+                {% for card in [
+                    { title: 'admin.lan.subscriptions', help: 'admin.lan.subscriptions_help', route: 'app_admin_lan_subscription_index', badge: '01' },
+                    { title: 'admin.lan.participants', help: 'admin.lan.participants_help', route: 'app_admin_lan_participant_index', badge: '02' },
+                    { title: 'admin.lan.teams', help: 'admin.lan.teams_help', route: 'app_admin_lan_team_index', badge: '03' },
+                    { title: 'helloasso_admin.title', help: 'helloasso_admin.help', route: 'app_admin_lan_helloasso_payment_index', badge: '04' }
+                ] %}
+                    <article class="mgt-panel mgt-admin-card">
+                        <div class="mgt-panel-body">
+                            <span class="mgt-admin-card__badge">{{ card.badge }}</span>
+                            <h2 class="mgt-admin-card__title">{{ card.title|trans }}</h2>
+                            <p class="mgt-admin-card__text">{{ card.help|trans }}</p>
+                            <a class="btn btn-primary mgt-admin-card__action" href="{{ path(card.route) }}">{{ card.title|trans }}</a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}

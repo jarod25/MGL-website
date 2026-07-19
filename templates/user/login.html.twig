@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'login.title'|trans }}{% endblock %}
+
 {% block body %}
     {% if error %}
         <div class="toast-container top-10 end-0 p-3">
@@ -7,58 +9,49 @@
                  data-controller="toast">
                 <div class="d-flex">
                     <div class="toast-body">
-                        Identifiant ou mot de passe invalides
+                        {{ 'login.error.invalid_credentials'|trans }}
                     </div>
                     <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
+                            aria-label="{{ 'login.close'|trans }}"></button>
                 </div>
             </div>
         </div>
     {% endif %}
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h2>Se connecter</h2>
+    <div class="mgt-public-page mgt-auth-page mgt-auth-page--login">
+        <div class="mgt-panel mgt-auth-panel">
+            <div class="mgt-section-heading"><h1>{{ 'login.title'|trans }}</h1></div>
+            <form method="post" action="{{ path('app_login') }}">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="email" value="{{ last_username }}"
+                                   name="_username" id="inputUsername" placeholder="{{ 'login.email.placeholder'|trans }}"
+                                   class="form-control"
+                                   autocomplete="email" autofocus required>
+                            <label for="inputUsername">{{ 'login.email.label'|trans }}</label>
+                        </div>
                     </div>
-                    <div class="card-body p-4">
-                        <form method="post" action="{{ path('app_login') }}">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="email" value="{{ last_username }}"
-                                               name="_username" id="inputUsername" placeholder="Email"
-                                               class="form-control"
-                                               autocomplete="email" autofocus required>
-                                        <label for="inputUsername">Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating" data-controller="pwd-eye">
-                                        <input type="password" placeholder="Mot de passe"
-                                               name="_password" id="inputPassword" class="form-control"
-                                               autocomplete="current-password" required data-pwd-eye-target="input">
-                                        <label for="inputPassword">Mot de passe</label>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-lg btn-primary text-white" type="submit">
-                                        Se connecter
-                                    </button>
-                                </div>
-                            </div>
-                            <input type="hidden" name="_csrf_token"
-                                   value="{{ csrf_token('authenticate') }}">
-
-                        </form>
+                    <div class="col-12">
+                        <div class="form-floating" data-controller="pwd-eye">
+                            <input type="password" placeholder="{{ 'login.password.placeholder'|trans }}"
+                                   name="_password" id="inputPassword" class="form-control"
+                                   autocomplete="current-password" required data-pwd-eye-target="input">
+                            <label for="inputPassword">{{ 'login.password.label'|trans }}</label>
+                        </div>
                     </div>
-                    <div class="card-footer text-center">
-                    <span class="small">Pas encore inscrit ? <a
-                                href="{{ path('app_signin') }}">Inscrivez-vous</a></span>
+                    <div class="col-12">
+                        <a class="mgt-auth-secondary-link" href="{{ path('app_forgot_password') }}">{{ 'login.forgot_password'|trans }}</a>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">
+                            {{ 'login.submit'|trans }}
+                        </button>
                     </div>
                 </div>
-
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            </form>
+            <div class="mgt-auth-footer">
+                <span class="small">{{ 'login.no_account'|trans }} <a href="{{ path('app_registration_new') }}">{{ 'login.register_link'|trans }}</a></span>
             </div>
         </div>
     </div>

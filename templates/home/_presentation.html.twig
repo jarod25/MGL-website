@@ -1,0 +1,16 @@
+{% trans_default_domain 'homepage' %}
+<section class="mgt-home-section">
+    <div class="mgt-section-heading"><h2>{{ 'presentation.title'|trans }}</h2></div>
+    <div class="mgt-presentation">
+        <div class="mgt-presentation__text">
+            <p class="mb-0">{{ 'presentation.text'|trans }}</p>
+        </div>
+        <div class="mgt-presentation__dates">
+            <h3>{{ 'presentation.key_dates_title'|trans }}</h3>
+            <ul>
+                <li>{{ 'event.date.saturday_full'|trans({}, 'messages') }}</li>
+                <li>{{ 'event.date.sunday_full'|trans({}, 'messages') }}</li>
+            </ul>
+        </div>
+    </div>
+</section>

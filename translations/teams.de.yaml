@@ -1,0 +1,19 @@
+index:
+  title: 'Teams'
+  empty: 'Die Spiele erscheinen hier, sobald die Auswahl bereit ist.'
+  create_link: 'Team erstellen'
+  created_teams: '{0} %count% / %max% Teams angemeldet|{1} %count% / %max% Team angemeldet|]1,Inf] %count% / %max% Teams angemeldet'
+  view_teams: 'Teams ansehen'
+  players_count: '%count% / %max% Spieler'
+  logo_alt: 'Logo von %game%'
+game:
+  day: 'Tag: %day%'
+  players_per_team: '{1} %maxPlayers% Spieler pro Team|]1,Inf] %maxPlayers% Spieler pro Team'
+  max_teams: '{1} maximal %maxTeams% Team|]1,Inf] maximal %maxTeams% Teams'
+  page_title: 'Teams %game%'
+  heading: 'Teams %game%'
+  teams_capacity: 'Teams'
+  empty: 'Für %game% wurde noch kein Team erstellt.'
+dates:
+  saturday_full: 'Samstag, 29. August 2026'
+  sunday_full: 'Sonntag, 30. August 2026'

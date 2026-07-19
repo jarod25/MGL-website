@@ -1,0 +1,19 @@
+meta: { title: 'Nous contacter' }
+title: 'Nous contacter'
+cards:
+  aria_label: 'Canaux de contact'
+  email:
+    label: 'E-mail'
+    title: 'Écrire à l’équipe'
+    text: 'Pour les partenariats, demandes presse, inscriptions ou questions nécessitant un suivi.'
+    button: 'Envoyer un e-mail'
+  discord:
+    label: 'Discord'
+    title: 'Rejoindre le serveur'
+    text: 'Discutez avec les participants et suivez les informations partagées par l’organisation.'
+    button: 'Ouvrir Discord'
+  instagram:
+    label: 'Instagram'
+    title: 'Suivre les actualités'
+    text: 'Retrouvez les annonces, visuels et rappels importants autour de l’événement.'
+    button: 'Voir Instagram'

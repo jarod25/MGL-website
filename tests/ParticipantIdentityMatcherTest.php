@@ -1,0 +1,4 @@
+<?php
+namespace App\Tests;
+use App\Entity\Participant;use App\Service\HelloAsso\ParticipantIdentityMatcher;use PHPUnit\Framework\TestCase;
+final class ParticipantIdentityMatcherTest extends TestCase{private function p(string $f,string $l):Participant{return (new Participant())->setFirstname($f)->setLastname($l)->setEmail('x@y.test')->setInternalReference('RECETTE_CODEX_REF');}public function testNormalizesAccentsHyphensAndApostrophes():void{self::assertTrue((new ParticipantIdentityMatcher())->matches($this->p('Jérôme','O’Connor'),'Jerome','O\'Connor'));self::assertTrue((new ParticipantIdentityMatcher())->matches($this->p('Jean-Pierre','KOHLER'),'Jean Pierre','Kohler'));}public function testRejectsVeryDifferentIdentity():void{self::assertFalse((new ParticipantIdentityMatcher())->matches($this->p('Alice','Martin'),'Bob','Durand'));}}

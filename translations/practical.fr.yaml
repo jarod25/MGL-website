@@ -1,0 +1,44 @@
+meta:
+  title: 'Informations pratiques'
+
+title: 'Informations pratiques'
+
+place:
+  title: 'Lieu et horaires'
+  address_name: 'PHG Academy – KMØ'
+  address_street: '30 rue François Spoerry'
+  address_city: '68100 Mulhouse'
+  map_title: 'Carte Google Maps de PHG Academy KMØ à Mulhouse'
+  maps_link: 'Ouvrir l’adresse dans Google Maps'
+  text: 'Le tournoi aura lieu les 29 et 30 août 2026 à PHG Academy – KMØ, Mulhouse. Arrivée demandée à 9 h, avec un événement prévu de 9 h à 21 h.'
+
+sections:
+  access:
+    title: 'Accès'
+    text: 'Accès réservé aux participants inscrits et aux personnes autorisées. Une pièce d’identité et une preuve d’inscription peuvent être demandées.'
+  equipment:
+    title: 'Matériel personnel'
+    text: 'Chaque joueur apporte son matériel complet : PC, écran, clavier, souris, casque, câble Ethernet, câbles et alimentations. Le matériel personnel reste sous la responsabilité du participant.'
+  rental:
+    title: 'Location de PC'
+    text: 'Des PC peuvent être loués sur réservation, dans la limite des stocks. Configuration prévue : RTX 3070 Ti, i9-12900KF, 32 Go RAM, SSD 1 To, écran Zowie 240 Hz. Les périphériques restent à apporter.'
+  provided:
+    title: 'Fourni sur place'
+    text: 'PHG Academy fournit les bureaux, les chaises, l’alimentation électrique et l’accès au réseau. Chaque participant doit apporter son propre câble Ethernet pour se brancher.'
+  food:
+    title: 'Nourriture et boissons'
+    text: 'Sandwichs, collations et cafétéria peuvent être disponibles sur place. Boissons extérieures interdites sauf eau ; alcool interdit ; tabac et vapotage uniquement dehors.'
+  conduct:
+    title: 'Comportement'
+    text: 'Fair-play, respect du lieu, du matériel, des joueurs et de l’organisation sont attendus. Tout comportement abusif peut entraîner une sanction.'
+  cheat:
+    title: 'Comptes et triche'
+    text: 'Les joueurs doivent déclarer honnêtement leur niveau. Triche, scripts, logiciels d’avantage et modifications non autorisées du gameplay sont interdits.'
+  refund:
+    title: 'Annulation et remboursement'
+    text: 'Remboursement possible jusqu’à 7 jours avant le tournoi concerné. Après ce délai, absence ou annulation ne donne pas droit à remboursement, sauf décision exceptionnelle.'
+  rules:
+    title: 'Règlements et documents'
+    text: 'L’inscription implique l’acceptation du règlement général. Les règlements spécifiques de chaque jeu seront ajoutés séparément.'
+    download: 'Consulter le règlement général'
+    unavailable: 'Document bientôt disponible'
