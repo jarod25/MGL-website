@@ -1,0 +1,19 @@
+{
+  "eventType": "Order",
+  "metadata": {
+    "internalReference": "RECETTE_CODEX_ROOT_REF"
+  },
+  "data": {
+    "id": "RECETTE_CODEX_ORDER_ROOT",
+    "organizationSlug": "association-des-eleves-de-l-enscmu",
+    "formType": "Event",
+    "formSlug": "ckg",
+    "items": [
+      {
+        "type": "Registration",
+        "tierId": "RECETTE_CODEX_TIER_001",
+        "amount": 2500
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "eventType": "Order",
+  "data": {
+    "id": "RECETTE_CODEX_ORDER_AMOUNT",
+    "organizationSlug": "association-des-eleves-de-l-enscmu",
+    "formType": "Event",
+    "formSlug": "ckg",
+    "amount": {
+      "total": 3000
+    },
+    "items": [
+      {
+        "type": "Registration",
+        "tierId": "RECETTE_CODEX_TIER_001",
+        "amount": {
+          "total": 2500
+        }
+      }
+    ],
+    "payments": [
+      {
+        "id": "RECETTE_CODEX_PAY_AMOUNT"
+      }
+    ]
+  }
+}
