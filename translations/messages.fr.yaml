@@ -578,6 +578,11 @@ helloasso_registration:
   go_to_profile: 'Mon espace tournoi'
   validation_delay: 'La validation peut prendre quelques secondes après le paiement.'
   widget_title: 'Widget de paiement HelloAsso'
+  instructions:
+    single_ticket: 'Sélectionnez un seul billet.'
+    exact_identity: 'Utilisez exactement l’e-mail, le prénom et le nom affichés.'
+    optional_contribution: 'La contribution HelloAsso est facultative.'
+    automatic_sync: 'La validation peut prendre quelques secondes.'
   noscript: 'JavaScript est nécessaire pour afficher le widget intégré.'
 helloasso_admin:
   title: 'Administration des paiements HelloAsso'

@@ -1,0 +1,9 @@
+{
+  "eventType": "Form",
+  "data": {
+    "id": "RECETTE_CODEX_FORM_001",
+    "organizationSlug": "association-des-eleves-de-l-enscmu",
+    "formType": "Event",
+    "formSlug": "ckg"
+  }
+}

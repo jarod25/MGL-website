@@ -1,0 +1,40 @@
+{
+  "eventType": "Order",
+  "metadata": {
+    "internalReference": "RECETTE_CODEX_REF_ROOT_UNUSED"
+  },
+  "data": {
+    "id": "RECETTE_CODEX_ORDER_001",
+    "organizationSlug": "association-des-eleves-de-l-enscmu",
+    "formType": "Event",
+    "formSlug": "ckg",
+    "amount": 2500,
+    "metadata": {
+      "internalReference": "RECETTE_CODEX_REF_001"
+    },
+    "payments": [
+      {
+        "id": "RECETTE_CODEX_PAY_001",
+        "amount": 2500
+      }
+    ],
+    "items": [
+      {
+        "type": "Registration",
+        "tierId": "RECETTE_CODEX_TIER_001",
+        "amount": 2500,
+        "user": {
+          "email": "recette_codex_player@example.test",
+          "firstName": "Jérôme",
+          "lastName": "O’Connor"
+        },
+        "customFields": [
+          {
+            "name": "Référence",
+            "answer": "RECETTE_CODEX_REF_001"
+          }
+        ]
+      }
+    ]
+  }
+}

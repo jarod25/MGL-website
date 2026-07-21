@@ -2,9 +2,8 @@
   "eventType": "Payment",
   "data": {
     "id": "RECETTE_CODEX_PAY_001",
-    "state": "Authorized",
+    "state": "Refunded",
     "amount": 2500,
-    "paymentReceiptUrl": "https://www.helloasso.com/recu/RECETTE_CODEX_PAY_001",
     "order": {
       "id": "RECETTE_CODEX_ORDER_001",
       "organizationSlug": "association-des-eleves-de-l-enscmu",
@@ -12,9 +11,9 @@
       "formSlug": "ckg"
     },
     "payer": {
-      "email": "recette_codex_payer@example.test",
-      "firstName": "Recette",
-      "lastName": "Payeur"
+      "email": "recette_codex_player@example.test",
+      "firstName": "Jérôme",
+      "lastName": "O’Connor"
     }
   }
 }

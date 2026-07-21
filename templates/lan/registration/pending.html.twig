@@ -1,23 +1,86 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}{{ 'registration.pending.title'|trans }}{% endblock %}
+
 {% block body %}
-<div class="mgt-public-page py-4" data-controller="payment-status" data-payment-status-url-value="{{ path('app_registration_payment_status',{internalReference: participant.internalReference}) }}">
-  <section class="mgt-panel"><div class="mgt-panel-body">
-    <h1>{{ 'registration.pending.title'|trans }}</h1>
-    <p>{{ 'registration.pending.reference'|trans({ '%reference%': participant.internalReference }) }}</p>
-    {% if participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::PAID') %}
-      <div class="alert alert-success">{{ 'registration.pending.status_paid'|trans }}</div><a href="{{ path('app_lan_profile') }}" class="btn btn-primary">{{ 'helloasso_registration.go_to_profile'|trans }}</a>
-    {% elseif participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::REFUNDED') %}
-      <div class="alert alert-warning">{{ 'helloasso_registration.status_refunded'|trans }}</div>
-    {% elseif participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::CANCELLED') %}
-      <div class="alert alert-secondary">{{ 'helloasso_registration.status_cancelled'|trans }}</div>
-    {% else %}
-      <div class="alert alert-warning"><strong>{{ 'helloasso_registration.same_email_warning'|trans }}</strong><br>{{ 'helloasso_registration.validation_delay'|trans }}</div>
-      <dl class="row"><dt class="col-sm-4">{{ 'helloasso_registration.expected_email'|trans }}</dt><dd class="col-sm-8"><code>{{ participant.email }}</code></dd><dt class="col-sm-4">{{ 'helloasso_registration.expected_identity'|trans }}</dt><dd class="col-sm-8">{{ participant.firstname }} {{ participant.lastname }}</dd><dt class="col-sm-4">{{ 'helloasso_registration.internal_reference'|trans }}</dt><dd class="col-sm-8"><code>{{ participant.internalReference }}</code></dd></dl>
-      <p class="text-info" data-payment-status-target="status">{{ 'helloasso_registration.checking'|trans }}</p><button class="btn btn-outline-light btn-sm" hidden data-payment-status-target="retry" data-action="payment-status#retry">{{ 'helloasso_registration.retry'|trans }}</button>
-      <div class="mgt-panel mt-3" data-controller="helloasso-widget"><iframe id="helloasso-widget-{{ participant.internalReference }}" data-helloasso-widget-target="iframe" title="{{ 'helloasso_registration.widget_title'|trans }}" allowtransparency="true" scrolling="auto" src="{{ helloAssoWidgetUrl }}" style="width:100%;height:750px;border:none;"></iframe></div>
-      <p><a class="btn btn-outline-primary" href="{{ helloAssoPublicUrl }}" target="_blank" rel="noopener noreferrer">{{ 'helloasso_registration.open_helloasso'|trans }}</a></p><noscript>{{ 'helloasso_registration.noscript'|trans }} <a href="{{ helloAssoPublicUrl }}">{{ 'helloasso_registration.open_helloasso'|trans }}</a></noscript>
-    {% endif %}
-  </div></section>
+<div
+  class="mgt-public-page py-4"
+  data-controller="payment-status"
+  data-payment-status-url-value="{{ path('app_registration_payment_status', { internalReference: participant.internalReference }) }}"
+  data-payment-status-checking-text-value="{{ 'helloasso_registration.checking'|trans|e('html_attr') }}"
+  data-payment-status-temporary-error-text-value="{{ 'helloasso_registration.temporary_error'|trans|e('html_attr') }}"
+>
+  <section class="mgt-panel">
+    <div class="mgt-panel-body">
+      <h1>{{ 'registration.pending.title'|trans }}</h1>
+      <p>{{ 'registration.pending.reference'|trans({ '%reference%': participant.internalReference }) }}</p>
+
+      {% if participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::PAID') %}
+        <div class="alert alert-success">{{ 'registration.pending.status_paid'|trans }}</div>
+        <a href="{{ path('app_lan_profile') }}" class="btn btn-primary">
+          {{ 'helloasso_registration.go_to_profile'|trans }}
+        </a>
+      {% elseif participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::REFUNDED') %}
+        <div class="alert alert-warning">{{ 'helloasso_registration.status_refunded'|trans }}</div>
+      {% elseif participant.registrationStatus == constant('App\\Enum\\RegistrationStatusEnum::CANCELLED') %}
+        <div class="alert alert-secondary">{{ 'helloasso_registration.status_cancelled'|trans }}</div>
+      {% else %}
+        <div class="alert alert-warning">
+          <strong>{{ 'helloasso_registration.same_email_warning'|trans }}</strong><br>
+          {{ 'helloasso_registration.validation_delay'|trans }}
+        </div>
+
+        <ul class="alert alert-info">
+          <li>{{ 'helloasso_registration.instructions.single_ticket'|trans }}</li>
+          <li>{{ 'helloasso_registration.instructions.exact_identity'|trans }}</li>
+          <li>{{ 'helloasso_registration.instructions.optional_contribution'|trans }}</li>
+          <li>{{ 'helloasso_registration.instructions.automatic_sync'|trans }}</li>
+        </ul>
+
+        <dl class="row">
+          <dt class="col-sm-4">{{ 'helloasso_registration.expected_email'|trans }}</dt>
+          <dd class="col-sm-8"><code>{{ participant.email }}</code></dd>
+          <dt class="col-sm-4">{{ 'helloasso_registration.expected_identity'|trans }}</dt>
+          <dd class="col-sm-8">{{ participant.firstname }} {{ participant.lastname }}</dd>
+          <dt class="col-sm-4">{{ 'helloasso_registration.internal_reference'|trans }}</dt>
+          <dd class="col-sm-8"><code>{{ participant.internalReference }}</code></dd>
+        </dl>
+
+        <p class="text-info" data-payment-status-target="status">
+          {{ 'helloasso_registration.checking'|trans }}
+        </p>
+        <button
+          class="btn btn-outline-light btn-sm"
+          hidden
+          data-payment-status-target="retry"
+          data-action="payment-status#retry"
+        >
+          {{ 'helloasso_registration.retry'|trans }}
+        </button>
+
+        <div class="mgt-panel mt-3" data-controller="helloasso-widget">
+          <iframe
+            id="helloasso-widget-{{ participant.internalReference }}"
+            data-helloasso-widget-target="iframe"
+            title="{{ 'helloasso_registration.widget_title'|trans }}"
+            allowtransparency="true"
+            scrolling="auto"
+            src="{{ helloAssoWidgetUrl }}"
+            style="width:100%;height:750px;border:none;"
+          ></iframe>
+        </div>
+
+        <p>
+          <a class="btn btn-outline-primary" href="{{ helloAssoPublicUrl }}" target="_blank" rel="noopener noreferrer">
+            {{ 'helloasso_registration.open_helloasso'|trans }}
+          </a>
+        </p>
+        <noscript>
+          {{ 'helloasso_registration.noscript'|trans }}
+          <a href="{{ helloAssoPublicUrl }}">{{ 'helloasso_registration.open_helloasso'|trans }}</a>
+        </noscript>
+      {% endif %}
+    </div>
+  </section>
 </div>
 {% endblock %}

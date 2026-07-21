@@ -578,6 +578,11 @@ helloasso_registration:
   go_to_profile: 'My tournament area'
   validation_delay: 'Validation can take a few seconds after payment.'
   widget_title: 'HelloAsso payment widget'
+  instructions:
+    single_ticket: 'The HelloAsso interface remains in French; select one ticket only.'
+    exact_identity: 'Use exactly the displayed identity and email address.'
+    optional_contribution: 'The HelloAsso contribution is optional.'
+    automatic_sync: 'Synchronization is automatic.'
   noscript: 'JavaScript is required to display the embedded widget.'
 helloasso_admin:
   title: 'HelloAsso payment administration'
